@@ -1,0 +1,10 @@
+# Credentials — NEVER commit. Loaded by path at runtime, never echoed.
+.env
+.env.*
+!.env.example
+
+# Runtime
+__pycache__/
+*.pyc
+.venv/
+logs/
