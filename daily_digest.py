@@ -24,7 +24,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, budget  # noqa: E402
+import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, budget, editorial  # noqa: E402
 
 RUNS = HERE / "ledger" / "runs.jsonl"
 SEED = HERE / "data" / "on_this_day.json"
@@ -113,28 +113,50 @@ def candidates(limit: int) -> list[dict]:
     return out[:limit]
 
 
-def draft_text(row: dict, price_ok: bool) -> str:
-    name = CR.normalize_display_name(row.get("brand", ""), row.get("name", ""))
-    cw, yr = row.get("colorway") or "", row.get("year") or ""
-    link = "https://apps.apple.com/app/cypher-unlock-the-vault/id6761334111"
-    retail = row.get("retail_price")
-    lead = "%s. Retail $%s." % (yr, retail) if (yr and retail is not None) else "%s." % name
-    body = "%s “%s”." % (name, cw) if cw else name
-    # Price policy: the card face shows EST. VALUE, so attribution is mandatory;
-    # the NUMBER only enters our own voice when PK freshness is verified.
-    attr = ("Its card is in CYPHER — the est. value on it tracks the real pair's resale, "
-            "not the card.")
-    return "%s %s\n\n%s\n\nFree: %s" % (lead, body, attr, link)
-
-
 def build_one(cand: dict, card_only: bool) -> dict | None:
+    """Returns a proposal-ready draft, or None when the BAR is not cleared.
+
+    Returning None is a normal, healthy outcome (gate d: zero is a valid day).
+    Every rejection is ledgered with its reason so the bar is auditable."""
     row = CR.fetch_card(cand["image_name"], cand["rarity"])
     if row.get("is_set_reward"):
         return None                                   # ceremony-exclusive, never showcased
+
+    sc = row.get("style_code")
+    price_ok, price_why = rails.price_claim_allowed(sc)
+
+    # (a) HOOK GATE — before spending a cent on a render or a backdrop.
+    hook_type, hook = editorial.detect_hook(
+        row, source=cand.get("source", ""), price_verified=price_ok,
+        headline=cand.get("hook", ""))
+    if hook_type is None:
+        run_log(event="skipped_no_hook", image_name=cand["image_name"], reason=hook)
+        return None
+
+    fmt = editorial.choose_format(hook_type)
+    display = CR.normalize_display_name(row.get("brand", ""), row.get("name", ""))
+    text = editorial.build_draft(row, hook_type, fmt, price_verified=price_ok,
+                                 display_name=display)
+
+    # (b) LEAD SPECIFICITY — the swap test.
+    ok_lead, lead_why = editorial.lead_is_specific(text, row)
+    if not ok_lead:
+        run_log(event="skipped_generic_lead", image_name=cand["image_name"],
+                format=fmt, reason=lead_why)
+        return None
+
+    wl = X.weighted_len(text)
+    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
+                               price_verified=price_ok)
+    if not all(c[1] for c in checks) or wl > 280:
+        run_log(event="draft_rejected_by_rails", image_name=cand["image_name"],
+                failed=[c[0] for c in checks if not c[1]], weighted=wl)
+        return None
+
+    # Only now is it worth rendering and generating.
     stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
     card = OUT / f"{stem}_card.png"
     CR.render_card(cand["image_name"], cand["rarity"], card)
-
     visual, insp = card, "N/A (card only)"
     if not card_only:
         env = X.load_env(Path(X.DEFAULT_ENV))
@@ -147,19 +169,13 @@ def build_one(cand: dict, card_only: bool) -> dict | None:
         CP.compose(card, bd, "4:5", visual)
         insp = "NOT pre-inspected (automated run)"
 
-    sc = row.get("style_code")
-    price_ok, why = rails.price_claim_allowed(sc)
-    text = draft_text(row, price_ok)
-    wl = X.weighted_len(text)
-    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
-                               price_verified=price_ok)
-    if not all(c[1] for c in checks) or wl > 280:
-        run_log(event="draft_rejected_by_rails", image_name=cand["image_name"],
-                failed=[c[0] for c in checks if not c[1]], weighted=wl)
-        return None
     tf = OUT / f"{stem}.txt"; tf.write_text(text, encoding="utf-8")
+    editorial.record_format(fmt)
+    run_log(event="draft_built", image_name=cand["image_name"], hook_type=hook_type,
+            format=fmt, weighted=wl)
     return {"text_file": tf, "image": visual, "cand": cand, "insp": insp,
-            "price_ok": price_ok, "price_why": why, "weighted": wl}
+            "price_ok": price_ok, "price_why": price_why, "weighted": wl,
+            "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why}
 
 
 def main():
@@ -190,9 +206,10 @@ def main():
             continue
         import telegram_bot as TB
         e = TB.env()
-        note = ("%s digest · source=%s · %d/280 · backdrop: %s · price: %s"
-                % (a.source, cand.get("source"), built["weighted"], built["insp"],
-                   "PK-verified" if built["price_ok"] else "unverified -> number omitted"))
+        note = ("%s · format=%s · HOOK[%s]: %s · lead: %s · %d/280 · backdrop: %s · price: %s"
+                % (a.source, built["format"], built["hook_type"], built["hook"],
+                   built["lead"], built["weighted"], built["insp"],
+                   "PK-verified" if built["price_ok"] else "unverified -> omitted"))
         # NOTE: a class body cannot read an enclosing function's local, so the
         # old `class _A: note = note` raised NameError at 09:00 and killed the
         # first unattended digest AFTER it had already spent $0.04 on a backdrop.
@@ -202,7 +219,10 @@ def main():
         TB.cmd_propose(argv, e)
         n += 1
     run_log(event="run_end", job=a.source, proposed=n)
-    print("  proposed %d draft(s)." % n)
+    # Gate (d): zero is a valid outcome, and says so rather than looking broken.
+    print("  proposed %d draft(s)." % n if n else
+          "  proposed 0 drafts — no candidate cleared the editorial bar today. "
+          "That is a valid outcome, not a failure.")
 
 
 if __name__ == "__main__":

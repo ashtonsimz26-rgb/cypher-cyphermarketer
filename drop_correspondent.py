@@ -19,7 +19,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-import daily_digest as DD  # noqa: E402
+import daily_digest as DD, editorial  # noqa: E402
 
 FEEDS = ["https://sneakernews.com/feed/", "https://www.nicekicks.com/feed/"]
 SEEN = HERE / "state" / "seen_headlines.json"
@@ -133,6 +133,13 @@ def main():
             seen.add(key)
             m = match(title, rows)
             if not m:
+                continue
+            # (b) MOMENT BAR — a correct match is still not automatically a post.
+            moment, why = editorial.is_moment(title)
+            if not moment:
+                DD.run_log(event="drop_skipped_not_moment", headline=key, reason=why,
+                           image_name=m["image_name"])
+                print("  matched but skipped (%s): %s" % (why, m["image_name"]))
                 continue
             DD.run_log(event="drop_match", headline=key,
                        image_name=m["image_name"], rarity=m["rarity"])
