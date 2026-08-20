@@ -14,3 +14,6 @@ logs/
 content/*.png
 logs/
 state/_*.sql
+
+# Machine-local runtime state (telegram offset, scratch SQL) — never commit.
+state/
