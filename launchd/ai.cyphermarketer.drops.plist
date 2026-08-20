@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key><string>ai.cyphermarketer.drops</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/python3.12</string>
+        <string>/Users/ashtonsimz/Documents/openclaw/cyphermarketer/drop_correspondent.py</string>
+    </array>
+    <key>WorkingDirectory</key><string>/Users/ashtonsimz/Documents/openclaw/cyphermarketer</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <!-- launchd's PATH is minimal; the supabase CLI lives in homebrew -->
+        <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    </dict>
+    <key>StandardOutPath</key><string>/Users/ashtonsimz/Documents/openclaw/cyphermarketer/logs/ai.cyphermarketer.drops.out.log</string>
+    <key>StandardErrorPath</key><string>/Users/ashtonsimz/Documents/openclaw/cyphermarketer/logs/ai.cyphermarketer.drops.err.log</string>
+    <key>RunAtLoad</key><false/>
+    <key>StartInterval</key><integer>7200</integer>
+</dict>
+</plist>

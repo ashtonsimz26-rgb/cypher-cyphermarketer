@@ -1,0 +1,6 @@
+{
+  "_note": "Curated sneaker-culture dates. image_name/rarity must exist in the catalog AND be pool-reachable; the digest re-verifies both before drafting.",
+  "02-17": [{"image_name": "aj3_mocha_og", "rarity": "Rare", "hook": "Jordan 3 Mocha anniversary"}],
+  "03-26": [{"image_name": "airmax90_bacon_og", "rarity": "Rare", "hook": "Air Max Day week"}],
+  "08-20": [{"image_name": "sb_dunk_low_purple_pigeon", "rarity": "Legendary", "hook": "SB Dunk Pigeon lineage"}]
+}

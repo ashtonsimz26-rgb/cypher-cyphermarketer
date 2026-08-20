@@ -12,3 +12,5 @@ logs/
 # Generated card renders — reproducible from the catalog + CPA renderer.
 # Provenance is kept in ledger/ (image name recorded per proposal).
 content/*.png
+logs/
+state/_*.sql

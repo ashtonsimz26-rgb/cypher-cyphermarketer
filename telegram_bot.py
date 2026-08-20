@@ -248,8 +248,18 @@ def cmd_poll(a, e):
         for u in j.get("result", []):
             offset = u["update_id"] + 1
             save_offset(offset)                       # persist before acting
-            m = u.get("message") or u.get("channel_post") or {}
-            if str((m.get("chat") or {}).get("id", "")) != chat_id:
+            m = (u.get("message") or u.get("channel_post")
+                 or u.get("edited_message") or {})
+            got_chat = str((m.get("chat") or {}).get("id", ""))
+            # Raw-update audit BEFORE filtering. An update consumed by the offset
+            # but dropped by a filter used to vanish silently — that cost a round
+            # trip. Now every update leaves a trace.
+            ledger({"event": "update_seen", "update_id": u.get("update_id"),
+                    "chat_id": got_chat, "chat_matches": got_chat == chat_id,
+                    "has_text": bool(m.get("text")),
+                    "text_preview": (m.get("text") or "")[:80],
+                    "reply_to": (m.get("reply_to_message") or {}).get("message_id")})
+            if got_chat != chat_id:
                 continue                              # authorization: chat must match
             body = (m.get("text") or "").strip()
             if not body:
@@ -269,6 +279,7 @@ def cmd_poll(a, e):
                     send_text(e, "⚠️ %d proposals pending — reply to the one you mean."
                               % len(pending), m.get("message_id"))
                 continue
+            decided = False
             if low in APPROVE:
                 decide(e, target["proposal_id"], "approve", None, m.get("message_id"))
             elif low in REJECT:
@@ -276,10 +287,9 @@ def cmd_poll(a, e):
             else:
                 # anything else IS the replacement copy, taken verbatim
                 decide(e, target["proposal_id"], "approve", body, m.get("message_id"))
-            if a.once:
+                decided = True
+            if a.once and decided:
                 return
-        if a.once and j.get("result"):
-            return
     print("  poll window ended.")
 
 
