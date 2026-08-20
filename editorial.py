@@ -23,6 +23,10 @@ import json, re
 from datetime import datetime, timezone
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from x_client import weighted_len  # noqa: E402  (pure function, no side effects)
+
 HERE = Path(__file__).resolve().parent
 FORMAT_STATE = HERE / "state" / "last_format.json"
 LINK = "https://apps.apple.com/app/cypher-unlock-the-vault/id6761334111"
@@ -34,6 +38,14 @@ FORMATS = ["story_spotlight", "price_journey", "on_this_day", "grail_lore"]
 DECLARED_NOT_READY = {"which_would_you_pull": "needs a two-card composite (compose.py is single-card)"}
 
 # Signals that a catalog description actually carries a STORY rather than specs.
+# Human-interest markers. These outrank the price hook — see detect_hook().
+STRONG_STORY_MARKERS = [
+    (r"designed by ([A-Z][a-z]+ [A-Z][a-z]+)", "named designer — a person"),
+    (r"\bworn by\b|\bplayer exclusive\b|\bfriends and family\b", "provenance"),
+    (r"\bhospital\b|\bcharit\w+\b|\bfoundation\b|\bproceeds\b", "cause"),
+    (r"\bbanned\b|\bcontrovers\w+\b", "controversy"),
+]
+
 STORY_MARKERS = [
     (r"\b([A-Z][a-z]+\s+[A-Z][a-z]+)'s\b", "named designer/artist"),
     (r"\b(\w+)\s+x\s+(\w+)", "collaboration"),
@@ -79,6 +91,14 @@ def detect_hook(row: dict, *, source: str, price_verified: bool,
     if source == "on_this_day" and isinstance(year, int):
         return "on_this_day", "%d — %d years ago" % (year, _now_year() - year)
 
+    # A HUMAN story outranks a number. Leading with "3.4x retail" on a shoe a
+    # sick kid designed for a children's hospital is tone-deaf, and no rails
+    # check would have caught it — so the priority itself has to be right.
+    for pat, label in STRONG_STORY_MARKERS:
+        m = re.search(pat, desc)
+        if m:
+            return "story", "%s — %r" % (label, m.group(0)[:48])
+
     if price_verified and retail and resale and resale >= retail * 3:
         return "price_journey", "PK-verified $%d retail -> $%d resale (%.1fx)" % (
             retail, resale, resale / retail)
@@ -94,17 +114,31 @@ def detect_hook(row: dict, *, source: str, price_verified: bool,
     return None, "no story element in the catalog row (description is spec-only)"
 
 
+# Which skeletons are SEMANTICALLY VALID for each hook. Rotation may only pick
+# inside this set. Variety is a nice-to-have; appropriateness is not.
+ALLOWED_FORMATS = {
+    "story":         ["story_spotlight", "grail_lore"],
+    "drop_moment":   ["story_spotlight", "grail_lore"],
+    "on_this_day":   ["on_this_day", "story_spotlight"],
+    "price_journey": ["price_journey", "story_spotlight"],
+    "grail_lore":    ["grail_lore", "story_spotlight"],
+}
+
+
 def choose_format(hook_type: str) -> str:
-    """Prefer the format matching the hook; never repeat the previous skeleton."""
-    preferred = {"on_this_day": "on_this_day", "price_journey": "price_journey",
-                 "grail_lore": "grail_lore", "drop_moment": "story_spotlight",
-                 "story": "story_spotlight"}[hook_type]
-    if preferred != last_format():
-        return preferred
-    for f in FORMATS:                       # rotate off the repeat
-        if f != last_format():
+    """Rotate for variety, but never out of the hook's valid set.
+
+    ★ The rotation once flipped a human-story hook (a child designing a shoe for
+    a children's hospital) onto the price_journey skeleton — "retailed at $225,
+    real pairs now trade around $775". Correct by the variety rule, tone-deaf in
+    fact. Rotation now only chooses among skeletons that fit the hook, and will
+    REPEAT a format rather than misframe a story."""
+    allowed = ALLOWED_FORMATS.get(hook_type, ["story_spotlight"])
+    last = last_format()
+    for f in allowed:
+        if f != last:
             return f
-    return preferred
+    return allowed[0]                       # repeat beats misframing
 
 
 def _story_fragment(desc: str) -> str:
@@ -114,25 +148,75 @@ def _story_fragment(desc: str) -> str:
     return frag.rstrip(".").strip()
 
 
+DANGLING = {"of", "the", "a", "an", "and", "with", "his", "her", "their", "its",
+            "through", "whose", "that", "to", "in", "on", "for", "by", "at",
+            "from", "as", "into", "was", "were", "is", "are", "made", "told"}
+
+
+def _tidy(frag: str) -> str:
+    """Drop trailing function words so a trim never dangles."""
+    w = frag.rstrip(" ,;:—-").split()
+    while w and w[-1].lower().strip(",;:") in DANGLING:
+        w.pop()
+    return " ".join(w).rstrip(" ,;:—-")
+
+
+def _clause_prefixes(frag: str) -> list[str]:
+    """Progressively shorter prefixes cut at natural clause boundaries."""
+    out, parts = [], re.split(r"\s+—\s+|,\s+", frag)
+    for i in range(len(parts) - 1, 0, -1):
+        cand = _tidy(" ".join(parts[:i]))
+        if len(cand.split()) >= 4:
+            out.append(cand)
+    return out
+
+
 def build_draft(row: dict, hook_type: str, fmt: str, *, price_verified: bool,
-                display_name: str) -> str:
+                display_name: str, limit: int = 280) -> str:
+    """Compose to fit. A draft that is 44 characters too long is not a failed
+    draft — it is an untrimmed one. The STORY is what gets shortened (at a word
+    boundary); the hook, the attribution and the link are structural and never
+    truncated."""
     cw = row.get("colorway") or ""
     year, retail = row.get("year"), row.get("retail_price")
-    frag = _story_fragment(row.get("description") or "")
+    frag_full = _story_fragment(row.get("description") or "")
     title = '%s “%s”' % (display_name, cw) if cw else display_name
     attr = ("Its card is in CYPHER — the est. value on it tracks the real pair's "
             "resale, not the card.")
 
-    if fmt == "on_this_day":
-        lead = "%d years ago, the %s dropped at $%s." % (_now_year() - int(year), title, retail)
-    elif fmt == "price_journey" and price_verified:
-        lead = "The %s retailed at $%s. Real pairs now trade around $%s." % (
-            title, retail, row.get("estimated_resale"))
-    elif fmt == "grail_lore":
-        lead = "%s. %s." % (title, frag)
-    else:                                    # story_spotlight
-        lead = "%s. $%s retail. %s." % (year, retail, frag)
-    return "%s\n\n%s\n\nFree: %s" % (lead, attr, LINK)
+    def assemble(frag: str) -> str:
+        if fmt == "on_this_day":
+            lead = "%d years ago, the %s dropped at $%s." % (
+                _now_year() - int(year), title, retail)
+        elif fmt == "price_journey" and price_verified:
+            lead = "The %s retailed at $%s. Real pairs now trade around $%s." % (
+                title, retail, row.get("estimated_resale"))
+        elif fmt == "grail_lore":
+            lead = "%s. %s." % (title, frag) if frag else "%s." % title
+        else:
+            lead = "%s. $%s retail. %s." % (year, retail, frag) if frag \
+                else "%s. $%s retail. %s." % (year, retail, title)
+        return "%s\n\n%s\n\nFree: %s" % (lead, attr, LINK)
+
+    text = assemble(frag_full)
+    if weighted_len(text) <= limit:
+        return text
+
+    # Keep the MOST story that fits: walk words off the end (tidying dangling
+    # function words each time, so we never emit "...told his story of."), and
+    # take the first prefix that fits. Cutting straight to a clause boundary
+    # threw away 78 characters of usable room on the Doernbecher draft.
+    words = frag_full.split()
+    while words:
+        words.pop()
+        cand = assemble(_tidy(" ".join(words)))
+        if weighted_len(cand) <= limit:
+            return cand
+    for cut in _clause_prefixes(frag_full):      # fallback
+        cand = assemble(cut)
+        if weighted_len(cand) <= limit:
+            return cand
+    return assemble("")                     # story dropped entirely rather than overflow
 
 
 def lead_is_specific(text: str, row: dict) -> tuple[bool, str]:

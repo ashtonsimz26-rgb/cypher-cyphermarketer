@@ -123,7 +123,7 @@ def build_one(cand: dict, card_only: bool) -> dict | None:
         return None                                   # ceremony-exclusive, never showcased
 
     sc = row.get("style_code")
-    price_ok, price_why = rails.price_claim_allowed(sc)
+    price_ok, price_why = rails.price_claim_allowed(sc, row.get("estimated_resale"))
 
     # (a) HOOK GATE — before spending a cent on a render or a backdrop.
     hook_type, hook = editorial.detect_hook(

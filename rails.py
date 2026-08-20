@@ -37,25 +37,65 @@ ATTRIBUTION_MARKERS = ("real pair", "real pairs", "the real shoe", "resale marke
                        "resell", "resells", "real-world resale", "real pair's")
 
 
-def price_claim_allowed(style_code: str | None) -> tuple[bool, str]:
-    """Fail-closed: True only if PK holds a price for this style within N days."""
+PRICE_TOLERANCE = 0.25          # catalog may differ from PK by at most 25%
+
+
+def pk_price(style_code: str | None) -> tuple[int | None, str]:
+    """Newest PK lowest-ask within the freshness window, in whole USD.
+
+    PK writes one file per style per day under raw_market/price_refresh/<date>/.
+    We take the NEWEST such file, not the first one found on disk — ordering by
+    mtime matters, and an arbitrary rglob hit can be weeks old."""
     if not style_code or style_code in ("N/A", ""):
-        return False, "no style_code to look up in PK"
+        return None, "no style_code"
     if not PK_DATA.is_dir():
-        return False, "PK data directory not reachable"
+        return None, "PK data unreachable"
     cutoff = datetime.now(timezone.utc) - timedelta(days=FRESHNESS_DAYS)
+    best = None
+    for p in PK_DATA.glob("raw_market/price_refresh/*/%s.json" % style_code):
+        try:
+            mt = datetime.fromtimestamp(p.stat().st_mtime, timezone.utc)
+        except Exception:
+            continue
+        if mt >= cutoff and (best is None or mt > best[0]):
+            best = (mt, p)
+    if not best:
+        return None, "no PK price file within %d days" % FRESHNESS_DAYS
     try:
-        for p in PK_DATA.rglob("*.json"):
-            try:
-                if datetime.fromtimestamp(p.stat().st_mtime, timezone.utc) < cutoff:
-                    continue
-                if style_code in p.read_text(encoding="utf-8", errors="ignore"):
-                    return True, "PK file %s (<=%dd)" % (p.name, FRESHNESS_DAYS)
-            except Exception:
-                continue
+        import json as _j
+        hits = (_j.loads(best[1].read_text()).get("raw", {}) or {}).get("hits") or []
+        cents = hits[0].get("lowest_price_cents") if hits else None
+        if not cents:
+            return None, "PK file has no lowest_price_cents"
+        return int(cents) // 100, "PK %s" % best[0].strftime("%Y-%m-%d")
     except Exception as e:
-        return False, "PK scan failed: %s" % type(e).__name__
-    return False, "no PK record within %d days" % FRESHNESS_DAYS
+        return None, "PK parse failed: %s" % type(e).__name__
+
+
+def price_claim_allowed(style_code: str | None,
+                        catalog_resale: int | None = None) -> tuple[bool, str]:
+    """Fresh PK price AND catalog agreement. Both, or no number in our voice.
+
+    ★ THE BUG THIS REPLACES (found 2026-08-20 before it ever posted): the old
+    version returned True if ANY recently-modified PK file merely CONTAINED the
+    style code. That verifies the recency of a lookup, not the correctness of a
+    number. It green-lit a "$2,000" price-journey draft for the DQM Bacon while
+    PK's own file THAT MORNING put the lowest ask at $450 — a 4.4x overstatement
+    on the brand account, with the card image showing the same wrong figure.
+
+    Divergence is now a HARD BLOCK, not a warning: if the catalog and the market
+    disagree beyond tolerance, the card's own EST. VALUE is untrustworthy, so no
+    price claim is safe in either the text or the image."""
+    price, why = pk_price(style_code)
+    if price is None:
+        return False, why
+    if catalog_resale is None:
+        return True, "%s: $%d" % (why, price)
+    drift = abs(catalog_resale - price) / max(1, price)
+    if drift > PRICE_TOLERANCE:
+        return False, ("catalog $%d vs %s $%d — %.0f%% drift, exceeds %.0f%% tolerance"
+                       % (catalog_resale, why, price, drift * 100, PRICE_TOLERANCE * 100))
+    return True, "%s: $%d (catalog $%d, %.0f%% drift)" % (why, price, catalog_resale, drift * 100)
 
 
 def check_draft(text: str, *, card_shows_value: bool, pool_reachable: bool,
