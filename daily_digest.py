@@ -18,6 +18,7 @@ who prefers the stricter posture; the schedule's mode is a one-flag change.
 """
 from __future__ import annotations
 import argparse, json, subprocess, sys, random
+from types import SimpleNamespace
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -176,9 +177,13 @@ def main():
         note = ("%s digest · source=%s · %d/280 · backdrop: %s · price: %s"
                 % (a.source, cand.get("source"), built["weighted"], built["insp"],
                    "PK-verified" if built["price_ok"] else "unverified -> number omitted"))
-        class _A:  # reuse the bot's propose path verbatim
-            text_file = str(built["text_file"]); image = str(built["image"]); note = note
-        TB.cmd_propose(_A, e)
+        # NOTE: a class body cannot read an enclosing function's local, so the
+        # old `class _A: note = note` raised NameError at 09:00 and killed the
+        # first unattended digest AFTER it had already spent $0.04 on a backdrop.
+        # SimpleNamespace has no scoping surprise.
+        argv = SimpleNamespace(text_file=str(built["text_file"]),
+                               image=str(built["image"]), note=note)
+        TB.cmd_propose(argv, e)
         n += 1
     run_log(event="run_end", job=a.source, proposed=n)
     print("  proposed %d draft(s)." % n)
