@@ -109,3 +109,63 @@ resources are CPU, memory, and the supabase CLI (separate read-only
 connections). **Memory is the only real contention** on a 16 GB machine, and
 the digest is light (one card render + one network generation) against CPA's
 35-card batch.
+
+## Lesson: verify what a number MEANS before verifying its value
+
+**A rail comparing two different statistics manufactures false alarms.**
+
+On 2026-08-19 the price rail (commit `77f29c2`) was tightened to stop a real bug
+— it had been treating "a recent PK file mentions this style code" as proof a
+price was correct, and green-lit a `$2,000` claim for the DQM Bacon when PK's
+file that morning read `$450`. That fix was right.
+
+But the replacement compared the catalog's `estimated_resale` against
+`hits[0].lowest_price_cents`, and reported that **26 of 30** showcase cards were
+wrong. They were not. Two compounding mistakes:
+
+1. **Wrong file.** It read the RAW ARCHIVE (`raw_market/price_refresh/…`) rather
+   than PK's SNAPSHOT (`data/price_history/<sku>.jsonl`).
+2. **Wrong field — one PK explicitly warns about.** From the engine source:
+   *"Algolia sorts ascending by lowest_price_cents, so this is the cheapest
+   variant — typically a toddler size. Stored for forensic context only — DO NOT
+   use for decisions; use canonical_price_cents."*
+
+`lowest_price_cents` is the lowest ask for ONE ARBITRARY SIZE. On the Bacon that
+is $450 (size 10) while size 10.5 asks $2,000 — which is exactly the catalog's
+number. **Both figures were real. They were different statistics.**
+
+The catalog was never the problem the alarm claimed. The yardstick was.
+
+**What to do instead:** PK already computes what was needed —
+`adult_band_min/median/max_cents`, `adult_band_variant_count`,
+`observed_confidence`, and a `canonical_hold_reason` when the sample is too thin.
+Read PK's mandate-grade fields; never re-derive a band from raw hits, and never
+quote `lowest_price_cents`.
+
+**Generalisation worth keeping:** before trusting a comparison, confirm both
+sides measure the same thing. A confident number derived from the wrong
+statistic is more dangerous than a missing one, because it survives review.
+
+### Price eligibility — current rule
+
+`rails.price_claim_allowed()` gates on two things:
+- **Liquidity:** fewer than `MIN_LISTINGS` (3) live adult-band variants blocks a
+  claim in EITHER direction. A one-listing market cannot confirm a catalog value
+  or condemn it.
+- **Range, not point:** the catalog value must sit inside PK's adult band.
+  Outside in either direction is a real signal (too high overstates; too low
+  understates a grail).
+
+Each proposal's metadata states the band and `n` it verified against.
+`price_audit.py` re-runs the scan and appends out-of-range cards to
+`ledger/pk_repricing_queue.jsonl` for PRICEKEEPER's operator loop — **flag only,
+it never changes a price.**
+
+### Deferred rulings (2026-08-20) — do not re-litigate cold
+
+- **B — relabel the card's "EST. VALUE" field** (e.g. to a range, or
+  "EST. VALUE (deadstock)"). DEFERRED: `SneakerCardView.swift` is a LOCKED file
+  and this is a product call, not a cleanup.
+- **C — re-price the catalog at scale via PK.** DEFERRED to PRICEKEEPER's own
+  arc: its autonomous write gate needs ≥0.70 confidence and currently sits at
+  0.58, so corrections stay operator-supplied (34 SKUs applied to date).

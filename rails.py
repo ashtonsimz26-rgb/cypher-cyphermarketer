@@ -20,6 +20,7 @@ PRICE POLICY (ruled 2026-08-19)
 """
 from __future__ import annotations
 import re
+import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -40,62 +41,114 @@ ATTRIBUTION_MARKERS = ("real pair", "real pairs", "the real shoe", "resale marke
 PRICE_TOLERANCE = 0.25          # catalog may differ from PK by at most 25%
 
 
-def pk_price(style_code: str | None) -> tuple[int | None, str]:
-    """Newest PK lowest-ask within the freshness window, in whole USD.
+MIN_LISTINGS = 3                # liquidity floor — below this, no price claim
 
-    PK writes one file per style per day under raw_market/price_refresh/<date>/.
-    We take the NEWEST such file, not the first one found on disk — ordering by
-    mtime matters, and an arbitrary rglob hit can be weeks old."""
+
+PRICE_HISTORY = PK_DATA / "price_history"
+
+
+def pk_market(style_code: str | None) -> tuple[dict | None, str]:
+    """Size-aware market band, read from PK's OWN canonical fields.
+
+    ★ CORRECTED 2026-08-20. Option A turned out to be ALREADY BUILT: PK's
+    Pass 3.3.1/3.3.2 compute an ADULT-SIZE-BAND summary
+    (adult_band_min/median/max_cents, adult_band_variant_count) plus an observed
+    band and a confidence grade, and store them per snapshot in
+    data/price_history/<sku>.jsonl.
+
+    My rail had been reading raw_market/price_refresh/<date>/<sku>.json and
+    taking hits[0].lowest_price_cents — the field PK's own source comments
+    explicitly warn about:
+
+        "Algolia sorts ascending by lowest_price_cents, so this is the cheapest
+         variant — typically a TODDLER SIZE. Stored for forensic context only —
+         DO NOT use for decisions; use canonical_price_cents."
+
+    So the false-alarm storm was self-inflicted twice over: wrong file, and the
+    one field PK documents as not-for-decisions. Reading PK's band instead of
+    re-deriving one also inherits its toddler-size exclusion and its confidence
+    grading for free."""
     if not style_code or style_code in ("N/A", ""):
         return None, "no style_code"
-    if not PK_DATA.is_dir():
-        return None, "PK data unreachable"
+    hist = PRICE_HISTORY / ("%s.jsonl" % style_code)
+    if not hist.exists():
+        return None, "no PK price history for %s" % style_code
     cutoff = datetime.now(timezone.utc) - timedelta(days=FRESHNESS_DAYS)
-    best = None
-    for p in PK_DATA.glob("raw_market/price_refresh/*/%s.json" % style_code):
-        try:
-            mt = datetime.fromtimestamp(p.stat().st_mtime, timezone.utc)
-        except Exception:
-            continue
-        if mt >= cutoff and (best is None or mt > best[0]):
-            best = (mt, p)
-    if not best:
-        return None, "no PK price file within %d days" % FRESHNESS_DAYS
+    last = None
     try:
-        import json as _j
-        hits = (_j.loads(best[1].read_text()).get("raw", {}) or {}).get("hits") or []
-        cents = hits[0].get("lowest_price_cents") if hits else None
-        if not cents:
-            return None, "PK file has no lowest_price_cents"
-        return int(cents) // 100, "PK %s" % best[0].strftime("%Y-%m-%d")
+        for line in hist.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            try:
+                r = json.loads(line)
+            except Exception:
+                continue
+            if r.get("status") != "ok":
+                continue
+            try:
+                ts = datetime.fromisoformat(r["captured_at"].replace("Z", "+00:00"))
+            except Exception:
+                continue
+            if ts >= cutoff and (last is None or ts > last[0]):
+                last = (ts, r)
     except Exception as e:
-        return None, "PK parse failed: %s" % type(e).__name__
+        return None, "PK history read failed: %s" % type(e).__name__
+    if last is None:
+        return None, "no ok PK snapshot within %d days" % FRESHNESS_DAYS
+
+    a = (last[1].get("sources") or {}).get("algolia") or {}
+    c = lambda k: (a.get(k) or 0) // 100
+    lo, hi = c("adult_band_min_cents"), c("adult_band_max_cents")
+    n = a.get("adult_band_variant_count") or 0
+    if not lo or not hi:                       # band held/empty -> fall back to observed
+        lo, hi = c("observed_band_min_cents"), c("observed_band_max_cents")
+        n = n or (a.get("observed_band_variant_count") or 0)
+    if not lo or not hi:
+        return None, "PK snapshot carries no usable band"
+    med = c("adult_band_median_cents") or c("observed_band_median_cents") or 0
+    return ({"low": lo, "high": hi, "median": med, "n": n,
+             "canonical": c("canonical_price_cents"),
+             "confidence": a.get("observed_confidence"),
+             "hold": a.get("canonical_hold_reason"),
+             "as_of": last[0].strftime("%Y-%m-%d")},
+            "PK %s adult-band" % last[0].strftime("%Y-%m-%d"))
+
+
+def pk_price(style_code: str | None) -> tuple[int | None, str]:
+    """Back-compat single number = the market LOW. Prefer pk_market()."""
+    m, why = pk_market(style_code)
+    return (m["low"], why) if m else (None, why)
 
 
 def price_claim_allowed(style_code: str | None,
                         catalog_resale: int | None = None) -> tuple[bool, str]:
-    """Fresh PK price AND catalog agreement. Both, or no number in our voice.
+    """A price claim needs a LIQUID market and a catalog value inside its range.
 
-    ★ THE BUG THIS REPLACES (found 2026-08-20 before it ever posted): the old
-    version returned True if ANY recently-modified PK file merely CONTAINED the
-    style code. That verifies the recency of a lookup, not the correctness of a
-    number. It green-lit a "$2,000" price-journey draft for the DQM Bacon while
-    PK's own file THAT MORNING put the lowest ask at $450 — a 4.4x overstatement
-    on the brand account, with the card image showing the same wrong figure.
+    Two gates, both ratified 2026-08-20:
 
-    Divergence is now a HARD BLOCK, not a warning: if the catalog and the market
-    disagree beyond tolerance, the card's own EST. VALUE is untrustworthy, so no
-    price claim is safe in either the text or the image."""
-    price, why = pk_price(style_code)
-    if price is None:
+    1. LIQUIDITY. Fewer than MIN_LISTINGS live listings and we make no claim in
+       either direction. A one-listing "market" is not a yardstick — it cannot
+       confirm a catalog value OR condemn it, so a thin market blocks rather
+       than decides.
+    2. RANGE, not point. The catalog value must sit within the live cross-size
+       ask range. Outside it in EITHER direction is a real signal worth
+       blocking on (too high overstates; too low understates a grail).
+
+    Replaces a point comparison against an arbitrary size's ask — see pk_market."""
+    m, why = pk_market(style_code)
+    if m is None:
         return False, why
+    span = "$%d-$%d (median $%d, n=%d, conf=%s, %s)" % (
+        m["low"], m["high"], m["median"], m["n"],
+        m.get("confidence") or "?", m["as_of"])
+    if m["n"] < MIN_LISTINGS:
+        return False, "thin market: only %d live listing(s) — %s" % (m["n"], span)
     if catalog_resale is None:
-        return True, "%s: $%d" % (why, price)
-    drift = abs(catalog_resale - price) / max(1, price)
-    if drift > PRICE_TOLERANCE:
-        return False, ("catalog $%d vs %s $%d — %.0f%% drift, exceeds %.0f%% tolerance"
-                       % (catalog_resale, why, price, drift * 100, PRICE_TOLERANCE * 100))
-    return True, "%s: $%d (catalog $%d, %.0f%% drift)" % (why, price, catalog_resale, drift * 100)
+        return True, span
+    if m["low"] <= catalog_resale <= m["high"]:
+        return True, "catalog $%d in range %s" % (catalog_resale, span)
+    side = "ABOVE" if catalog_resale > m["high"] else "BELOW"
+    return False, "catalog $%d is %s the live range %s" % (catalog_resale, side, span)
 
 
 def check_draft(text: str, *, card_shows_value: bool, pool_reachable: bool,
