@@ -13,7 +13,7 @@ token to both appear in the headline, and re-verifies pool reachability before
 drafting. Missing a drop costs nothing; inventing one is not recoverable.
 """
 from __future__ import annotations
-import json, re, sys, urllib.request
+import html, json, re, sys, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -23,8 +23,11 @@ import daily_digest as DD  # noqa: E402
 
 FEEDS = ["https://sneakernews.com/feed/", "https://www.nicekicks.com/feed/"]
 SEEN = HERE / "state" / "seen_headlines.json"
-STOP = {"the", "and", "for", "with", "release", "date", "official", "images", "low",
-        "high", "mid", "og", "retro", "new", "nike", "jordan", "adidas", "wmns"}
+# Colorways too common to discriminate between models. A match may never rest
+# on one of these alone.
+GENERIC_COLORWAYS = {"black", "white", "grey", "gray", "black white", "white black",
+                     "triple black", "triple white", "red", "blue", "green", "navy",
+                     "brown", "tan", "cream", "bone", "sail", "olive", "pink"}
 
 
 def fetch(url: str) -> list[str]:
@@ -51,18 +54,45 @@ def save_seen(s: set):
 
 
 def norm(s: str) -> str:
-    return re.sub(r"[^a-z0-9 ]+", " ", (s or "").lower())
+    """Lowercase, entity-decode, collapse punctuation. Feeds phrase matching."""
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]+", " ",
+                  html.unescape(s or "").lower())).strip()
+
+
+def has_phrase(haystack: str, phrase: str) -> bool:
+    """Whole-phrase, word-bounded containment. 'air' must not match 'airmax'."""
+    h, p = norm(haystack), norm(phrase)
+    if not h or not p:
+        return False
+    return re.search(rf"(?<![a-z0-9]){re.escape(p)}(?![a-z0-9])", h) is not None
 
 
 def match(headline: str, rows: list[dict]) -> dict | None:
-    h = norm(headline)
+    """STRICT. The headline must name the actual SILHOUETTE, as a whole phrase.
+
+    The bug this replaces (p_afbd558609, 2026-08-20): headline
+    "Nike Air Max Goadome Low 'Black'" matched nike_air_humara_17_black, because
+    the old rule was "colorway appears in headline AND any name token appears".
+    Colorway "Black" is in that headline, and the token "air" is in almost every
+    Nike headline — so two generic overlaps paired a Goadome story with a Humara
+    card. That would have posted a factual error about a shoe we did not match.
+
+    The rule now: the catalog SILHOUETTE ("Air Humara 17") must appear in the
+    headline as a complete, word-bounded phrase. Colorway is corroborating, and
+    is required only when it is distinctive — a generic colorway can never be
+    the thing that carries a match.
+
+    This is deliberately biased toward false NEGATIVES. A missed drop costs
+    nothing; a wrong pairing costs credibility we cannot buy back.
+    """
     for r in rows:
-        cw = norm(r.get("colorway"))
-        if not cw or len(cw) < 4 or cw not in h:
-            continue
-        toks = [t for t in norm(r.get("name")).split() if t not in STOP and len(t) > 2]
-        if any(t in h for t in toks):
-            return r
+        sil = r.get("silhouette") or ""
+        if len(norm(sil)) < 4 or not has_phrase(headline, sil):
+            continue                       # silhouette is mandatory, no exceptions
+        cw = norm(r.get("colorway") or "")
+        if cw and cw not in GENERIC_COLORWAYS and not has_phrase(headline, cw):
+            continue                       # distinctive colorway must corroborate
+        return r
     return None
 
 
@@ -74,7 +104,7 @@ def main():
         DD.run_log(event="run_blocked", job="drop_correspondent", reason=why)
         print("  BLOCKED: %s" % why); return
     rows = DD._sql(DD.REACHABLE_CTE + """
-      select c.image_name, c.rarity::text as rarity, c.name, c.colorway
+      select c.image_name, c.rarity::text as rarity, c.name, c.colorway, c.silhouette
       from public.catalog_cards c
       join reachable r on r.image_name=c.image_name and r.rarity=c.rarity
       where c.is_set_reward = false;""")
