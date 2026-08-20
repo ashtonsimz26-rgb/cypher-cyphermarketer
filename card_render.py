@@ -75,17 +75,16 @@ def normalize_display_name(brand: str, raw_name: str) -> str:
 def fetch_card(image_name: str, rarity: str) -> dict:
     """Authoritative row from the server catalog (equal to Swift since the backfill)."""
     sql = ("select image_name, rarity::text as rarity, name, brand, colorway, style_code, "
-           "year, retail_price, estimated_resale, description, is_set_reward "
+           "year, retail_price, estimated_resale, description, is_set_reward, "
+           "category, silhouette, tags "
            "from public.catalog_cards where image_name=%s and rarity=%s;"
            % (_lit(image_name), _lit(rarity)))
-    p = subprocess.run(["supabase", "db", "query", "--linked", "-o", "json", "--", sql],
-                       capture_output=True, text=True, cwd=str(REPO))
-    if p.returncode != 0:
-        f = HERE / "state" / "_q.sql"
-        f.parent.mkdir(parents=True, exist_ok=True)
-        f.write_text(sql)
-        p = subprocess.run(["supabase", "db", "query", "--linked", "-o", "json", "-f", str(f)],
-                           capture_output=True, text=True, cwd=str(REPO))
+    # File form only. The positional `-- <sql>` form hangs on this CLI version.
+    f = HERE / "state" / "_q.sql"
+    f.parent.mkdir(parents=True, exist_ok=True)
+    f.write_text(sql, encoding="utf-8")
+    p = subprocess.run(["supabase", "db", "query", "--linked", "-o", "json", "-f", str(f)],
+                       capture_output=True, text=True, cwd=str(REPO), timeout=120)
     try:
         rows = json.loads(re.search(r"\[.*\]", p.stdout, re.S).group(0))
     except Exception:
