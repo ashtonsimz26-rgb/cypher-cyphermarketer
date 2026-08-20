@@ -16,14 +16,29 @@ sys.path.insert(0, str(HERE))
 import budget  # noqa: E402
 
 JOBS = ["ai.cyphermarketer.digest", "ai.cyphermarketer.poller",
-        "ai.cyphermarketer.drops", "ai.cyphermarketer.watchdog"]
+        "ai.cyphermarketer.drops", "ai.cyphermarketer.health"]  # renamed: the old label
+        # wedged in launchd's per-user DB after registering a malformed plist
+        # (exit 78 EX_CONFIG, zero output, survived bootout+delete+re-bootstrap).
+        # Same script under any other label runs fine — proven with a test job.
 RUNS = HERE / "ledger" / "runs.jsonl"
 DIGEST_MAX_AGE_H = 26          # digest is daily; 26h means one was genuinely missed
 
 
 def launchd_state() -> dict:
+    """`launchctl list` is bounded and fault-tolerant on purpose.
+
+    When this ran UNDER launchd it exited 78 with ZERO output — the first print
+    happens after this call, so a hang/failure here killed the watchdog before
+    it could say anything. A health checker that dies silently is worse than no
+    health checker: it turns a loud failure into an ambiguous one. So the call
+    is timeout-bounded and any failure degrades to a reported UNKNOWN rather
+    than taking the process down.
+    """
     out = {}
-    p = subprocess.run(["launchctl", "list"], capture_output=True, text=True)
+    try:
+        p = subprocess.run(["launchctl", "list"], capture_output=True, text=True, timeout=30)
+    except Exception as e:
+        return {j: {"loaded": None, "error": type(e).__name__} for j in JOBS}
     table = {}
     for line in p.stdout.splitlines():
         parts = line.split(None, 2)
@@ -54,9 +69,13 @@ def last_run(job: str) -> datetime | None:
 
 
 def main():
+    print("  watchdog start", flush=True)
     alerts, lines = [], []
     st = launchd_state()
     for j, v in st.items():
+        if v.get("loaded") is None:
+            alerts.append("could not read launchd state for %s (%s)" % (j, v.get("error")))
+            lines.append("  ? %s state UNKNOWN" % j); continue
         if not v["loaded"]:
             alerts.append("job NOT loaded: %s" % j); lines.append("  ✗ %s not loaded" % j)
         else:
@@ -77,7 +96,7 @@ def main():
     if not ok and "CIRCUIT BREAKER" in why:
         alerts.append(why)
 
-    print("\n".join(lines))
+    print("\n".join(lines), flush=True)
     if alerts:
         try:
             import telegram_bot as TB
