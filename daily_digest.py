@@ -69,9 +69,25 @@ def is_reachable(image_name: str, rarity: str) -> bool:
     return bool(r and int(r[0].get("n", 0)) > 0)
 
 
+def drain_drop_queue() -> list[dict]:
+    """Overnight drop matches deferred by quiet hours (FIX 2). They are first in
+    line at the digest — they were newsworthy enough to match a headline."""
+    import drop_correspondent as DC
+    q = DC.load_queue()
+    if not q:
+        return []
+    DC.save_queue([])                       # drained exactly once
+    run_log(event="drop_queue_drained", count=len(q))
+    return [{"image_name": r["image_name"], "rarity": r["rarity"],
+             "source": "drop_overnight", "hook": r.get("headline", "")} for r in q]
+
+
 def candidates(limit: int) -> list[dict]:
-    """on-this-day seed first (it is intentional), then pool-reachable standouts."""
+    """Overnight drop queue first, then the on-this-day seed, then standouts."""
     out, seen = [], set()
+    for e in drain_drop_queue():
+        if len(out) < limit and is_reachable(e["image_name"], e["rarity"]):
+            out.append(e); seen.add(e["image_name"])
     try:
         seed = json.loads(SEED.read_text())
         key = datetime.now().strftime("%m-%d")

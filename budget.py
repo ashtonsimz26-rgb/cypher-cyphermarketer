@@ -18,7 +18,24 @@ sys.path.insert(0, str(HERE))
 import x_client as X  # noqa: E402
 
 DAILY_IMAGE_SPEND_LIMIT = 1.00
+
+# QUIET HOURS (local). No proposal may reach Telegram between these times, and
+# no image spend may be incurred for one. Overnight drop matches QUEUE and ride
+# into the morning digest instead. Born of 2026-08-20, when the RSS job buzzed
+# Ashton with proposals at 23:44, 01:45 and 03:46 — one of which was the wrong
+# shoe. Matching overnight is fine (it is free); interrupting a person is not.
+QUIET_START_H, QUIET_START_M = 22, 0
+QUIET_END_H, QUIET_END_M = 8, 30
 BACKDROP_LEDGER = HERE / "ledger" / "backdrops.jsonl"
+
+
+def in_quiet_hours(now=None) -> bool:
+    from datetime import datetime as _dt
+    n = now or _dt.now()
+    mins = n.hour * 60 + n.minute
+    start = QUIET_START_H * 60 + QUIET_START_M
+    end = QUIET_END_H * 60 + QUIET_END_M
+    return mins >= start or mins < end          # window wraps midnight
 
 
 def image_spend_last_24h() -> float:
@@ -42,7 +59,10 @@ def posts_remaining() -> int:
     return max(0, X.MAX_POSTS_24H - X.posts_last_24h())
 
 
-def check(require_image: bool = True) -> tuple[bool, str]:
+def check(require_image: bool = True, respect_quiet: bool = False) -> tuple[bool, str]:
+    if respect_quiet and in_quiet_hours():
+        return False, ("quiet hours %02d:%02d-%02d:%02d local — queue it, do not propose"
+                       % (QUIET_START_H, QUIET_START_M, QUIET_END_H, QUIET_END_M))
     spend = image_spend_last_24h()
     if require_image and spend >= DAILY_IMAGE_SPEND_LIMIT:
         return False, ("CIRCUIT BREAKER: xAI image spend $%.2f in 24h >= $%.2f limit"

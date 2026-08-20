@@ -23,6 +23,7 @@ import daily_digest as DD  # noqa: E402
 
 FEEDS = ["https://sneakernews.com/feed/", "https://www.nicekicks.com/feed/"]
 SEEN = HERE / "state" / "seen_headlines.json"
+QUEUE = HERE / "state" / "drop_queue.json"
 # Colorways too common to discriminate between models. A match may never rest
 # on one of these alone.
 GENERIC_COLORWAYS = {"black", "white", "grey", "gray", "black white", "white black",
@@ -39,6 +40,18 @@ def fetch(url: str) -> list[str]:
         return []
     return [re.sub(r"<[^>]+>", "", t).strip()
             for t in re.findall(r"<title>(.*?)</title>", xml, re.S)][1:]
+
+
+def load_queue() -> list:
+    try:
+        return json.loads(QUEUE.read_text())
+    except Exception:
+        return []
+
+
+def save_queue(q: list):
+    QUEUE.parent.mkdir(parents=True, exist_ok=True)
+    QUEUE.write_text(json.dumps(q, indent=2))
 
 
 def load_seen() -> set:
@@ -99,7 +112,10 @@ def match(headline: str, rows: list[dict]) -> dict | None:
 def main():
     DD.run_log(event="run_start", job="drop_correspondent")
     import budget
-    ok, why = budget.check(require_image=True)
+    quiet = budget.in_quiet_hours()
+    # Overnight we still POLL and MATCH (both free) — we just refuse to propose
+    # or to spend on a backdrop until the morning digest drains the queue.
+    ok, why = budget.check(require_image=not quiet)
     if not ok:
         DD.run_log(event="run_blocked", job="drop_correspondent", reason=why)
         print("  BLOCKED: %s" % why); return
@@ -120,6 +136,16 @@ def main():
                 continue
             DD.run_log(event="drop_match", headline=key,
                        image_name=m["image_name"], rarity=m["rarity"])
+            if quiet:
+                q = load_queue()
+                q.append({"image_name": m["image_name"], "rarity": m["rarity"],
+                          "headline": key, "queued_at": datetime.now(timezone.utc).isoformat()})
+                save_queue(q)
+                DD.run_log(event="drop_queued_quiet_hours", headline=key,
+                           image_name=m["image_name"], queue_depth=len(q))
+                print("  quiet hours — queued %s for the morning digest" % m["image_name"])
+                hits += 1
+                break
             built = DD.build_one({"image_name": m["image_name"], "rarity": m["rarity"],
                                   "source": "drop_correspondent", "hook": key}, card_only=False)
             if built:
