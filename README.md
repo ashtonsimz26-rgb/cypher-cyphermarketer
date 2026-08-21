@@ -169,3 +169,56 @@ it never changes a price.**
 - **C — re-price the catalog at scale via PK.** DEFERRED to PRICEKEEPER's own
   arc: its autonomous write gate needs ≥0.70 confidence and currently sits at
   0.58, so corrections stay operator-supplied (34 SKUs applied to date).
+
+## Incident 2026-08-21: ten hours of alerts, two real bugs, and a wrong hypothesis
+
+**The reboot hypothesis was wrong.** The mini was rebooted the night of Aug 20 and
+every job came back correctly — env, PATH, working directory, state-file perms
+and Keychain access were all fine. Nothing needed re-arming. Chasing
+reboot-survival would have been chasing a ghost; the logs said otherwise.
+
+**Two genuinely separate bugs, neither reboot-related:**
+
+### 1. The watchdog watched itself into a permanent alarm
+
+`watchdog.py` returned `1` whenever it raised any alert, AND listed its own job
+in `JOBS`. So once it alerted for any reason, its own `last_exit=1` became an
+alert on the next run — which made it exit 1 again. **A self-sustaining loop
+that could never return to healthy.**
+
+The seed was real: the digest's `NameError` on 2026-08-20. But that was fixed the
+same day, and the watchdog kept alerting hourly for ten more hours on nothing but
+itself. The overnight alerts were *its own echo*.
+
+> **A job's exit code is an alarm OUTPUT, not a health signal about itself.**
+> For the watchdog, `loaded` is the only self-check that means anything. It now
+> reports its own loaded state and never alerts on its own exit code.
+
+### 2. `--max` capped candidates EVALUATED, not proposals produced
+
+`candidates(min(a.max, 3))` returned exactly `--max` candidates. With `--max 1`
+the digest tried **one** shoe; that shoe hit `skipped_no_hook`, and the morning
+produced nothing. The job exited 0 — it had not failed, it had been starved.
+
+Combined with a deliberately strict editorial bar, a one-candidate search
+guarantees frequent silence. The pool is now `POOL_FACTOR (8) x` the target and
+the loop stops at the target, so `--max` means what its help text always claimed.
+
+**The generalisable part:** a strict quality gate and a narrow candidate pool are
+individually reasonable and jointly produce silence. When you tighten a filter,
+widen what you feed it.
+
+### Alerting is now a diagnosis, not a doorbell
+
+Ten identical `last_exit=1` messages never once named the `NameError`. Alerts now
+carry the last stderr lines inline, and 3+ consecutive failures of the same job
+escalate to `🔴 PERSISTENT FAILURE (n CONSECUTIVE)` so severity is visible at a
+glance. Alerts are also ledgered to `runs.jsonl` — previously they were printed
+and lost, which is why the alert history could not be reconstructed.
+
+### Verification note
+
+`launchctl kickstart` with captured output remains the standard (see the earlier
+lesson). This incident adds a caveat rather than a reboot clause: **a job exiting
+0 is not proof it did its job.** The digest exited 0 all morning while producing
+nothing. Check the ledger for the intended OUTPUT, not just the exit code.

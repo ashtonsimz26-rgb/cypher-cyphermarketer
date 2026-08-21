@@ -1,0 +1,51 @@
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T03:42:53.820106+00:00"}
+{"event": "drop_match", "headline": "Nike Mind 001 &#8220;Light Smoke Grey&#8221;", "image_name": "nike_mind_001_mule_light_smoke_grey", "rarity": "Common", "ts": "2026-08-20T03:42:56.565773+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 1, "ts": "2026-08-20T03:44:06.610847+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T05:44:06.831694+00:00"}
+{"event": "drop_match", "headline": "Nike Air Max Goadome Low &#8220;Light Orewood Brown/Black&#8221;", "image_name": "nike_air_humara_17_black", "rarity": "Rare", "ts": "2026-08-20T05:44:09.296785+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 1, "ts": "2026-08-20T05:45:41.845990+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T07:45:42.537791+00:00"}
+{"event": "drop_match", "headline": "Nike Air Max Goadome Low &#8220;Black&#8221;", "image_name": "nike_air_humara_17_black", "rarity": "Rare", "ts": "2026-08-20T07:45:45.099024+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 1, "ts": "2026-08-20T07:46:51.521336+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T09:46:52.188940+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T09:46:56.702131+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T11:46:57.104252+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T11:46:59.787613+00:00"}
+{"event": "run_start", "job": "digest", "card_only": false, "ts": "2026-08-20T13:00:05.446531+00:00"}
+{"event": "draft_rejected_by_rails", "image_name": "aj8_doernbecher", "failed": [], "weighted": 324, "ts": "2026-08-20T13:29:45.710136+00:00"}
+{"event": "draft_built", "image_name": "aj8_doernbecher", "hook_type": "story", "format": "story_spotlight", "weighted": 274, "ts": "2026-08-20T13:31:56.976684+00:00"}
+{"event": "draft_built", "image_name": "aj8_doernbecher", "hook_type": "story", "format": "price_journey", "weighted": 204, "ts": "2026-08-20T13:34:51.326734+00:00"}
+{"event": "draft_built", "image_name": "aj8_doernbecher", "hook_type": "story", "format": "story_spotlight", "weighted": 271, "ts": "2026-08-20T13:37:12.319721+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T13:46:59.997941+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T13:47:02.619674+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T15:47:02.847765+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T15:47:05.634387+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T17:47:05.827605+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T17:47:08.408408+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T19:47:08.640286+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T19:47:11.629798+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T21:47:11.943389+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T21:47:14.503996+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-20T23:47:14.757904+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-20T23:47:17.857998+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-21T01:47:18.106906+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-21T01:47:20.837249+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-21T03:47:21.069045+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-21T03:47:26.139397+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-21T05:47:26.538067+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-21T05:47:29.612870+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-21T07:47:30.301011+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-21T07:47:33.297217+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-21T09:47:34.038985+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-21T09:47:36.904460+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-21T11:47:37.253393+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-21T11:47:40.192376+00:00"}
+{"event": "run_start", "job": "digest", "card_only": false, "ts": "2026-08-21T13:00:04.743091+00:00"}
+{"event": "skipped_no_hook", "image_name": "sb_dunk_high_dinosaur_jr", "reason": "no story element in the catalog row (description is spec-only)", "ts": "2026-08-21T13:00:09.316086+00:00"}
+{"event": "run_end", "job": "digest", "proposed": 0, "ts": "2026-08-21T13:00:09.316468+00:00"}
+{"event": "run_start", "job": "drop_correspondent", "ts": "2026-08-21T13:47:40.525366+00:00"}
+{"event": "run_end", "job": "drop_correspondent", "proposed": 0, "ts": "2026-08-21T13:47:43.788269+00:00"}
+{"event": "run_start", "job": "digest", "card_only": false, "ts": "2026-08-21T14:27:53.064653+00:00"}
+{"event": "candidate_pool", "job": "digest", "pool": 8, "want": 1, "ts": "2026-08-21T14:27:55.575171+00:00"}
+{"event": "draft_built", "image_name": "sb_dunk_low_black_pigeon", "hook_type": "price_journey", "format": "price_journey", "weighted": 209, "ts": "2026-08-21T14:29:33.945261+00:00"}
+{"event": "run_end", "job": "digest", "proposed": 1, "ts": "2026-08-21T14:29:36.674295+00:00"}

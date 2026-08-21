@@ -29,6 +29,7 @@ import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, b
 RUNS = HERE / "ledger" / "runs.jsonl"
 SEED = HERE / "data" / "on_this_day.json"
 OUT = HERE / "content"
+POOL_FACTOR = 8   # candidates searched per proposal wanted
 
 
 def run_log(**kw):
@@ -180,7 +181,7 @@ def build_one(cand: dict, card_only: bool) -> dict | None:
 
 def main():
     ap = argparse.ArgumentParser(description="Scheduled Content Factory digest")
-    ap.add_argument("--max", type=int, default=1, help="candidates to propose (<=3)")
+    ap.add_argument("--max", type=int, default=1, help="PROPOSALS to produce (<=3); the candidate POOL searched is larger")
     ap.add_argument("--card-only", action="store_true", help="no AI backdrop, no spend")
     ap.add_argument("--source", default="digest")
     a = ap.parse_args()
@@ -197,7 +198,17 @@ def main():
             pass
         return
     n = 0
-    for cand in candidates(min(a.max, 3)):
+    # ★ The digest evaluated exactly --max candidates, so ONE hookless candidate
+    # produced ZERO proposals (2026-08-21 09:00: a single skipped_no_hook and an
+    # empty morning). --max is a cap on PROPOSALS; the pool searched must be
+    # wider or a strict editorial bar guarantees silence. Search POOL_FACTOR x
+    # the target, stop at the target.
+    want = min(a.max, 3)
+    pool = candidates(want * POOL_FACTOR)
+    run_log(event="candidate_pool", job=a.source, pool=len(pool), want=want)
+    for cand in pool:
+        if n >= want:
+            break
         try:
             built = build_one(cand, a.card_only)
         except SystemExit:
