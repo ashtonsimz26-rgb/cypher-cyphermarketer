@@ -20,16 +20,18 @@ Same CHAT is fine (two bots, one conversation). Same TOKEN would be data loss.
 
 FLOW
   propose  -> sends photo + exact tweet text + proposal id; ledgers "proposed"
-  poll     -> reads replies; approve / reject / or edited text (a reply that is
-              not a keyword IS the new text, taken VERBATIM)
+  poll     -> reads replies; `approve` / `reject <reason>` / `edit: <new text>`.
+              Replacement copy is OPT-IN behind `edit:`. Anything unrecognised is
+              a no-op plus help — it never publishes (ruling C2, 2026-09-09).
+              Proposals expire after PROPOSAL_TTL_HOURS (ruling C3).
   approve  -> posts via x_client, ledgers the tweet id, confirms with the link
 
 Authorization: only CYPHERMARKETER_TELEGRAM_CHAT_ID may decide. Decisions are
 idempotent — a proposal already decided is never acted on twice.
 """
 from __future__ import annotations
-import argparse, json, mimetypes, sys, time, urllib.request, urllib.error, uuid
-from datetime import datetime, timezone
+import argparse, json, mimetypes, re, sys, time, urllib.request, urllib.error, uuid
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -41,6 +43,91 @@ PROPOSAL_LEDGER = HERE / "ledger" / "proposals.jsonl"
 API = "https://api.telegram.org/bot{token}"
 APPROVE = {"approve", "approved", "yes", "y", "ok", "ship", "post", "go", "👍", "✅"}
 REJECT = {"reject", "rejected", "no", "n", "nope", "kill", "skip", "👎", "❌"}
+
+# ── VERDICT GRAMMAR ──────────────────────────────────────────────────────────
+# ⚠️ THE DEFAULT USED TO BE PUBLISH. Until 2026-09-09 any reply that was not an
+# exact APPROVE/REJECT token was treated as replacement copy and posted VERBATIM.
+# So "reject: too wordy" tweeted the words "reject: too wordy". That made
+# reject-with-reason not merely unsupported but actively dangerous, and it is why
+# 23 of 31 proposals sat with no verdict — the only safe things to type were two
+# bare words. Replacement copy is now OPT-IN behind `edit:`; anything
+# unrecognised is a NO-OP plus help. Unrecognised input must never publish.
+EDIT_PREFIX = "edit:"
+PROPOSAL_TTL_HOURS = 48                  # digest is daily; 48h = two cycles of grace
+REJECT_REASONS = HERE / "state" / "reject_reasons.json"
+REASON_WINDOW = 10
+
+# A reject verb, then an optional free-text reason.
+REJECT_RE = re.compile(r"^(reject|rejected|no|nope|kill|skip)\b[\s:,.\-—]*(.*)$",
+                       re.I | re.S)
+
+# Reason -> controlled code, first match wins. Codes are CRAFT judgments only.
+# A reason that matches nothing stays uncoded — that is a valid outcome, not a
+# failure, and an uncoded reason feeds nothing back (see editorial.avoid_guidance).
+REASON_CODE_PATTERNS = (
+    ("generic_lead",       r"generic|filler|boilerplate|any shoe|swap test"),
+    ("too_wordy",          r"wordy|too long|verbose|trim|tighten|rambl"),
+    ("weak_hook",          r"weak hook|no hook|hook is weak|boring|dull|not a moment"),
+    ("format_repeat",      r"same format|same skeleton|format again|repetitive"),
+    ("price_unattributed", r"unattributed|attribution|price claim|\$"),
+)
+
+HELP = ("🧢 Not a verdict I recognise — nothing was posted.\n"
+        "Reply to a proposal with one of:\n"
+        "  approve\n"
+        "  reject <reason>      e.g.  reject weak hook\n"
+        "  edit: <new text>     replaces the copy, posted verbatim\n"
+        "Proposals expire after %dh." % PROPOSAL_TTL_HOURS)
+
+
+def infer_reason_code(reason: str | None) -> str | None:
+    """Map a free-text reason onto a controlled craft code, or None."""
+    if not reason:
+        return None
+    for code, pat in REASON_CODE_PATTERNS:
+        if re.search(pat, reason, re.I):
+            return code
+    return None
+
+
+def parse_verdict(body: str) -> tuple[str, str | None, str | None]:
+    """(verdict, payload, reason_code) — verdict in approve|reject|edit|unknown.
+
+    `payload` is the replacement copy for edit, or the reason for reject.
+    NOTHING falls through to publishing: an unparsed reply returns "unknown".
+    """
+    s = (body or "").strip()
+    low = s.lower()
+    if low in APPROVE:
+        return "approve", None, None
+    if low in REJECT:                                 # bare reject token or emoji
+        return "reject", None, None
+    if low.startswith(EDIT_PREFIX):
+        payload = s[len(EDIT_PREFIX):].strip()
+        return ("edit", payload, None) if payload else ("unknown", None, None)
+    m = REJECT_RE.match(s)
+    if m:
+        reason = (m.group(2) or "").strip() or None
+        return "reject", reason, infer_reason_code(reason)
+    return "unknown", None, None
+
+
+def record_reject_reason(pid: str, reason: str | None, code: str | None):
+    """Rolling window of reasons for the drafter to read. Reason-bearing only —
+    a reasonless reject carries no signal. The allow-list filter lives at the
+    READ side (editorial.avoid_guidance), so an uncoded reason is still stored
+    for Ashton to read while feeding nothing into drafting."""
+    if not reason:
+        return
+    try:
+        cur = json.loads(REJECT_REASONS.read_text())
+        if not isinstance(cur, list):
+            cur = []
+    except Exception:
+        cur = []
+    cur.append({"proposal_id": pid, "reason": reason, "reason_code": code, "ts": now()})
+    REJECT_REASONS.parent.mkdir(parents=True, exist_ok=True)
+    REJECT_REASONS.write_text(json.dumps(cur[-REASON_WINDOW:], indent=1) + "\n")
 
 
 def now() -> str:
@@ -109,13 +196,24 @@ def proposal_state() -> dict:
         ev = r.get("event")
         if ev == "proposed":
             cur.update(status="pending", text=r.get("text"), image=r.get("image"),
-                       message_id=r.get("message_id"))
-        elif ev in ("approved", "rejected", "posted", "failed"):
+                       message_id=r.get("message_id"), proposed_ts=r.get("ts"))
+        elif ev in ("approved", "rejected", "posted", "failed", "expired"):
             cur["status"] = ev
             if r.get("url"):
                 cur["url"] = r["url"]
             if r.get("final_text"):
                 cur["text"] = r["final_text"]
+    # TTL is COMPUTED, so a proposal ages out whether or not a sweep ever runs.
+    # Without this, pending was terminal-by-omission: 23 proposals accumulated,
+    # which killed the single-pending fallback and made every bare reply useless.
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=PROPOSAL_TTL_HOURS)
+    for v in st.values():
+        if v["status"] == "pending" and v.get("proposed_ts"):
+            try:
+                if datetime.fromisoformat(v["proposed_ts"]) < cutoff:
+                    v["status"] = "expired"
+            except Exception:
+                pass
     return st
 
 
@@ -159,8 +257,10 @@ def cmd_propose(a, e):
         "%s\n"
         "──────────\n%s\n──────────\n"
         "%d/280 chars · %s\n\n"
-        "Reply: approve · reject · or send edited text (used VERBATIM)."
-        % (pid, a.note or "", text, wl, img.name)
+        "Reply: approve · reject <reason> · edit: <new text>\n"
+        "A reason teaches the next draft. Unrecognised replies do nothing.\n"
+        "Expires in %dh."
+        % (pid, a.note or "", text, wl, img.name, PROPOSAL_TTL_HOURS)
     )
     res = send_photo(e, img, caption[:1024])
     ledger({"event": "proposed", "proposal_id": pid, "text": text, "image": str(img),
@@ -182,16 +282,26 @@ def save_offset(v: int):
     OFFSET_FILE.write_text(json.dumps({"offset": v, "updated": now()}) + "\n")
 
 
-def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | None):
+def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | None,
+           reason: str | None = None, reason_code: str | None = None):
     st = proposal_state().get(pid)
     if not st:
+        return
+    if st["status"] == "expired":                    # specific before generic
+        send_text(e, "⏳ %s expired after %dh — the digest will re-propose it if it is "
+                     "still right. Nothing posted." % (pid, PROPOSAL_TTL_HOURS), reply_to)
         return
     if st["status"] != "pending":                    # idempotent
         send_text(e, "⚠️ %s already %s — ignoring." % (pid, st["status"]), reply_to)
         return
     if verdict == "reject":
-        ledger({"event": "rejected", "proposal_id": pid})
-        send_text(e, "🛑 %s rejected. Nothing posted." % pid, reply_to)
+        rec = {"event": "rejected", "proposal_id": pid, "reason_code": reason_code}
+        if reason:
+            rec["reason"] = reason
+        ledger(rec)
+        record_reject_reason(pid, reason, reason_code)
+        send_text(e, "🛑 %s rejected%s. Nothing posted." % (
+            pid, " — noted: %s" % reason if reason else " (no reason given)"), reply_to)
         return
 
     text = final_text if final_text is not None else st["text"]
@@ -264,7 +374,6 @@ def cmd_poll(a, e):
             body = (m.get("text") or "").strip()
             if not body:
                 continue
-            low = body.lower()
             reply_mid = (m.get("reply_to_message") or {}).get("message_id")
             state = proposal_state()
             pending = [v for v in state.values() if v["status"] == "pending"]
@@ -279,16 +388,22 @@ def cmd_poll(a, e):
                     send_text(e, "⚠️ %d proposals pending — reply to the one you mean."
                               % len(pending), m.get("message_id"))
                 continue
-            decided = False
-            if low in APPROVE:
+            verdict, payload, reason_code = parse_verdict(body)
+            if verdict == "unknown":
+                # NO-OP + discoverable grammar. Never a publish. The help text is
+                # the whole remedy: the correct usage is learnable from a mistake.
+                send_text(e, HELP, m.get("message_id"))
+                continue
+            if verdict == "approve":
                 decide(e, target["proposal_id"], "approve", None, m.get("message_id"))
-            elif low in REJECT:
-                decide(e, target["proposal_id"], "reject", None, m.get("message_id"))
-            else:
-                # anything else IS the replacement copy, taken verbatim
-                decide(e, target["proposal_id"], "approve", body, m.get("message_id"))
-                decided = True
-            if a.once and decided:
+            elif verdict == "reject":
+                decide(e, target["proposal_id"], "reject", None, m.get("message_id"),
+                       reason=payload, reason_code=reason_code)
+            else:                                    # explicit `edit:` — verbatim copy
+                decide(e, target["proposal_id"], "approve", payload, m.get("message_id"))
+            # --once means once: ANY real verdict ends the run. Previously only an
+            # edit set this, so approve/reject polled on to the max-seconds ceiling.
+            if a.once:
                 return
     print("  poll window ended.")
 

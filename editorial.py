@@ -29,6 +29,31 @@ from x_client import weighted_len  # noqa: E402  (pure function, no side effects
 
 HERE = Path(__file__).resolve().parent
 FORMAT_STATE = HERE / "state" / "last_format.json"
+REJECT_REASONS = HERE / "state" / "reject_reasons.json"
+
+# ── REJECTION FEEDBACK — SHAPE ONLY, NEVER SUBJECT ───────────────────────────
+# (Deliberately UNLETTERED: the editorial bar's letters are load-bearing —
+#  SOUL.md already uses (e) for A MATCH IS NOT A MOMENT and (f) for VERIFY
+#  BEFORE YOU CLAIM, and daily_digest.py keys comments to those letters.
+#  This is a feedback channel, not a fifth gate. Do not letter it.)
+# v1.3 ruling (2026-09-09): the agent may learn the SHAPE of a post from human
+# rejection — never its SUBJECT. Subject selection stays pillar- and lore-driven.
+# This frozenset IS that ruling in code, as a POSITIVE filter: a reason whose
+# code is null, unrecognised, or absent from this set feeds NOTHING into
+# drafting. Rejections are still recorded in full for Ashton to read.
+#
+# ⚠️ ADDING A SUBJECT-SHAPED CODE HERE (a shoe, a brand, a topic, "no interest")
+# would silently convert human feedback into topic-selection-by-engagement —
+# the exact objective v1.3 rejected. The allow-list is the mechanism that keeps
+# "learn the shape, not the topic" true. Do not widen it without a ruling.
+ALLOWED_FEEDBACK_CODES = frozenset({
+    "generic_lead", "too_wordy", "weak_hook", "format_repeat", "price_unattributed",
+})
+
+# When a human has said "too wordy", aim well under the ceiling rather than
+# trimming to fit it. This is the one code a TEMPLATE writer can act on today;
+# the rest become writer constraints when the LLM writer lands (F4).
+TOO_WORDY_LIMIT = 240
 LINK = "https://apps.apple.com/app/cypher-unlock-the-vault/id6761334111"
 
 # Copy skeletons. `which_would_you_pull` is DECLARED but not yet selectable —
@@ -74,6 +99,31 @@ def record_format(fmt: str):
     FORMAT_STATE.parent.mkdir(parents=True, exist_ok=True)
     FORMAT_STATE.write_text(json.dumps(
         {"format": fmt, "ts": datetime.now(timezone.utc).isoformat()}))
+
+
+def avoid_guidance(window: int = 10) -> list[str]:
+    """Allow-listed craft codes from recent human rejections, most recent first.
+
+    The filter is POSITIVE — a code enters only by being IN
+    ALLOWED_FEEDBACK_CODES. Uncoded reasons ("nobody cares about Crocs") and
+    unrecognised codes return nothing, so a subject judgment cannot reach the
+    drafter even though it is recorded. Missing or malformed file -> no
+    guidance, never an exception: feedback is an improvement, not a dependency.
+    """
+    try:
+        rows = json.loads(REJECT_REASONS.read_text())
+        if not isinstance(rows, list):
+            return []
+    except Exception:
+        return []
+    out: list[str] = []
+    for r in reversed(rows[-window:]):
+        if not isinstance(r, dict):
+            continue
+        code = r.get("reason_code")
+        if code in ALLOWED_FEEDBACK_CODES and code not in out:
+            out.append(code)
+    return out
 
 
 def detect_hook(row: dict, *, source: str, price_verified: bool,
@@ -177,6 +227,10 @@ def build_draft(row: dict, hook_type: str, fmt: str, *, price_verified: bool,
     draft — it is an untrimmed one. The STORY is what gets shortened (at a word
     boundary); the hook, the attribution and the link are structural and never
     truncated."""
+    # Honour a human "too wordy" by lowering the target, but only when the caller
+    # took the default — an explicit limit is the caller's decision, not ours.
+    if limit == 280 and "too_wordy" in avoid_guidance():
+        limit = TOO_WORDY_LIMIT
     cw = row.get("colorway") or ""
     year, retail = row.get("year"), row.get("retail_price")
     frag_full = _story_fragment(row.get("description") or "")
