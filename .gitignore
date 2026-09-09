@@ -17,3 +17,7 @@ state/_*.sql
 
 # Machine-local runtime state (telegram offset, scratch SQL) — never commit.
 state/
+
+# Hard Gate backups — timestamped pre-edit snapshots. Local safety net,
+# never source of truth, never committed.
+_backups/
