@@ -36,6 +36,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
+import rails  # noqa: E402  (pure checks over local data; no network)
 import x_client as X  # noqa: E402
 
 OFFSET_FILE = HERE / "state" / "telegram_offset.json"      # NOT CPA's state file
@@ -196,7 +197,14 @@ def proposal_state() -> dict:
         ev = r.get("event")
         if ev == "proposed":
             cur.update(status="pending", text=r.get("text"), image=r.get("image"),
-                       message_id=r.get("message_id"), proposed_ts=r.get("ts"))
+                       message_id=r.get("message_id"), proposed_ts=r.get("ts"),
+                       rails_ctx=r.get("rails_ctx"))
+        # ⚠️ "rails_blocked" and "edit_too_long" are DELIBERATELY ABSENT from this
+        # tuple. A validation failure is information, not a verdict: the proposal
+        # stays pending so it can be fixed with `edit:` and re-approved. Logging
+        # either as "failed" would make it terminal — which is exactly the bug
+        # fixed here (the over-length path told you to "send a shorter version"
+        # and then refused every retry).
         elif ev in ("approved", "rejected", "posted", "failed", "expired"):
             cur["status"] = ev
             if r.get("url"):
@@ -263,8 +271,13 @@ def cmd_propose(a, e):
         % (pid, a.note or "", text, wl, img.name, PROPOSAL_TTL_HOURS)
     )
     res = send_photo(e, img, caption[:1024])
+    # rails_ctx lets check_draft() re-run at APPROVE time. Absent for CLI-driven
+    # proposals, which then fall back to the STRICT direction (see decide()).
+    # NEVER derive image_name from the image filename: daily_digest truncates it
+    # at [:40] in the stem, so long names would be silently wrong.
     ledger({"event": "proposed", "proposal_id": pid, "text": text, "image": str(img),
-            "note": a.note, "message_id": res.get("message_id"), "weighted_len": wl})
+            "note": a.note, "message_id": res.get("message_id"), "weighted_len": wl,
+            "rails_ctx": getattr(a, "rails_ctx", None)})
     print("  proposed %s  (telegram message_id %s)" % (pid, res.get("message_id")))
     print("  awaiting decision in Telegram…")
 
@@ -280,6 +293,45 @@ def load_offset() -> int:
 def save_offset(v: int):
     OFFSET_FILE.parent.mkdir(parents=True, exist_ok=True)
     OFFSET_FILE.write_text(json.dumps({"offset": v, "updated": now()}) + "\n")
+
+
+def rails_gate(text: str, ctx: dict | None) -> tuple[bool, list[tuple[str, bool, str]]]:
+    """Re-run rails.check_draft() on the text about to be posted.
+
+    price_verified is RECOMPUTED, never cached: rails.price_claim_allowed reads
+    PK's local price_history and applies FRESHNESS_DAYS against the current
+    clock, so an aged proposal fails freshness here even though it passed at
+    draft time. No network, no PK process, no fresh API read.
+
+    FAIL-CLOSED on a missing context: a proposal with no stored rails_ctx (a
+    CLI-driven propose, or one made before F1.5) gets price_verified=False,
+    which forces any price claim out of our own voice. Never permissive.
+
+    card_shows_value / pool_reachable are passed exactly as daily_digest passes
+    them, so this call site treats the rail identically — no rail is weakened,
+    strengthened, or made conditional here.
+    """
+    price_verified = False
+    if ctx and ctx.get("style_code"):
+        price_verified, _why = rails.price_claim_allowed(
+            ctx["style_code"], ctx.get("estimated_resale"))
+    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
+                              price_verified=price_verified)
+    failed = [c for c in checks if not c[1]]
+    return (not failed), failed
+
+
+def render_rails_block(pid: str, failed: list[tuple[str, bool, str]]) -> str:
+    """Labels PLUS remediation notes — this has to be actionable from a phone."""
+    lines = ["⛔ %s NOT posted — rails failed at approval:" % pid]
+    for label, _passed, note in failed:
+        lines.append("  • %s" % label)
+        if note:
+            lines.append("    ↳ %s" % note)
+    lines.append("")
+    lines.append("Still pending. Send `edit: <fixed text>` to correct it, or leave "
+                 "it to expire.")
+    return "\n".join(lines)
 
 
 def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | None,
@@ -307,19 +359,38 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     text = final_text if final_text is not None else st["text"]
     wl = X.weighted_len(text)
     if wl > 280:
-        ledger({"event": "failed", "proposal_id": pid, "error": "edited text %d>280" % wl})
+        # NON-TERMINAL (fix #1): the message promises a retry, so the retry must
+        # work. This used to log "failed", which is terminal — every "shorter
+        # version" was then answered with "already failed — ignoring".
+        ledger({"event": "edit_too_long", "proposal_id": pid, "weighted": wl})
         send_text(e, "❌ %s: your edit is %d/280 chars — too long. Send a shorter version."
                   % (pid, wl), reply_to)
         return
-    edited = final_text is not None
-    ledger({"event": "approved", "proposal_id": pid, "final_text": text, "edited": edited})
+
+    # ── RAILS AT APPROVE TIME (F1.5) ─────────────────────────────────────────
+    # Runs on the FINAL text — the stored draft OR an `edit:` payload. Edits were
+    # previously length-checked ONLY, so a verbatim edit bypassed gambling,
+    # attribution and price screening entirely. rails.py itself is unchanged;
+    # this is the same rail running at one more call site.
+    ok_rails, failed = rails_gate(text, st.get("rails_ctx"))
+    if not ok_rails:
+        ledger({"event": "rails_blocked", "proposal_id": pid,      # NON-terminal
+                "failed": [f[0] for f in failed], "edited": final_text is not None})
+        send_text(e, render_rails_block(pid, failed), reply_to)
+        return
 
     used = X.posts_last_24h()
     if used >= X.MAX_POSTS_24H:
-        ledger({"event": "failed", "proposal_id": pid, "error": "24h cap reached"})
-        send_text(e, "🚫 %s approved but the 4-post/24h cap is reached (%d). Not posted."
-                  % (pid, used), reply_to)
+        # NON-TERMINAL (fix #2): checked BEFORE the approved row is written, so a
+        # capped proposal stays decidable once the cap clears. Previously
+        # "approved" was ledgered first, terminally, and the retry was refused.
+        ledger({"event": "cap_deferred", "proposal_id": pid, "posts_last_24h": used})
+        send_text(e, "🚫 %s not posted — the 4-post/24h cap is reached (%d). Still "
+                     "pending: approve again once it clears." % (pid, used), reply_to)
         return
+
+    edited = final_text is not None
+    ledger({"event": "approved", "proposal_id": pid, "final_text": text, "edited": edited})
 
     xenv = X.load_env(Path(X.DEFAULT_ENV))
     X.ledger_append({"event": "attempt", "text": text,

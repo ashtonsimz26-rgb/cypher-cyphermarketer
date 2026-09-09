@@ -161,6 +161,10 @@ def main():
                     text_file = str(built["text_file"]); image = str(built["image"])
                     note = ("DROP CORRESPONDENT — headline: %r · backdrop: %s · %d/280"
                             % (key[:80], built["insp"], built["weighted"]))
+                    # Same rails context as the digest path. Omitting it here would
+                    # leave drop proposals silently unprotected at approve time —
+                    # the half-wired state F1.5 exists to avoid.
+                    rails_ctx = built["rails_ctx"]
                 TB.cmd_propose(_A, TB.env())
                 hits += 1
             break                                     # at most one extra draft per run

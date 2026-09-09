@@ -176,7 +176,16 @@ def build_one(cand: dict, card_only: bool) -> dict | None:
             format=fmt, weighted=wl)
     return {"text_file": tf, "image": visual, "cand": cand, "insp": insp,
             "price_ok": price_ok, "price_why": price_why, "weighted": wl,
-            "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why}
+            "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why,
+            # RAILS CONTEXT — persisted on the proposal so rails.check_draft() can
+            # re-run at APPROVE time (F1.5). The ledger row previously carried none
+            # of this, so the approve path could not re-derive price_verified and
+            # ran no rails at all. style_code + estimated_resale are the only
+            # inputs rails.price_claim_allowed() needs; freshness is recomputed
+            # from local PK history against the clock, never cached here.
+            "rails_ctx": {"style_code": sc,
+                          "estimated_resale": row.get("estimated_resale"),
+                          "image_name": cand["image_name"]}}
 
 
 def main():
@@ -226,7 +235,8 @@ def main():
         # first unattended digest AFTER it had already spent $0.04 on a backdrop.
         # SimpleNamespace has no scoping surprise.
         argv = SimpleNamespace(text_file=str(built["text_file"]),
-                               image=str(built["image"]), note=note)
+                               image=str(built["image"]), note=note,
+                               rails_ctx=built["rails_ctx"])
         TB.cmd_propose(argv, e)
         n += 1
     run_log(event="run_end", job=a.source, proposed=n)
