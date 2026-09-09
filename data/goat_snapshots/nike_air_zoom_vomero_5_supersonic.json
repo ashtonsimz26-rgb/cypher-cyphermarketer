@@ -1,0 +1,40 @@
+{
+ "name": "Nike Air Zoom Vomero 5 'Supersonic'",
+ "nickname": "Supersonic",
+ "designer": "",
+ "story_html": "The Nike Air Zoom Vomero 5 ‘Supersonic’ features an airy white mesh upper reinforced with black synthetic leather detailing at the forefoot and heel. Glow-in-the-dark accents make their way to the molded heel counter and quarter-panel cage, overlaid with a signature Swoosh in synthetic white leather. Lightweight cushioning is provided by a full-length Phylon midsole, fitted with Zoom Air cushioning and supported by a glow-in-the-dark rubber outsole.",
+ "details": "White/Igloo/Black/Neutral Grey",
+ "keywords": [],
+ "silhouette": "Air Zoom Vomero 5",
+ "collection_slugs": [
+  "everyday-sneakers",
+  "shoes-2022",
+  "late-summer-layers",
+  "runners",
+  "back-to-school-sneakers",
+  "crm-styled-with-graphic-tees",
+  "summer-dressing-crm",
+  "new-now-sneakers",
+  "emerging-silhouettes-france",
+  "monochrome-sneakers",
+  "technical-silhouettes",
+  "retro-running-shoes",
+  "mesh-uppers",
+  "travel-essentials-sneakers-crm",
+  "retro-revival-collection",
+  "best-of-2024-sneakers",
+  "city-miles",
+  "fall-staples-footwear"
+ ],
+ "season": " 2023",
+ "release_date": "2023-08-01T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "FN7649 110",
+ "retail_price_cents": 17500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:43.546009+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FN7649 110&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "name": "adidas Yeezy Knit Runner 'Fade Indigo'",
+ "nickname": "Fade Indigo",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Knit Runner ‘Fade Indigo’ brings a gradient color scheme to the minimalist slip-on. Built with knit textile, the upper is rendered in an ombre effect made up of blue, green, and violet hues. A solid blue finish distinguishes the stretchy cuff that accentuates the sneaker’s snug, sock-like fit. Lightweight cushioning is provided by a hidden EVA misdsole. Underfoot, adidas branding decorates the brown rubber outsole, featuring a modified herringbone tread for superior grip.",
+ "details": "Faded Indigo/Faded Indigo/Faded Indigo",
+ "keywords": [],
+ "silhouette": "Yeezy Knit Runner",
+ "collection_slugs": [
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "2024-yeezy-drops"
+ ],
+ "season": " 2022",
+ "release_date": "2022-10-18T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "HP3370",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:52.173940+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HP3370&hitsPerPage=20"
+ }
+}

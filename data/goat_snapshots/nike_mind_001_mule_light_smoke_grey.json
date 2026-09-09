@@ -1,0 +1,36 @@
+{
+ "name": "Nike Mind 001 Mule 'Light Smoke Grey'",
+ "nickname": "Light Smoke Grey",
+ "designer": "",
+ "story_html": "The Nike Mind 001 'Light Smoke Grey' combines science and style to upgrade your daily routine. Featuring a neutral Light Smoke Grey and Photon Dust palette, this mule is designed to activate your senses through its innovative 22-node outsole. Each node moves independently to stimulate sensory areas of the brain, helping you stay grounded. The upper is crafted from soft knit materials with perforations for breathability, making it perfect for pregame relaxation or post-game recovery. With robust foam cushioning and Hyper Crimson accents, it delivers a comfortable and responsive ride.",
+ "details": "Light Smoke Grey/Photon Dust/Hyper Crimson/Chrome",
+ "keywords": [],
+ "silhouette": "Mind 001",
+ "collection_slugs": [
+  "instant",
+  "slides-clogs",
+  "slides-sandals",
+  "future-shapes-sneakers",
+  "backless-shoes",
+  "best-of-slides",
+  "slip-ons",
+  "nike-mind",
+  "alias-ready-to-buy",
+  "back-to-school-statement-sneakers",
+  "back-to-school-statement-sneakers-alias",
+  "back-to-school-top-selling-alias",
+  "back-to-school-most-wanted",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2026",
+ "release_date": "2026-01-08T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "HQ4307 003",
+ "retail_price_cents": 9500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:06.173831+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ4307 003&hitsPerPage=20"
+ }
+}

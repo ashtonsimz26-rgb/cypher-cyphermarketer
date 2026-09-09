@@ -1,0 +1,2990 @@
+{
+ "adidas_yeezy_450_stone_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:39.459603+00:00",
+  "reason": null,
+  "release_date": "2023-08-04",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID9446",
+  "year": 2023
+ },
+ "adidas_yeezy_450_stone_teal": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:40.099355+00:00",
+  "reason": null,
+  "release_date": "2023-05-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID1632",
+  "year": 2023
+ },
+ "adidas_yeezy_700_V3_dark_glow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:40.867770+00:00",
+  "reason": null,
+  "release_date": "2021-08-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "GX6144",
+  "year": 2021
+ },
+ "adidas_yeezy_boost_350_V2_beluga_reflective": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:41.580371+00:00",
+  "reason": null,
+  "release_date": "2021-12-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "GW1229",
+  "year": 2021
+ },
+ "adidas_yeezy_boost_350_V2_black_non_reflective": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:42.261876+00:00",
+  "reason": null,
+  "release_date": "2019-06-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "FU9006",
+  "year": 2019
+ },
+ "adidas_yeezy_boost_350_V2_bone": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:42.919244+00:00",
+  "reason": null,
+  "release_date": "2022-03-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ6316",
+  "year": 2022
+ },
+ "adidas_yeezy_boost_350_V2_cream_white_triple_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:43.769650+00:00",
+  "reason": null,
+  "release_date": "2017-04-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "CP9366",
+  "year": 2017
+ },
+ "adidas_yeezy_boost_350_V2_dazzling_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:44.496923+00:00",
+  "reason": null,
+  "release_date": "2022-02-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "GY7164",
+  "year": 2022
+ },
+ "adidas_yeezy_boost_350_V2_mx_rock": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:45.204452+00:00",
+  "reason": null,
+  "release_date": "2021-12-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "GW3774",
+  "year": 2021
+ },
+ "adidas_yeezy_boost_350_V2_slate": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:46.003839+00:00",
+  "reason": null,
+  "release_date": "2022-09-03",
+  "source": "goat:product_variants_v2",
+  "style_code": "HP7870",
+  "year": 2022
+ },
+ "adidas_yeezy_boost_700_V2_tephra": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:49.530446+00:00",
+  "reason": null,
+  "release_date": "2019-06-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "FU7914",
+  "year": 2019
+ },
+ "adidas_yeezy_boost_700_analog": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:46.726625+00:00",
+  "reason": null,
+  "release_date": "2019-04-27",
+  "source": "goat:product_variants_v2",
+  "style_code": "EG7596",
+  "year": 2019
+ },
+ "adidas_yeezy_boost_700_inertia": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:47.356098+00:00",
+  "reason": null,
+  "release_date": "2019-03-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "EG7597",
+  "year": 2019
+ },
+ "adidas_yeezy_boost_700_mnvn_triple_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:48.207981+00:00",
+  "reason": null,
+  "release_date": "2020-02-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "FV4440",
+  "year": 2020
+ },
+ "adidas_yeezy_boost_700_utility_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:48.913257+00:00",
+  "reason": null,
+  "release_date": "2019-06-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "FV5304",
+  "year": 2019
+ },
+ "adidas_yeezy_boost_700_wash_orange": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:50.239173+00:00",
+  "reason": null,
+  "release_date": "2021-10-16",
+  "source": "goat:product_variants_v2",
+  "style_code": "GW0296",
+  "year": 2021
+ },
+ "adidas_yeezy_desert_boot_oil": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:51.027870+00:00",
+  "reason": null,
+  "release_date": "2019-04-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "EG6463",
+  "year": 2019
+ },
+ "adidas_yeezy_desert_boot_salt": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:51.666546+00:00",
+  "reason": null,
+  "release_date": "2019-09-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "FV5677",
+  "year": 2019
+ },
+ "adidas_yeezy_foam_runner_carbon": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:52.316936+00:00",
+  "reason": null,
+  "release_date": "2023-08-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "IG5349",
+  "year": 2023
+ },
+ "adidas_yeezy_foam_runner_mx_cinder": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:53.156935+00:00",
+  "reason": null,
+  "release_date": "2023-05-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID4126",
+  "year": 2023
+ },
+ "adidas_yeezy_foam_runner_onyx": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:53.822501+00:00",
+  "reason": null,
+  "release_date": "2022-06-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "HP8739",
+  "year": 2022
+ },
+ "adidas_yeezy_foam_runner_sand": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:54.438047+00:00",
+  "reason": null,
+  "release_date": "2021-03-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "FY4567",
+  "year": 2021
+ },
+ "adidas_yeezy_slide_bone": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:55.169014+00:00",
+  "reason": null,
+  "release_date": "2022-10-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ5897",
+  "year": 2022
+ },
+ "adidas_yeezy_slide_dark_onyx": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:55.769071+00:00",
+  "reason": null,
+  "release_date": "2024-03-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID5103",
+  "year": 2024
+ },
+ "adidas_yeezy_slide_flax": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:56.482519+00:00",
+  "reason": null,
+  "release_date": "2022-08-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ5896",
+  "year": 2022
+ },
+ "adidas_yeezy_slide_granite": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:57.258972+00:00",
+  "reason": null,
+  "release_date": "2023-08-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID4132",
+  "year": 2023
+ },
+ "adidas_yeezy_slide_onyx": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:57.861198+00:00",
+  "reason": null,
+  "release_date": "2022-07-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ6448",
+  "year": 2022
+ },
+ "adidas_yeezy_slide_salt": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:58.559854+00:00",
+  "reason": null,
+  "release_date": "2024-03-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID5480",
+  "year": 2024
+ },
+ "adidas_yeezy_slide_slate_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:48:59.329042+00:00",
+  "reason": null,
+  "release_date": "2023-08-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID2350",
+  "year": 2023
+ },
+ "af1_cpfm_black": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:48:59.938891+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2024
+ },
+ "af1_low_07_white": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:48:59.939819+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "315122-111",
+  "year": 2007
+ },
+ "af1_low_supreme_comme_des_garcons_shirt": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:00.593795+00:00",
+  "reason": null,
+  "release_date": "2017-05-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "923044-100",
+  "year": 2017
+ },
+ "af1_low_supreme_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:01.237217+00:00",
+  "reason": null,
+  "release_date": "2020-03-05",
+  "source": "goat:product_variants_v2",
+  "style_code": "CU9225-100",
+  "year": 2020
+ },
+ "af1_low_un-tiffany": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:01.867907+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "af1_travisscott_utopia": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:01.869290+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2023
+ },
+ "airmax1_og": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:01.869644+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DQ3989-100",
+  "year": 1987
+ },
+ "airmax1_olympic": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:02.569842+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2024
+ },
+ "airmax1_patta_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:02.570497+00:00",
+  "reason": null,
+  "release_date": "2022-08-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "DQ0299-100",
+  "year": 2022
+ },
+ "airmax1_travisscott_cactusjack_saturn_gold": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:03.234584+00:00",
+  "reason": null,
+  "release_date": "2022-05-27",
+  "source": "goat:product_variants_v2",
+  "style_code": "DO9392-700",
+  "year": 2022
+ },
+ "airmax90_bacon_og": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:04.048076+00:00",
+  "reason": null,
+  "release_date": "2004-01-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "310766-161",
+  "year": 2004
+ },
+ "airmax90_midnight_navy_gum": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:04.656557+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2023
+ },
+ "airmax90_reverse_dunk_camo": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:04.656865+00:00",
+  "reason": null,
+  "release_date": "2020-03-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "CW6024-600",
+  "year": 2020
+ },
+ "airmax90_triple_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:05.296430+00:00",
+  "reason": null,
+  "release_date": "2020-01-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "CN8490-100",
+  "year": 2020
+ },
+ "airmaxcorrelate_black_white_grey": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:05.929342+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "511417-019",
+  "year": 2012
+ },
+ "airmaxplus_supreme_university_red": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:06.428133+00:00",
+  "reason": null,
+  "release_date": "2020-10-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "DA1472-600",
+  "year": 2020
+ },
+ "aj11_ie_black_white": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:11.750366+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2023
+ },
+ "aj11_low_re2pect": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:11.751266+00:00",
+  "reason": null,
+  "release_date": "2018-05-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "AV2187-441",
+  "year": 2018
+ },
+ "aj11_rare_air": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:12.359937+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "aj13_doernbecher": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:12.360798+00:00",
+  "reason": null,
+  "release_date": "2015-11-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "836405-305",
+  "year": 2015
+ },
+ "aj1_dark_mocha": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:07.074225+00:00",
+  "reason": null,
+  "release_date": "2020-10-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "555088-105",
+  "year": 2020
+ },
+ "aj1_flight_club": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:07.746407+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "aj1_low_85_metallic_blue": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:07.747243+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2024
+ },
+ "aj1_low_medium_olive": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:07.747544+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "aj1_low_velvet_brown_og": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:07.747724+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2024
+ },
+ "aj1_mid_chicago_toe": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:07.747838+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2020
+ },
+ "aj1_mid_patent_black_white_gold": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:07.747935+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "554724-190",
+  "year": 2019
+ },
+ "aj1_mid_rare_air": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:08.264600+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "aj1_mid_white_neutral_grey_infared": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:08.265251+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "aj1_nigel_sylvester": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:08.265647+00:00",
+  "reason": null,
+  "release_date": "2018-08-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "BV1803-106",
+  "year": 2018
+ },
+ "aj1_patent_bred": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:08.958354+00:00",
+  "reason": null,
+  "release_date": "2021-12-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "555088-063",
+  "year": 2021
+ },
+ "aj1_sb_lance_mountain_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:09.556544+00:00",
+  "reason": null,
+  "release_date": "2014-06-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "653532-002",
+  "year": 2014
+ },
+ "aj1_sb_lance_mountain_low": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:10.237878+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "BQ6931-201",
+  "year": 2019
+ },
+ "aj1_travisscott_mocha": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:11.034368+00:00",
+  "reason": null,
+  "release_date": "2019-05-11",
+  "source": "goat:product_variants_v2",
+  "style_code": "CD4487-100",
+  "year": 2019
+ },
+ "aj2_sp_union_grey_fog": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:13.082618+00:00",
+  "reason": null,
+  "release_date": "2022-09-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "DQ7691-419",
+  "year": 2022
+ },
+ "aj3_fear_pack": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:13.719052+00:00",
+  "reason": null,
+  "release_date": "2023-11-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8532-080",
+  "year": 2023
+ },
+ "aj3_mocha_og": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:14.336481+00:00",
+  "reason": null,
+  "release_date": "2001-09-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "136064-121",
+  "year": 2001
+ },
+ "aj3_orange_citrus": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:14.918222+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "aj3_spring_is_in_the_air": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:14.919410+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "aj3_unite": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:14.919743+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "CN8094-100",
+  "year": 2020
+ },
+ "aj4_black_cat_og": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:15.548199+00:00",
+  "reason": null,
+  "release_date": "2006-05-20",
+  "source": "goat:product_variants_v2",
+  "style_code": "308497-002",
+  "year": 2006
+ },
+ "aj4_cool_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:16.212992+00:00",
+  "reason": null,
+  "release_date": "2004-09-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "308497-001",
+  "year": 2004
+ },
+ "aj4_flight_club": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:16.832714+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "aj4_retro_undefeated": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:16.833256+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "aj4_sb_navy": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:16.833481+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DR5415-103",
+  "year": 2025
+ },
+ "aj4_sb_pine_green": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:49:17.510503+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2023
+ },
+ "aj6_unc_home": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:17.511349+00:00",
+  "reason": null,
+  "release_date": "2022-03-05",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8529-410",
+  "year": 2022
+ },
+ "aj8_doernbecher": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:18.208189+00:00",
+  "reason": null,
+  "release_date": "2014-11-23",
+  "source": "goat:product_variants_v2",
+  "style_code": "729893-480",
+  "year": 2014
+ },
+ "blazerlow_77_vintage_white_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:18.877363+00:00",
+  "reason": null,
+  "release_date": "2020-12-04",
+  "source": "goat:product_variants_v2",
+  "style_code": "DA6364-101",
+  "year": 2020
+ },
+ "blazermid_77_vintage_white_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:19.542585+00:00",
+  "reason": null,
+  "release_date": "2019-03-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "BQ6806-100",
+  "year": 2019
+ },
+ "blazermid_off-white_grim_reaper": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:20.278031+00:00",
+  "reason": null,
+  "release_date": "2018-10-03",
+  "source": "goat:product_variants_v2",
+  "style_code": "AA3832-001",
+  "year": 2018
+ },
+ "jordan_11_retro_bred": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:35.679338+00:00",
+  "reason": null,
+  "release_date": "2019-12-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "378037-061",
+  "year": 2019
+ },
+ "jordan_11_retro_concord": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:36.346924+00:00",
+  "reason": null,
+  "release_date": "2018-12-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "378037-100",
+  "year": 2018
+ },
+ "jordan_11_retro_gratitude_defining_moments": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:37.050361+00:00",
+  "reason": null,
+  "release_date": "2023-12-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8012-170",
+  "year": 2023
+ },
+ "jordan_11_retro_gs_gamma_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:37.684471+00:00",
+  "reason": null,
+  "release_date": "2025-12-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "378038-047",
+  "year": 2025
+ },
+ "jordan_11_retro_low_bred": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:38.439986+00:00",
+  "reason": null,
+  "release_date": "2025-04-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "FV5104-006",
+  "year": 2025
+ },
+ "jordan_11_retro_low_cement_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:39.194156+00:00",
+  "reason": null,
+  "release_date": "2023-04-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "AV2187-140",
+  "year": 2023
+ },
+ "jordan_11_retro_low_legend_pink_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:39.838336+00:00",
+  "reason": null,
+  "release_date": "2024-06-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "AH7860-160",
+  "year": 2024
+ },
+ "jordan_11_retro_low_unc": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:40.506753+00:00",
+  "reason": null,
+  "release_date": "2026-04-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "FV5104-100",
+  "year": 2026
+ },
+ "jordan_11_retro_space_jam": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:41.297429+00:00",
+  "reason": null,
+  "release_date": "2016-12-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "378037-003",
+  "year": 2016
+ },
+ "jordan_11_retro_win_like_96": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:41.961623+00:00",
+  "reason": null,
+  "release_date": "2017-12-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "378037-623",
+  "year": 2017
+ },
+ "jordan_12_retro_blueberry": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:42.617578+00:00",
+  "reason": null,
+  "release_date": "2024-12-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8013-140",
+  "year": 2024
+ },
+ "jordan_12_retro_cherry": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:43.251468+00:00",
+  "reason": null,
+  "release_date": "2023-10-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8013-116",
+  "year": 2023
+ },
+ "jordan_12_retro_playoff": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:43.873234+00:00",
+  "reason": null,
+  "release_date": "2022-03-11",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8013-006",
+  "year": 2022
+ },
+ "jordan_12_retro_university_gold": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:44.653524+00:00",
+  "reason": null,
+  "release_date": "2020-07-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "130690-070",
+  "year": 2020
+ },
+ "jordan_13_retro_black_cat": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:45.317541+00:00",
+  "reason": null,
+  "release_date": "2017-01-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "414571-011",
+  "year": 2017
+ },
+ "jordan_14_retro_ferrari": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:45.973912+00:00",
+  "reason": null,
+  "release_date": "2025-06-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "IF5015-600",
+  "year": 2025
+ },
+ "jordan_17_retro_low_beach": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:46.709099+00:00",
+  "reason": null,
+  "release_date": "2025-10-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "IH0177-200",
+  "year": 2025
+ },
+ "jordan_1_low_golf_neutral_olive": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:21.098920+00:00",
+  "reason": null,
+  "release_date": "2023-10-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ3124-200",
+  "year": 2023
+ },
+ "jordan_1_low_mocha": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:21.765446+00:00",
+  "reason": null,
+  "release_date": "2019-07-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "CQ4277-001",
+  "year": 2019
+ },
+ "jordan_1_low_og_better_with_time": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:22.477347+00:00",
+  "reason": null,
+  "release_date": "2025-08-16",
+  "source": "goat:product_variants_v2",
+  "style_code": "IB8958-001",
+  "year": 2025
+ },
+ "jordan_1_low_og_sp_ps_shy_pink": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:23.167276+00:00",
+  "reason": null,
+  "release_date": "2026-05-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "IQ7605-100",
+  "year": 2026
+ },
+ "jordan_1_low_white_wolf_grey_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:23.788326+00:00",
+  "reason": null,
+  "release_date": "2021-07-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "DC0774-105",
+  "year": 2021
+ },
+ "jordan_1_retro_high_banned": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:24.518313+00:00",
+  "reason": null,
+  "release_date": "2011-06-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "432001-001",
+  "year": 2011
+ },
+ "jordan_1_retro_high_nrg_storm_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:25.163460+00:00",
+  "reason": null,
+  "release_date": "2018-11-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "BV1300-146",
+  "year": 2018
+ },
+ "jordan_1_retro_high_og_black_sport_royal_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:25.863940+00:00",
+  "reason": null,
+  "release_date": "2014-12-27",
+  "source": "goat:product_variants_v2",
+  "style_code": "716371-040",
+  "year": 2014
+ },
+ "jordan_1_retro_high_og_green_glow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:26.568308+00:00",
+  "reason": null,
+  "release_date": "2024-04-20",
+  "source": "goat:product_variants_v2",
+  "style_code": "DZ5485-130",
+  "year": 2024
+ },
+ "jordan_1_retro_high_og_hyper_royal": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:27.218317+00:00",
+  "reason": null,
+  "release_date": "2021-04-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "555088-402",
+  "year": 2021
+ },
+ "jordan_1_retro_high_og_off_white_euro": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:27.962760+00:00",
+  "reason": null,
+  "release_date": "2018-03-03",
+  "source": "goat:product_variants_v2",
+  "style_code": "AQ0818-100",
+  "year": 2018
+ },
+ "jordan_1_retro_high_og_royal_reimagined": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:28.708069+00:00",
+  "reason": null,
+  "release_date": "2023-11-04",
+  "source": "goat:product_variants_v2",
+  "style_code": "DZ5485-042",
+  "year": 2023
+ },
+ "jordan_1_retro_high_og_shadow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:29.348809+00:00",
+  "reason": null,
+  "release_date": "2018-04-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "555088-013",
+  "year": 2018
+ },
+ "jordan_1_retro_high_og_shattered_backboard": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:30.068339+00:00",
+  "reason": null,
+  "release_date": "2025-08-23",
+  "source": "goat:product_variants_v2",
+  "style_code": "DZ5485-008",
+  "year": 2025
+ },
+ "jordan_1_retro_high_og_unc": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:30.784459+00:00",
+  "reason": null,
+  "release_date": "2018-05-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "AQ0818-148",
+  "year": 2018
+ },
+ "jordan_1_retro_high_og_varsity_red": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:31.477275+00:00",
+  "reason": null,
+  "release_date": "2026-02-27",
+  "source": "goat:product_variants_v2",
+  "style_code": "IO7847-002",
+  "year": 2026
+ },
+ "jordan_1_retro_high_og_yellow_toe": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:32.109028+00:00",
+  "reason": null,
+  "release_date": "2022-09-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "555088-711",
+  "year": 2022
+ },
+ "jordan_1_retro_low_og_banned": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:32.858316+00:00",
+  "reason": null,
+  "release_date": "2026-05-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "IW6276-001",
+  "year": 2026
+ },
+ "jordan_1_retro_low_og_shadow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:33.468285+00:00",
+  "reason": null,
+  "release_date": "2025-05-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "HM9208-001",
+  "year": 2025
+ },
+ "jordan_1_retro_low_og_sp_black_phantom": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:34.187035+00:00",
+  "reason": null,
+  "release_date": "2022-12-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "DM7866-001",
+  "year": 2022
+ },
+ "jordan_1_retro_low_og_voodoo_alternate": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:35.049269+00:00",
+  "reason": null,
+  "release_date": "2025-10-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "IH2309-500",
+  "year": 2025
+ },
+ "jordan_3_retro_all_star": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:47.371602+00:00",
+  "reason": null,
+  "release_date": "2026-02-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "IR0912-400",
+  "year": 2026
+ },
+ "jordan_3_retro_cement_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:48.068402+00:00",
+  "reason": null,
+  "release_date": "2024-08-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8532-106",
+  "year": 2024
+ },
+ "jordan_3_retro_family_affair": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:48.737743+00:00",
+  "reason": null,
+  "release_date": "2025-10-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "DN3707-202",
+  "year": 2025
+ },
+ "jordan_3_retro_green_glow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:49.390653+00:00",
+  "reason": null,
+  "release_date": "2024-03-16",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8532-031",
+  "year": 2024
+ },
+ "jordan_3_retro_knicks": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:50.013566+00:00",
+  "reason": null,
+  "release_date": "2019-09-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "136064-148",
+  "year": 2019
+ },
+ "jordan_3_retro_medell_n_sunset": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:50.752400+00:00",
+  "reason": null,
+  "release_date": "2023-09-23",
+  "source": "goat:product_variants_v2",
+  "style_code": "FN0344-901",
+  "year": 2023
+ },
+ "jordan_3_retro_og_sp_for_the_love": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:51.592292+00:00",
+  "reason": null,
+  "release_date": "2025-04-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "HV8571-100",
+  "year": 2025
+ },
+ "jordan_3_retro_pine_green": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:52.197402+00:00",
+  "reason": null,
+  "release_date": "2021-10-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8532-030",
+  "year": 2021
+ },
+ "jordan_3_retro_rio": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:53.123576+00:00",
+  "reason": null,
+  "release_date": "2024-05-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "FN0344-001",
+  "year": 2024
+ },
+ "jordan_3_retro_sp_bicoastal": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:53.826927+00:00",
+  "reason": null,
+  "release_date": "2024-06-20",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ7974-300",
+  "year": 2024
+ },
+ "jordan_3_retro_sp_denim_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:54.448441+00:00",
+  "reason": null,
+  "release_date": "2026-02-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "IH7959-400",
+  "year": 2026
+ },
+ "jordan_3_retro_white_cement_reimagined": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:55.169956+00:00",
+  "reason": null,
+  "release_date": "2023-03-11",
+  "source": "goat:product_variants_v2",
+  "style_code": "DN3707-100",
+  "year": 2023
+ },
+ "jordan_4_retro_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:55.927419+00:00",
+  "reason": null,
+  "release_date": "2019-11-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "CK2925-001",
+  "year": 2019
+ },
+ "jordan_4_retro_bordeaux": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:56.560276+00:00",
+  "reason": null,
+  "release_date": "2020-10-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "CZ5624-100",
+  "year": 2020
+ },
+ "jordan_4_retro_iced_carmine_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:57.240120+00:00",
+  "reason": null,
+  "release_date": "2026-04-23",
+  "source": "goat:product_variants_v2",
+  "style_code": "IB6716-600",
+  "year": 2026
+ },
+ "jordan_4_retro_lightning": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:58.096279+00:00",
+  "reason": null,
+  "release_date": "2021-08-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8527-700",
+  "year": 2021
+ },
+ "jordan_4_retro_military_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:58.728320+00:00",
+  "reason": null,
+  "release_date": "2022-05-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH6927-111",
+  "year": 2022
+ },
+ "jordan_4_retro_off_noir": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:49:59.406608+00:00",
+  "reason": null,
+  "release_date": "2020-10-16",
+  "source": "goat:product_variants_v2",
+  "style_code": "DC9533-001",
+  "year": 2020
+ },
+ "jordan_4_retro_og_sp_brick_by_brick": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:00.127056+00:00",
+  "reason": null,
+  "release_date": "2025-03-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "HF4340-800",
+  "year": 2025
+ },
+ "jordan_4_retro_og_white_cement": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:01.077150+00:00",
+  "reason": null,
+  "release_date": "2016-02-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "840606-192",
+  "year": 2016
+ },
+ "jordan_4_retro_orchid_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:01.797443+00:00",
+  "reason": null,
+  "release_date": "2024-10-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "AQ9129-501",
+  "year": 2024
+ },
+ "jordan_4_retro_red_cement": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:02.482995+00:00",
+  "reason": null,
+  "release_date": "2023-09-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH6927-161",
+  "year": 2023
+ },
+ "jordan_4_retro_red_thunder": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:03.347969+00:00",
+  "reason": null,
+  "release_date": "2022-01-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8527-016",
+  "year": 2022
+ },
+ "jordan_4_retro_se_black_canvas": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:03.986740+00:00",
+  "reason": null,
+  "release_date": "2022-10-05",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH7138-006",
+  "year": 2022
+ },
+ "jordan_4_retro_tex_worn_blue_denim_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:04.599734+00:00",
+  "reason": null,
+  "release_date": "2025-08-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "IB6716-100",
+  "year": 2025
+ },
+ "jordan_4_retro_thunder": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:05.245740+00:00",
+  "reason": null,
+  "release_date": "2023-05-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH6927-017",
+  "year": 2023
+ },
+ "jordan_4_retro_university_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:05.915683+00:00",
+  "reason": null,
+  "release_date": "2021-04-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT8527-400",
+  "year": 2021
+ },
+ "jordan_5_retro_T23_tokyo": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:12.336742+00:00",
+  "reason": null,
+  "release_date": "2025-09-27",
+  "source": "goat:product_variants_v2",
+  "style_code": "IO3372-700",
+  "year": 2025
+ },
+ "jordan_5_retro_boro_arctic_pink": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:06.710358+00:00",
+  "reason": null,
+  "release_date": "2025-08-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "DV4982-600",
+  "year": 2025
+ },
+ "jordan_5_retro_boro_racer_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:07.484676+00:00",
+  "reason": null,
+  "release_date": "2025-08-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "DV4982-004",
+  "year": 2025
+ },
+ "jordan_5_retro_dusk": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:08.203005+00:00",
+  "reason": null,
+  "release_date": "2023-11-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "FD1330-001",
+  "year": 2023
+ },
+ "jordan_5_retro_gs_wolf_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:08.848573+00:00",
+  "reason": null,
+  "release_date": "2026-02-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "440888-002",
+  "year": 2026
+ },
+ "jordan_5_retro_medium_soft_pink": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:09.573047+00:00",
+  "reason": null,
+  "release_date": "2025-10-11",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ7978-102",
+  "year": 2025
+ },
+ "jordan_5_retro_off_noir": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:10.176367+00:00",
+  "reason": null,
+  "release_date": "2025-12-03",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ3004-001",
+  "year": 2025
+ },
+ "jordan_5_retro_photon_dust_black_diffused_blue_pale_ivory": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:11.003039+00:00",
+  "reason": null,
+  "release_date": "2023-11-27",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ5758-004",
+  "year": 2023
+ },
+ "jordan_5_retro_se_burgundy": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:11.670854+00:00",
+  "reason": null,
+  "release_date": "2023-08-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "DZ4131-600",
+  "year": 2023
+ },
+ "jordan_5_retro_we_the_best_crimson_bliss": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:13.051361+00:00",
+  "reason": null,
+  "release_date": "2022-11-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "DV4982-641",
+  "year": 2022
+ },
+ "jordan_9_retro_cool_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:13.818129+00:00",
+  "reason": null,
+  "release_date": "2025-03-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "HV4794-011",
+  "year": 2025
+ },
+ "jordan_flight_court_malachite": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:14.464352+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "FV3630-031",
+  "year": 2023
+ },
+ "jordan_jordan_1_retro_high_og_sp_fragment_design_x_travis_scott": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:14.979506+00:00",
+  "reason": null,
+  "release_date": "2021-07-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH3227-105",
+  "year": 2021
+ },
+ "jordan_jordan_1_retro_low_og_sp_travis_scott_olive_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:15.615318+00:00",
+  "reason": null,
+  "release_date": "2023-04-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "DZ4137-106",
+  "year": 2023
+ },
+ "jordan_jordan_jumpman_jack_tr_bright_cactus": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:16.271701+00:00",
+  "reason": null,
+  "release_date": "2025-04-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ8117-102",
+  "year": 2025
+ },
+ "jordan_jumpmanjack_tr_green_spark": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:16.988607+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "jordan_legacy_312_cny_year_of_the_rabbit": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:16.989580+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "FD4332-100",
+  "year": 2023
+ },
+ "jordan_legacy_312_low_white_black_elephant_swoosh": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:17.453770+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "FV3625-100",
+  "year": 2024
+ },
+ "kobe6_dark_knight": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:17.998630+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2011
+ },
+ "kobe6_sail_all_star": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:17.999557+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "mind001_slide_black_chrome": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:18.000077+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "nike_a_ma_maniere_x_pegasus_premium_sp_summit_white_metallic_silver": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:18.000294+00:00",
+  "reason": null,
+  "release_date": "2026-06-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "IM0701-100",
+  "year": 2026
+ },
+ "nike_air_foamposite_one_sp_cat_eye": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:18.632788+00:00",
+  "reason": null,
+  "release_date": "2024-07-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "DJ7952-002",
+  "year": 2024
+ },
+ "nike_air_foamposite_one_wu_tang": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:19.320425+00:00",
+  "reason": null,
+  "release_date": "2016-06-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "314996-701",
+  "year": 2016
+ },
+ "nike_air_foamposite_stranger_things": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:20.077769+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "nike_air_force_1_low_1837": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:20.078294+00:00",
+  "reason": null,
+  "release_date": "2023-03-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "DZ1382-001",
+  "year": 2023
+ },
+ "nike_air_force_1_low_box_logo_baroque_brown": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:20.788676+00:00",
+  "reason": null,
+  "release_date": "2023-11-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "CU9225-200",
+  "year": 2023
+ },
+ "nike_air_force_1_low_certified_lover_boy": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:21.451706+00:00",
+  "reason": null,
+  "release_date": "2022-12-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "CZ8065-100",
+  "year": 2022
+ },
+ "nike_air_force_1_low_concrete_boys_lucky_green": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:22.268642+00:00",
+  "reason": null,
+  "release_date": "2025-05-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "IH4383-300",
+  "year": 2025
+ },
+ "nike_air_force_1_low_lemonade": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:22.887638+00:00",
+  "reason": null,
+  "release_date": "2021-07-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "DD1876-700",
+  "year": 2021
+ },
+ "nike_air_force_1_low_patent_leather_dark_team_red": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:23.574244+00:00",
+  "reason": null,
+  "release_date": "2026-04-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "IO4489-601",
+  "year": 2026
+ },
+ "nike_air_force_1_low_pink_prime": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:24.298773+00:00",
+  "reason": null,
+  "release_date": "2022-11-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "DV5255-200",
+  "year": 2022
+ },
+ "nike_air_force_1_low_premium_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:24.936457+00:00",
+  "reason": null,
+  "release_date": "2020-09-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "DC4457-001",
+  "year": 2020
+ },
+ "nike_air_force_1_low_sp_brooklyn": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:25.583142+00:00",
+  "reason": null,
+  "release_date": "2022-09-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "DX1419-300",
+  "year": 2022
+ },
+ "nike_air_force_1_low_summit_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:26.211945+00:00",
+  "reason": null,
+  "release_date": "2025-09-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "II6234-100",
+  "year": 2025
+ },
+ "nike_air_force_1_low_total_orange": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:26.856212+00:00",
+  "reason": null,
+  "release_date": "2022-12-03",
+  "source": "goat:product_variants_v2",
+  "style_code": "DV5255-400",
+  "year": 2022
+ },
+ "nike_air_force_1_sail": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:27.617659+00:00",
+  "reason": null,
+  "release_date": "2018-08-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "AQ4211-101",
+  "year": 2018
+ },
+ "nike_air_force_1_supreme_tz_chinese_candy_box": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:28.292224+00:00",
+  "reason": null,
+  "release_date": "2009-01-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "358701-601",
+  "year": 2009
+ },
+ "nike_air_humara_17_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:28.779156+00:00",
+  "reason": null,
+  "release_date": "2017-10-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "924464-001",
+  "year": 2017
+ },
+ "nike_air_max_1000_2_black_pink_spell": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:29.947993+00:00",
+  "reason": null,
+  "release_date": "2026-06-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "JF3484-004",
+  "year": 2026
+ },
+ "nike_air_max_1_monarch": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:29.341083+00:00",
+  "reason": null,
+  "release_date": "2021-10-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH1348-001",
+  "year": 2021
+ },
+ "nike_air_max_95_bb_doaf_oregon_the_woods": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:30.665023+00:00",
+  "reason": null,
+  "release_date": "2026-03-26",
+  "source": "goat:product_variants_v2",
+  "style_code": "IQ3986-300",
+  "year": 2026
+ },
+ "nike_air_max_95_big_bubble_granite": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:31.316040+00:00",
+  "reason": null,
+  "release_date": "2026-02-05",
+  "source": "goat:product_variants_v2",
+  "style_code": "HM4740-007",
+  "year": 2026
+ },
+ "nike_air_max_95_lux_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:31.950450+00:00",
+  "reason": null,
+  "release_date": "2019-11-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "CI0999-001",
+  "year": 2019
+ },
+ "nike_air_max_95_og_black_anthracite": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:32.621837+00:00",
+  "reason": null,
+  "release_date": "2025-07-11",
+  "source": "goat:product_variants_v2",
+  "style_code": "HM4743-001",
+  "year": 2025
+ },
+ "nike_air_max_95_og_blue_spark": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:33.244796+00:00",
+  "reason": null,
+  "release_date": "2025-08-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "IM7410-100",
+  "year": 2025
+ },
+ "nike_air_max_95_og_light_orewood_brown": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:33.961951+00:00",
+  "reason": null,
+  "release_date": "2025-07-11",
+  "source": "goat:product_variants_v2",
+  "style_code": "HM4743-100",
+  "year": 2025
+ },
+ "nike_air_max_95_sp_honey_blacks": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:34.578719+00:00",
+  "reason": null,
+  "release_date": "2025-04-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "FB2709-003",
+  "year": 2025
+ },
+ "nike_air_max_muscle_95_qs_psychic_blue_mystic_navy_stone_blue_volt": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:35.295499+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "II7404-400",
+  "year": 2025
+ },
+ "nike_air_max_plus_25th_anniversary": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:36.035768+00:00",
+  "reason": null,
+  "release_date": "2023-11-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "FV0393-001",
+  "year": 2023
+ },
+ "nike_air_max_plus_triple_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:36.628732+00:00",
+  "reason": null,
+  "release_date": "2017-12-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "604133-050",
+  "year": 2017
+ },
+ "nike_air_rubber_dunk_university_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:37.252719+00:00",
+  "reason": null,
+  "release_date": "2020-10-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "CU6015-100",
+  "year": 2020
+ },
+ "nike_air_vapormax_2023_flyknit_pure_platinum_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:37.998006+00:00",
+  "reason": null,
+  "release_date": "2023-05-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "DV1678-002",
+  "year": 2023
+ },
+ "nike_air_zoom_spiridon_sp_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:38.654428+00:00",
+  "reason": null,
+  "release_date": "2024-12-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "HF5455-001",
+  "year": 2024
+ },
+ "nike_air_zoom_vomero_5_black_sequoia": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:39.344127+00:00",
+  "reason": null,
+  "release_date": "2024-10-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "HV2527-001",
+  "year": 2024
+ },
+ "nike_air_zoom_vomero_5_mystic_red_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:40.149879+00:00",
+  "reason": null,
+  "release_date": "2023-09-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "FN7778-600",
+  "year": 2023
+ },
+ "nike_air_zoom_vomero_5_photon_dust_metallic_silver_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:41.056678+00:00",
+  "reason": null,
+  "release_date": "2023-02-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "FD0884-025",
+  "year": 2023
+ },
+ "nike_air_zoom_vomero_5_se_sp_dark_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:41.728681+00:00",
+  "reason": null,
+  "release_date": "2019-04-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "CI1694-001",
+  "year": 2019
+ },
+ "nike_air_zoom_vomero_5_se_sp_white_racer_blue_black": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:42.384473+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "CI1694-100",
+  "year": 2019
+ },
+ "nike_air_zoom_vomero_5_supersonic": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:43.108224+00:00",
+  "reason": null,
+  "release_date": "2023-08-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "FN7649-110",
+  "year": 2023
+ },
+ "nike_blazer_sb_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:43.848605+00:00",
+  "reason": null,
+  "release_date": "2006-04-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "313962-001",
+  "year": 2006
+ },
+ "nike_calm_slide_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:44.509897+00:00",
+  "reason": null,
+  "release_date": "2023-07-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "FD4116-001",
+  "year": 2023
+ },
+ "nike_dunk_high_retro_premium_black_pollen_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:45.373271+00:00",
+  "reason": null,
+  "release_date": "2024-11-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "HJ4320-001",
+  "year": 2024
+ },
+ "nike_dunk_low_cpfm_psychic_purple": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:46.407264+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "nike_dunk_low_kentucky": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:46.407881+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "nike_dunk_low_premium_sb_qs_de_la_soul": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:46.408204+00:00",
+  "reason": null,
+  "release_date": "2015-05-16",
+  "source": "goat:product_variants_v2",
+  "style_code": "789841-332",
+  "year": 2015
+ },
+ "nike_dunk_low_retro_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:47.043298+00:00",
+  "reason": null,
+  "release_date": "2021-09-03",
+  "source": "goat:product_variants_v2",
+  "style_code": "DO9329-001",
+  "year": 2021
+ },
+ "nike_dunk_low_retro_cacao_wow_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:47.732818+00:00",
+  "reason": null,
+  "release_date": "2023-07-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "DD1503-124",
+  "year": 2023
+ },
+ "nike_dunk_low_retro_pure_platinum": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:48.578826+00:00",
+  "reason": null,
+  "release_date": "2020-11-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "CZ2670-001",
+  "year": 2020
+ },
+ "nike_dunk_low_retro_qs_argon": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:49.248466+00:00",
+  "reason": null,
+  "release_date": "2022-10-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "DM0121-400",
+  "year": 2022
+ },
+ "nike_dunk_low_sb_camper_green": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:49.896647+00:00",
+  "reason": null,
+  "release_date": "2025-09-04",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ8487-300",
+  "year": 2025
+ },
+ "nike_dunk_low_sb_ink": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:50.618301+00:00",
+  "reason": null,
+  "release_date": "2025-09-04",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ8487-500",
+  "year": 2025
+ },
+ "nike_dunk_low_sb_rammellzee": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:51.239239+00:00",
+  "reason": null,
+  "release_date": "2023-08-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "FD8778-001",
+  "year": 2023
+ },
+ "nike_dunk_low_sb_rayssa_leal": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:51.826467+00:00",
+  "reason": null,
+  "release_date": "2024-03-20",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ5251-001",
+  "year": 2024
+ },
+ "nike_dunk_low_sb_the_predatory_bird": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:52.575279+00:00",
+  "reason": null,
+  "release_date": "2022-11-04",
+  "source": "goat:product_variants_v2",
+  "style_code": "DX5549-400",
+  "year": 2022
+ },
+ "nike_dunk_low_sb_white_gum": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:53.198832+00:00",
+  "reason": null,
+  "release_date": "2023-01-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "CD2563-101",
+  "year": 2023
+ },
+ "nike_dunk_low_se_lottery_pack_grey_fog": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:53.971188+00:00",
+  "reason": null,
+  "release_date": "2022-08-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "DR9654-001",
+  "year": 2022
+ },
+ "nike_dunk_low_se_safari_mix_wmns": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:54.712615+00:00",
+  "reason": null,
+  "release_date": "2022-05-05",
+  "source": "goat:product_variants_v2",
+  "style_code": "DN3866-100",
+  "year": 2022
+ },
+ "nike_dunk_low_sp_20th_anniversary": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:55.367991+00:00",
+  "reason": null,
+  "release_date": "2023-06-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "FN0315-110",
+  "year": 2023
+ },
+ "nike_glide_black_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:56.033091+00:00",
+  "reason": null,
+  "release_date": "2023-09-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "DM0879-001",
+  "year": 2023
+ },
+ "nike_gtfuture_galaxy_aura": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:50:56.798850+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "nike_kd_6_brazil": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:56.799762+00:00",
+  "reason": null,
+  "release_date": "2026-06-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "IH3582-001",
+  "year": 2026
+ },
+ "nike_kobe_11_draft_day": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:57.451768+00:00",
+  "reason": null,
+  "release_date": "2016-04-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "836183-154",
+  "year": 2016
+ },
+ "nike_kobe_4_protro_carpe_diem": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:58.099360+00:00",
+  "reason": null,
+  "release_date": "2019-06-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "AV6339-001",
+  "year": 2019
+ },
+ "nike_kobe_4_protro_philly": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:58.838844+00:00",
+  "reason": null,
+  "release_date": "2024-04-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "FQ3545-400",
+  "year": 2024
+ },
+ "nike_kobe_5_protro_coconut_milk_spruce": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:50:59.549162+00:00",
+  "reason": null,
+  "release_date": "2026-06-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "IZ1852-100",
+  "year": 2026
+ },
+ "nike_kobe_5_protro_ny_vs_ny": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:00.200188+00:00",
+  "reason": null,
+  "release_date": "2026-08-04",
+  "source": "goat:product_variants_v2",
+  "style_code": "IX1200-300",
+  "year": 2026
+ },
+ "nike_kobe_5_protro_pe_particle_grey_light_cream_sail_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:00.995361+00:00",
+  "reason": null,
+  "release_date": "2020-09-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "CD4991-004",
+  "year": 2020
+ },
+ "nike_kobe_5_protro_x_ray": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:01.664705+00:00",
+  "reason": null,
+  "release_date": "2024-10-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "HJ4303-400",
+  "year": 2024
+ },
+ "nike_kobe_6_protro_mambacita_sweet_sixteen": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:02.312838+00:00",
+  "reason": null,
+  "release_date": "2022-05-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "CW2190-002",
+  "year": 2022
+ },
+ "nike_kobe_8_protro_court_purple": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:03.077897+00:00",
+  "reason": null,
+  "release_date": "2024-02-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "FQ3549-100",
+  "year": 2024
+ },
+ "nike_kobe_8_protro_radiant_emerald": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:03.717243+00:00",
+  "reason": null,
+  "release_date": "2024-02-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "FQ3549-101",
+  "year": 2024
+ },
+ "nike_ldv_waffle_blackened_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:04.398892+00:00",
+  "reason": null,
+  "release_date": "2021-08-27",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH2684-400",
+  "year": 2021
+ },
+ "nike_mind_001_blackened_blue": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:05.227416+00:00",
+  "reason": null,
+  "release_date": "2026-04-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ4307-400",
+  "year": 2026
+ },
+ "nike_mind_001_mule_light_smoke_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:05.843984+00:00",
+  "reason": null,
+  "release_date": "2026-01-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ4307-003",
+  "year": 2026
+ },
+ "nike_nike_air_max_1_87_luxe_university_of_oregon_pe": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:06.478927+00:00",
+  "reason": null,
+  "release_date": "2024-03-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ2639-100",
+  "year": 2024
+ },
+ "nike_p_6000_black_cool_grey": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:07.069026+00:00",
+  "reason": null,
+  "release_date": "2025-07-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "IF6199-003",
+  "year": 2025
+ },
+ "nike_p_6000_flat_pewter": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:07.812887+00:00",
+  "reason": null,
+  "release_date": "2023-08-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "FN7509-029",
+  "year": 2023
+ },
+ "nike_reactx_Rejuven8_slide_triple_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:08.537136+00:00",
+  "reason": null,
+  "release_date": "2025-04-23",
+  "source": "goat:product_variants_v2",
+  "style_code": "HV4479-001",
+  "year": 2025
+ },
+ "nike_sb_air_force_1_low_flax": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:09.118958+00:00",
+  "reason": null,
+  "release_date": "2026-06-09",
+  "source": "goat:product_variants_v2",
+  "style_code": "HM8517-200",
+  "year": 2026
+ },
+ "nike_sb_air_force_1_low_light_orewood_brown_pink": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:09.795437+00:00",
+  "reason": null,
+  "release_date": "2026-04-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "HM8517-100",
+  "year": 2026
+ },
+ "nike_sb_air_zoom_low_dodgers": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:10.538361+00:00",
+  "reason": null,
+  "release_date": "2026-06-16",
+  "source": "goat:product_variants_v2",
+  "style_code": "IU7835-001",
+  "year": 2026
+ },
+ "nike_sb_airmax_verdy_visty": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:11.197899+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2024
+ },
+ "nike_sb_chron2_black_gum": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:11.198406+00:00",
+  "reason": null,
+  "release_date": "2021-06-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "DM3493-002",
+  "year": 2021
+ },
+ "nike_sb_dunk_black_marina_white": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:11.903951+00:00",
+  "reason": null,
+  "release_date": "2026-05-12",
+  "source": "goat:product_variants_v2",
+  "style_code": "IQ1323-001",
+  "year": 2026
+ },
+ "nike_sb_fc_classic_summit_white": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:12.658865+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "AH7232-101",
+  "year": 2017
+ },
+ "nike_sb_force58_coconut_milk_neutral_olive": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:13.148977+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "nike_sb_janoski_slip_summit_white": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:13.149771+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DV5475-100",
+  "year": 2024
+ },
+ "nike_sb_x_air_max_95_og_cacao_wow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:13.676274+00:00",
+  "reason": null,
+  "release_date": "2026-01-20",
+  "source": "goat:product_variants_v2",
+  "style_code": "HF7545-002",
+  "year": 2026
+ },
+ "nike_sb_zoom_blazer_mid_lakers": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:14.352936+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DA8854-700",
+  "year": 2021
+ },
+ "nike_sb_zoom_dunk_low_pro_sports_car": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:14.842173+00:00",
+  "reason": null,
+  "release_date": "2017-02-02",
+  "source": "goat:product_variants_v2",
+  "style_code": "895969-006",
+  "year": 2017
+ },
+ "nike_sb_zoom_janoski_og": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:15.367548+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2024
+ },
+ "nike_sb_zoom_nyjah4_black_white": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:15.368273+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "nike_sb_zoom_stefan_janoski_og_alabaster_chili_red": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:15.368572+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "FJ1675-100",
+  "year": 2023
+ },
+ "nike_supreme_x_dunk_high_pro_sb_red": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:15.877547+00:00",
+  "reason": null,
+  "release_date": "2003-08-08",
+  "source": "goat:product_variants_v2",
+  "style_code": "307385-161",
+  "year": 2003
+ },
+ "nike_t_90_mule_khaki_university_gold": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:16.491221+00:00",
+  "reason": null,
+  "release_date": "2026-05-28",
+  "source": "goat:product_variants_v2",
+  "style_code": "IH4422-200",
+  "year": 2026
+ },
+ "nike_vapormax_cpfm": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:17.198010+00:00",
+  "reason": null,
+  "release_date": "2019-05-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "CD7001-300",
+  "year": 2019
+ },
+ "nike_wmns_nike_mind_001_pearl_pink": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:17.920590+00:00",
+  "reason": null,
+  "release_date": "2026-05-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ4309-610",
+  "year": 2026
+ },
+ "nike_zoom_fly_sp_black": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:18.587122+00:00",
+  "reason": null,
+  "release_date": "2018-12-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "AJ4588-001",
+  "year": 2018
+ },
+ "nikesb_force_58_black_anthracite_gold": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:19.240825+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "nikesb_gts_return_safari": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:19.241747+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "CV6283-200",
+  "year": 2020
+ },
+ "nikesb_zoom_airpaul_rodriguez1_habanero_red": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:19.832918+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "ow_af1_volt": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:19.833377+00:00",
+  "reason": null,
+  "release_date": "2018-12-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "AO4606-700",
+  "year": 2018
+ },
+ "ow_aj1_alaska": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:20.484016+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2026
+ },
+ "ow_blazer_hallows_eve": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:20.484912+00:00",
+  "reason": null,
+  "release_date": "2018-10-03",
+  "source": "goat:product_variants_v2",
+  "style_code": "AA3832-700",
+  "year": 2018
+ },
+ "sb_dunk_high_carpet_company": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:21.200805+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2021
+ },
+ "sb_dunk_high_dinosaur_jr": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:21.201869+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "313171-263",
+  "year": 2014
+ },
+ "sb_dunk_high_dr_feelgood": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:21.678226+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "305050-001",
+  "year": 2008
+ },
+ "sb_dunk_high_money_cat": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:22.254116+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "313171-271",
+  "year": 2007
+ },
+ "sb_dunk_high_run_the_jewels": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:22.747778+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DX4356-200",
+  "year": 2023
+ },
+ "sb_dunk_high_rx-0_unicorn_gundam": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:23.239182+00:00",
+  "reason": null,
+  "release_date": "2021-11-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "DH7717-100",
+  "year": 2021
+ },
+ "sb_dunk_high_rx-0_unicorn_gundam_02_banshee": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:23.883962+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DH7717-002",
+  "year": 2021
+ },
+ "sb_dunk_high_strawberry_cough": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:24.356592+00:00",
+  "reason": null,
+  "release_date": "2021-10-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "CW7093-600",
+  "year": 2021
+ },
+ "sb_dunk_high_sweet_tooth_candy_corn": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:25.120850+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2023
+ },
+ "sb_dunk_low_albino_preto": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:25.121463+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DO7412-994",
+  "year": 2022
+ },
+ "sb_dunk_low_april_skateboards": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:25.597085+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "FN0492-100",
+  "year": 2023
+ },
+ "sb_dunk_low_black_pigeon": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:26.153788+00:00",
+  "reason": null,
+  "release_date": "2017-11-07",
+  "source": "goat:product_variants_v2",
+  "style_code": "883232-008",
+  "year": 2017
+ },
+ "sb_dunk_low_chameleon": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:26.775823+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "FD8775-001",
+  "year": 2024
+ },
+ "sb_dunk_low_club58_gulf": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:27.490423+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DJ1559-400",
+  "year": 2021
+ },
+ "sb_dunk_low_gratefuldead_green": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:27.972887+00:00",
+  "reason": null,
+  "release_date": "2020-07-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "CJ5378-300",
+  "year": 2020
+ },
+ "sb_dunk_low_gratefuldead_yellow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:28.669071+00:00",
+  "reason": null,
+  "release_date": "2020-07-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "CJ5378-700",
+  "year": 2020
+ },
+ "sb_dunk_low_jarritos": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:29.473757+00:00",
+  "reason": null,
+  "release_date": "2023-05-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "FD0860-001",
+  "year": 2023
+ },
+ "sb_dunk_low_orange_emerald_rise": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:30.211762+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "HF3792-800",
+  "year": 2023
+ },
+ "sb_dunk_low_polaroid": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:30.759119+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "504750-014",
+  "year": 2010
+ },
+ "sb_dunk_low_pro_90s_backpack": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:31.230410+00:00",
+  "reason": null,
+  "release_date": "2023-12-13",
+  "source": "goat:product_variants_v2",
+  "style_code": "FB8895-300",
+  "year": 2023
+ },
+ "sb_dunk_low_pro_bart_simpson": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:31.879106+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2022
+ },
+ "sb_dunk_low_pro_black_white_gum": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:31.880023+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "sb_dunk_low_pro_parachute_beige": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:31.880319+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "sb_dunk_low_pro_seattle_supersonics": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:31.880473+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "FQ4337-001",
+  "year": 2024
+ },
+ "sb_dunk_low_purple_pigeon": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:53:30.401976+00:00",
+  "reason": null,
+  "release_date": "2006-11-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "304292-051",
+  "year": 2006
+ },
+ "sb_dunk_low_pushead": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:33.085629+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "313170-001",
+  "year": 2005
+ },
+ "sb_dunk_low_skate_like_a_girl": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:33.638009+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "DX4589-300",
+  "year": 2022
+ },
+ "sb_dunk_low_skate_or_die": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:34.143515+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "313170-016",
+  "year": 2008
+ },
+ "sb_dunk_low_staple_panda_pigeon": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:34.769114+00:00",
+  "reason": null,
+  "release_date": "2019-01-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "BV1310-013",
+  "year": 2019
+ },
+ "sb_dunk_low_travisscott": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:35.585829+00:00",
+  "reason": null,
+  "release_date": "2020-02-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "CT5053-001",
+  "year": 2020
+ },
+ "sb_dunk_low_verdy": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:36.275422+00:00",
+  "reason": null,
+  "release_date": "2022-11-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "DQ3977-100",
+  "year": 2022
+ },
+ "sb_dunk_pro_de_la_soul": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:36.872967+00:00",
+  "reason": null,
+  "release_date": "2005-10-01",
+  "source": "goat:product_variants_v2",
+  "style_code": "304292-171",
+  "year": 2005
+ },
+ "ts_af1_cactusjack": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:37.659175+00:00",
+  "reason": null,
+  "release_date": "2019-11-16",
+  "source": "goat:product_variants_v2",
+  "style_code": "CN2405-900",
+  "year": 2019
+ },
+ "yeezy1050_hi-res": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:39.832824+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
+ "yeezy350_butter": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:39.833340+00:00",
+  "reason": null,
+  "release_date": "2018-06-30",
+  "source": "goat:product_variants_v2",
+  "style_code": "F36980",
+  "year": 2018
+ },
+ "yeezy350_carbon_beluga": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:40.539805+00:00",
+  "reason": null,
+  "release_date": "2023-05-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ7045",
+  "year": 2023
+ },
+ "yeezy350_desert_sage": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:41.167773+00:00",
+  "reason": null,
+  "release_date": "2020-03-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "FX9035",
+  "year": 2020
+ },
+ "yeezy350_mono_mist": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:41.904440+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2021
+ },
+ "yeezy350_mx_dark_salt": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:41.905381+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2023
+ },
+ "yeezy350_pirate_black": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:41.905726+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "BB5350",
+  "year": 2023
+ },
+ "yeezy350_sand_taupe": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:42.545921+00:00",
+  "reason": null,
+  "release_date": "2020-12-19",
+  "source": "goat:product_variants_v2",
+  "style_code": "FZ5240",
+  "year": 2020
+ },
+ "yeezy350_semi_frozen_yellow": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:43.192969+00:00",
+  "reason": null,
+  "release_date": "2017-11-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "B37572",
+  "year": 2017
+ },
+ "yeezy350_steel_grey": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:43.934080+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2024
+ },
+ "yeezy350_turtledove": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:43.934597+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "AQ4832",
+  "year": 2022
+ },
+ "yeezy350v2_beluga_2.0": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:44.595285+00:00",
+  "reason": null,
+  "release_date": "2017-11-25",
+  "source": "goat:product_variants_v2",
+  "style_code": "AH2203",
+  "year": 2017
+ },
+ "yeezy350v2_clay": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:45.326667+00:00",
+  "reason": null,
+  "release_date": "2019-03-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "EG7490",
+  "year": 2019
+ },
+ "yeezy350v2_mx_oat": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:46.148428+00:00",
+  "reason": null,
+  "release_date": "2021-10-23",
+  "source": "goat:product_variants_v2",
+  "style_code": "GW3773",
+  "year": 2021
+ },
+ "yeezy350v2_static_black_reflective": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:46.755673+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "EF2367",
+  "year": 2019
+ },
+ "yeezy450_cinder": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:47.393016+00:00",
+  "reason": null,
+  "release_date": "2022-03-24",
+  "source": "goat:product_variants_v2",
+  "style_code": "GX9662",
+  "year": 2022
+ },
+ "yeezy700_hi-res_blue": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:48.029197+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "HP6083",
+  "year": 2022
+ },
+ "yeezy700_hi-res_red": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:48.495243+00:00",
+  "reason": null,
+  "release_date": "2022-06-17",
+  "source": "goat:product_variants_v2",
+  "style_code": "HQ6979",
+  "year": 2022
+ },
+ "yeezy700v3_copper_fade": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:49.336061+00:00",
+  "reason": null,
+  "release_date": "2021-12-10",
+  "source": "goat:product_variants_v2",
+  "style_code": "GY4109",
+  "year": 2021
+ },
+ "yeezy750_og": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:49.932823+00:00",
+  "reason": null,
+  "release_date": "2015-02-14",
+  "source": "goat:product_variants_v2",
+  "style_code": "B35309",
+  "year": 2015
+ },
+ "yeezy_380_covellite": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:38.315393+00:00",
+  "reason": null,
+  "release_date": "2021-03-15",
+  "source": "goat:product_variants_v2",
+  "style_code": "GZ0454",
+  "year": 2021
+ },
+ "yeezy_380_mist": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:38.976678+00:00",
+  "reason": null,
+  "release_date": "2020-02-29",
+  "source": "goat:product_variants_v2",
+  "style_code": "FX9846",
+  "year": 2020
+ },
+ "yeezybsktbl_knit_energy_glow": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:50.576380+00:00",
+  "reason": "no_hit",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "GY0291",
+  "year": 2022
+ },
+ "yeezyfoamrnr_clay_red": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:51.049238+00:00",
+  "reason": "year_mismatch",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "GW3354",
+  "year": 2023
+ },
+ "yeezyknitrnr_faded_azure": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:51.731690+00:00",
+  "reason": null,
+  "release_date": "2022-10-18",
+  "source": "goat:product_variants_v2",
+  "style_code": "HP3370",
+  "year": 2022
+ },
+ "yeezyslide_azure": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:52.479408+00:00",
+  "reason": null,
+  "release_date": "2023-05-31",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID4133",
+  "year": 2023
+ },
+ "yeezyslide_enflame_orange": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:53.079039+00:00",
+  "reason": null,
+  "release_date": "2021-06-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "GZ0953",
+  "year": 2021
+ },
+ "yeezyslide_slate_marine": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-09T19:51:53.739328+00:00",
+  "reason": null,
+  "release_date": "2023-08-11",
+  "source": "goat:product_variants_v2",
+  "style_code": "ID2349",
+  "year": 2023
+ },
+ "zoomfieldjaxx_travisscott_leche_blue": {
+  "confidence": null,
+  "fetched_at": "2026-09-09T19:51:54.530803+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ }
+}

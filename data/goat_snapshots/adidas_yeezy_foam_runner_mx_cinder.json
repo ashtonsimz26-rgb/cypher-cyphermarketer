@@ -1,0 +1,40 @@
+{
+ "name": "adidas Yeezy Foam Runner 'MX Cinder'",
+ "nickname": "MX Cinder",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Foam Runner ‘MX Cinder’ enlivens the slip-on silhouette with cooling splashes of color. Built with injected EVA foam, the one-piece upper is rendered in an earthy mix of brown and tan shades. Atop the vamp, a solid black finish is contrasted by unexpected bursts of aqua blue. A series of strategically mapped vents provide enhanced breathability, while the soft top layer of the footbed delivers step-in comfort. Underfoot, the contoured outsole features a wavy tread for optimal grip.",
+ "details": "MX Cinder/MX Cinder/MX Cinder",
+ "keywords": [],
+ "silhouette": "Yeezy Foam Runner",
+ "collection_slugs": [
+  "yeezy",
+  "instant",
+  "artist-collaborations",
+  "earth-tones",
+  "future-shapes-sneakers",
+  "just-dropped-yeezy",
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "deconstruction",
+  "futurism-footwear",
+  "top-trending-uk",
+  "2024-yeezy-drops",
+  "top-trending-canada",
+  "trending-eu",
+  "top-trending-eu-footwear",
+  "earn-even-more",
+  "on-the-rise-yeezy",
+  "promo-collection",
+  "used-yeezy"
+ ],
+ "season": " 2023",
+ "release_date": "2023-05-31T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "ID4126",
+ "retail_price_cents": 9000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:53.517123+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=ID4126&hitsPerPage=20"
+ }
+}

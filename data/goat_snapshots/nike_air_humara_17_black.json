@@ -1,0 +1,25 @@
+{
+ "name": "Supreme x Nike Air Humara 17 'Black'",
+ "nickname": "Black",
+ "designer": "Supreme",
+ "story_html": "Supreme revived the Air Humara trail runner from Nike’s outdoor archive with this October 2017 release. One of four colorways from the collaborative release, this pair differs from its two-tone counterparts with a monochromatic finish. Basic black covers the lightweight mesh upper and synthetic leather overlays, coated in a reflective finish on the toe and heel. An embossed Supreme logo appears on the lateral-side toe wrap, while embossed ‘World’ and ‘Famous’ inscriptions are stamped on the heel tabs of the left and right shoes.",
+ "details": "Black",
+ "keywords": [],
+ "silhouette": "Air Humara",
+ "collection_slugs": [
+  "outdoors",
+  "functional-footwear",
+  "level-3f"
+ ],
+ "season": " 2017",
+ "release_date": "2017-10-26T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "924464 001",
+ "retail_price_cents": 17000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:29.035652+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=924464 001&hitsPerPage=20"
+ }
+}

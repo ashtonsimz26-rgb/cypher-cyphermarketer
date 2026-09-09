@@ -1,0 +1,41 @@
+{
+ "name": "Tiffany & Co. x Nike Air Force 1 Low '1837'",
+ "nickname": "1837",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Tiffany & Co. x Nike Air Force 1 Low ‘1837’ delivers the debut collaboration between the iconic New York-based jeweler and the Swoosh. While the ‘Diamond’ Dunk SB from 2005 paid homage to the luxury emporium by featuring a leather base in Tiffany’s signature hue, this AF1 release makes the brand partnership official. Named after Tiffany’s founding year, the low-top utilizes a black suede upper with a tumbled leather Swoosh in the instantly recognizable shade of robin’s-egg blue. Woven tongue tags display ‘Tiffany’ script, while traditional ‘Nike Air’ branding appears in tonal embroidery on each black leather heel tab. Below that, an engraved Tiffany badge shines in metallic silver. Tiffany unveiled a range of sterling silver accessories to accompany the premium kicks, available separately from the AF1: a shoe horn, a shoe brush, lace dubrae and a whistle chain.",
+ "details": "Black/Multi-Color",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "498dd856-0306-4ee0-a623-d4cc5263091d",
+  "singles-day-selects",
+  "collabs",
+  "designer-collabs",
+  "letterman",
+  "best-collabs-sneakers",
+  "nike-tiffany",
+  "premium-materials-sneakers",
+  "back-to-school",
+  "y2k-2023",
+  "letterman-crm",
+  "y2k-crm",
+  "top-sneaker-collabs-uk",
+  "wnba-tunnel-fits",
+  "investment-sneakers",
+  "high-demand-low-supply-alias",
+  "luxe-accents",
+  "level-5f",
+  "level-3f"
+ ],
+ "season": " 2023",
+ "release_date": "2023-03-07T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "DZ1382 001",
+ "retail_price_cents": 40000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:20.486640+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DZ1382 001&hitsPerPage=20"
+ }
+}

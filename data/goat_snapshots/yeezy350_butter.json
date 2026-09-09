@@ -1,0 +1,36 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Butter'",
+ "nickname": "Butter",
+ "designer": "Kanye West",
+ "story_html": "Kanye West and adidas continued their partnership with the Yeezy Boost 350 V2 ‘Butter,’ which hit stores in June 2018. The minimalist silhouette features distinct center stitching on a reverse Primeknit upper, with the signature ‘SPLY-350’ inscription now printed on the interior side. The heel tab remains, finished in a bright yellow hue that matches the knitted upper, rope laces, and Boost-infused midsole.",
+ "details": "Butter/Butter/Butter",
+ "keywords": [
+  "Yeezy",
+  "Kanye West",
+  "350"
+ ],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "yeezy",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "yeezy-day",
+  "timeline-2018",
+  "color-spotlight-yellow",
+  "womens-yeezy",
+  "back-to-school-sneakers",
+  "used-yeezy"
+ ],
+ "season": " 2018",
+ "release_date": "2018-06-30T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "F36980",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:40.234339+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=F36980&hitsPerPage=20"
+ }
+}

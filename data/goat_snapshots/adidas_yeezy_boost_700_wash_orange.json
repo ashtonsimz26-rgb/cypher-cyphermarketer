@@ -1,0 +1,31 @@
+{
+ "name": "adidas Men's Yeezy Boost 700 'Wash Orange'",
+ "nickname": "Wash Orange",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 700 ‘Wash Orange’ spotlights the sneaker’s elevated tooling with a bold splash of color. An eye-catching shade of coral is executed on a sculpted PU midsole that houses full-length Boost cushioning, visible through cut-out sections in the herringbone-tread rubber outsole. Up top, the layered build is composed of breathable grey mesh with tonal overlays in suede and leather. Across the vamp, mesh paneling in dark teal and bright blue is reinforced with contrasting black suede overlays.",
+ "details": "Wash Orange/Wash Orange/Wash Orange",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 700",
+ "collection_slugs": [
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "styled-withhoodies",
+  "convenience-store",
+  "womens-yeezy",
+  "top-trending-fr-cross",
+  "washed-out",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-10-16T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "GW0296",
+ "retail_price_cents": 24000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:50.722295+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GW0296&hitsPerPage=20"
+ }
+}

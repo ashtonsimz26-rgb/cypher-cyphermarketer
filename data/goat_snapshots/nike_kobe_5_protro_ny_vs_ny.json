@@ -1,0 +1,29 @@
+{
+ "name": "Jalen Brunson x Nike Zoom Kobe 5 Protro 'NY vs. NY'",
+ "nickname": "NY vs. NY",
+ "designer": null,
+ "story_html": "The Jalen Brunson x Nike Zoom Kobe 5 Protro 'NY vs. NY' celebrates the annual Nike-sponsored summer streetball tournament showcasing the region's top high school talent. Inspired by the Statue of Liberty, a vibrant turquoise hue is applied to the seamless synthetic upper. Splatter graphics in the New York Knicks' signature blue and orange hues covers the forefoot overlay, eyestay, and heel counter. This Protro edition is updated with a lightweight Cushlon midsole with snappy Zoom Air cushioning in the forefoot. A translucent rubber outsole provides multi-directional traction underfoot.",
+ "details": "Menta/Blue Glow/Orange Horizon",
+ "keywords": [],
+ "silhouette": "Zoom Kobe 5",
+ "collection_slugs": [
+  "mamba-day",
+  "just-dropped",
+  "kobe",
+  "selling-out-fast-alias",
+  "new-york-knicks",
+  "draft-day-2026",
+  "trending-kobe-alias"
+ ],
+ "season": " 2026",
+ "release_date": "2026-08-04T07:00:00.000Z",
+ "release_year": 2026,
+ "sku": "IX1200 300",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:00.694025+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IX1200 300&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "name": "Nike Air Max Plus '25th Anniversary'",
+ "nickname": "25th Anniversary",
+ "designer": "Sean McDowell",
+ "story_html": "The Nike Air Max Plus '25th Anniversary' celebrates a quarter-century of the retro running shoe. Modeled after palm trees swaying in the wind, a wavy black TPU cage reinforces the breathable mesh upper, finished in gradient hues that nod to nod to classic AM Plus colorways in Hyper Blue, Sanguine, Palm and Fireberry. Anchoring the sneaker is a black polyurethane midsole, fitted with a whale tail-inspired midfoot shank and visible Air-sole cushioning in the forefoot and heel.",
+ "details": "Black/Black/Varsity Red/White",
+ "keywords": [],
+ "silhouette": "Air Max Plus",
+ "collection_slugs": [
+  "everyday-sneakers",
+  "goat-gift-guides",
+  "gift-guide-air-max-uk",
+  "trending-now-sneakers-uk",
+  "top-trending-uk",
+  "travel-essentials-sneakers-crm",
+  "city-miles",
+  "fall-staples-footwear"
+ ],
+ "season": " 2023",
+ "release_date": "2023-11-09T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "FV0393 001",
+ "retail_price_cents": 18500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:36.327505+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FV0393 001&hitsPerPage=20"
+ }
+}

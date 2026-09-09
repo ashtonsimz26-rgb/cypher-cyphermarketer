@@ -1,0 +1,33 @@
+{
+ "name": "Air Jordan 3 Retro 'Pine Green'",
+ "nickname": "Pine Green",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 3 Retro ‘Pine Green’ combines OG-style color blocking with updated materials. Black textured nubuck replaces traditional leather construction on the upper, which is enlivened with verdant green accents on the molded eyelets, perforated leather collar, and embroidered Jumpman branding atop the tongue. Forefoot and heel overlays are rendered in the 3’s signature elephant print, while the molded heel tab displays a second Jumpman icon. The retro silhouette is mounted on a white polyurethane midsole with contrast green detailing and visible Air-sole cushioning under the heel.",
+ "details": "Black/Pine Green/Cement Grey/White",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "royals-pine-greens",
+  "rain-gear",
+  "styled-withhoodies",
+  "sneaker-staples",
+  "back-to-school-sneakers",
+  "gift-guide-sneaker-icons-fr",
+  "year-in-sneakers",
+  "lucky-pine-greens",
+  "philadelphia-eagles",
+  "promo-collection",
+  "used-sneakers"
+ ],
+ "season": " 2021",
+ "release_date": "2021-10-30T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "CT8532 030",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:52.817924+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CT8532 030&hitsPerPage=20"
+ }
+}

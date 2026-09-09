@@ -1,0 +1,30 @@
+{
+ "name": "Nike Air Max 90 SP 'Reverse Duck Camo' 2020",
+ "nickname": "Reverse Duck Camo",
+ "designer": "Tinker Hatfield",
+ "story_html": "The 2024 edition of the Nike Air Max 90 SP 'Reverse Duck Camo' previously released in 2020, delivering a color-flipped version of the 'Duck Camo' Atmos collaboration from 2013. A black lizard-textured Swoosh adorns the upper, crafted from Infrared mesh with duck camo leather on the midfoot overlay and mudguard. Anchoring the sneaker is a lightweight polyurethane midsole with visible Air-sole cushioning in the heel.",
+ "details": "Infrared/Black",
+ "keywords": [],
+ "silhouette": "Air Max 90",
+ "collection_slugs": [
+  "air-max-day",
+  "air-max-90",
+  "greatest-issue-sneaker-index",
+  "utility-apparel",
+  "timeline-2020",
+  "camo-sneakers",
+  "level-3f",
+  "airmax90"
+ ],
+ "season": " 2020",
+ "release_date": "2020-03-26T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "CW6024 600",
+ "retail_price_cents": 14000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:04.995633+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CW6024 600&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "name": "Travis Scott x Nike Air Force 1 Low 'Cactus Jack'",
+ "nickname": "Cactus Jack",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Travis Scott x Air Force 1 Low 'Cactus Jack' is a unique creation featuring the rapper's trademark utilitarian cues. Released in November 2019, this edition has printed canvas, leather and suede uppers with zipped corduroy lace shrouds and different colored Swooshes on the sides. The sneaker rests atop a classic AF1 midsole and gum rubber outsole.",
+ "details": "Multi-Color/Muted Bronze/Fossil",
+ "keywords": [
+  "playstation",
+  "PS5"
+ ],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "travis-scott",
+  "498dd856-0306-4ee0-a623-d4cc5263091d",
+  "travis-scott-collection",
+  "convenience-store",
+  "collabs-sneakers",
+  "artist-collaborations",
+  "music-influence-sneakers",
+  "reworked-sneakers",
+  "festival-classics",
+  "autumn-tones",
+  "top-sneaker-collabs-uk",
+  "earth-tones-sneakers",
+  "travis-scott-nike",
+  "made-by-musicians",
+  "contemporary-print-clashing-crm",
+  "artists-bf24",
+  "travis-scott-brown-sneakers",
+  "remixed-icons-footwear",
+  "level-3f"
+ ],
+ "season": " 2019",
+ "release_date": "2019-11-16T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "CN2405 900",
+ "retail_price_cents": 16000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:38.009850+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CN2405 900&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "name": "Nike Dunk Low SE 'Lottery Pack - Grey Fog'",
+ "nickname": "Lottery Pack - Grey Fog",
+ "designer": "Peter Moore",
+ "story_html": "The Nike Dunk Low SE ‘Grey Fog’ is drawn from the ‘Lottery Pack,’ inspired by fortune-seekers who thrive on games of chance. The low-top showcases an understated palette in neutral tones, highlighted by an all-leather upper in white and grey. Nodding to a scratch-off lottery ticket, the signature black Swoosh is coated in a wear-away top layer that reveals a hidden pop of color. The sneaker is mounted on a sturdy rubber cupsole, featuring an interior foam wedge for lightweight cushioning.",
+ "details": "Grey Fog/Blue Chill/Pink Foam/Black",
+ "keywords": [],
+ "silhouette": "Dunk",
+ "collection_slugs": [
+  "instant-ship-gifts",
+  "moto-style",
+  "shoes-2022",
+  "toptrending",
+  "sau-selects",
+  "sneaker-staples",
+  "festival-classics",
+  "trending-france",
+  "grey-dunks",
+  "gift-guide-sneaker-icons-fr",
+  "most-wanted-nike-dunk",
+  "used-dunks"
+ ],
+ "season": " 2022",
+ "release_date": "2022-08-31T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DR9654 001",
+ "retail_price_cents": 12000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:54.407156+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DR9654 001&hitsPerPage=20"
+ }
+}

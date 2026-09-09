@@ -1,0 +1,48 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Cream White / Triple White'",
+ "nickname": "Cream White / Triple White",
+ "designer": "Kanye West",
+ "story_html": "First released on April 29, 2017, the Yeezy Boost 350 V2 ‘Cream White’ combines a cream Primeknit upper with tonal cream SPLY 350 branding, and a translucent white midsole housing full-length Boost. Released again in October 2018, this retro helped fulfill Kanye West’s oft-repeated ‘YEEZYs for everyone’ Twitter mantra, as adidas organized the biggest drop in Yeezy history by promising pre-sale to anyone who signed up on the website. Similar to the first release, the ‘Triple White’ 2018 model features a Primeknit upper, a Boost midsole and custom adidas and Yeezy co-branding on the insole.",
+ "details": "Cream White/Cream White/Core White",
+ "keywords": [
+  "白色",
+  "triple white",
+  "yeezy triple white",
+  "Yeezy",
+  "cream",
+  "350"
+ ],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy",
+  "sneakers-high-socks",
+  "top-20-trending",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "maggie-macdonald-sneaker-collection",
+  "yeezy-day",
+  "ul",
+  "timeline-2017",
+  "convenience-store",
+  "gothic-cathedral",
+  "womens-yeezy",
+  "new-neutrals-crm",
+  "summer-whites",
+  "back-to-school-sneakers",
+  "white-spotlight-crm",
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2017",
+ "release_date": "2017-04-29T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "CP9366",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:44.191377+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CP9366&hitsPerPage=20"
+ }
+}

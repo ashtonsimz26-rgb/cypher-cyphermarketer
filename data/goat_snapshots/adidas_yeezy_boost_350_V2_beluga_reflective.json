@@ -1,0 +1,34 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Beluga Reflective'",
+ "nickname": "Beluga Reflective",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 ‘Beluga Reflective’ brings back the 2016 colorway with a twist. Like the original ‘Beluga’ release, this pair features a predominantly grey Primeknit upper with an orange side stripe marked with SPLY-350 branding. Interwoven throughout the knit build are reflective fibers that offer enhanced visibility in low-light conditions. The sneaker’s tooling remains unchanged, highlighted by a full-length Boost midsole wrapped in a semi-translucent rubber cage.",
+ "details": "Beluga Reflective/Steeple Gray/Solar Red",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "instant",
+  "top-20-trending-web",
+  "womens-yeezy",
+  "trending-now-singapore",
+  "trending-now-hong-kong",
+  "2024-yeezy-drops",
+  "best-of-2024-sneakers",
+  "on-the-rise-yeezy",
+  "promo-collection",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-12-18T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "GW1229",
+ "retail_price_cents": 24000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:41.957182+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GW1229&hitsPerPage=20"
+ }
+}

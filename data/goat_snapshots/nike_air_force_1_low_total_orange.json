@@ -1,0 +1,39 @@
+{
+ "name": "Undefeated x Nike Air Force 1 Low 'Total Orange'",
+ "nickname": "Total Orange",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Undefeated x Nike Air Force 1 Low ‘Total Orange’ delivers an eye-catching design highlighted by clashing hues and a glossy exterior. Built with shiny patent leather, the paneled upper is finished in an eclectic mix of blue, fuchsia, crimson, purple and black. In addition to a stitched orange Swoosh, branding elements include UNDFTD lace dubrae and a debossed Nike Air logo on the heel tab. Undefeated’s Five Strikes graphic appears on the lateral heel and woven tongue tag. The low-top is mounted on a crisp white midsole, fitted with encapsulated Air-sole cushioning and supported by a translucent rubber outsole.",
+ "details": "Polar/Total Orange/Multi-Color",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "undefeated-nike",
+  "festival-classics",
+  "back-to-school",
+  "trending-now-uk",
+  "most-wanted-uk",
+  "top-sneaker-collabs-uk",
+  "maximalist-sneakers",
+  "best-collabs-sneakers-uk",
+  "trending-now-sneakers-uk",
+  "accent-laces",
+  "top-trending-uk",
+  "vivid-hues-sneakers",
+  "patent-leather",
+  "colorblock",
+  "boutique-collabs",
+  "neon-accents-alias",
+  "level-3f"
+ ],
+ "season": " 2022",
+ "release_date": "2022-12-03T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DV5255 400",
+ "retail_price_cents": 16000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:27.313744+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DV5255 400&hitsPerPage=20"
+ }
+}

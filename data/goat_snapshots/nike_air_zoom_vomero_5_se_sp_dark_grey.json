@@ -1,0 +1,27 @@
+{
+ "name": "Nike Air Zoom Vomero 5 SE SP 'Dark Grey' 2019",
+ "nickname": "Dark Grey",
+ "designer": "",
+ "story_html": "The April 2019 released Nike Air Zoom Vomero 5 SE SP 'Dark Grey' sneaker builds upon the design elements of the original model and reworks it with modern style and technology. Keeping the core design of the upper the same, the shoe is constructed of mesh with TecTuff leather overlays and a plastic heel counter. Accented with 3M details and a Nike Swoosh above, below, the upper is supported by a Cushlon midsole and Zoom Air for soft, energized steps.",
+ "details": "Dark Grey/Black/White",
+ "keywords": [],
+ "silhouette": "Air Zoom Vomero 5",
+ "collection_slugs": [
+  "styled-with-vest",
+  "singles-day-selects",
+  "runners",
+  "emerging-silhouettes-uk",
+  "retro-running-shoes"
+ ],
+ "season": " 2019",
+ "release_date": "2019-04-18T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "CI1694 001",
+ "retail_price_cents": 16000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:42.079557+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CI1694 001&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,42 @@
+{
+ "name": "Air Jordan 11 Retro Low 'UNC' 2026",
+ "nickname": "UNC",
+ "designer": "Tinker Hatfield",
+ "story_html": "The 2026 edition of the Air Jordan 11 Retro Low 'UNC' brings back a two-tone colorway of the classic silhouette that pays homage to Michael Jordan's alma mater. Faithful to the original 2001 release, the low-top features a white leather upper with a glossy patent leather mudguard in University Blue. Anchoring the sneaker is a white lightweight Phylon midsole that houses a full-length Air-Sole unit. Underfoot, the translucent rubber outsole reveals a carbon fiber spring plate for enhanced stability and energy return.",
+ "details": "White/University Blue/Black",
+ "keywords": [],
+ "silhouette": "Air Jordan 11",
+ "collection_slugs": [
+  "college-colorways",
+  "air-jordan-since-1985",
+  "summer-sale-shoes",
+  "summer-sale-mens",
+  "summer-sale-air-jordan",
+  "top-trending-eu-footwear",
+  "60",
+  "spotlight-american-brands",
+  "used-sneakers",
+  "back-to-school-statement-sneakers",
+  "back-to-school-2026",
+  "back-to-school-statement-sneakers-alias",
+  "trending-back-to-school-hauls-alias",
+  "retro-jordans",
+  "bts-promo",
+  "back-to-school-gameday-sneakers-alias",
+  "back-to-school-gameday-sneakers",
+  "back-to-school-top-selling-alias",
+  "back-to-school-most-wanted",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2026",
+ "release_date": "2026-04-18T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "FV5104 100",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:40.993407+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FV5104 100&hitsPerPage=20"
+ }
+}

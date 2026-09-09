@@ -1,0 +1,38 @@
+{
+ "name": "Wmns Air Jordan 4 Retro 'Iced Carmine'",
+ "nickname": "Iced Carmine",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Women's Air Jordan 4 Retro 'Iced Carmine' updates the legacy model with a pastel color scheme, highlighted by a pink textile upper with a tonal suede forefoot overlay and breathable quarter panel netting. Semi-translucent TPU is utilized on the molded eyelets and signature support wings, along with a heel tab marked with Jumpman branding. A second Jumpman icon decorates the woven tongue tag. The sneaker sits atop a cream-colored polyurethane midsole, fitted with visible Air-Sole cushioning in the heel and supported by a translucent rubber outsole underfoot.",
+ "details": "Iced Carmine/Pearl Pink/Coconut Milk/Muslin",
+ "keywords": [],
+ "silhouette": "Air Jordan 4",
+ "collection_slugs": [
+  "air-jordan-4",
+  "summer-sale-shoes",
+  "summer-sale-womens",
+  "women-s-exclusives",
+  "summer-sale-air-jordan",
+  "summer-sale",
+  "60",
+  "back-to-school-statement-sneakers",
+  "back-to-school-statement-sneakers-alias",
+  "75test",
+  "retro-jordans",
+  "bts-promo",
+  "back-to-school-creators",
+  "back-to-school-top-selling-alias",
+  "back-to-school-most-wanted",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2026",
+ "release_date": "2026-04-23T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "IB6716 600",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:57.794585+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IB6716 600&hitsPerPage=20"
+ }
+}

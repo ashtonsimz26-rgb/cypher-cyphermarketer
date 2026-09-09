@@ -1,0 +1,29 @@
+{
+ "name": "Off-White x Nike Zoom Fly SP 'Black'",
+ "nickname": "Black",
+ "designer": "Erick Goto",
+ "story_html": "The Off-White x Zoom Fly SP ‘Black’ features a deconstructed take on the performance runner. Highlighted by an unlined translucent upper with Virgil Abloh’s signature text on the shoe’s medial side, the shoe also sports exposed stitch detailing, most noticeably on the white Swoosh. A black Lunarlon midsole, embedded with a carbon-infused nylon plate, features ‘FOAM’ printed on the lateral side.",
+ "details": "Black/White-Cone",
+ "keywords": [],
+ "silhouette": "Zoom Fly",
+ "collection_slugs": [
+  "off-white-apparel-accessories",
+  "activewear",
+  "off-white-collabs",
+  "nike-off-white",
+  "greyscale-footwear",
+  "level-3f",
+  "virgil-abloh-influence"
+ ],
+ "season": " 2018",
+ "release_date": "2018-12-14T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "AJ4588 001",
+ "retail_price_cents": 17000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:18.939458+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AJ4588 001&hitsPerPage=20"
+ }
+}

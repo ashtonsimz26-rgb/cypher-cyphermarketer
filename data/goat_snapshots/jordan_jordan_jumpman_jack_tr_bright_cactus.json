@@ -1,0 +1,46 @@
+{
+ "name": "Travis Scott x Air Jordan Jordan Jumpman Jack TR 'Bright Cactus'",
+ "nickname": "Bright Cactus",
+ "designer": "",
+ "story_html": "The Travis Scott x Jordan Jumpman Jack TR 'Bright Cactus' features an upper that combines neon green canvas with off-white tumbled leather overlays. Contrasting black accents land on the reverse lateral-side Swoosh, mid-cut collar and tongue, the latter marked with a tonal Jumpman 'Crown' logo. 'TS' is embroidered on the forefoot strap, while a Cactus Jack smiley graphic adorns the back heel. Underfoot, the durable rubber outsole wraps up the lightweight Phylon midsole.",
+ "details": "Muslin/Black/Bright Cactus",
+ "keywords": [
+  "CJ1 T-Rexx",
+  "T-Rexx",
+  "CJ1"
+ ],
+ "silhouette": "Jordan Jumpman Jack",
+ "collection_slugs": [
+  "travis-scott",
+  "travis-scott-collection",
+  "goat-selects-crm",
+  "trending-france",
+  "earth-tones-sneakers",
+  "top-trending-uk",
+  "just-dropped-all",
+  "neon-accents-crm",
+  "styled-with-button-ups",
+  "velcro",
+  "new-in-just-dropped",
+  "new-and-now",
+  "sneaker-release-roundup",
+  "color-spotlight-green-crm",
+  "styled-with-button-up-shirts-crm",
+  "accent-hues",
+  "level-3f",
+  "top-trending-au",
+  "top-trending-jp",
+  "top-trending-hk"
+ ],
+ "season": " 2025",
+ "release_date": "2025-04-30T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "FZ8117 102",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:16.683984+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FZ8117 102&hitsPerPage=20"
+ }
+}

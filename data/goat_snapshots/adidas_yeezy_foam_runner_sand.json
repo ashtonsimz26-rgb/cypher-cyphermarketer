@@ -1,0 +1,39 @@
+{
+ "name": "adidas Yeezy Foam Runner 'Sand'",
+ "nickname": "Sand",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Foam Runner ‘Sand’ complements its molded one-piece construction with an understated light tan finish. Built with EVA foam, the upper features sculpted lines and a series of mapped vents throughout the midfoot and vamp for enhanced breathability. A textured footbed keeps the foot locked in place, while the contoured outsole utilizes a wavy traction pattern for optimal grip. An adidas logo is stamped under the heel.",
+ "details": "Etham/Etham/Etham",
+ "keywords": [],
+ "silhouette": "Yeezy Foam Runner",
+ "collection_slugs": [
+  "yeezy",
+  "adidas-yeezy-boost",
+  "summer-slides",
+  "styled-with-hats-86ec8510-ff7b-4aec-b1ad-533704509449",
+  "yeezy-day",
+  "listening-party",
+  "yeezy-foam-runner",
+  "color-spotlight-browns",
+  "ul",
+  "neutrals",
+  "gothic-cathedral",
+  "artist-collaborations",
+  "new-neutrals-crm",
+  "2024-yeezy-drops",
+  "artists-bf24",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-03-26T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "FY4567",
+ "retail_price_cents": 7500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:54.863546+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FY4567&hitsPerPage=20"
+ }
+}

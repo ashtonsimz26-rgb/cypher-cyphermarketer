@@ -1,0 +1,37 @@
+{
+ "name": "Air Jordan 3 Retro 'Family Affair'",
+ "nickname": "Family Affair",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 3 Retro 'Family Affair' presents a monochrome colorway of the legacy silhouette, highlighted by an olive green nubuck upper with tonal elephant print overlays at the forefoot and heel. A standard Jumpman logo is embroidered on the tongue, while raised Nike Air branding appears on the heel tab. Lightweight cushioning arrives via an off-white polyurethane midsole, featuring visible Air-sole cushioning and dark olive detailing along the heel. Underfoot, a gum rubber outsole yields durable traction.",
+ "details": "Medium Olive/Sequoia/Neutral Olive/Sail/Total Crimson",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "air-jordan-3",
+  "aj3",
+  "summer-sale-shoes",
+  "earth-tones-sneakers",
+  "goat-gift-guides",
+  "styled-with-air-jordan-3",
+  "summer-sale-air-jordan",
+  "summer-sale",
+  "styled-with-varsity-jackets",
+  "fall-staples-footwear",
+  "top-trending-eu-footwear",
+  "60",
+  "used-sneakers",
+  "75test",
+  "retro-jordans"
+ ],
+ "season": " 2025",
+ "release_date": "2025-10-25T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "DN3707 202",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:49.085080+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DN3707 202&hitsPerPage=20"
+ }
+}

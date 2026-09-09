@@ -1,0 +1,39 @@
+{
+ "name": "Off-White x Air Jordan 1 Retro High OG 'White' 2018",
+ "nickname": "White",
+ "designer": "Peter Moore",
+ "story_html": "Inspired by Air Jordan 1 colorways, the Off-White x Air Jordan 1 Retro High OG 'White' 2018 is a reimagination of its 'Chicago'-themed predecessor. Designed by Virgil Abloh, the model features an all-white premium leather and mesh upper with deconstructed Swoosh branding and blue detailing, and Wings logos on the ankles. It is accented by black “AIR” lettering on the midsole, black 'Off-White™ for NIKE' text on the side panels, and orange tabs.",
+ "details": "White/White",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "aaee7eea-f1c2-41b3-b50e-ad9278092a62",
+  "off-white-apparel-accessories",
+  "off-white-collabs",
+  "nike-off-white",
+  "air-jordan-1-s-11-s",
+  "all-whites",
+  "summer-whites",
+  "winter-whites-sneakers",
+  "hype-historians",
+  "art-basel-miami-beach",
+  "investment-sneakers",
+  "high-top-sneakers",
+  "all-white-cross",
+  "clean-slate",
+  "level-3f",
+  "virgil-abloh-influence",
+  "used-sneakers"
+ ],
+ "season": " 2018",
+ "release_date": "2018-03-03T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "AQ0818 100",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:28.402760+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AQ0818 100&hitsPerPage=20"
+ }
+}

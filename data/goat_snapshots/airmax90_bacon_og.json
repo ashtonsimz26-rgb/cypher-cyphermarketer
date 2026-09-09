@@ -1,0 +1,25 @@
+{
+ "name": "Nike DQM x Air Max 90 'Bacon' 2004",
+ "nickname": "Bacon",
+ "designer": "Tinker Hatfield",
+ "story_html": "Nike partnered with Dave Ortiz of New York boutique Dave’s Quality Meat on the Air Max 90 ‘Bacon,’ which is inspired by the layout of the store’s butcher-shop theme. The shoe’s color palette draws from bacon, manifested through the upper’s suede and leather construction.",
+ "details": "Sail/Sheen/Straw/Medium Brown",
+ "keywords": [],
+ "silhouette": "Air Max 90",
+ "collection_slugs": [
+  "air-max-day",
+  "sneakers-from-the-archives",
+  "37-years-of-air-max"
+ ],
+ "season": " 2004",
+ "release_date": "2004-01-01T23:59:59.999Z",
+ "release_year": 2004,
+ "sku": "310766 161",
+ "retail_price_cents": 10000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:04.355617+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=310766 161&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "name": "Nike Dunk Low Retro QS 'Argon' 2022",
+ "nickname": "Argon",
+ "designer": "Peter Moore",
+ "story_html": "The 2022 edition of the Nike Dunk Low Retro QS ‘Argon’ brings back a coveted CO.JP colorway that launched exclusively in Japan in 2001. The smooth leather upper combines a marine blue foundation with powder blue overlays and a crisp white Swoosh. A woven Nike tag adorns the breathable nylon tongue, while the white leather back tab displays a Nike wordmark in slanted block lettering. The sneaker rests on a standard rubber cupsole, featuring white sidewalls and a pastel blue outsole.",
+ "details": "Flash/White/Argon Blue/Flash",
+ "keywords": [],
+ "silhouette": "Dunk",
+ "collection_slugs": [
+  "instant-ship-gifts",
+  "nike-dunk-low",
+  "cool-hues-2022",
+  "shoes-2022",
+  "neon-accents",
+  "top-sneakers",
+  "toptrending",
+  "sneaker-staples",
+  "festival-classics",
+  "back-to-school",
+  "crm-styled-with-graphic-tees",
+  "family-size-runs-adult",
+  "most-wanted-nike-dunk",
+  "neon-accents-crm",
+  "colorblock",
+  "used-dunks"
+ ],
+ "season": " 2022",
+ "release_date": "2022-10-08T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DM0121 400",
+ "retail_price_cents": 13000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:49.593760+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DM0121 400&hitsPerPage=20"
+ }
+}

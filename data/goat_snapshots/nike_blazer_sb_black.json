@@ -1,0 +1,30 @@
+{
+ "name": "Supreme x Nike Blazer SB 'Black'",
+ "nickname": "Black",
+ "designer": "Bill Bowerman",
+ "story_html": "Supreme teamed up with Nike SB for a luxurious twist on the Blazer, featuring quilted black leather throughout the upper. The shoe is inspired by high-end fashion houses like Chanel and Gucci, displaying a snakeskin-embossed Swoosh with gold accents throughout the aglets, tongue branding and D-ring application on the heel. Gucci’s presence also takes the form of a green and red checkered textile that appears on the back.",
+ "details": "Black/Black",
+ "keywords": [],
+ "silhouette": "Blazer",
+ "collection_slugs": [
+  "new-york",
+  "animal-print",
+  "00s-silhouettes",
+  "00s-nostalgia",
+  "skate-exhibit",
+  "skate-exhibit-sneakers",
+  "level-3f",
+  "supreme-collabs-a8083fff-56b5-4c11-9de7-1c4252f8efee"
+ ],
+ "season": " 2006",
+ "release_date": "2006-04-21T23:59:59.999Z",
+ "release_year": 2006,
+ "sku": "313962 001",
+ "retail_price_cents": 18000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:44.204443+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=313962 001&hitsPerPage=20"
+ }
+}

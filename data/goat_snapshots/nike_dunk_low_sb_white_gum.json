@@ -1,0 +1,37 @@
+{
+ "name": "Nike Dunk Low SB 'White Gum'",
+ "nickname": "White Gum",
+ "designer": "",
+ "story_html": "The Nike Dunk Low SB 'White Gum' outfits the retro silhouette in an essential two-tone design. The white leather upper is contrasted by a black signature Swoosh. A woven Nike SB tag adorns the stuffed mesh tongue, which combines with a padded low-cut collar to deliver a comfortable fit. The insole packs a Zoom Air unit in the heel for lightweight cushioning and impact protection. Underfoot, a grippy gum rubber outsole offers superior board feel.",
+ "details": "White/Black/White/Gum Light Brown",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "everyday-sneakers",
+  "shoes-2022",
+  "styled-with-track-jackets",
+  "trending-france",
+  "gift-guide-sneaker-icons-fr",
+  "most-wanted-nike-dunk",
+  "winter-whites-sneakers",
+  "gum-sole-sneakers",
+  "travel-essentials-sneakers-crm",
+  "best-of-2024-sneakers",
+  "trending-eu",
+  "skate-selcts",
+  "city-miles",
+  "fall-staples-footwear",
+  "used-dunks"
+ ],
+ "season": " 2023",
+ "release_date": "2023-01-24T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "CD2563 101",
+ "retail_price_cents": 11000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:53.666265+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CD2563 101&hitsPerPage=20"
+ }
+}

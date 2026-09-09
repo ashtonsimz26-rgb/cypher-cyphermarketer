@@ -1,0 +1,36 @@
+{
+ "name": "Air Jordan 5 Retro GS 'Wolf Grey' 2026",
+ "nickname": "Wolf Grey 2026",
+ "designer": "Tinker Hatfield",
+ "story_html": "Made for big kids, the 2026 edition of the Air Jordan 5 Retro GS 'Wolf Grey' revives a neutral non-OG colorway of the legacy silhouette. The design is true to the original 2011 release, featuring a textured grey nubuck upper with translucent quarter panel netting and an embroidered '23' on the lateral heel. Jumpman branding appears on the reflective tongue and back heel. Speckled shark tooth detailing adorns the grey foam midsole, fitted with visible Air-Sole cushioning and supported underfoot by a translucent rubber outsole.",
+ "details": "Light Graphite/White/Wolf Grey",
+ "keywords": [],
+ "silhouette": "Air Jordan 5",
+ "collection_slugs": [
+  "selling-out-fast-alias",
+  "top-trending-eu-footwear",
+  "earn-25-off-fees-june",
+  "used-sneakers",
+  "back-to-school-statement-sneakers",
+  "back-to-school-2026",
+  "back-to-school-priority-processing",
+  "back-to-school-statement-sneakers-alias",
+  "trending-back-to-school-hauls-alias",
+  "retro-jordans",
+  "back-to-school-priority-processing-alias",
+  "back-to-school-top-selling-alias",
+  "back-to-school-most-wanted",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2026",
+ "release_date": "2026-02-28T23:59:59.999Z",
+ "release_year": 2026,
+ "sku": "440888 002",
+ "retail_price_cents": 15500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:09.266659+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=440888 002&hitsPerPage=20"
+ }
+}

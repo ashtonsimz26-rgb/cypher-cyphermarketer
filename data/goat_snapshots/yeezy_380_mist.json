@@ -1,0 +1,25 @@
+{
+ "name": "adidas Yeezy Boost 380 'Mist Reflective'",
+ "nickname": "Mist Reflective",
+ "designer": "Kanye West",
+ "story_html": "",
+ "details": "Mist/Mist/Mist",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 380",
+ "collection_slugs": [
+  "yeezy",
+  "adidas-yeezy-boost",
+  "yeezy-day"
+ ],
+ "season": " 2020",
+ "release_date": "2020-02-29T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "FX9846",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:39.526985+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FX9846&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "name": "Supreme x Nike Dunk Low SB 'Ink'",
+ "nickname": "Ink",
+ "designer": "",
+ "story_html": "Drawn from a collaborative footwear pack, the Supreme x Nike Dunk Low SB 'Ink' employs a suede upper, featuring a charcoal base with a black signature Swoosh and inky blue overlays at the forefoot and heel. Referencing Supreme's founding year, '94' is embroidered on the lateral heel, while a standard Nike wordmark adorns the back tab. A woven Nike SB tag embellishes the stuffed mesh tongue. The sneaker rests on a blue rubber midsole with 'Supreme' debossed on the lateral sidewall.",
+ "details": "Ink/Iron Grey/Black",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "top-sneaker-collabs",
+  "top-trending-uk",
+  "skate-selcts",
+  "supreme-x-dunks",
+  "level-3f",
+  "supreme-collabs-a8083fff-56b5-4c11-9de7-1c4252f8efee"
+ ],
+ "season": " 2025",
+ "release_date": "2025-09-04T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HQ8487 500",
+ "retail_price_cents": 13500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:50.935836+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ8487 500&hitsPerPage=20"
+ }
+}

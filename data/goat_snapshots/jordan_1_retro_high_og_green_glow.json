@@ -1,0 +1,36 @@
+{
+ "name": "Air Jordan 1 Retro High OG 'Green Glow'",
+ "nickname": "Green Glow",
+ "designer": "Peter Moore",
+ "story_html": "The Air Jordan 1 Retro High OG 'Green Glow' showcases 'Bred Toe' color blocking with vibrant pops of color. The smooth leather upper combines white side panels with contrasting black accents on the high-cut collar, forefoot overlay and signature Swoosh. Green Glow covers the toe box, heel and ankle flap, marked with a black Wings logo on the lateral side. A woven Nike Air tag adorns the black nylon tongue. Supporting the sneaker is a durable cupsole, featuring white sidewalls and a bright teal rubber outsole.",
+ "details": "White/Black/Green Glow",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "spring-wishlist-crm",
+  "vivid-hues-sneakers",
+  "spring-wishlist-footwear",
+  "summer-sale-nike",
+  "ombre-green-sneakers",
+  "ombre-green-sneakers-crm",
+  "just-dropped-all",
+  "best-of-2024-sneakers",
+  "top-trending-canada",
+  "high-top-sneakers",
+  "trending-eu",
+  "under-100-footwear",
+  "under-100-selects-cross",
+  "used-sneakers"
+ ],
+ "season": " 2024",
+ "release_date": "2024-04-20T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "DZ5485 130",
+ "retail_price_cents": 18000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:26.914783+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DZ5485 130&hitsPerPage=20"
+ }
+}

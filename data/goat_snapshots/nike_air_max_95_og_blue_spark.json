@@ -1,0 +1,33 @@
+{
+ "name": "Nike Air Max 95 OG 'Blue Spark'",
+ "nickname": "Blue Spark",
+ "designer": "Sergio Lozano",
+ "story_html": "The Nike Air Max 95 OG 'Blue Spark' showcases the retro runner's gradient suede side panels, which transition from light grey to black. White mesh partially covers the webbing eyelets, rendered in a vibrant blue shade that matches the embroidered mini-Swoosh and Air Max tongue patch. Silver reflective detailing covers the tongue and molded heel panel, marked with debossed Nike Air branding. Anchoring the sneaker is a black polyurethane midsole with blue-tinged Air-sole units in the forefoot and heel.",
+ "details": "White/Blue Spark/Black/Neutral Grey/Medium Grey",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-day",
+  "top-selling",
+  "air-max-95",
+  "styled-with-air-max",
+  "iconic-streetwear",
+  "goat-gift-guides",
+  "top-trending-uk",
+  "styled-with-white-tees",
+  "high-demand-low-supply-alias",
+  "air-max-95-web",
+  "back-to-school-alias"
+ ],
+ "season": " 2025",
+ "release_date": "2025-08-08T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "IM7410 100",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:33.660875+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IM7410 100&hitsPerPage=20"
+ }
+}

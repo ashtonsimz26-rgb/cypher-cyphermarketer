@@ -1,0 +1,40 @@
+{
+ "name": "Air Jordan 4 Retro OG 'White Cement' 2016",
+ "nickname": "White Cement",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 4 Retro OG 'Cement’ 2016 was one of the original four colorways released in 1989. The sneaker features the original White, Fire Red, Black, and Tech Grey colorway, with the speckled Cement Grey accents that give the sneaker its nickname. Released during the 2016 NBA All-Star weekend in Toronto, the sneaker was also retro’d in 1999 and 2012. The 1999 and 2016 retros are the only models that feature the ‘Nike Air’ branding on the heel, just like the 1989 OG sneakers.",
+ "details": "White/Fire Red/Tech Grey/Black",
+ "keywords": [
+  "white cement",
+  "cement"
+ ],
+ "silhouette": "Air Jordan 4",
+ "collection_slugs": [
+  "air-jordan-4",
+  "timeline-2016",
+  "even-number-air-jordans",
+  "shoes-2022",
+  "color-white-cement",
+  "winter-whites-sneakers",
+  "monochrome-sneakers",
+  "trending-now-air-jordan-4-fr",
+  "air-jordan-4-in-pop-culture",
+  "all-star-silhouettes",
+  "og-air-jordan-colorways",
+  "prints-patterns-footwear",
+  "air-jordan-4-alias",
+  "skate-selcts",
+  "used-sneakers"
+ ],
+ "season": " 2016",
+ "release_date": "2016-02-13T23:59:59.999Z",
+ "release_year": 2016,
+ "sku": "840606 192",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:01.492167+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=840606 192&hitsPerPage=20"
+ }
+}

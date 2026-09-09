@@ -1,0 +1,40 @@
+{
+ "name": "Lil Yachty x Nike Air Force 1 Low 'Concrete Boys - Lucky Green'",
+ "nickname": "Concrete Boys - Lucky Green",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Lil Yachty x Nike Air Force 1 Low 'Concrete Boys - Lucky Green' presents a two-tone design in University Gold and Lucky Green on the glossy patent leather upper. Contrasting pops of Mystic Red land on the signature Swoosh, outlined in green trim, and collar lining. Nodding to Lil Yachty's rap collective, 'Concrete Boys' is stamped on the back tab, while the crew's embroidered logo adorns the lateral heel. 'It's Us' branding appears on the woven tongue tag and sockliner.",
+ "details": "Lucky Green/Mystic Red/University Gold",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "seasonal-selects",
+  "styled-with-shorts",
+  "goat-selects-crm",
+  "maximalist-sneakers",
+  "new-in-redeem",
+  "high-demand-low-supply-alias",
+  "selling-out-fast-alias",
+  "sneaker-release-roundup",
+  "color-spotlight-green-crm",
+  "color-compliments-footwear",
+  "styled-with-button-up-shirts-crm",
+  "trackside-f1-grand-prix",
+  "accent-hues",
+  "summer-wishlist-footwear",
+  "merch-request-video-screen-alias-app-store-refresh-phase-02",
+  "styled-with-jersies",
+  "back-to-school-statement-sneakers",
+  "back-to-school-statement-sneakers-alias"
+ ],
+ "season": " 2025",
+ "release_date": "2025-05-22T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "IH4383 300",
+ "retail_price_cents": 13000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:22.583820+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IH4383 300&hitsPerPage=20"
+ }
+}

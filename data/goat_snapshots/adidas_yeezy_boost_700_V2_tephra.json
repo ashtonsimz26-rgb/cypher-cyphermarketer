@@ -1,0 +1,40 @@
+{
+ "name": "adidas Yeezy Boost 700 V2 'Tephra'",
+ "nickname": "Tephra",
+ "designer": "Kanye West",
+ "story_html": "The Yeezy Boost 700 V2 is the striking follow up to the Yeezy 700 which originally debuted at Kanye West's 2017 Yeezy Season 5 show. The V2 is more aerodynamic in appearance, with sleek, reflective overlays that draw the eye in. This rendition, the Yeezy Boost 700 V2 'Tephra' sneaker, features a mesh and suede upper with subdued natural tones, culminating in deeper hues on the midsole. This version reprises the 700's chunky sole, concealing full-length adidas Boost cushioning, underscored by gum-rubber tread.",
+ "details": "Tephra/Tephra/Tephra",
+ "keywords": [
+  "Yeezy",
+  "700"
+ ],
+ "silhouette": "Yeezy Boost 700",
+ "collection_slugs": [
+  "yeezy",
+  "yeezy-700",
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "listening-party",
+  "steven-smith",
+  "timeline-2019",
+  "gothic-cathedral",
+  "artist-collaborations",
+  "back-to-school-sneakers",
+  "just-dropped-yeezy",
+  "on-the-rise-yeezy",
+  "used-yeezy",
+  "bts-promo",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2019",
+ "release_date": "2019-06-14T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "FU7914",
+ "retail_price_cents": 30000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:49.934112+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FU7914&hitsPerPage=20"
+ }
+}

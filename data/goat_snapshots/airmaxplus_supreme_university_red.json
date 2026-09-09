@@ -1,0 +1,33 @@
+{
+ "name": "Supreme x Nike Air Max Plus TN 'University Red'",
+ "nickname": "University Red",
+ "designer": "Sean McDowell",
+ "story_html": "Launching as part of the New York skate brand’s Fall/Winter 2020 collection, the Supreme x Nike Air Max Plus ‘Black’ features a mesh upper overlaid with gradient red and pink TPU fingers that spell out ‘Supreme’ on the side panels. A yellow mini-Swoosh is matched by Nike’s OG Tuned Air trademark on the heel, while Supreme’s signature box logo adorns the tongue. A similar color dynamic is utilized on the black foam midsole, enhanced with visible Max Air units and a TPU shank in a dark crimson hue.",
+ "details": "University Red/Varsity Maize",
+ "keywords": [],
+ "silhouette": "Air Max Plus",
+ "collection_slugs": [
+  "90s-inspired",
+  "convenience-store",
+  "90s-silhouette-s",
+  "mini-swooshes",
+  "bubblegum-pink",
+  "varsity-colorways",
+  "37-years-of-air-max",
+  "vivid-hues-sneakers",
+  "accent-hues",
+  "shades-of-red",
+  "level-3f"
+ ],
+ "season": " 2020",
+ "release_date": "2020-10-15T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "DA1472 600",
+ "retail_price_cents": 18000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:06.769407+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DA1472 600&hitsPerPage=20"
+ }
+}

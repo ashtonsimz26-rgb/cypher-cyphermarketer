@@ -1,0 +1,33 @@
+{
+ "name": "Off-White x Nike Blazer Mid 'Grim Reapers'",
+ "nickname": "'Grim Reapers'",
+ "designer": "Bill Bowerman",
+ "story_html": "Releasing alongside an accompanying ‘All Hallow’s Eve’ colorway in orange, the Off-White x Blazer Mid ‘Grim Reapers’ completes Virgil Abloh’s Halloween-themed sneaker pack. The black and grey upper sports contrast orange stitching in celebration of the October holiday, along with an oversized white Swoosh, blue zip tie and Off-White lettering on the quarter panel of the shoe’s medial side.",
+ "details": "Black/Cone-Black-White",
+ "keywords": [
+  "spooky pack"
+ ],
+ "silhouette": "Blazer",
+ "collection_slugs": [
+  "off-white-apparel-accessories",
+  "off-white-collabs",
+  "nike-off-white",
+  "70s-silhouettes",
+  "hype-historians",
+  "halloween",
+  "level-3f",
+  "seasonal-selects-halloween",
+  "virgil-abloh-influence"
+ ],
+ "season": " 2018",
+ "release_date": "2018-10-03T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "AA3832 001",
+ "retail_price_cents": 13000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:20.794148+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AA3832 001&hitsPerPage=20"
+ }
+}

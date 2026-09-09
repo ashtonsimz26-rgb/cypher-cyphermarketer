@@ -1,0 +1,41 @@
+{
+ "name": "Fragment Design x sacai x Nike LDV Waffle 'Blackened Blue'",
+ "nickname": "Blackened Blue",
+ "designer": "",
+ "story_html": "The Fragment Design x sacai x Nike LDV Waffle ‘Blackened Blue’ delivers a sneaker collaboration that leverages the creativity of renowned Japanese labels from the worlds of streetwear and high fashion. Blending elements from the Nike LDV and Waffle Racer, the hybrid silhouette is dressed in a traditional blend of mesh and suede. The tonal navy finish is contrasted by hits of white on the double-stacked leather Swoosh and heel tab, the latter marked with dual Nike and sacai branding. Woven Nike and Fragment tags adorn the doubled-up tongues, while the elongated foam midsole is inscribed with ‘The Classic / Fragment: sacai.’ Nike’s waffle-traction rubber outsole provides superior grip underfoot.",
+ "details": "Blue Void/Obsidian/White/White",
+ "keywords": [],
+ "silhouette": "LDV Waffle",
+ "collection_slugs": [
+  "made-in-japan",
+  "fragment-collabs",
+  "nike-waffle",
+  "ul",
+  "best-of-2021",
+  "designer-collabs",
+  "made-by-women",
+  "nike-sacai",
+  "trending-now-hong-kong",
+  "city-influence-tokyo",
+  "best-collabs-sneakers",
+  "70s-silhouettes",
+  "top-sneaker-collabs-uk",
+  "alias-eoy-digital-age-ai",
+  "complexcon-new",
+  "weekend-in-the-desert",
+  "dark-blues",
+  "level-4f",
+  "super-bowl-lx-colorways"
+ ],
+ "season": " 2021",
+ "release_date": "2021-08-27T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "DH2684 400",
+ "retail_price_cents": 17000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:04.924655+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DH2684 400&hitsPerPage=20"
+ }
+}

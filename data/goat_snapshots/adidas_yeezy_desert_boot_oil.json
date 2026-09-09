@@ -1,0 +1,39 @@
+{
+ "name": "adidas Yeezy Desert Boot 'Oil' 2019",
+ "nickname": "Oil",
+ "designer": "Kanye West",
+ "story_html": "Borrowing the suede toe box and oval overlays from the Yeezy 500, 2019's Yeezy Desert Boot 'Oil' takes Kanye West's signature line into boot territory. The three-quarter cut upper comes in a smooth suede and mesh, with thick rope laces and an exaggerated mudguard. The chunky foam midsole pairs with a thick rugged outsole for outdoors-ready cushioning and traction. The entire silhouette comes in an earth-toned motif, with just a bit of branding on the bottom of the sole.",
+ "details": "Oil/Oil/Oil",
+ "keywords": [
+  "Yeezy"
+ ],
+ "silhouette": "Yeezy Desert Boot",
+ "collection_slugs": [
+  "lug-soles",
+  "ul",
+  "utility-shoes-boots",
+  "boots",
+  "womens-yeezy",
+  "shoes-2022",
+  "dune-rover-bf-2022",
+  "utility-footwear",
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "bf-2024-future-innovators",
+  "best-of-black-friday-bf-2024",
+  "best-of-black-friday-2024",
+  "high-demand-low-supply-alias",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2019",
+ "release_date": "2019-04-19T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "EG6463",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:51.360964+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=EG6463&hitsPerPage=20"
+ }
+}

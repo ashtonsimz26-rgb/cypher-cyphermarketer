@@ -1,0 +1,36 @@
+{
+ "name": "Air Jordan 3 Retro 'Fear' 2023",
+ "nickname": "Fear",
+ "designer": "Tinker Hatfield",
+ "story_html": "The 2023 edition of the Air Jordan 3 Retro ‘Fear’ brings back a 2013 AJ3 colorway that was originally released alongside an Air Jordan 4 and 5. A dark grey nubuck upper is complemented with tonal elephant print overlays at the forefoot and heel. Black suede is utilized on the collar and tongue, featuring a stitched Jumpman logo in Total Orange. The vibrant color is repeated on the shoe’s eyelets, along with a second Jumpman icon on the back heel. An orange-tinged Air-sole unit adds lightweight cushioning to a tri-tone polyurethane midsole.",
+ "details": "Night Stadium/Total Orange/Black",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "air-jordan-3",
+  "aj3",
+  "under-retail-sneakers",
+  "air-jordan-since-1985",
+  "shoes-2022",
+  "styled-with-air-jordan-3",
+  "styled-with-vests-crm",
+  "alias-b2s-december-promo",
+  "new-arrivals-sneakers",
+  "styled-with-puffers-crm",
+  "most-wanted-air-jordan",
+  "trending-now-sneakers-uk",
+  "trackside-f1-grand-prix",
+  "used-sneakers"
+ ],
+ "season": " 2023",
+ "release_date": "2023-11-25T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "CT8532 080",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:14.031028+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CT8532 080&hitsPerPage=20"
+ }
+}

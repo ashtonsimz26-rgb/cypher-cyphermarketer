@@ -1,0 +1,37 @@
+{
+ "name": "adidas Yeezy Slides 'Salt'",
+ "nickname": "Salt",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Slide ‘Salt’ carries a lightweight build crafted from injected EVA foam and rendered in a monochromatic grey finish. Exterior branding is limited to adidas’ three-stripe logo debossed on the footbed, featuring a soft top layer for step-in comfort. Open-toe construction provides improved airflow, while the outsole utilizes a series of deep horizontal grooves, resulting in a serrated traction pattern for cushioning and grip.",
+ "details": "Salt/Salt/Salt",
+ "keywords": [],
+ "silhouette": "Yeezy Slides",
+ "collection_slugs": [
+  "yeezy",
+  "yeezy-day",
+  "instant",
+  "slides-sandals",
+  "top-100",
+  "just-dropped-yeezy",
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "styled-with-cargos",
+  "2024-yeezy-drops",
+  "summer-of-sport",
+  "surf-summer-of-sports",
+  "lightweight-silhouettes",
+  "trending-eu",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2024",
+ "release_date": "2024-03-15T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "ID5480",
+ "retail_price_cents": 7000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:59.025292+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=ID5480&hitsPerPage=20"
+ }
+}

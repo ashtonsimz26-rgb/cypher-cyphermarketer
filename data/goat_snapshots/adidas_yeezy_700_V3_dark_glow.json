@@ -1,0 +1,42 @@
+{
+ "name": "adidas Yeezy 700 V3 'Dark Glow'",
+ "nickname": "Dark Glow",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy 700 V3 ‘Dark Glow’ features a black engineered mesh upper with charcoal accents and smoky RPU overlays — a neutral design that’s virtually identical to the ‘Alvah’ colorway from April 2020. The key difference centers around the sneaker’s glow-in-the-dark RPU cage, which emits a blue luminescence versus the older shoe’s green-tinged glow. Lightweight cushioning arrives via a solid black EVA midsole with an encapsulated polyurethane core. Underfoot, a herringbone-traction rubber outsole delivers superior grip.",
+ "details": "Dark Glow/Dark Glow/Dark Glow",
+ "keywords": [],
+ "silhouette": "Yeezy 700 V3",
+ "collection_slugs": [
+  "top-selling",
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "listening-party",
+  "ul",
+  "allblack",
+  "instant",
+  "womens-yeezy",
+  "shoes-2022",
+  "crm-styled-with-graphic-tees",
+  "futurism",
+  "futurism-footwear",
+  "top-trending-uk",
+  "top-trending-fr-cross",
+  "top-trending-canada",
+  "back-to-school-alias",
+  "back-to-school-supply-alias",
+  "top-trending-eu-footwear",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-08-02T23:59:59.000Z",
+ "release_year": 2021,
+ "sku": "GX6144",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:41.274948+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GX6144&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "name": "adidas Yeezy Desert Boot 'Salt'",
+ "nickname": "Salt",
+ "designer": "Kanye West",
+ "story_html": "As part of the Season 7 collection, the adidas Yeezy Desert Boot is equal parts style and function in a look driven by military inspiration. This edition—launched in September 2019—is constructed of breathable mesh, suede and nubuck in a Salt scheme. Its deconstructed design lines recall the iconic 500 sneaker. The shoe is mounted on top of a robust rubber outsole with a rugged tread pattern for durability and traction.",
+ "details": "Salt/Salt/Salt",
+ "keywords": [],
+ "silhouette": "Yeezy Desert Boot",
+ "collection_slugs": [
+  "lug-soles",
+  "utility-shoes-boots",
+  "boots",
+  "gothic-cathedral",
+  "shoes-2022",
+  "utility-footwear",
+  "all-whites",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2019",
+ "release_date": "2019-09-14T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "FV5677",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:52.011608+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FV5677&hitsPerPage=20"
+ }
+}

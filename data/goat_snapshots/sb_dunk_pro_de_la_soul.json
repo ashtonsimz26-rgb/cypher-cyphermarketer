@@ -1,0 +1,29 @@
+{
+ "name": "Nike Dunk Low Pro SB 'De La Soul'",
+ "nickname": "De La Soul",
+ "designer": "Peter Moore",
+ "story_html": "Nike linked up with legendary hip-hop group De La Soul to create uniquely designed Dunk High and Dunk Low silhouettes back in 2005. Released in October of that same year, the Dunk Low Pro SB 'De La Soul’ sneaker features an upper with an eclectic blend of textiles and colors, a combination of white overlays with vivid holographic vinyl panels that boasts the band’s iconic Three Feet High album cover artwork.",
+ "details": "White/Yellow",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "artist-collaborations",
+  "maximalist-sneakers",
+  "made-by-musicians",
+  "in-bloom",
+  "artists-bf24",
+  "level-3f",
+  "used-dunks"
+ ],
+ "season": " 2005",
+ "release_date": "2005-10-01T23:59:59.999Z",
+ "release_year": 2005,
+ "sku": "304292 171",
+ "retail_price_cents": 12500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:37.357841+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=304292 171&hitsPerPage=20"
+ }
+}

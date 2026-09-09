@@ -1,0 +1,33 @@
+{
+ "name": "adidas Yeezy Boost 700 'Hi-Res Red'",
+ "nickname": "Hi-Res Red",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 700 ‘Hi-Res Red’ delivers an especially vibrant colorway of Kanye West’s maximalist lifestyle runner. A bold crimson finish dominates the top portion of the upper, featuring a mesh base with tonal leather and suede construction on the eyestay and heel. Contrasting hits of black and grey land on reinforced suede overlays, along with burgundy mesh on the toe box. Responsive cushioning is provided by a full-length Boost midsole, encapsulated within a maroon-colored PU carrier with orange and green accents.",
+ "details": "Hi-Res Red/Hi-Res Red/Hi-Res Red",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 700",
+ "collection_slugs": [
+  "yeezy",
+  "yeezy-700",
+  "adidas-yeezy-boost",
+  "red-alert",
+  "instant",
+  "shoes-2022",
+  "super-bowl-colorways",
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "vivid-hues-sneakers",
+  "promo-collection",
+  "used-yeezy"
+ ],
+ "season": " 2022",
+ "release_date": "2022-06-17T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "HQ6979",
+ "retail_price_cents": 26000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:49.030490+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ6979&hitsPerPage=20"
+ }
+}

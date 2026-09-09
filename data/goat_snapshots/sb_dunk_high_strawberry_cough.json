@@ -1,0 +1,28 @@
+{
+ "name": "Nike Dunk High SB 'Strawberry Cough'",
+ "nickname": "Strawberry Cough",
+ "designer": "Peter Moore",
+ "story_html": "Designed in collaboration with the artist Todd Bratrud, the Nike Dunk High SB ‘Strawberry Cough’ delivers a literal interpretation of the fragrant marijuana strain for which the shoe is named. The two-tone upper, resembling an actual strawberry through a blend of textured red leather and hairy green suede, rides on a semi-translucent rubber cupsole. A coughing anthropomorphic strawberry adorns both the sneaker’s lateral heel and custom sockliner.",
+ "details": "University Red/Spinach Green/Magic Ember",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "nike-dunk",
+  "colorblocking",
+  "high-tops",
+  "skate-exhibit",
+  "skate-exhibit-sneakers",
+  "used-dunks"
+ ],
+ "season": " 2021",
+ "release_date": "2021-10-22T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "CW7093 600",
+ "retail_price_cents": 12500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:24.815393+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CW7093 600&hitsPerPage=20"
+ }
+}

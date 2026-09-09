@@ -1,0 +1,30 @@
+{
+ "name": "P.J. Tucker x Nike Zoom Kobe 5 Protro PE",
+ "nickname": "P.J. Tucker",
+ "designer": "Eric Avar",
+ "story_html": "A special colorway made for the NBA athlete and noted sneaker enthusiast, the Nike P.J. Tucker x Zoom Kobe 5 Protro PE features tonal animal prints throughout the lightweight synthetic upper, finished in neutral grey and off-white tones and supported by Flywire technology. Bright red mesh stands out on the collar, contrasted by a black heel counter marked with Kobe Bryant’s signature. A dot matrix-like design fills in the signature Swoosh on the sneaker’s quarter panel.",
+ "details": "Particle Grey/Light Cream/Sail/White",
+ "keywords": [],
+ "silhouette": "Zoom Kobe 5",
+ "collection_slugs": [
+  "mamba-day",
+  "kobe",
+  "players-edition",
+  "hall-of-fame",
+  "hall-of-fame-9415110b-8cff-4023-a539-7a92fc763eed",
+  "kobes",
+  "zoom-kobe-protro",
+  "colorblock"
+ ],
+ "season": " 2020",
+ "release_date": "2020-09-25T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "CD4991 004",
+ "retail_price_cents": 18000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:01.362034+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CD4991 004&hitsPerPage=20"
+ }
+}

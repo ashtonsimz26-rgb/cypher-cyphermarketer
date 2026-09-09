@@ -1,0 +1,37 @@
+{
+ "name": "Air Jordan 1 Retro High 'Banned' 2011",
+ "nickname": "Banned",
+ "designer": "Peter Moore",
+ "story_html": "This 2011 version of the iconic Air Jordan 1 ‘Banned’ or ‘Bred’ colorway includes several subtle design details that reference its famous 1985 NBA ban for violating the uniform code. The shoe’s heel features a tonal red embossed X, the inner lining includes the date they were banned, and a special ‘Banned’ message hits up the insole. The sneaker also received retro re-releases in 1994, 2009, 2013, and 2016.",
+ "details": "Black/Varsity Red-White",
+ "keywords": [
+  "bred",
+  "black red",
+  "Jordan 1 bred",
+  "Banned"
+ ],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "banned",
+  "breds-fire-reds",
+  "streetwear-classics-bf59f315-a9ec-47fe-829d-567664bb5ac0",
+  "hall-of-fame",
+  "hall-of-fame-9415110b-8cff-4023-a539-7a92fc763eed",
+  "air-jordan-since-1985",
+  "timeline-2011",
+  "all-star-silhouettes",
+  "investment-sneakers",
+  "used-sneakers"
+ ],
+ "season": " 2011",
+ "release_date": "2011-06-02T23:59:59.999Z",
+ "release_year": 2011,
+ "sku": "432001 001",
+ "retail_price_cents": 12500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:24.861744+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=432001 001&hitsPerPage=20"
+ }
+}

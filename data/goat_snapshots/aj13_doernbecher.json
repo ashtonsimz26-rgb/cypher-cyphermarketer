@@ -1,0 +1,24 @@
+{
+ "name": "Air Jordan 13 Retro 'Doernbecher'",
+ "nickname": "Doernbecher",
+ "designer": "Tinker Hatfield",
+ "story_html": "Part of the 2015 Doernbecher collection, this Air Jordan 13 Retro ‘DB’ was designed by John Charles, an 11-year-old Crohn’s Disease patient. The design combines a black snakeskin-like upper with emerald green patent leather overlays and Volt laces. Details from John's personal life include his soccer number, the seven pills he takes per day to manage his condition and the ‘Crohn’s’ on the outsole. Pink accents highlight the collar and outsole.",
+ "details": "Emerald Green/Volt Ice/Black/Dynamic Pink",
+ "keywords": [],
+ "silhouette": "Air Jordan 13",
+ "collection_slugs": [
+  "doernbecher",
+  "air-jordan-13-sneakers"
+ ],
+ "season": " 2015",
+ "release_date": "2015-11-21T23:59:59.999Z",
+ "release_year": 2015,
+ "sku": "836405 305",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:12.779556+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=836405 305&hitsPerPage=20"
+ }
+}

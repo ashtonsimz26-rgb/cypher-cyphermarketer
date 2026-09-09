@@ -1,0 +1,33 @@
+{
+ "name": "NOCTA x Nike Glide 'Black White'",
+ "nickname": "Black White",
+ "designer": "",
+ "story_html": "The NOCTA x Nike Glide ‘Black White’ delivers an eye-catching silhouette under the banner of the Nike sub-label founded by Drake. Taking cues from the Nike Zoom Flight 95, the retro-inspired model is distinguished by a wavy foam midsole, featuring distinctive ‘bug eye’ detailing embedded in the sidewall and a translucent rubber outsole underfoot. Up top, breathable black mesh is overlaid with woven textile side panels in white and black. NOCTA branding appears on the tongue, while ‘NIKE’ is spelled out on each of the shoe’s decorative eyelets.",
+ "details": "Black/White/White/Clear",
+ "keywords": [],
+ "silhouette": "NOCTA Glide",
+ "collection_slugs": [
+  "top-sneaker-collabs",
+  "nike-nocta",
+  "artist-collaborations",
+  "music-influence-sneakers",
+  "top-sneaker-collabs-uk",
+  "gift-guide-sneaker-icons-fr",
+  "best-collabs-sneakers-uk",
+  "trending-now-sneakers-uk",
+  "made-by-musicians",
+  "best-of-2024-sneakers",
+  "level-3f"
+ ],
+ "season": " 2023",
+ "release_date": "2023-09-15T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "DM0879 001",
+ "retail_price_cents": 16000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:56.496639+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DM0879 001&hitsPerPage=20"
+ }
+}

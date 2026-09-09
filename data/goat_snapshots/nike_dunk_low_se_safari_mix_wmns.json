@@ -1,0 +1,36 @@
+{
+ "name": "Nike Wmns Dunk Low SE 'Safari Mix'",
+ "nickname": "Safari Mix",
+ "designer": "Peter Moore",
+ "story_html": "The Nike women’s Dunk Low SE ‘Safari Mix’ updates the retro silhouette with a patchwork design that highlights animal prints and vibrant hues. The low-top sports a white leather base with a blend of safari and cheetah prints on the forefoot overlay. The latter design reappears on the heel, while the collar overlay features teal and purple pony hair between the left and right shoe. The mismatched theme continues on the eyestay, signature Swoosh, and Nike-branded heel tab. The collage-like arrangement up top is countered by a crisp white midsole and black rubber outsole.",
+ "details": "White/Washed Teal/Electro Purple",
+ "keywords": [],
+ "silhouette": "Dunk",
+ "collection_slugs": [
+  "nike-dunk",
+  "women-s-sneakers",
+  "shop-women-s",
+  "shop-womens-apparel",
+  "shoes-2022",
+  "patchwork",
+  "sneaker-staples",
+  "trending-france",
+  "back-to-school-sneakers",
+  "gift-guide-sneaker-icons-fr",
+  "most-wanted-nike-dunk",
+  "safari-print",
+  "prints-patterns-footwear",
+  "used-dunks"
+ ],
+ "season": " 2022",
+ "release_date": "2022-05-05T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DN3866 100",
+ "retail_price_cents": 11000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:55.062485+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DN3866 100&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "name": "Undefeated x Nike Dunk Low 'Dunk vs AF1'",
+ "nickname": "Dunk vs AF1",
+ "designer": "Peter Moore",
+ "story_html": "Launching as the third installment in the LA retailer’s ‘Dunk vs AF-1’ series, this triple-black edition of the Nike Dunk Low features an eclectic mix of materials throughout the upper. Perforated suede on the toe box and quarter panel is overlaid with smooth suede paneling along the forefoot and heel. The Swoosh is covered in pony hair, while the collar and tongue are crafted from mesh and nylon, respectively. Undefeated’s Five Strikes logo appears on the woven tongue tag and lateral heel. The sneaker is mounted on a matching black midsole, supported underfoot by a translucent rubber outsole.",
+ "details": "Black/Black/Black",
+ "keywords": [],
+ "silhouette": "Dunk",
+ "collection_slugs": [
+  "nike-dunk",
+  "ul",
+  "allblack",
+  "instant",
+  "all-black-apparel",
+  "shoes-2022",
+  "undefeated-nike",
+  "crm-styled-with-graphic-tees",
+  "black-dunks",
+  "plush-materials-footwear",
+  "level-3f",
+  "promo-collection",
+  "used-dunks"
+ ],
+ "season": " 2021",
+ "release_date": "2021-09-03T23:59:59.000Z",
+ "release_year": 2021,
+ "sku": "DO9329 001",
+ "retail_price_cents": 12000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:47.427465+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DO9329 001&hitsPerPage=20"
+ }
+}

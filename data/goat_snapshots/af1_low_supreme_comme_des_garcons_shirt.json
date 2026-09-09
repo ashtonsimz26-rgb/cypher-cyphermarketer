@@ -1,0 +1,42 @@
+{
+ "name": "Supreme x Comme des Garçons SHIRT x Nike Air Force 1 Low 'Eyes'",
+ "nickname": "Eyes",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Supreme x Comme des Garçons SHIRT x Air Force 1 Low was an online exclusive released in May of 2017. The classic all-white colorway features the collection's eyeball motif on the ankle and heel, as well as CDG branding underneath the swoosh. The release comes a month after the Supreme x COMME des GARÇONS SHIRT collection of Spring 2017.",
+ "details": "White/White/White",
+ "keywords": [
+  "CDG"
+ ],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "comme-des-garcons-sneakers",
+  "made-in-japan",
+  "lily-chee-sneaker-collection",
+  "gothic-cathedral",
+  "with-socks",
+  "designer-collabs",
+  "made-by-women",
+  "supreme-comme-des-garcons",
+  "supreme-nike",
+  "comme-des-garcons-nike",
+  "greatest-magazine-08",
+  "high-fashion-trivia-bf-2023",
+  "shop-a-ap-nast-s-looks",
+  "bf-2024-alternative-kids",
+  "holiday-selects",
+  "level-5f",
+  "level-3f",
+  "supreme-collabs-a8083fff-56b5-4c11-9de7-1c4252f8efee"
+ ],
+ "season": " 2017",
+ "release_date": "2017-05-18T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "923044 100",
+ "retail_price_cents": 22800,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:00.935966+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=923044 100&hitsPerPage=20"
+ }
+}

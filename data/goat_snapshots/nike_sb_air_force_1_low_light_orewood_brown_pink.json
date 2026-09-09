@@ -1,0 +1,24 @@
+{
+ "name": "Nike SB Air Force 1 Low 'Light Orewood Brown Pink'",
+ "nickname": "Light Orewood Brown Pink",
+ "designer": null,
+ "story_html": "",
+ "details": "Light Orewood Brown/Light Orewood Brown-White-Pink Foam-Gum Light Brown",
+ "keywords": [],
+ "silhouette": "Air Force",
+ "collection_slugs": [
+  "nike-dunk-low",
+  "nike-sb-air-force"
+ ],
+ "season": " 2026",
+ "release_date": "2026-04-21T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "HM8517 100",
+ "retail_price_cents": 11000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:10.232887+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HM8517 100&hitsPerPage=20"
+ }
+}

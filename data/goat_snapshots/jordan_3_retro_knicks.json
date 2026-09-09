@@ -1,0 +1,32 @@
+{
+ "name": "Air Jordan 3 Retro 'Knicks'",
+ "nickname": "Knicks Rivals",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 3 Retro 'Knicks Rivals' boasts a colorway inspired by a team Michael Jordan and the Chicago Bulls had to hurdle for Eastern Conference dominance, the New York Knicks. The AJ3 was the first of numerous Air Jordans designed by Tinker Hatfield and the debut of the Jumpman logo on the tongue. This 'Knicks Rivals' retro, released in September 2019, stays true to the original silhouette with a white tumbled leather upper, elephant print on the toe cap and heel, Old Royal and University Orange accents, and a visible Nike Air unit.",
+ "details": "White/Old Royal-University Orange-Tech Grey",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "nba-playoffs",
+  "air-jordan-3",
+  "aj3",
+  "odd-number-jordans",
+  "nba-finals",
+  "new-york-knicks",
+  "okc-thunder",
+  "knicks-footwear",
+  "draft-day-2026",
+  "used-sneakers"
+ ],
+ "season": " 2019",
+ "release_date": "2019-09-14T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "136064 148",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:50.448154+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=136064 148&hitsPerPage=20"
+ }
+}

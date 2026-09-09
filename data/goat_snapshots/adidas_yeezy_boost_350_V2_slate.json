@@ -1,0 +1,38 @@
+{
+ "name": "adidas Men's Yeezy Boost 350 V2 'Slate'",
+ "nickname": "Slate",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 ‘Slate’ complements the minimalist silhouette with a neutral two-tone color scheme. The sock-like upper utilizes tan Primeknit construction, highlighted by distinctive center stitching down the vamp. A contrasting black streak adorns the lateral side with signature ‘SPLY-350’ branding. The lightweight build rests on a full-length Boost midsole, wrapped in a semi-translucent TPU cage for improved durability and support.",
+ "details": "Slate/Core Black/Slate",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "instant-ship-gifts",
+  "adidas-yeezy-boost",
+  "color-spotlight-browns",
+  "neutrals",
+  "instant",
+  "top-sneakers",
+  "toptrending",
+  "color-yeezy-slate",
+  "family-size-runs-adult",
+  "styled-with-puffers-crm",
+  "trending-now-sneakers-uk",
+  "lightweight-silhouettes",
+  "top-trending-au",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2022",
+ "release_date": "2022-09-03T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "HP7870",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:46.421295+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HP7870&hitsPerPage=20"
+ }
+}

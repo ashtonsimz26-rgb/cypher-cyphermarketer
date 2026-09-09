@@ -1,0 +1,36 @@
+{
+ "name": "Air Jordan 9 Retro 'Cool Grey' 2025",
+ "nickname": "Cool Grey",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 9 Retro 'Cool Grey' revives a design true to the original 2002 release, highlighted by a grey nubuck upper with a tonal patent leather overlay. Branding elements include a woven Air Jordan label atop the tongue and Michael Jordan's jersey number embroidered on the back heel. The sneaker rests on a white polyurethane midsole with encapsulated Air-sole cushioning in the forefoot and heel. The grey semi-translucent rubber outsole features multi-lingual details, nodding to MJ's emergence as a global sports star.",
+ "details": "Medium Grey/White/Cool Grey",
+ "keywords": [],
+ "silhouette": "Air Jordan 9",
+ "collection_slugs": [
+  "air-jordan-since-1985",
+  "summer-sale-shoes",
+  "new-neutrals-crm",
+  "summer-sale-goat-selects",
+  "top-100",
+  "just-dropped-all",
+  "high-demand-low-supply-alias",
+  "new-neutrals-sneakers",
+  "sneaker-release-roundup",
+  "back-to-school-alias",
+  "back-to-school-supply-alias",
+  "top-trending-jp",
+  "alias-ready-to-buy",
+  "retro-jordans"
+ ],
+ "season": " 2025",
+ "release_date": "2025-03-15T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HV4794 011",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:14.158833+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HV4794 011&hitsPerPage=20"
+ }
+}

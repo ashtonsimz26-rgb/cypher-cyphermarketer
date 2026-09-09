@@ -1,0 +1,38 @@
+{
+ "name": "A Ma Maniére x Air Jordan 5 Retro 'Dusk'",
+ "nickname": "Dusk",
+ "designer": "Tinker Hatfield",
+ "story_html": "The A Ma Maniére x Air Jordan 5 Retro ‘Dusk’ reunites the creative partners on a two sneaker collaborative pack. This pair carries a black nubuck upper, updated with a slimmed-down collar and pre-yellowed quarter panel netting formed with an interlocking series of A Ma Maniére’s signature ‘A’ logo. ‘Nike Air’ branding is embroidered on the back heel in tonal fashion, while silver reflective tongues display mismatched Jumpman and A Ma Maniére branding. The sneaker sits atop a matching black polyurethane midsole with shark-tooth detailing in a dark burgundy hue. A pre-aged translucent rubber outsole featuring the Atlanta-based retailer’s logo provides durable traction underfoot.",
+ "details": "Black/Burgundy Crush/Black/Pale Ivory",
+ "keywords": [],
+ "silhouette": "Air Jordan 5",
+ "collection_slugs": [
+  "air-jordan-5",
+  "allblack",
+  "moodyreds",
+  "a-ma-maniere-air-jordan",
+  "year-in-sneakers",
+  "new-arrivals-sneakers",
+  "best-collabs-sneakers-uk",
+  "color-spotlight-burgundy-crm",
+  "women-s-exclusives",
+  "boutique-collabs",
+  "a-ma-maniere-collabs",
+  "air-jordan-5-web",
+  "air-jordan-5-alias",
+  "level-4f",
+  "promo-collection",
+  "used-sneakers"
+ ],
+ "season": " 2023",
+ "release_date": "2023-11-24T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "FD1330 001",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:08.546507+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FD1330 001&hitsPerPage=20"
+ }
+}

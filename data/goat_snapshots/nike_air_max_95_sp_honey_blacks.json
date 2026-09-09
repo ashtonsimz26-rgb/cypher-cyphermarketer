@@ -1,0 +1,42 @@
+{
+ "name": "Corteiz x Nike Air Max 95 SP 'Honey Blacks'",
+ "nickname": "Honey Blacks",
+ "designer": "Sergio Lozano",
+ "story_html": "The Corteiz x Nike Air Max 95 SP 'Honey Blacks' showcases a solid black finish on a layered leather upper with tonal mesh netting surrounding the lace bed. Contrasting yellow accents land on the shoe's branding elements, which include embroidered tongue patches and a Cortiez logo on the lateral forefoot. The sneaker rests on a matching black polyurethane midsole with yellow-tinged Max Air units.",
+ "details": "Black/Black/Tour Yellow",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-95",
+  "styled-with-air-max",
+  "top-sneaker-collabs",
+  "iconic-streetwear",
+  "manifesto",
+  "goat-selects-crm",
+  "corteiz-nike",
+  "trending-france",
+  "top-trending-uk",
+  "shades-of-yellow",
+  "just-dropped-all",
+  "styled-with-shorts-crm",
+  "top-trending-canada",
+  "air-max-95-web",
+  "sneaker-release-roundup",
+  "yellow-accents-crm",
+  "manifesto-spaces",
+  "level-3f",
+  "gift-guide-davin-brunson-mahi-kabra",
+  "top-trending-jp"
+ ],
+ "season": " 2025",
+ "release_date": "2025-04-30T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "FB2709 003",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:34.994839+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FB2709 003&hitsPerPage=20"
+ }
+}

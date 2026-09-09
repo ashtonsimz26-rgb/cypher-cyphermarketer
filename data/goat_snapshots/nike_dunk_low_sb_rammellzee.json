@@ -1,0 +1,42 @@
+{
+ "name": "Supreme x Nike Dunk Low SB 'Rammellzee'",
+ "nickname": "Rammellzee",
+ "designer": "",
+ "story_html": "The Supreme x Nike Dunk Low SB ‘Rammellzee’ reunites the NYC skate brand with the late artist known for his graffiti writing and multi-media sculptures. The collaboration centers around the Dunk Low silhouette, featuring a canvas upper covered in Rammellzee’s original designs. Durable black suede is utilized on the eyestay, Swoosh and forefoot overlay, matching the shoe’s padded mesh tongue and textile collar lining. Gleaming accents arrive via ‘Supreme’ lace dubrae in a metallic gold finish. Anchoring the sneaker is a durable cupsole that pairs black sidewalls with a gum rubber outsole.",
+ "details": "Black/Black/Multi-Color",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "new-york",
+  "nike-dunk",
+  "nike-dunk-low",
+  "top-sneaker-collabs",
+  "styled-with-dunks",
+  "best-collabs-sneakers",
+  "alias-eoy-indie",
+  "year-in-sneakers",
+  "maximalist-sneakers",
+  "best-collabs-sneakers-uk",
+  "inspired-by-art",
+  "styled-with-dunks-crm",
+  "trending-uk-artist-collabs",
+  "high-demand-low-supply-alias",
+  "prints-patterns-footwear",
+  "skate-selcts",
+  "supreme-x-dunks",
+  "level-3f",
+  "supreme-collabs-a8083fff-56b5-4c11-9de7-1c4252f8efee",
+  "used-dunks"
+ ],
+ "season": " 2023",
+ "release_date": "2023-08-31T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "FD8778 001",
+ "retail_price_cents": 13000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:51.521064+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FD8778 001&hitsPerPage=20"
+ }
+}

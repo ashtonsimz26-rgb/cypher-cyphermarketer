@@ -1,0 +1,34 @@
+{
+ "name": "Air Jordan 1 Retro Low OG 'Banned' 2026",
+ "nickname": "Banned",
+ "designer": "Peter Moore",
+ "story_html": "The 2026 edition of the Air Jordan 1 Retro Low OG 'Banned' revives the iconic colorway of the foundational sneaker in versatile low-top form. The tumbled leather upper combines a black base with Varsity Red accents on the toe box, Swoosh, heel overlay, and back tab. The latter is marked with a tonal 'X,' a design flourish carried over from the 'Banned' AJ1 High released in 2011. A woven Nike Air tag adorns the breathable nylon tongue. The sneaker is mounted on a rubber cupsole that pairs white sidewalls with a grippy crimson rubber outsole.",
+ "details": "Black/Black-Varsity Red-Summit White",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "air-jordan-since-1985",
+  "summer-sale-shoes",
+  "summer-sale",
+  "60",
+  "used-sneakers",
+  "back-to-school-statement-sneakers",
+  "back-to-school-2026",
+  "back-to-school-statement-sneakers-alias",
+  "trending-back-to-school-hauls-alias",
+  "75test",
+  "bts-promo",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2026",
+ "release_date": "2026-05-02T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "IW6276 001",
+ "retail_price_cents": 14500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:33.165759+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IW6276 001&hitsPerPage=20"
+ }
+}

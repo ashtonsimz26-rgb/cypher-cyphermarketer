@@ -1,0 +1,32 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Sand Taupe'",
+ "nickname": "Sand Taupe",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 ‘Sand Taupe’ delivers yet another in a long line of neutral colorways that have dominate the silhouette’s many releases since its global debut in 2016. Decorative no-tie laces are integrated into to the breathable Primeknit upper, featuring a patchwork-like pattern and a prominent seam that runs down the length of the vamp. On the lateral side panel, coral fibers are woven into the knit construction above the post-dyed monofilament side stripe for a subtle pop of color. A fully caged Boost midsole provides lightweight cushioning.",
+ "details": "Sand Taupe/Sand Taupe/Sand Taupe",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "yeezy",
+  "china-special",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "yeezy-day",
+  "color-spotlight-browns",
+  "trending-now-singapore",
+  "top-trending-hk",
+  "used-yeezy"
+ ],
+ "season": " 2020",
+ "release_date": "2020-12-19T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "FZ5240",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:42.890610+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FZ5240&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "name": "Nike P-6000 'Black Cool Grey'",
+ "nickname": "Black Cool Grey",
+ "designer": "",
+ "story_html": "",
+ "details": "Black/Cool Grey/Celestine Blue/Black",
+ "keywords": [],
+ "silhouette": "P-6000",
+ "collection_slugs": [
+  "top-trending-uk",
+  "top-trending-canada",
+  "top-trending-eu-footwear"
+ ],
+ "season": " 2025",
+ "release_date": "2025-07-02T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "IF6199 003",
+ "retail_price_cents": 11500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:07.510243+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IF6199 003&hitsPerPage=20"
+ }
+}

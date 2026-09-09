@@ -1,0 +1,46 @@
+{
+ "name": "Travis Scott x Air Jordan 1 Low 'Mocha'",
+ "nickname": "Mocha",
+ "designer": "Peter Moore",
+ "story_html": "Travis Scott and Jordan Brand collaborate on an Air Jordan 1 Low, taking similar design cues from the high-top version. An oversized backward facing Swoosh is featured prominently on the lateral side of the shoe, while a regular Swoosh graces the medial side. Black and Dark Mocha nubuck dominate the upper, with a few pops of University Red adding a nice contrast. Travis Scott details are subtly placed on the shoe, with the ‘Cactus Jack’ logo appearing on the tongue, medial side panel and sockliner. The back heel tabs feature intricately stitched logos, with the Air Jordan Wings on the right shoe and Scott’s crudely drawn face on the left shoe.",
+ "details": "Black/Dark Mocha-University Red-Sail",
+ "keywords": [
+  "TS5",
+  "playstation",
+  "PS5"
+ ],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "aaee7eea-f1c2-41b3-b50e-ad9278092a62",
+  "travis-scott",
+  "air-jordan-since-1985",
+  "travis-scott-collection",
+  "color-spotlight-browns",
+  "timeline-2019",
+  "top-sneaker-collabs",
+  "convenience-store",
+  "collabs-sneakers",
+  "artist-collaborations",
+  "music-influence-sneakers",
+  "travis-scott-air-jordan-1",
+  "color-mocha",
+  "artists-bf24",
+  "styled-with-workwear",
+  "air-jordan-1-low",
+  "travis-scott-brown-sneakers",
+  "san-diego-padres-shoes",
+  "level-3f",
+  "used-sneakers"
+ ],
+ "season": " 2019",
+ "release_date": "2019-07-19T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "CQ4277 001",
+ "retail_price_cents": 13000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:22.171884+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CQ4277 001&hitsPerPage=20"
+ }
+}

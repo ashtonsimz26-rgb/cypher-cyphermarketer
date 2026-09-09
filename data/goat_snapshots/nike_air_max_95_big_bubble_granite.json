@@ -1,0 +1,26 @@
+{
+ "name": "Nike Air Max 95 'Big Bubble - Granite'",
+ "nickname": "Granite",
+ "designer": "Sergio Lozano",
+ "story_html": "The Nike Air Max 95 'Big Bubble - Granite' updates the retro runner with a tonal color palette. Rope laces feed through white webbing eyelets to secure the upper, featuring wavy synthetic suede panels in a gradient grey design. The lace cover and molded heel panel, marked with debossed Nike Air branding, feature a reflective matte silver finish. Anchoring the sneaker is a black polyurethane midsole with exposed Air-Sole cushioning, highlighted by the original 'Big Bubble' heel unit.",
+ "details": "Black/White-Medium Ash-Dark Pewter-Dust-Granite",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-day",
+  "styled-with-air-max",
+  "air-max-95-web",
+  "earn-25-off-fees-june"
+ ],
+ "season": " 2026",
+ "release_date": "2026-02-05T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "HM4740 007",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:31.645033+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HM4740 007&hitsPerPage=20"
+ }
+}

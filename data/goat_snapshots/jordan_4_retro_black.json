@@ -1,0 +1,36 @@
+{
+ "name": "Olivia Kim x Wmns Air Jordan 4 Retro 'No Cover'",
+ "nickname": "No Cover",
+ "designer": "Tinker Hatfield",
+ "story_html": "Olivia Kim's reinterpretation of the Wmns Air Jordan 4 Retro for the 'No Cover' collection is nostalgic of New York City's playful energy in the 90s. Launched in October 2019, the women's sneaker nods to the silhouette's 'Black Cat' nickname in black bovine fur with suede trim and glossy lace wings. Throwback Nike Air branding replaces the Jumpman on the heel, and an Air-boosted midsole and rubber outsole underscore the sleek look.",
+ "details": "Black/Black/Black",
+ "keywords": [],
+ "silhouette": "Air Jordan 4",
+ "collection_slugs": [
+  "air-jordan-4",
+  "women-s-jordans",
+  "women-s-jordans-0ac911f3-7ca7-48ac-ac32-d1db77628b3c",
+  "collabs-by-women",
+  "allblack",
+  "top-sneaker-collabs",
+  "shop-women-s",
+  "made-by-women",
+  "shoes-2022",
+  "sneakers-for-her",
+  "women-s-exclusives",
+  "trending-now-air-jordan-4-fr",
+  "air-jordan-4-alias",
+  "used-sneakers"
+ ],
+ "season": " 2019",
+ "release_date": "2019-11-08T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "CK2925 001",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:56.258639+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CK2925 001&hitsPerPage=20"
+ }
+}

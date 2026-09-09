@@ -1,0 +1,33 @@
+{
+ "name": "Fragment Design x Union LA x Air Jordan 1 Retro High OG 'Varsity Red'",
+ "nickname": "Varsity Red",
+ "designer": "Peter Moore",
+ "story_html": "The Fragment Design x Union LA x Air Jordan 1 Retro High OG 'Varsity Red Sport Royal' continues the cobbled-together design language featured on previous Union LA AJ1s. The tumbled leather upper combines a white base with contrasting black accents on the eyestay, Swoosh and forefoot overlay. Adorned with Fragment branding, a Sport Royal leather overlay wraps around the heel. Exposed stitching connects the upper to the black suede collar, contrasted by Varsity Red leather overlays marked with a black Wings logo on the lateral side. A vintage off-white finish is applied to the midsole, supported underfoot by a grippy royal blue outsole.",
+ "details": "Black/White-Varsity Red-Sport Royal",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "all-star-weekend",
+  "air-jordan-since-1985",
+  "fragment-collabs",
+  "unionla-collabs",
+  "top-trending-eu-footwear",
+  "used-sneakers",
+  "back-to-school-statement-sneakers",
+  "back-to-school-statement-sneakers-alias",
+  "retro-jordans",
+  "bts-promo",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2026",
+ "release_date": "2026-02-27T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "IO7847 002",
+ "retail_price_cents": 20500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:31.803562+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IO7847 002&hitsPerPage=20"
+ }
+}

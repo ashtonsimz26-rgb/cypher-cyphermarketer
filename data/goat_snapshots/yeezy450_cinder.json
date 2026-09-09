@@ -1,0 +1,24 @@
+{
+ "name": "adidas Men's Yeezy 450 'Cinder'",
+ "nickname": "Cinder",
+ "designer": "",
+ "story_html": "The adidas Yeezy 450 ‘Cinder’ combines a monochrome dark taupe hue with a futuristic design language. Equipped with rope laces, the knit textile upper wraps the foot in a sock-like build. An elastic cuff secures the ankle, while the foot is cradled by the PU-injected midsole, highlighted by tapered ‘fingers’ that extend up the heel and sides. An Ortholite sockliner provides lightweight cushioning, while the rubber outsole features a wavy traction pattern for optimal grip.",
+ "details": "Cinder/Cinder/Cinder",
+ "keywords": [],
+ "silhouette": "Yeezy 450",
+ "collection_slugs": [
+  "womens-yeezy",
+  "on-the-rise-yeezy"
+ ],
+ "season": " 2022",
+ "release_date": "2022-03-24T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "GX9662",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:47.726908+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GX9662&hitsPerPage=20"
+ }
+}

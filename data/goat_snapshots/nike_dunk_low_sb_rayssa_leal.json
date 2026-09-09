@@ -1,0 +1,35 @@
+{
+ "name": "Rayssa Leal x Nike Dunk Low SB",
+ "nickname": "",
+ "designer": "",
+ "story_html": "The Rayssa Leal x Nike Dunk Low SB debuts a special-edition colorway designed in collaboration with the Brazilian skateboarder. Mismatched blue and fuchsia Swooshes adorn the upper, featuring a white leather base with patterned grey suede overlays. Rayssa's personal logo decorates the lateral heel, while a trio of multicolored lace charms display digital smiley faces. The same graphic is embossed in a repeating pattern throughout each quarter panel. Underfoot, a gum rubber outsole provides grippy traction.",
+ "details": "Pure Platinum/Deep Royal Blue/Vivid Purple/White/Gum Yellow",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "nike-dunk",
+  "trending-france",
+  "new-arrivals-sneakers",
+  "nike-dunk-sb-collabs",
+  "goat-selects-crm-2024",
+  "just-dropped-all",
+  "colorblock",
+  "seen-at-games",
+  "new-in-redeem",
+  "accessorized-footwear",
+  "best-of-2024-sneakers",
+  "super-bowl-lx-colorways",
+  "used-dunks"
+ ],
+ "season": " 2024",
+ "release_date": "2024-03-20T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "FZ5251 001",
+ "retail_price_cents": 12500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:52.269790+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FZ5251 001&hitsPerPage=20"
+ }
+}

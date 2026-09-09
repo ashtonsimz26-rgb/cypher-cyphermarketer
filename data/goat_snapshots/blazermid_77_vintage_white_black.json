@@ -1,0 +1,32 @@
+{
+ "name": "Nike Blazer Mid '77 Vintage 'White Black'",
+ "nickname": "White Black",
+ "designer": "Bill Bowerman",
+ "story_html": "As one of the first Nike basketball sneakers ever released, the Nike Blazer has a long heritage. The Nike Blazer Mid ’77 Vintage ‘White Black’ pays homage to its history with an old-school look. The upper comes in white leather, with an OG Swoosh taking up the side, and a deconstructed tongue with vintage branding. Two forefoot overlays come in a hairy tonal suede, and the rear branding features a distressed ‘NIKE’ logo.",
+ "details": "White/Black",
+ "keywords": [],
+ "silhouette": "Blazer",
+ "collection_slugs": [
+  "ul",
+  "timeline-2019",
+  "shoes-2022",
+  "summer-sale-shoes",
+  "sau-selects",
+  "top-trending-uk",
+  "top-trending-canada",
+  "under-100-footwear",
+  "under-100-selects-cross",
+  "top-trending-au"
+ ],
+ "season": " 2019",
+ "release_date": "2019-03-28T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "BQ6806 100",
+ "retail_price_cents": 10000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:19.972518+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=BQ6806 100&hitsPerPage=20"
+ }
+}

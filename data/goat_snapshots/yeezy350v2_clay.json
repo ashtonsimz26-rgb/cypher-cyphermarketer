@@ -1,0 +1,36 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Clay'",
+ "nickname": "Clay",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 ‘Clay’ updates the silhouette with a warm palette and semi-translucent, three-tone vent at the side. This ‘Clay’ colorway retains the stand-out features of the original 350 V2 shoe, first seen in September 2016, including a flexible Primeknit upper and full-length Boost cushioning. This shoe released March 2019 exclusively in select cities in North America and Latin America.",
+ "details": "Clay/Clay/Clay",
+ "keywords": [
+  "Clay",
+  "Yeezy",
+  "350"
+ ],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "yeezy",
+  "top-20-trending",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "yeezy-day",
+  "womens-yeezy",
+  "desert-tones",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2019",
+ "release_date": "2019-03-29T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "EG7490",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:45.842948+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=EG7490&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "name": "Air Jordan 11 Retro 'Win Like '96'",
+ "nickname": "Win Like '96",
+ "designer": "Tinker Hatfield",
+ "story_html": "For Chicago Bulls Fans, the historical significance of the Air Jordan 11 Retro ‘Win Like 96’ will be abundantly clear. 1996 is the year that the Bulls capped off the regular season with a record-breaking 72 wins, on their way to a fourth NBA title in six seasons. Michael wore the Jordan 11 during that magical run, and this December 2017 release, dressed in a dazzling shade of red, honors the ’96 squad that couldn’t lose.",
+ "details": "Gym Red/Black-White",
+ "keywords": [],
+ "silhouette": "Air Jordan 11",
+ "collection_slugs": [
+  "air-jordan-11",
+  "timeline-2017",
+  "pinks-reds-sneakers",
+  "sunset-hues",
+  "air-jordan-1-s-11-s",
+  "styled-with-air-jordan-11",
+  "patent-leather",
+  "styled-with-varsity-jackets",
+  "holday-11-jordan-releases",
+  "high-demand-low-supply-alias",
+  "air-jordan-11-alias",
+  "used-sneakers"
+ ],
+ "season": " 2017",
+ "release_date": "2017-12-09T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "378037 623",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:42.311916+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=378037 623&hitsPerPage=20"
+ }
+}

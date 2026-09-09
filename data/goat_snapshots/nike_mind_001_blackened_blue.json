@@ -1,0 +1,27 @@
+{
+ "name": "Nike Mind 001 'Blackened Blue'",
+ "nickname": "Blackened Blue",
+ "designer": null,
+ "story_html": "The Nike Mind 001 'Blackened Blue' brings a gradient design to the pre-game mule. The slip-on features a molded black foam upper that gradually transitions to royal blue along the bottom edge of the midsole. The latter hue makes repeat appearances on the interior lining and outsole, which reveal the model's standout feature: twenty-two anatomically mapped foam nodes that move up and down in a piston-like rhythm with each step. By activating key pressure points in the foot, they strengthen the mind-body connection, resulting in heightened focus and mindfulness.",
+ "details": "Blackened Blue/Metallic Copper/Game Royal/White",
+ "keywords": [],
+ "silhouette": "Mind 001",
+ "collection_slugs": [
+  "slides-sandals",
+  "high-demand-low-supply-alias",
+  "selling-out-fast-alias",
+  "best-of-slides",
+  "nike-mind"
+ ],
+ "season": " 2026",
+ "release_date": "2026-04-30T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "HQ4307 400",
+ "retail_price_cents": 9500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:05.538383+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ4307 400&hitsPerPage=20"
+ }
+}

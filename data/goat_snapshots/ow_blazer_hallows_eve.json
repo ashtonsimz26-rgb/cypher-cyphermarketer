@@ -1,0 +1,44 @@
+{
+ "name": "Off-White x Nike Blazer Mid 'All Hallows Eve'",
+ "nickname": "All Hallows Eve",
+ "designer": "Bill Bowerman",
+ "story_html": "The Off-White x Blazer Mid ‘All Hallows Eve’ showcases a seasonally appropriate orange Swoosh atop a Pale Vanilla base. The yellowish tan hue extends to the exposed-foam tongue and rubber midsole, with the signature zip tie in blue adding a contrasting pop of color. Virgil Abloh’s signature lines of text register an appearance on the medial-side quarter panel.",
+ "details": "Canvas/Pale Vanilla-Black-Total Orange",
+ "keywords": [
+  "spooky pack"
+ ],
+ "silhouette": "Blazer",
+ "collection_slugs": [
+  "off-white-apparel-accessories",
+  "Emma-Chamberlain",
+  "timeline-2018",
+  "top-sneaker-collabs",
+  "off-white-collabs",
+  "collabs-sneakers",
+  "nike-off-white",
+  "best-collabs-sneakers",
+  "70s-silhouettes",
+  "sneaker-icons",
+  "balenciaga-trivia",
+  "trending-now-clashing-prints",
+  "styled-with-jerseys",
+  "styled-with-jerseys-crm",
+  "contemporary-print-clashing-crm",
+  "halloween",
+  "sneaker-icons-alias",
+  "level-3f",
+  "seasonal-selects-halloween",
+  "virgil-abloh-influence"
+ ],
+ "season": " 2018",
+ "release_date": "2018-10-03T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "AA3832 700",
+ "retail_price_cents": 13000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:20.895155+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AA3832 700&hitsPerPage=20"
+ }
+}

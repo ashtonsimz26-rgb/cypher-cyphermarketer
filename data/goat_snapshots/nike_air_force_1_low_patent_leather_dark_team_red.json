@@ -1,0 +1,26 @@
+{
+ "name": "Nike Air Force 1 Low 'Patent Leather Dark Team Red'",
+ "nickname": "Patent Leather Dark Team Red",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Nike Air Force 1 Low 'Patent Leather Dark Team Red' pairs rich hues with a polished finish. The classic silhouette is updated with a patent leather upper, featuring a burgundy base with orange accents on the Swoosh and heel tab. The latter is marked with 'Nike Air' in yellow embroidery, with additional Nike branding appearing on the woven tongue tag and sockliner. Anchoring the sneaker is a maroon midsole with encapsulated Air-Sole cushioning in the heel. Underfoot, a crimson semi-translucent rubber outsole provides reliable traction.",
+ "details": "Dark Team Red/University Gold-Safety Orange-Challenge Red",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "498dd856-0306-4ee0-a623-d4cc5263091d",
+  "selling-out-fast-alias",
+  "back-to-school-statement-sneakers",
+  "back-to-school-statement-sneakers-alias"
+ ],
+ "season": " 2026",
+ "release_date": "2026-04-09T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "IO4489 601",
+ "retail_price_cents": 12000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:23.993669+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IO4489 601&hitsPerPage=20"
+ }
+}

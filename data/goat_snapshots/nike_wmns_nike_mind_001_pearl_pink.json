@@ -1,0 +1,26 @@
+{
+ "name": "Wmns Nike Mind 001 'Pearl Pink'",
+ "nickname": "Pearl Pink",
+ "designer": null,
+ "story_html": "The Nike Women's Mind 001 'Pearl Pink' gives the pregame mule a pastel makeover. A soft pink hue is applied to the molded foam upper, featuring perforated textile at the vamp for improved breathability. Underfoot, the outsole reveals the slip-on's standout feature: a series of twenty-two foam nodes, anatomically mapped and designed to independently move with each step. Made with stretchy fabric, the footbed allows the foot to feel the pressure of the nodes, which are scientifically shown to activate sensory areas of the brain.",
+ "details": "Pearl Pink/Chrome-Hyper Crimson-Black",
+ "keywords": [],
+ "silhouette": "Mind 001",
+ "collection_slugs": [
+  "selling-out-fast-alias",
+  "nike-mind",
+  "back-to-school-statement-sneakers",
+  "back-to-school-statement-sneakers-alias"
+ ],
+ "season": " 2026",
+ "release_date": "2026-05-21T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "HQ4309 610",
+ "retail_price_cents": 9500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:18.281965+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ4309 610&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,33 @@
+{
+ "name": "Nike Calm Slide 'Black'",
+ "nickname": "Black",
+ "designer": "",
+ "story_html": "The Nike Calm Slide 'Black' delivers an easy-to-wear slip-on in a stealthy finish. Built with flexible foam, the minimalist sandal is equipped with a comfortable wide-strap upper with debossed Nike Swoosh branding on the lateral side. A second larger Swoosh adorns the footbed, featuring a textured top layer that holds the foot securely in place. The seamless silhouette is underpinned by a full-length rubber outsole, good for durable traction on wet or dry surfaces.",
+ "details": "Black/Black",
+ "keywords": [],
+ "silhouette": "Calm Slide",
+ "collection_slugs": [
+  "slides-clogs",
+  "slides-sandals",
+  "summer-wishlist-crm",
+  "summer-camp-crm",
+  "emerging-silhouettes-france",
+  "all-black-crm",
+  "minimalist-sneakers",
+  "lounge-shoes",
+  "best-of-slides",
+  "under-100-footwear",
+  "under-100-selects-cross"
+ ],
+ "season": " 2023",
+ "release_date": "2023-07-14T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "FD4116 001",
+ "retail_price_cents": 5000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:45.071239+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FD4116 001&hitsPerPage=20"
+ }
+}

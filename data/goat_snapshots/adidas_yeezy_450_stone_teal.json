@@ -1,0 +1,31 @@
+{
+ "name": "adidas Yeezy 450 'Stone Teal'",
+ "nickname": "Stone Teal",
+ "designer": "",
+ "story_html": "The adidas Yeezy 450 ‘Stone Teal’ delivers a stealthy colorway of the lifestyle silhouette. A neutral grey finish is applied to the one-piece knit upper, secured with traditional lace closure and a stretchy sock-like collar. A hint of teal along the back heel adds a subtle pop of color, disrupting the shoe’s monochrome palette. The lightweight build is mounted on a PU-injected midsole, featuring distinctive lines that give the sneaker its unique, one-of-a-kind aesthetic.",
+ "details": "Stone Teal/Stone Teal/Stone Teal",
+ "keywords": [],
+ "silhouette": "Yeezy 450",
+ "collection_slugs": [
+  "yeezy",
+  "shoes-2022",
+  "future-shapes-sneakers",
+  "just-dropped-yeezy",
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "deconstruction",
+  "under-100-footwear",
+  "under-100-selects-cross",
+  "on-the-rise-yeezy"
+ ],
+ "season": " 2023",
+ "release_date": "2023-05-31T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "ID1632",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:40.562600+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=ID1632&hitsPerPage=20"
+ }
+}

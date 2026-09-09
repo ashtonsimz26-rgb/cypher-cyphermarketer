@@ -1,0 +1,36 @@
+{
+ "name": "Cactus Plant Flea Market x Nike Wmns Air VaporMax 2019",
+ "nickname": "CPFM",
+ "designer": "Andreas Harlow",
+ "story_html": "In honor of Air Max Day 2019, Nike collaborated with designer Cynthia Lu for an avant-garde take on the VaporMax, which resulted in the Cactus Plant Flea Market x Air VaporMax 2019 sneaker. Released May 2019, the deconstructed design features an exposed-seam mesh upper, underscored by a cord Swoosh and a smiley face at heel, a nod to Nike’s ‘Just Do It’ campaign. Below, the design is padded with its trademark full-length VaporMax bag, completed in a multi-color finish.",
+ "details": "Green Mist/Light Beige Chalk",
+ "keywords": [
+  "CPFM"
+ ],
+ "silhouette": "Air VaporMax",
+ "collection_slugs": [
+  "cactus-plant-flea-market",
+  "collabs-by-women",
+  "top-sneaker-collabs",
+  "made-by-women",
+  "womens-nike-vapormax",
+  "nike-cactus-plant-flea-market",
+  "reworked-sneakers",
+  "women-s-exclusives",
+  "radical-design",
+  "remixed-icons-footwear",
+  "level-3f",
+  "spotlight-american-brands"
+ ],
+ "season": " 2019",
+ "release_date": "2019-05-14T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "CD7001 300",
+ "retail_price_cents": 25000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:17.616181+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CD7001 300&hitsPerPage=20"
+ }
+}

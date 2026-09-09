@@ -1,0 +1,31 @@
+{
+ "name": "adidas Yeezy Boost 380 'Covellite'",
+ "nickname": "Covellite",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 380 ‘Covellite’ showcases a mix of navy, indigo, and grey tones throughout the re-engineered Primeknit upper. The camo-like design is punctuated by perforated detailing that accompanies the sneaker’s semi-translucent monofilament window, woven into the side panel to enhance the breathability of the sock-like build. Responsive cushioning arrives via a caged full-length Boost midsole, featuring a stacked, elevated heel and supported underfoot by a herringbone rubber outsole.",
+ "details": "Covell/Covell/Covell",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 380",
+ "collection_slugs": [
+  "yeezy",
+  "adidas-yeezy-boost",
+  "artist-inspired-apparel",
+  "yeezy-day",
+  "music-influence-sneakers",
+  "just-dropped-yeezy",
+  "dark-blues",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-03-15T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "GZ0454",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:38.670972+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GZ0454&hitsPerPage=20"
+ }
+}

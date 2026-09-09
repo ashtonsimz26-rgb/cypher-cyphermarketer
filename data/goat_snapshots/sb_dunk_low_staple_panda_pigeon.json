@@ -1,0 +1,28 @@
+{
+ "name": "Jeff Staple x Nike Dunk Low Pro SB 'Panda Pigeon'",
+ "nickname": "Panda Pigeon",
+ "designer": "Peter Moore",
+ "story_html": "Originally conceived as a sample colorway that was initially rejected, the Jeff Staple x Dunk Low Pro SB ‘Panda Pigeon’ continues Staple’s long-running partnership with Nike SB. The design lives up to its name with a black and white color scheme on the leather and suede upper, complete with the all-important pigeon on the lateral heel. A translucent outsole reveals a collage made up of newspaper headlines alluding to the infamous Pigeon Dunk launch from 2005.",
+ "details": "Black/White",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "nike-sb",
+  "new-york",
+  "nike-dunk",
+  "panda",
+  "level-0f",
+  "used-dunks"
+ ],
+ "season": " 2019",
+ "release_date": "2019-01-15T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "BV1310 013",
+ "retail_price_cents": 11000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:35.280208+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=BV1310 013&hitsPerPage=20"
+ }
+}

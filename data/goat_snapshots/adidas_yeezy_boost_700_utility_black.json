@@ -1,0 +1,46 @@
+{
+ "name": "adidas Men's Yeezy Boost 700 'Utility Black' 2019",
+ "nickname": "Utility Black",
+ "designer": "Kanye West",
+ "story_html": "The Yeezy Boost 700, designed by music and fashion icon Kanye West, first debuted at the Yeezy Season 5 fashion show in February 2017. This 'Utility Black' colorway from June 2019 sees the design in a mesh upper with both plush suede and smooth leather overlays. At the bottom, the Yeezy Boost 700's chunky midsole encapsulates adidas' revolutionary Boost cushioning in a full-length format, underscored by gum rubber tread.",
+ "details": "Utility Black/Utility Black/Utility Black",
+ "keywords": [
+  "Yeezy",
+  "700"
+ ],
+ "silhouette": "Yeezy Boost 700",
+ "collection_slugs": [
+  "yeezy",
+  "yeezy-700",
+  "adidas-yeezy-boost",
+  "utility-apparel",
+  "donda-influence-48b7d420-8d98-4fa1-bb14-9d288b9bfda9",
+  "yeezy-day",
+  "everyday-sneakers",
+  "allblack",
+  "instant",
+  "womens-yeezy",
+  "yeezy-utility-black",
+  "trending-now-uk",
+  "most-wanted-uk",
+  "travel-essentials-sneakers-crm",
+  "hype-historians",
+  "high-demand-low-supply-alias",
+  "city-miles",
+  "fall-staples-footwear",
+  "on-the-rise-yeezy",
+  "promo-collection",
+  "used-yeezy"
+ ],
+ "season": " 2019",
+ "release_date": "2019-06-28T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "FV5304",
+ "retail_price_cents": 30000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:49.227753+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FV5304&hitsPerPage=20"
+ }
+}

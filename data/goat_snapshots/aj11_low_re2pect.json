@@ -1,0 +1,29 @@
+{
+ "name": "Air Jordan 11 Retro Low 'RE2PECT'",
+ "nickname": "RE2PECT, Jeter",
+ "designer": "Tinker Hatfield",
+ "story_html": "Translating the 2017 “Derek Jeter” high-top into a low-top style, this model sports a Yankee-themed Binary Blue and Sail colorway. The sneaker comes dressed in an entirely suede upper with embroidery of Jeter’s jersey number “2” on the back heel, with a clean white coating and translucent outsole rounding out the design. The original model was released in an edition of five and given to five raffle winners for free. Now, the Jordan 11 Retro Low RE2PECT is available to the public.",
+ "details": "binary blue/sail-binary blue",
+ "keywords": [
+  "Jeter",
+  "Jordan 11 Jeter"
+ ],
+ "silhouette": "Air Jordan 11",
+ "collection_slugs": [
+  "air-jordan-11",
+  "air-jordan-1-s-11-s",
+  "air-jordan-11-alias",
+  "used-sneakers"
+ ],
+ "season": " 2018",
+ "release_date": "2018-05-14T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "AV2187 441",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:12.055778+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AV2187 441&hitsPerPage=20"
+ }
+}

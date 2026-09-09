@@ -1,0 +1,27 @@
+{
+ "name": "Nigel Sylvester x Air Jordan 1 Retro High OG 'Nigel Sylvester'",
+ "nickname": "Nigel Sylvester",
+ "designer": "Peter Moore",
+ "story_html": "The Nigel Sylvester x Air Jordan 1 Retro High OG gives Nigel Sylvester, a pro rider from Queens, New York, a high-top AJ1 in cream leather showcasing a worn-in aesthetic. Sylvester prefers the Air Jordan 1 when cruising around on his BMX, and the distressed shoe mimics natural scuffs and abrasions from mastering tricks. Pre-scuffed markings can be found on the toe and heel, while a mini-Swoosh can be found near the front toe of the shoe, a first for the Air Jordan 1.",
+ "details": "Sail/White-Varsity Red-Reflect Silver",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "aaee7eea-f1c2-41b3-b50e-ad9278092a62",
+  "mini-swooshes",
+  "nigel-sylvester-air-jordan",
+  "level-3f",
+  "used-sneakers"
+ ],
+ "season": " 2018",
+ "release_date": "2018-08-31T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "BV1803 106",
+ "retail_price_cents": 18000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:08.653590+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=BV1803 106&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "name": "Nike Air Max 95 BB DOAF Oregon 'The Woods' PE",
+ "nickname": "The Woods",
+ "designer": "",
+ "story_html": "Created by Division Street’s Ducks of a Feather, the Air Max 95 BB DOAF Oregon 'Deep in the Woods' PE embodies the lush environment of the Pacific Northwest. The silhouette's signature wavy upper is constructed of full hairy suede with a moss-textured back heel. Fuzzy laces secure the suede tongue, displaying dual branding. Both the sockliner and outsole spine continue the concept with printed graphics underfoot. Proceeds benefit participating University of Oregon student-athletes.",
+ "details": "Fir/Electric Green/Fir–Tomatillo",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-day",
+  "styled-with-air-max",
+  "back-to-school-gameday-sneakers-alias",
+  "back-to-school-gameday-sneakers"
+ ],
+ "season": " 2026",
+ "release_date": "2026-03-26T23:59:59.999Z",
+ "release_year": 2026,
+ "sku": "IQ3986 300",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:31.010300+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IQ3986 300&hitsPerPage=20"
+ }
+}

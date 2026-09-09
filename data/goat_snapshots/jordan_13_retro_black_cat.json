@@ -1,0 +1,28 @@
+{
+ "name": "Air Jordan 13 Retro 'Black Cat'",
+ "nickname": "Black Cat",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 13 Retro ‘Black Cat’ showcases a monochromatic finish that plays off one of Michael Jordan’s many nicknames. The black suede upper is accented with a holographic cat eye and reflective detailing on the sneaker’s mesh overlays and rope laces. A glossy finish is applied to the matching black Phylon midsole, which houses Zoom Air units in the heel and forefoot. The 13’s signature panther paw outsole features herringbone traction for maximum grip.",
+ "details": "Black/Anthracite/Black",
+ "keywords": [],
+ "silhouette": "Air Jordan 13",
+ "collection_slugs": [
+  "rui-hachimura",
+  "air-jordan-13",
+  "air-jordan-13-sneakers",
+  "air-jordan-since-1985",
+  "color-black-cat",
+  "monochrome-sneakers"
+ ],
+ "season": " 2017",
+ "release_date": "2017-01-21T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "414571 011",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:45.668298+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=414571 011&hitsPerPage=20"
+ }
+}

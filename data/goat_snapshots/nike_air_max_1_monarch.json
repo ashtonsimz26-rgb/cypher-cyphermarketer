@@ -1,0 +1,38 @@
+{
+ "name": "Patta x Nike Air Max 1 'Monarch'",
+ "nickname": "Monarch",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Patta x Nike Air Max 1 ‘Monarch’ reunites the Amsterdam-based retailer on a revamped edition of the retro silhouette. The upper is crafted from light grey ballistic mesh with white leather overlays and an orange suede Swoosh. The autumnal hue is repeated on a wavy suede mudguard, accented with an embroidered mini-Swoosh on the lateral forefoot. Additional branding elements include woven Patta tongue tags and a Nike Air callout on the back heel. The sneaker rides on a pre-yellowed polyurethane midsole, equipped with visible Air-sole cushioning and reinforced by a waffle-tread rubber outsole.",
+ "details": "Metallic Silver/Monarch/Pure Platinum",
+ "keywords": [],
+ "silhouette": "Air Max 1",
+ "collection_slugs": [
+  "air-max-day",
+  "air-max-1",
+  "styled-with-air-max",
+  "top-sneaker-collabs",
+  "reworked-sneakers",
+  "patta-nike",
+  "autumn-tones",
+  "top-sneaker-collabs-uk",
+  "earth-tones-sneakers",
+  "gift-guide-air-max-uk",
+  "best-collabs-sneakers-uk",
+  "styled-with-air-max-6d1a8220-b830-4b95-96e2-cd7e1018f5a5",
+  "spring-wishlist-footwear",
+  "remixed-icons-footwear",
+  "air-max-iconic-colorways",
+  "air-max-collabs-streetwear"
+ ],
+ "season": " 2021",
+ "release_date": "2021-10-08T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "DH1348 001",
+ "retail_price_cents": 16000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:29.642380+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DH1348 001&hitsPerPage=20"
+ }
+}

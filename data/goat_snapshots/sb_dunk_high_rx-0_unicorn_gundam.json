@@ -1,0 +1,29 @@
+{
+ "name": "Gundam x Nike Dunk High SB 'Project Unicorn - RX-0'",
+ "nickname": "Project Unicorn - RX-0",
+ "designer": "",
+ "story_html": "The Gundam x Nike Dunk High SB ‘RX-0 Project Unicorn’ is taken from a collaborative series celebrating the Tokyo 2021 Summer Olympics. Nodding to the enduring mecha-based sci-fi franchise and accompanying toys, this pair showcases a unique design inspired by the RX-0 Unicorn Gundam. The high-top carries a white leather upper with tonal overlays outlined in contrasting red trim and stitching. Sculpted lines on the collar and toe box replicate the look of the Gundam armor, while interchangeable Swooshes reflect customizable toy models or a sticker-riddled skate deck. Additional branding elements include a woven yellow Nike SB tag and a red unicorn emblem stamped on the lateral heel.",
+ "details": "",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "nike-dunk",
+  "ul",
+  "convenience-store",
+  "best-of-2021",
+  "contrast-stitch",
+  "heroes-vs-villains",
+  "used-dunks"
+ ],
+ "season": " 2021",
+ "release_date": "2021-11-10T23:59:59.000Z",
+ "release_year": 2021,
+ "sku": "DH7717 100",
+ "retail_price_cents": 11000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:23.578384+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DH7717 100&hitsPerPage=20"
+ }
+}

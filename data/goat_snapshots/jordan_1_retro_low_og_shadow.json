@@ -1,0 +1,30 @@
+{
+ "name": "Swarovski x Wmns Air Jordan 1 Retro Low OG 'Shadow'",
+ "nickname": "Shadow",
+ "designer": "Peter Moore",
+ "story_html": "The Swarovski x Women's Air Jordan 1 Retro Low OG 'Shadow' makes use of a grey leather upper, featuring Swarovski crystals embedded in the forefoot overlay, signature Swoosh and heel panel. A woven Nike Air tag adorns the tongue, while the iconic Wings logo is stamped on the back tab. Anchoring the sneaker is a durable rubber cupsole, enhanced with encapsulated Air-sole cushioning in the heel.",
+ "details": "Stealth/Stealth",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "women-s-jordans-0ac911f3-7ca7-48ac-ac32-d1db77628b3c",
+  "manifesto",
+  "styled-with-air-jordan-1",
+  "sneaker-release-roundup",
+  "luxe-accents",
+  "manifesto-spaces",
+  "level-4f",
+  "used-sneakers"
+ ],
+ "season": " 2025",
+ "release_date": "2025-05-22T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HM9208 001",
+ "retail_price_cents": 100000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:33.886391+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HM9208 001&hitsPerPage=20"
+ }
+}

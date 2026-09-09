@@ -1,0 +1,41 @@
+{
+ "name": "Air Jordan 12 Retro 'Playoff' 2022",
+ "nickname": "Playoff",
+ "designer": "Tinker Hatfield",
+ "story_html": "The 2022 edition of the Air Jordan 12 Retro ‘Playoff’ brings back the shoe that Michael Jordan wore during his 1997 championship run. The mid-top sports an essential two-tone color scheme, featuring radiating stitched lines on the black leather upper and lizard-textured overlays in a contrasting white finish. The sneaker’s molded eyelets shine in metallic silver, while color-popped crimson accents land on the Jumpman-embroidered tongue and webbing heel loop. Performance benefits include full-length Zoom Air cushioning, a carbon fiber shank plate, and a rubber outsole with herringbone traction pods under the forefoot and heel.",
+ "details": "Black/Varsity Red/White",
+ "keywords": [],
+ "silhouette": "Air Jordan 12",
+ "collection_slugs": [
+  "all-star-weekend",
+  "air-jordan-12",
+  "air-jordan-since-1985",
+  "even-number-air-jordans",
+  "black-white-40cfa3cc-2d9e-4b66-a1e9-3311634dd469",
+  "2022-staples",
+  "90s-silhouette-s",
+  "top-sneakers",
+  "family-size-runs-adult",
+  "music-trivia-bf-2023",
+  "high-fashion-trivia-bf-2023",
+  "most-wanted-air-jordan",
+  "styled-with-basketball-shoes",
+  "styled-with-white-tees-crm",
+  "og-air-jordan-colorways",
+  "styled-with-air-jordan-12",
+  "aj12",
+  "tech-focus-air-zooms",
+  "used-sneakers"
+ ],
+ "season": " 2022",
+ "release_date": "2022-03-11T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "CT8013 006",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:44.351502+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CT8013 006&hitsPerPage=20"
+ }
+}

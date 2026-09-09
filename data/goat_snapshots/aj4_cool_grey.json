@@ -1,0 +1,30 @@
+{
+ "name": "Air Jordan 4 Retro 'Cool Grey' 2004",
+ "nickname": "Cool Grey",
+ "designer": "Tinker Hatfield",
+ "story_html": "Jordan Brand puts the classic ‘Cool Grey’ color scheme on the Air Jordan 4, featuring a grayscale palette on the upper’s leather and nubuck construction. Black accents on the eyelets match the midsole and outsole, while the only bit of color appears on the yellow Air unit and Jordan 4 lettering on the tongue. Similar to many of the silhouette’s line of reissues, this style implements the Jumpman logo on the heel instead of Nike Air branding.",
+ "details": "Cool Grey/Chrome/Dark Charcoal/Varsity Maize",
+ "keywords": [],
+ "silhouette": "Air Jordan 4",
+ "collection_slugs": [
+  "sneakers-from-the-archives",
+  "streetwear-classics-bf59f315-a9ec-47fe-829d-567664bb5ac0",
+  "00s-silhouettes",
+  "shoes-2022",
+  "sneaker-staples",
+  "color-cool-grey",
+  "air-jordan-4-alias",
+  "used-sneakers"
+ ],
+ "season": " 2004",
+ "release_date": "2004-09-25T23:59:59.999Z",
+ "release_year": 2004,
+ "sku": "308497 001",
+ "retail_price_cents": 10000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:16.528289+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=308497 001&hitsPerPage=20"
+ }
+}

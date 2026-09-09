@@ -1,0 +1,36 @@
+{
+ "name": "Zion Williamson x Air Jordan 1 Retro Low OG 'Voodoo Alternate'",
+ "nickname": "Voodoo Alternate",
+ "designer": "Peter Moore",
+ "story_html": "The Zion Williamson x Air Jordan 1 Retro Low OG 'Voodoo Alternate' pays tribute to New Orleans with a vibrant blue suede upper, secured with braided rope laces and fortified with mismatched burlap-like overlays in blue, purple and dark indigo hues. Violet embroidered detailing adorns the black suede toe box, while irregular stitching embellishes the forefoot and signature Swoosh. Vapor Green accents land on the reverse mini-Swoosh embroidered on the lateral toe, along with inverted Nike Air and Wings logos on the woven tongue tag and black suede back tab, respectively. A voodoo doll graphic on the lateral heel completes the playful theme.",
+ "details": "Regency Purple/Vapor Green/Black/Dark Raisin/Daybreak/Light Silver",
+ "keywords": [
+  "voo doo"
+ ],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "air-jordan-since-1985",
+  "top-sneaker-collabs",
+  "basketball-collabs",
+  "goat-gift-guides",
+  "halloween",
+  "top-trending-canada",
+  "level-3f",
+  "investment-footwear",
+  "seasonal-selects-halloween",
+  "nba-collabs-spotlight",
+  "used-sneakers",
+  "retro-jordans"
+ ],
+ "season": " 2025",
+ "release_date": "2025-10-29T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "IH2309 500",
+ "retail_price_cents": 16500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:35.375075+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IH2309 500&hitsPerPage=20"
+ }
+}

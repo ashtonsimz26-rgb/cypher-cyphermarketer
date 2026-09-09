@@ -1,0 +1,25 @@
+{
+ "name": "Air Jordan 8 Retro DB 'Doernbecher'",
+ "nickname": "Doernbecher",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Nike Air Jordan 8 Retro DB 'Doernbecher' was released as part of the Nike x Doernbecher 2014 Freestyle Collection. Designed by Caden Lampert who battles with a life-threatening autoimmune disease known as Guillain-Barré syndrome, the vibrant sneaker features a Hyper Blue speckled upper with Electro Orange, Tour Yellow, and black accents. Released in November 2014 at the Portland Art Museum, the sneaker also includes a raft of personal details. A keen basketball player, Caden's jersey #14 hits up the cross-strap, and a cobra graphic accents the right tongue. Also included are a glow-in-the-dark fingerprint and the inspirational phrases 'Hang Loose,' Rock On,' and 'Brave.'",
+ "details": "Hyper Blue/Elec Orng/Black",
+ "keywords": [],
+ "silhouette": "Air Jordan 8",
+ "collection_slugs": [
+  "doernbecher",
+  "timeline-2014",
+  "air-jordan-8"
+ ],
+ "season": " 2014",
+ "release_date": "2014-11-23T23:59:59.999Z",
+ "release_year": 2014,
+ "sku": "729893 480",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:18.575539+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=729893 480&hitsPerPage=20"
+ }
+}

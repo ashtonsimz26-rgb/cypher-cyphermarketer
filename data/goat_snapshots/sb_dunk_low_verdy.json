@@ -1,0 +1,24 @@
+{
+ "name": "Nike Air Max Terrascape Plus 'White Pure Platinum'",
+ "nickname": "White Pure Platinum",
+ "designer": "Sean McDowell",
+ "story_html": "",
+ "details": "White/White/White/Pure Platinum",
+ "keywords": [],
+ "silhouette": "Air Max Plus",
+ "collection_slugs": [
+  "37-years-of-air-max",
+  "air-max-alias"
+ ],
+ "season": " 2022",
+ "release_date": "2022-11-17T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DQ3977 100",
+ "retail_price_cents": 18500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:36.567499+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DQ3977 100&hitsPerPage=20"
+ }
+}

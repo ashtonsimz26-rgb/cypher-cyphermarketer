@@ -1,0 +1,24 @@
+{
+ "name": "Nike SB x Air Max 95 OG 'Cacao Wow'",
+ "nickname": "Cacao Wow",
+ "designer": "Sergio Lozano",
+ "story_html": "The Nike SB Air Max 95 OG 'Cacao Wow' delivers a skate-ready edition of the classic retro running shoe. Laces feed through brown webbing eyelets to secure the mixed-material upper, featuring folded edges and double-stitch reinforcement in key wear areas. The side panels are covered in four wavy layers, one in leather, the bottom three in suede, with a gradient design that transitions from light grey to dark. An embroidered Air Max patch adorns the tongue, while Nike SB Air branding is embossed on the molded heel panel. Revised tooling takes the form of a reduced-foam polyurethane midsole with exposed Max Air cushioning. The rubber outsole is updated with herringbone-traction lugs for superior board feel.",
+ "details": "Black/Cacao Wow Anthracite Light Graphitelight Charcoal Pearl Grey",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-collabs-streetwear",
+  "air-max-95-web"
+ ],
+ "season": " 2026",
+ "release_date": "2026-01-20T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "HF7545 002",
+ "retail_price_cents": 17500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:14.047420+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HF7545 002&hitsPerPage=20"
+ }
+}

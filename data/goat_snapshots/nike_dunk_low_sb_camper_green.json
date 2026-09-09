@@ -1,0 +1,29 @@
+{
+ "name": "Supreme x Nike Dunk Low SB 'Camper Green'",
+ "nickname": "Camper Green",
+ "designer": "",
+ "story_html": "Dropping as part of a collaborative footwear collection, the Supreme x Nike Dunk Low SB 'Camper Green' showcases a suede upper featuring a moss green base with a black signature Swoosh and Camper Green overlays at the forefoot and heel. In addition to a Nike SB tongue tag, branding elements include a Nike wordmark on the back tab and a '94' embroidered on the lateral heel — a nod to Supreme's founding year. Anchoring the sneaker is a dark green rubber midsole with 'Supreme' debossed on the lateral sidewall.",
+ "details": "Camper Green/Camper Green/Black",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "top-sneaker-collabs",
+  "top-trending-uk",
+  "skate-selcts",
+  "supreme-x-dunks",
+  "level-3f",
+  "promo-collection",
+  "supreme-collabs-a8083fff-56b5-4c11-9de7-1c4252f8efee"
+ ],
+ "season": " 2025",
+ "release_date": "2025-09-04T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HQ8487 300",
+ "retail_price_cents": 13500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:50.312957+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ8487 300&hitsPerPage=20"
+ }
+}

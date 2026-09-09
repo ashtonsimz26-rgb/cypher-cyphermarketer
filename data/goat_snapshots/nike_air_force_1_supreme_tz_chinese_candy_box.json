@@ -1,0 +1,24 @@
+{
+ "name": "CLOT x Nike Air Force 1 Supreme TZ 'Chinese Candy Box'",
+ "nickname": "Chinese Candy Box",
+ "designer": "Bruce Kilgore",
+ "story_html": "Nike teams up with Hong Kong-based luxury brand CLOT to celebrate the Chinese New Year with the Nike Air Force 1 Supreme TZ 'Chinese Candy Box' sneaker. The 2009 design ditched the typical shoebox for a meticulous ‘Chinese Candy Box’ packaging set—a red box in a hexagonal shape with festive graphics, an interior tray layer for shoe accessories, CLOT graphics on the back and a matching lid. The low-top sneaker comes dressed in red and black, with subtle motifs etched along the upper.",
+ "details": "Sport Red/Black",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "best-collabs-sneakers",
+  "level-3f"
+ ],
+ "season": " 2009",
+ "release_date": "2009-01-01T23:59:59.999Z",
+ "release_year": 2009,
+ "sku": "358701 601",
+ "retail_price_cents": 35000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:28.476151+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=358701 601&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'MX Rock'",
+ "nickname": "MX Rock",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 ‘MX Rock’ showcases sedimentary streaks of brown and grey throughout a breathable Primeknit upper in a dark charcoal finish. The sock-like build is equipped with traditional lace closure and a webbing pull tab affixed to the heel. Cutting across the sneaker’s lateral side, a post-dyed monofilament stripe offers improved breathability. Lightweight cushioning comes courtesy of a fully caged Boost midsole, visible through cutaway detailing in the rubber outsole.",
+ "details": "Mx Rock/Mx Rock/Mx Rock",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "adidas-yeezy-boost",
+  "styled-withhoodies",
+  "shades-of-brown",
+  "top-20-trending-web",
+  "womens-yeezy",
+  "trending-now-singapore",
+  "on-the-rise-yeezy",
+  "promo-collection",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-12-22T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "GW3774",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:45.699267+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GW3774&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "name": "Undefeated x Nike Air Force 1 Low 'Pink Prime'",
+ "nickname": "Pink Prime",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Undefeated x Nike Air Force 1 Low ‘Pink Prime’ is taken from the AF1 Multi-Color Patent project, a collaborative series celebrating the 40th anniversary of the iconic silhouette. Taking cues from Undefeated’s Nike Dunk High NL from 2005, this pair features a paneled patent leather upper in a clashing mix of powder blue, brown, black and purple. Color-popped accents arrive via a translucent pink Swoosh, matching ‘UNDFTD’ lace dubrae, and a bright yellow tongue tag marked with Undefeated’s Five Strikes logo. The insignia is repeated on the lateral heel. Anchoring the sneaker is a durable rubber cupsole in a tonal green finish.",
+ "details": "Fauna Brown/Pink Prime/Multi-Color",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "498dd856-0306-4ee0-a623-d4cc5263091d",
+  "shoes-2022",
+  "top-sneakers",
+  "best-collabs-sneakers",
+  "festival-classics",
+  "new-collabs",
+  "back-to-school",
+  "top-sneaker-collabs-uk",
+  "maximalist-sneakers",
+  "best-collabs-sneakers-uk",
+  "color-spotlight-accent-hues-crm",
+  "patent-leather",
+  "boutique-collabs",
+  "level-3f"
+ ],
+ "season": " 2022",
+ "release_date": "2022-11-18T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DV5255 200",
+ "retail_price_cents": 16000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:24.633763+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DV5255 200&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "name": "Levi's x Nike Air Max 95 OG 'Light Orewood Brown'",
+ "nickname": "Light Orewood Brown",
+ "designer": "Sergio Lozano",
+ "story_html": "Launching as part of a collaborative three-piece pack, the Levi's x Nike Air Max 95 OG 'Light Orewood Brown' features an ivory-colored denim upper, complete with frayed edges and signature wavy overlays along the side panel. Air Max branding decorates the tongue, while the classic red Levi's tag accompanies a mini-Swoosh embroidered on the lateral heel. A white polyurethane midsole packs visible Air-sole cushioning for a comfortable ride.",
+ "details": "Light Orewood Brown/Gym Red/White",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-95",
+  "top-trending-uk",
+  "air-max-95-web",
+  "levis-nike",
+  "level-2f",
+  "top-trending-eu-footwear",
+  "spotlight-american-brands"
+ ],
+ "season": " 2025",
+ "release_date": "2025-07-11T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HM4743 100",
+ "retail_price_cents": 20500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:34.274673+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HM4743 100&hitsPerPage=20"
+ }
+}

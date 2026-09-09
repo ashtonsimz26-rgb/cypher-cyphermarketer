@@ -1,0 +1,35 @@
+{
+ "name": "Paris Saint-Germain x Air Jordan 4 Retro 'Bordeaux'",
+ "nickname": "Bordeaux",
+ "designer": "Tinker Hatfield",
+ "story_html": "Celebrating Jordan Brand’s partnership with the French football club, the Paris Saint-Germain x Air Jordan 4 Retro ‘Bordeaux’ features color blocking that recalls the silhouette’s OG ‘Fire Red’ composition. The white leather upper is accented with black wings and Bordeaux detailing on the eyelets, interior tongue and heel, the latter marked with dual Jumpman and PSG branding. A black woven tab on the lateral forefoot is inscribed with ‘Paname,’ a slang term for the French capital.",
+ "details": "White/Neutral Grey/Black/Bordeaux",
+ "keywords": [],
+ "silhouette": "Air Jordan 4",
+ "collection_slugs": [
+  "air-jordan-4",
+  "global-style",
+  "top-sneaker-collabs",
+  "collabs-sneakers",
+  "even-number-air-jordans",
+  "paris-saint-germain",
+  "top-sneaker-collabs-uk",
+  "best-collabs-sneakers-uk",
+  "trending-now-air-jordan-4-fr",
+  "og-air-jordan-colorways",
+  "air-jordan-4-alias",
+  "psg-shoes",
+  "used-sneakers"
+ ],
+ "season": " 2020",
+ "release_date": "2020-10-10T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "CZ5624 100",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:56.934446+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CZ5624 100&hitsPerPage=20"
+ }
+}

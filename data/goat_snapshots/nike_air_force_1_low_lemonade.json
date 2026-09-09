@@ -1,0 +1,43 @@
+{
+ "name": "Off-White x Nike Air Force 1 Low 'Lemonade'",
+ "nickname": "Lemonade",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Off-White x Nike Air Force 1 Low ‘Lemonade’ reunites Virgil Abloh with Bruce Kilgore’s iconic 1982 basketball shoe. Abloh dips the leather upper in a rich mustard yellow hue, save for a silver Swoosh outlined in contrast zigzag stitching and the designer’s signature Helvetica text on the medial quarter panel. A matching yellow midsole features ‘AIR’ printed on the lateral sidewall. Exposed foam construction is utilized on the collar and tongue, the latter decorated with a woven tag that displays ‘OFF’ Nike Air branding. Abloh leaves his final mark by looping his signature zip tie around the laces.",
+ "details": "University Gold/Black/Metallic Silver",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "498dd856-0306-4ee0-a623-d4cc5263091d",
+  "global-style",
+  "bright-side",
+  "low-tops-ed50093d-bb87-41d2-97d8-4b599940201d",
+  "off-white-collabs",
+  "best-of-2021",
+  "designer-collabs",
+  "iconic-streetwear",
+  "nike-off-white",
+  "trending-now-hong-kong",
+  "summer-fruits",
+  "metallics-sneakers",
+  "best-collabs-sneakers",
+  "festival-classics",
+  "proto-pop-crm",
+  "y2k-2023",
+  "y2k-crm",
+  "metallic-accents",
+  "level-3f",
+  "virgil-abloh-influence",
+  "promo-collection"
+ ],
+ "season": " 2021",
+ "release_date": "2021-07-10T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "DD1876 700",
+ "retail_price_cents": 15000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:23.268682+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DD1876 700&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,34 @@
+{
+ "name": "Awake NY x Air Jordan 5 Retro 'Boro - Arctic Pink'",
+ "nickname": "Boro - Arctic Pink",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Awake NY x Air Jordan 5 Retro 'Boro - Arctic Pink' features a pink leather upper with contrast stitching and refreshed branding elements. They include Awake NY's 'A' logo integrated into the quarter panel netting, along with a crimson Jumpman, layered atop a color-matched Awake wordmark, on the silver reflective tongue. 'NY' and '23' are embroidered on the lateral heel of the right and left shoe, respectively. The tooling is borrowed from the original 'Fire Red' colorway, highlighted by a black polyurethane midsole with red shark tooth detailing and a translucent rubber outsole.",
+ "details": "Arctic Pink/Metallic Silver/University Red/Black/White/Clear",
+ "keywords": [],
+ "silhouette": "Air Jordan 5",
+ "collection_slugs": [
+  "air-jordan-5",
+  "goat-selects-newest",
+  "air-jordan-since-1985",
+  "top-sneaker-collabs",
+  "iconic-streetwear",
+  "styled-with-air-jordan-5",
+  "styled-with-white-tees",
+  "boutique-collabs",
+  "high-demand-low-supply-alias",
+  "awake-ny-x-air-jordan",
+  "spotlight-american-brands",
+  "used-sneakers"
+ ],
+ "season": " 2025",
+ "release_date": "2025-08-17T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "DV4982 600",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:07.178719+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DV4982 600&hitsPerPage=20"
+ }
+}

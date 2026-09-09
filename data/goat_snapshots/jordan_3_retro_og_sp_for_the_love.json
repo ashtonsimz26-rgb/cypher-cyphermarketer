@@ -1,0 +1,38 @@
+{
+ "name": "A Ma Maniére x Air Jordan 3 Retro OG SP 'For The Love'",
+ "nickname": "For The Love",
+ "designer": "Tinker Hatfield",
+ "story_html": "The A Ma Maniére x Air Jordan 3 Retro OG SP 'For The Love' features a white tumbled leather upper with anthracite suede overlays at the forefoot and heel. Contrasting blue accents settle on the molded eyelets and the Nike Air logo that decorates the heel tab. An additional splash of blue wraps around the heel of the off-white polyurethane midsole, enhanced with visible Air-sole cushioning. An anthracite rubber outsole yields grippy traction underfoot.",
+ "details": "White/Diffused Blue/Anthracite/Muslin",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "air-jordan-3",
+  "aj3",
+  "a-ma-maniere-air-jordan",
+  "top-100",
+  "summer-sale-goat-selects-footwear",
+  "shades-of-blue",
+  "just-dropped-all",
+  "a-ma-maniere-collabs",
+  "top-trending-apac",
+  "new-collabs-crm",
+  "cargo-refresh",
+  "sneaker-release-roundup",
+  "cargo-refresh-crm",
+  "level-4f",
+  "top-trending-hk",
+  "used-sneakers"
+ ],
+ "season": " 2025",
+ "release_date": "2025-04-15T23:59:59.000Z",
+ "release_year": 2025,
+ "sku": "HV8571 100",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:51.892770+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HV8571 100&hitsPerPage=20"
+ }
+}

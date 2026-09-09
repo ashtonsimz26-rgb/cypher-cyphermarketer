@@ -1,0 +1,31 @@
+{
+ "name": "Supreme x Nike Air Force 1 Low 'Box Logo - Baroque Brown'",
+ "nickname": "Box Logo - Baroque Brown",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Supreme x Nike Air Force 1 Low ‘Box Logo’ steps out in ‘Baroque Brown.’ Made exclusively for the New York skate brand, the iconic silhouette dons a smooth leather upper in a monochromatic brown finish, contrasted by a red Supreme box logo on the lateral heel. Dual Nike and Supreme branding adorns the tongue tag and sockliner. The sneaker rests on a color-matched rubber cupsole, featuring encapsulated Air-sole cushioning in the heel and a pivot-point rubber outsole underfoot.",
+ "details": "Baroque Brown/Baroque Brown/Baroque Brown",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "earth-tones-sneakers",
+  "best-collabs-sneakers-uk",
+  "sneakers-socks",
+  "best-of-2024-sneakers",
+  "best-of-2024",
+  "selling-out-fast-alias",
+  "earn-more-jp",
+  "global-premium-v2",
+  "level-3f"
+ ],
+ "season": " 2023",
+ "release_date": "2023-11-02T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "CU9225 200",
+ "retail_price_cents": 11800,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:21.146137+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CU9225 200&hitsPerPage=20"
+ }
+}

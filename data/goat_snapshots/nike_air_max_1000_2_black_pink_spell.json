@@ -1,0 +1,21 @@
+{
+ "name": "Nike Air Max 1000.2 'Black Pink Spell'",
+ "nickname": "Black Pink Spell",
+ "designer": null,
+ "story_html": "",
+ "details": "Black/Pink Spell",
+ "keywords": [],
+ "silhouette": "Air Max 1000",
+ "collection_slugs": [],
+ "season": " 2026",
+ "release_date": "2026-06-25T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "JF3484 004",
+ "retail_price_cents": 18000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:30.359356+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=JF3484 004&hitsPerPage=20"
+ }
+}

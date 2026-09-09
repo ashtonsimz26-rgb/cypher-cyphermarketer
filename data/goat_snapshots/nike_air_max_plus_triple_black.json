@@ -1,0 +1,38 @@
+{
+ "name": "Nike Air Max Plus 'Triple Black'",
+ "nickname": "Triple Black",
+ "designer": "Sean McDowell",
+ "story_html": "The Nike Air Max Plus is one of several hybridized models that combines fundamental and distinctive characteristics from the brand's most coveted styles. This 'Triple Black' iteration is treated with a monochromatic theme to emphasize its cutting-edge appeal. The graphic-style textile upper is injected with undulating TPU stripes and structured with leather panels at the base and heel. Classic logos on the tongue and heel call out the innovative Tuned Air tech underfoot.",
+ "details": "Black/Black-Black",
+ "keywords": [],
+ "silhouette": "Air Max Plus",
+ "collection_slugs": [
+  "under-retail-sneakers",
+  "everyday-sneakers",
+  "allblack",
+  "shoes-2022",
+  "trending-france",
+  "gift-guide-air-max-uk",
+  "monochrome-sneakers",
+  "paris-fw24-conceptual-layers",
+  "trending-now-sneakers-uk",
+  "top-trending-uk",
+  "top-trending-fr-cross",
+  "monochrome-cross",
+  "travel-essentials-sneakers-crm",
+  "air-max-alias",
+  "city-miles",
+  "fall-staples-footwear"
+ ],
+ "season": " 2017",
+ "release_date": "2017-12-19T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "604133 050",
+ "retail_price_cents": 15000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:36.947392+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=604133 050&hitsPerPage=20"
+ }
+}

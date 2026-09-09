@@ -1,0 +1,28 @@
+{
+ "name": "Supreme x Nike Air Max 95 Lux 'Black'",
+ "nickname": "Black",
+ "designer": "Sergio Lozano",
+ "story_html": "Part of a trio of colorways released for November 2019, the Supreme x Air Max 95 Lux 'Black' sneaker is a premium take on the iconic Nike Air Max 95 model. Dressing its wavy, anatomy-inspired panels in full Italian leather, the cult skate brand delivers a fashion-forward twist on the legendary, Sergio Lozano Air Max design with a laser perforated SUPREME logo on the sides. This ultra-sleek, blacked-out version is finished with a full-length Air-sole unit which grounds the design in heritage style.",
+ "details": "Black/Black-Black",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-day",
+  "air-max-95",
+  "air-max-collabs-streetwear",
+  "lightweight-silhouettes",
+  "air-max-95-web",
+  "supreme-collabs-a8083fff-56b5-4c11-9de7-1c4252f8efee"
+ ],
+ "season": " 2019",
+ "release_date": "2019-11-07T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "CI0999 001",
+ "retail_price_cents": 50000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:32.316388+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CI0999 001&hitsPerPage=20"
+ }
+}

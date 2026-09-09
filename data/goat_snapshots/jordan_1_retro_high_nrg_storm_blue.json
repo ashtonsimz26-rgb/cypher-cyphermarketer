@@ -1,0 +1,43 @@
+{
+ "name": "Union LA x Air Jordan 1 Retro High NRG 'Storm Blue'",
+ "nickname": "Storm Blue",
+ "designer": "Peter Moore",
+ "story_html": "The design of Union LA x Air Jordan 1 Retro High NRG 'Storm Blue' is meant to evoke the look and feel of ‘your old favorite pair of shoes.’ Consequently, the white midsole is treated to pre-yellowing, while the white and blue leather upper is topped with the collar of a red and black Air Jordan 1 colorway. The latter is grafted onto the shoe with zigzag yellow stitching for a DIY look and feel.",
+ "details": "White/Storm Blue/Varsity Red/Black",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "aaee7eea-f1c2-41b3-b50e-ad9278092a62",
+  "greatest-issue-sneaker-index",
+  "ama-lou",
+  "colorblocking",
+  "convenience-store",
+  "unionla-collabs",
+  "air-jordan-1-s-11-s",
+  "contrast-stitch",
+  "best-collabs-sneakers",
+  "sneaker-icons",
+  "ombre-blue-crm",
+  "accent-laces",
+  "vivid-hues-sneakers",
+  "spring-wishlist-footwear",
+  "boutique-collabs",
+  "hype-historians",
+  "remixed-icons-footwear",
+  "sneaker-icons-alias",
+  "holiday-selects",
+  "level-3f",
+  "used-sneakers"
+ ],
+ "season": " 2018",
+ "release_date": "2018-11-17T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "BV1300 146",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:25.562781+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=BV1300 146&hitsPerPage=20"
+ }
+}

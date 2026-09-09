@@ -1,0 +1,42 @@
+{
+ "name": "Wmns Air Jordan 11 Retro Low 'Legend Pink'",
+ "nickname": "Legend Pink",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Women's Air Jordan 11 Retro Low 'Legend Pink' brings a white ballistic mesh upper with tonal webbing eyelets and a pink patent leather mudguard to the iconic silhouette. The sneaker is mounted on a lightweight Phylon midsole with full-length Air cushioning. Underfoot, a pink translucent rubber outsole features herringbone traction pods for superior grip, along with a carbon fiber shank plate for midfoot stability.",
+ "details": "White/Legend Pink",
+ "keywords": [],
+ "silhouette": "Air Jordan 11",
+ "collection_slugs": [
+  "air-jordan-since-1985",
+  "everyday-sneakers",
+  "sunset-hues",
+  "sneakers-for-her",
+  "spring-wishlist-footwear",
+  "styled-with-air-jordan-11",
+  "soft-hues",
+  "patent-leather",
+  "ombre-pink-crm",
+  "just-dropped-all",
+  "travel-essentials-sneakers-crm",
+  "all-star-silhouettes",
+  "best-of-2024-sneakers",
+  "styles-for-her-alias",
+  "air-jordan-11-alias",
+  "soft-pastels-footwear",
+  "trending-eu",
+  "city-miles",
+  "fall-staples-footwear",
+  "used-sneakers"
+ ],
+ "season": " 2024",
+ "release_date": "2024-06-22T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "AH7860 160",
+ "retail_price_cents": 18500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:40.201029+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AH7860 160&hitsPerPage=20"
+ }
+}

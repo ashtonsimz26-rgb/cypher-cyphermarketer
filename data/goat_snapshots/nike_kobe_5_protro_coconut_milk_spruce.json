@@ -1,0 +1,31 @@
+{
+ "name": "Caitlin Clark x Nike Kobe 5 Protro 'Coconut Milk Spruce'",
+ "nickname": "Coconut Milk Spruce",
+ "designer": "Eric Avar",
+ "story_html": "The Caitlin Clark x Nike Kobe 5 Protro 'Coconut Milk Spruce' delivers a PE colorway of the classic silhouette. The upper is constructed from glossy synthetic leather in a subtle ivory finish with dark teal overlays and a color-matched Swoosh. A contrasting splash of crimson appears on the tongue, marked with Kobe Bryant's signature Sheath logo. This Protro edition features a lightweight Cushlon midsole with an articulated Zoom Air unit in the forefoot. A grippy rubber outsole reveals an exposed glass-based carbon fiber shank plate underfoot.",
+ "details": "Coconut Milk/Bright Spruce-Midnight Spruce-University Red-White",
+ "keywords": [],
+ "silhouette": "Zoom Kobe 5",
+ "collection_slugs": [
+  "mamba-day",
+  "kobe",
+  "caitlin-clark",
+  "wnba-shoes",
+  "draft-day-2026",
+  "trending-wnba-all-star",
+  "back-to-school-statement-sneakers",
+  "back-to-school-statement-sneakers-alias",
+  "trending-kobe-alias"
+ ],
+ "season": " 2026",
+ "release_date": "2026-06-02T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "IZ1852 100",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:59.894549+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IZ1852 100&hitsPerPage=20"
+ }
+}

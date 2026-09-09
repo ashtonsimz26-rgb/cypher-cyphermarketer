@@ -1,0 +1,34 @@
+{
+ "name": "Wu-Tang x Nike Dunk High Retro Premium 2024",
+ "nickname": "",
+ "designer": "Peter Moore",
+ "story_html": "The 2024 edition of the Wu-Tang x Nike Dunk High Retro Premium brings back a highly sought-after colorway that surfaced in 1999 as an extremely limited friends-and-family release. Based on the classic 'Iowa' Dunk from Nike's original Be True to Your School series, the high-top utilizes a smooth leather upper, featuring a solid black base with Goldenrod overlays and a color-matched Swoosh. The Wu-Tang Clan's stylized 'W' logo decorates the tongue tag and lateral heel.",
+ "details": "Black/Pollen/White",
+ "keywords": [],
+ "silhouette": "Dunk",
+ "collection_slugs": [
+  "wu-tang",
+  "high-tops",
+  "styled-with-dunks",
+  "artist-collaborations",
+  "shades-of-yellow",
+  "just-dropped-all",
+  "best-of-2024-sneakers",
+  "youre-in-style-index",
+  "high-top-sneakers",
+  "yellow-accents-crm",
+  "level-3f",
+  "used-dunks"
+ ],
+ "season": " 2024",
+ "release_date": "2024-11-09T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "HJ4320 001",
+ "retail_price_cents": 15000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:46.101907+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HJ4320 001&hitsPerPage=20"
+ }
+}

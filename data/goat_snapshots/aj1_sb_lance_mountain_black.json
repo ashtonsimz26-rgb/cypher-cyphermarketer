@@ -1,0 +1,26 @@
+{
+ "name": "Lance Mountain x Air Jordan 1 Retro SB QS 'Black'",
+ "nickname": "lance mountain",
+ "designer": "Peter Moore",
+ "story_html": "The Lance Mountain x Air Jordan 1 Retro SB QS pays homage to the 1987 skate video, The Search for Animal Chin, which showcases Pasadena Pro Skater Lance Mountain wearing an Air Jordan 1 'Royal' sneaker on his left foot and a white/Carolina blue Air Jordan 1 on his right. Skaters adopted the Air Jordan 1 for its durable leather, high ankle coverage, and Nike Air technology. To extend the life of their shoes, skaters wore mismatched pairs and sometimes painted them the same color to recreate a uniform look. Inspired by this DIY-aesthetic, the Lance Mountain x Air Jordan 1 Retro SB QS features a black/red and a black/royal colorway with a coat of black paint that wears away with each trick, creating a design that's unique to the individual skater. Released in limited quantities in June 2014, the sneaker dropped in a two-pack alongside a colorway given a treatment of white paint.",
+ "details": "black/black",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "aaee7eea-f1c2-41b3-b50e-ad9278092a62",
+  "styled-with-cargos",
+  "lance-mountain-skate-shoes",
+  "used-sneakers"
+ ],
+ "season": " 2014",
+ "release_date": "2014-06-07T23:59:59.999Z",
+ "release_year": 2014,
+ "sku": "653532 002",
+ "retail_price_cents": 15000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:09.934587+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=653532 002&hitsPerPage=20"
+ }
+}

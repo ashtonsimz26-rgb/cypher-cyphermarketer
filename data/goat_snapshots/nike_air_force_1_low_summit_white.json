@@ -1,0 +1,23 @@
+{
+ "name": "Sushi Club x Nike Air Force 1 Low 'Summit White'",
+ "nickname": "Summit White",
+ "designer": "Bruce Kilgore",
+ "story_html": "The Sushi Club x Nike Air Force 1 Low 'Summit White' delivers a collaborative design that places a premium on elegant simplicity. Built with white leather construction, the upper features an off-white suede Swoosh and custom chopstick lace dubraes. 'Sushi Club' is inscribed in debossed lettering on the lateral forefoot and back tab. The low-top is mounted on a durable rubber cupsole that maintains the pristine monochromatic aesthetic.",
+ "details": "White/Summit White/White",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "top-sneaker-collabs"
+ ],
+ "season": " 2025",
+ "release_date": "2025-09-30T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "II6234 100",
+ "retail_price_cents": 15000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:26.550942+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=II6234 100&hitsPerPage=20"
+ }
+}

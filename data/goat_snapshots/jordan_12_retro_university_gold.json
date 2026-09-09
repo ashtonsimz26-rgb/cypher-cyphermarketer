@@ -1,0 +1,34 @@
+{
+ "name": "Air Jordan 12 Retro 'University Gold'",
+ "nickname": "University Gold",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 12 Retro ‘University Gold’ features a simple two-tone color scheme that recalls the ‘Away’ PE that Gary Payton during the ’03 to ’04 NBA season – the only stretch in his lengthy career with the Los Angeles Lakers. The retro mid-stop sports a black tumbled leather upper with signature stitch detailing, contrasted by a University Gold finish on the textured forefoot overlays, rubber outsole and branding elements.",
+ "details": "Black/Black/University Gold",
+ "keywords": [],
+ "silhouette": "Air Jordan 12",
+ "collection_slugs": [
+  "air-jordan-12",
+  "college-colorways",
+  "timeline-2020",
+  "90s-silhouette-s",
+  "varsity-colorways",
+  "iowa-hawkeyes",
+  "colorblock",
+  "high-demand-low-supply-alias",
+  "aj12",
+  "used-sneakers",
+  "back-to-school-gameday-sneakers-alias",
+  "back-to-school-gameday-sneakers"
+ ],
+ "season": " 2020",
+ "release_date": "2020-07-24T23:59:59.000Z",
+ "release_year": 2020,
+ "sku": "130690 070",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:45.011949+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=130690 070&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'MX Oat'",
+ "nickname": "MX Oat",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 ‘MX Oat’ delivers a vibrant departure from the brand’s typically muted color palette. The upper is composed of re-engineered Primeknit and features a tan base with swirling hits of yellow, royal blue and fiery orange. The minimalist build is equipped with traditional lace closure, a pull tab at the heel and a post-dyed monofilament side stripe woven into the side panel. Responsive cushioning is provided by a full-length Boost midsole wrapped in semi-translucent rubber.",
+ "details": "Mx Oat/Mx Oat/Mx Oat",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "adidas-yeezy-boost",
+  "styled-withhoodies",
+  "convenience-store",
+  "anna-sitar-collection",
+  "womens-yeezy",
+  "2024-yeezy-drops",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-10-23T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "GW3773",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:46.454220+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GW3773&hitsPerPage=20"
+ }
+}

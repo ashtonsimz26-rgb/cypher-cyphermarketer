@@ -1,0 +1,53 @@
+{
+ "name": "Air Jordan 11 Retro 'Concord' 2018",
+ "nickname": "Concord",
+ "designer": "Tinker Hatfield",
+ "story_html": "The 2018 edition of the Air Jordan 11 Retro ‘Concord’ features ‘45’ stamped on the black heel tab—a nod to the jersey number that Michael Jordan wore upon his return to basketball following his first retirement. The rest of the build keeps the shoe’s signature details intact, including a white ballistic mesh upper, black patent leather overlays and an icy translucent outsole underfoot.",
+ "details": "White/Black-Dark Concord",
+ "keywords": [
+  "Concord"
+ ],
+ "silhouette": "Air Jordan 11",
+ "collection_slugs": [
+  "air-jordan-11",
+  "rui-hachimura",
+  "the-last-dance-air-jordan",
+  "MJ-era-jordans",
+  "michael-jordan",
+  "90s-inspired",
+  "air-jordan-since-1985",
+  "timeline-2018",
+  "odd-number-jordans",
+  "90s-silhouette-s",
+  "summer-fruits",
+  "90s-cosmic-bf-2022",
+  "air-jordan-1-s-11-s",
+  "color-concord",
+  "y2k-2023",
+  "y2k-crm",
+  "gift-guide-sneaker-icons-fr",
+  "styled-with-puffers-crm",
+  "most-wanted-air-jordan",
+  "styled-with-air-jordan-11",
+  "patent-leather",
+  "athletes-bf24",
+  "best-of-black-friday-bf-2024",
+  "best-of-black-friday-2024",
+  "holday-11-jordan-releases",
+  "og-air-jordan-colorways",
+  "air-jordan-11-alias",
+  "investment-footwear",
+  "used-sneakers"
+ ],
+ "season": " 2018",
+ "release_date": "2018-12-08T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "378037 100",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:36.745398+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=378037 100&hitsPerPage=20"
+ }
+}

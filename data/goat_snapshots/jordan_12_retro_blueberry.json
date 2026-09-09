@@ -1,0 +1,38 @@
+{
+ "name": "Air Jordan 12 Retro 'Blueberry'",
+ "nickname": "Blueberry",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 12 Retro 'Blueberry' utilizes sunrise-inspired stitch lines on the white tumbled leather upper, featuring lizard-textured overlays in a royal blue finish. Jumpman branding decorates the tongue and heel tab. Performance benefits include a lightweight Phylon midsole with full-length Zoom Air cushioning. Underfoot, the blue rubber outsole features herringbone traction pods and an exposed carbon fiber shank plate.",
+ "details": "White/Black/Game Royal",
+ "keywords": [],
+ "silhouette": "Air Jordan 12",
+ "collection_slugs": [
+  "air-jordan-since-1985",
+  "ombre-blue-crm",
+  "just-dropped-all",
+  "holiday-sneaker-releases",
+  "styled-with-hoodies-580b8671-024a-48eb-b914-b051043b450a",
+  "family-size-run-air-jordan-12-retro-blueberry",
+  "styled-with-hoodies-crm",
+  "shop-now-holiday",
+  "styled-with-layers-crm",
+  "youre-in-style-index",
+  "styled-with-air-jordan-12",
+  "aj12",
+  "earn-more-jp",
+  "global-premium-v2",
+  "promo-collection",
+  "used-sneakers"
+ ],
+ "season": " 2024",
+ "release_date": "2024-12-18T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "CT8013 140",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:42.945870+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CT8013 140&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Black Non-Reflective'",
+ "nickname": "Black Non-Reflective",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 lives up to its cult appeal through evolved design elements and advanced technology. Released June 2019, this ‘Black Non-Reflective' edition's re-engineered Primeknit bootie sees futuristic updates including a translucent side stripe and bold stitching on the heel pull. Integrated lacing customizes the fit while a translucent black Boost-equipped midsole complements the covert feel.",
+ "details": "Black/Black/Black",
+ "keywords": [
+  "Yeezy",
+  "350",
+  "350 V2"
+ ],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy",
+  "top-20-trending",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "yeezy-day",
+  "global-perspective",
+  "all-black-0c90754b-a75e-4d30-b467-126415ba6481",
+  "timeline-2019",
+  "allblack",
+  "womens-yeezy",
+  "trending-now-singapore",
+  "minimalist-sneakers",
+  "top-trending-hk",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2019",
+ "release_date": "2019-06-07T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "FU9006",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:42.613824+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FU9006&hitsPerPage=20"
+ }
+}

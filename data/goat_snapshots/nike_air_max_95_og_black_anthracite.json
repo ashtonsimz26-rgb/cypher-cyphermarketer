@@ -1,0 +1,31 @@
+{
+ "name": "Levi's x Nike Air Max 95 OG 'Black Anthracite'",
+ "nickname": "Black Anthracite",
+ "designer": "Sergio Lozano",
+ "story_html": "Drawn from a collaborative three-piece pack, the Levi's x Nike Air Max 95 OG 'Black Anthracite' showcases a black denim upper with frayed edges for a pre-distressed aesthetic. Heritage details remain intact, including mesh paneling that partially obscures the lacing system, as well as an embroidered Air Max logo atop the tongue. Additional branding elements include a mini-Swoosh on the lateral heel, accompanied by the iconic red Levi's tab.",
+ "details": "Black/Anthracite/Gym Red",
+ "keywords": [],
+ "silhouette": "Air Max 95",
+ "collection_slugs": [
+  "air-max-day",
+  "air-max-95",
+  "styled-with-air-max",
+  "top-trending-uk",
+  "top-trending-fr-cross",
+  "air-max-95-web",
+  "levis-nike",
+  "level-2f",
+  "spotlight-american-brands"
+ ],
+ "season": " 2025",
+ "release_date": "2025-07-11T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HM4743 001",
+ "retail_price_cents": 20500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:32.940709+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HM4743 001&hitsPerPage=20"
+ }
+}

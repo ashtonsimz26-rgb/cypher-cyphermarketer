@@ -1,0 +1,39 @@
+{
+ "name": "A Ma Maniére x Wmns Air Jordan 5 Retro 'Dawn'",
+ "nickname": "Dawn",
+ "designer": "Tinker Hatfield",
+ "story_html": "Launching as part of a two-piece collaborative pack, the A Ma Maniére x Women’s Air Jordan 5 Retro ‘Dawn’ sports a pale grey leather upper, revised with a slimmed-down collar and pre-yellowed quarter panel netting formed with A Ma Maniére’s ‘A’ logo. Additional branding elements include an embroidered ‘23’ on the lateral heel, Nike Air branding on the back heel, and mismatched Jumpman and ‘A’ logos on each silver reflective tongue. Blue shark tooth detailing enlivens a black polyurethane midsole with visible Air-sole cushioning in the heel. A pre-aged translucent rubber outsole features a herringbone traction pattern for optimal grip.",
+ "details": "Photon Dust/Black/Diffused Blue/Pale Ivory",
+ "keywords": [],
+ "silhouette": "Air Jordan 5",
+ "collection_slugs": [
+  "air-jordan-5",
+  "singles-day-selects",
+  "women-s-sneakers",
+  "shop-women-s",
+  "a-ma-maniere-air-jordan",
+  "year-in-sneakers",
+  "new-arrivals-sneakers",
+  "best-collabs-sneakers-uk",
+  "women-s-exclusives",
+  "boutique-collabs",
+  "trending-uk-bank-holiday-essentials",
+  "a-ma-maniere-collabs",
+  "best-of-2024-sneakers",
+  "air-jordan-5-web",
+  "air-jordan-5-alias",
+  "level-4f",
+  "used-sneakers"
+ ],
+ "season": " 2023",
+ "release_date": "2023-11-27T23:59:59.000Z",
+ "release_year": 2023,
+ "sku": "FZ5758 004",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:11.366911+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FZ5758 004&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "name": "Air Jordan 1 Retro High OG 'Hyper Royal'",
+ "nickname": "Hyper Royal",
+ "designer": "Peter Moore",
+ "story_html": "The Air Jordan 1 Retro High OG ‘Hyper Royal’ takes on a weathered aesthetic, highlighted by a white leather upper with faded blue suede overlays. Contrasting neutral grey hits land on the Swoosh and padded collar, adding to the sneaker’s understated palette. OG branding elements include a Jordan Wings logo on the lateral collar flap and a woven Nike tongue tag. The high-top is mounted on a standard AJ1 rubber cupsole, featuring encapsulated Nike Air cushioning in the heel.",
+ "details": "Hyper Royal/Light Smoke Grey/White",
+ "keywords": [],
+ "silhouette": "Air Jordan 1",
+ "collection_slugs": [
+  "aaee7eea-f1c2-41b3-b50e-ad9278092a62",
+  "trending-old",
+  "global-style",
+  "global-perspective",
+  "ul",
+  "convenience-store",
+  "high-tops",
+  "air-jordan-blues",
+  "cool-hues-2022",
+  "contrast-stitch",
+  "sau-selects",
+  "street-style-seoul-5042fdb9-2d31-425d-963b-1f2355ebae8c",
+  "color-hyper-royal",
+  "most-wanted-air-jordan",
+  "soft-pastels-footwear",
+  "used-sneakers"
+ ],
+ "season": " 2021",
+ "release_date": "2021-04-17T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "555088 402",
+ "retail_price_cents": 17000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:27.661931+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=555088 402&hitsPerPage=20"
+ }
+}

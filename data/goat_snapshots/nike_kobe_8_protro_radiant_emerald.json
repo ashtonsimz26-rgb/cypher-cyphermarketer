@@ -1,0 +1,37 @@
+{
+ "name": "Nike Kobe 8 Protro 'Radiant Emerald'",
+ "nickname": "Radiant Emerald",
+ "designer": "Eric Avar",
+ "story_html": "The Nike Kobe 8 Protro ‘Radiant Emerald’ features a white Engineered Mesh upper, covered in an all-over print made up of the jersey numbers that Kobe Bryant wore during his NBA career. An embroidered teal Swoosh adorns the lateral side, while the Mamba’s sheath logo adorns the tongue. The athlete’s signature appears on the lateral heel counter. Lightweight cushioning arrives via a drop-in React foam midsole. Underfoot, a herringbone-traction rubber outsole reveals an exposed carbon fiber shank plate.",
+ "details": "White/Radiant Emerald/White",
+ "keywords": [],
+ "silhouette": "Kobe 8 System",
+ "collection_slugs": [
+  "mamba-day",
+  "tech-performance",
+  "kobe",
+  "onthecourt",
+  "maximalist",
+  "cool-hues-2022",
+  "new-arrivals-sneakers",
+  "mixed-tailoring",
+  "maximalist-crm",
+  "mixed-tailoring-crm",
+  "vivid-hues-sneakers",
+  "zoom-kobe-protro",
+  "best-of-2024-sneakers",
+  "women-s-basketball",
+  "performance-sneakers-alias"
+ ],
+ "season": " 2024",
+ "release_date": "2024-02-08T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "FQ3549 101",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:04.095890+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FQ3549 101&hitsPerPage=20"
+ }
+}

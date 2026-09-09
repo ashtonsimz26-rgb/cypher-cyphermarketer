@@ -1,0 +1,30 @@
+{
+ "name": "Nike ReactX Rejuven8 Slide 'Triple Black'",
+ "nickname": "Triple Black",
+ "designer": "",
+ "story_html": "The Nike ReactX Rejuven8 Slide 'Triple Black' brings a sleek monochrome finish to a comfortable slip-on built with soft and responsive ReactX foam. A contoured footbed is designed to cradle the foot, while extra room at the toe accommodates various foot widths. Exterior branding is limited to a molded Swoosh on the lateral side. Underfoot, the outsole utilizes a radial traction pattern for multi-surface grip.",
+ "details": "Black/Black/Black",
+ "keywords": [],
+ "silhouette": "ReactX Rejuven8 Slide",
+ "collection_slugs": [
+  "slides-sandals",
+  "summer-sale",
+  "top-trending-canada",
+  "destination-resort-crm",
+  "summer-wishlist-footwear",
+  "under-100-footwear",
+  "under-100-selects-cross",
+  "75test"
+ ],
+ "season": " 2025",
+ "release_date": "2025-04-23T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HV4479 001",
+ "retail_price_cents": 6000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:08.815098+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HV4479 001&hitsPerPage=20"
+ }
+}

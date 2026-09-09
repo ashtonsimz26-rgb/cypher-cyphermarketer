@@ -1,0 +1,28 @@
+{
+ "name": "Nike Dunk Low Premium 'Oil Green'",
+ "nickname": "Oil Green",
+ "designer": "Peter Moore",
+ "story_html": "The Nike Dunk Low Premium ‘Oil Green’ showcases natural olive hues on an upper that blends a breathable textile base with smooth nubuck overlays. Pale green accents distinguish the branding elements, including the signature Swoosh and woven Nike tongue tag. Underpinning the low-top is a durable rubber cupsole, featuring stitched sidewall construction and an interior foam wedge. Underfoot, the rubber outsole utilizes a traction pattern originally designed to grip the hardwood in all directions.",
+ "details": "Oil Green/Olive Aura/Phantom",
+ "keywords": [],
+ "silhouette": "Dunk",
+ "collection_slugs": [
+  "green-dunks",
+  "most-wanted-nike-dunk",
+  "ombre-green-sneakers",
+  "ombre-green-sneakers-crm",
+  "styled-with-dunks-crm",
+  "used-dunks"
+ ],
+ "season": " 2023",
+ "release_date": "2023-12-13T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "FB8895 300",
+ "retail_price_cents": 12500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:31.573417+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FB8895 300&hitsPerPage=20"
+ }
+}

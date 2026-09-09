@@ -1,0 +1,25 @@
+{
+ "name": "Nike KD 6 'Brazil'",
+ "nickname": "Brazil",
+ "designer": "Leo Chang",
+ "story_html": "The Nike KD 6 'Brazil' revives a 2014 colorway of Kevin Durant's sixth signature shoe. The low-profile silhouette features a black synthetic upper with a speckled multicolor Swoosh outlined in bright green trim along the lateral forefoot. The vibrant emerald hue makes repeat appearances on the textile collar lining and rubber outsole. Performance benefits include a lightweight Phylon midsole with responsive Zoom Air cushioning in the forefoot and an exposed Air-Sole unit in the heel.",
+ "details": "Black/Multi-Color-Light Lucid Green",
+ "keywords": [],
+ "silhouette": "KD 6",
+ "collection_slugs": [
+  "summer-sale-mens",
+  "summer-sale",
+  "75test"
+ ],
+ "season": " 2026",
+ "release_date": "2026-06-19T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "IH3582 001",
+ "retail_price_cents": 13500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:57.148350+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IH3582 001&hitsPerPage=20"
+ }
+}

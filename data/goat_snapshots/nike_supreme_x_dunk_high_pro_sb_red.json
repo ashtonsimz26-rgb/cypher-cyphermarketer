@@ -1,0 +1,36 @@
+{
+ "name": "Nike Supreme x Dunk High Pro SB 'Red'",
+ "nickname": "Red",
+ "designer": "Peter Moore",
+ "story_html": "Alongside two additional colorways, the Supreme x Dunk High Pro SB 'Red' made up the second collaboration between Nike SB and Supreme. The high-top sports gold stars and crocodile-textured overlays, the latter included in lieu of Tinker Hatfield’s elephant print. The two-tone white and red design is finished with a choice of three lace colors and a metallic gold Supreme lace jewel.",
+ "details": "White/Varsity Red",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "new-york",
+  "collegiate-dunks",
+  "best-collabs-sneakers",
+  "red-dunks",
+  "sneaker-icons",
+  "hype-historians",
+  "investment-sneakers",
+  "prints-patterns-footwear",
+  "sneaker-icons-alias",
+  "holiday-selects",
+  "supreme-x-dunks",
+  "level-3f",
+  "supreme-collabs-a8083fff-56b5-4c11-9de7-1c4252f8efee",
+  "used-dunks"
+ ],
+ "season": " 2003",
+ "release_date": "2003-08-08T23:59:59.999Z",
+ "release_year": 2003,
+ "sku": "307385 161",
+ "retail_price_cents": 7500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:16.185755+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=307385 161&hitsPerPage=20"
+ }
+}

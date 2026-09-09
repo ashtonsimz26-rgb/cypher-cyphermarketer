@@ -1,0 +1,37 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Dazzling Blue'",
+ "nickname": "Dazzling Blue",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy Boost 350 V2 ‘Dazzling Blue’ delivers a two-tone colorway of Kanye West’s popular lifestyle runner. The minimalist upper features flexible Primeknit construction, pitched to a solid black hue with contrasting threads woven throughout. A streak of royal blue cuts through the lateral side, complete with signature SPLY-350 branding. Responsive cushioning is provided by a full-length Boost midsole, entirely wrapped in a semi-translucent TPU cage for added durability.",
+ "details": "Core Black/Dazzling Blue/Core Black",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "instant",
+  "cool-hues-2022",
+  "womens-yeezy",
+  "trending-now-singapore",
+  "ombre-blue",
+  "top-sneakers",
+  "family-size-runs-adult",
+  "2024-yeezy-drops",
+  "top-trending-au",
+  "on-the-rise-yeezy",
+  "promo-collection",
+  "used-yeezy"
+ ],
+ "season": " 2022",
+ "release_date": "2022-02-26T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "GY7164",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:44.901916+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GY7164&hitsPerPage=20"
+ }
+}

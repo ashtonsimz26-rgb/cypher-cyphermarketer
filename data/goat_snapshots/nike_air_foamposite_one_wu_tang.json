@@ -1,0 +1,31 @@
+{
+ "name": "Nike Air Foamposite One 'Wu Tang'",
+ "nickname": "wu-tang",
+ "designer": "Eric Avar",
+ "story_html": "The Nike Air Foamposite One 'Optic Yellow' features a bright yellow Foamposite shell and black upper. Released in June 2016, the sneaker also features a black carbon fiber shank and black rubber outsole.",
+ "details": "optic yellow/optic yellow-black",
+ "keywords": [
+  "Optic Yellow"
+ ],
+ "silhouette": "Air Foamposite",
+ "collection_slugs": [
+  "wu-tang",
+  "musicinfluence",
+  "artist-collaborations",
+  "air-foamposite-one",
+  "artists-bf24",
+  "foamposites",
+  "level-3f"
+ ],
+ "season": " 2016",
+ "release_date": "2016-06-24T23:59:59.999Z",
+ "release_year": 2016,
+ "sku": "314996 701",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:19.774056+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=314996 701&hitsPerPage=20"
+ }
+}

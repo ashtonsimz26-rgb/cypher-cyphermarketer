@@ -1,0 +1,36 @@
+{
+ "name": "Nina Chanel Abney x Wmns Air Jordan 3 Retro SP 'Bicoastal'",
+ "nickname": "Bicoastal",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Nina Chanel Abney x Women's Air Jordan 3 Retro SP 'Bicoastal' reunites the creative partners on a recrafted edition of the classic silhouette. Rope laces secure the upper, featuring a green canvas build with tonal suede overlays at the forefoot and heel. Cream-colored TPU eyelets are matched by a molded back tab marked with embossed Nike Air branding, as well as a lightweight polyurethane midsole with encapsulated Air-sole cushioning in the forefoot and an exposed Air unit in the heel.",
+ "details": "Bicoastal/Black/Malachite/Fossil",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "top-sneaker-collabs",
+  "made-by-women",
+  "women-s-exclusives",
+  "shades-of-green-crm",
+  "ombre-green-sneakers",
+  "ombre-green-sneakers-crm",
+  "just-dropped-all",
+  "styled-with-cargo-crm",
+  "summer-gradient",
+  "new-in-redeem",
+  "plush-materials-footwear",
+  "best-of-2024-sneakers",
+  "trending-eu",
+  "used-sneakers"
+ ],
+ "season": " 2024",
+ "release_date": "2024-06-20T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "FZ7974 300",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:54.145648+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FZ7974 300&hitsPerPage=20"
+ }
+}

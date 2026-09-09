@@ -1,0 +1,32 @@
+{
+ "name": "adidas Yeezy Boost 750 'OG'",
+ "nickname": "OG",
+ "designer": "Kanye West",
+ "story_html": "Kanye West’s very first collaborative adidas shoe, the Yeezy Boost 750 ‘OG’ released worldwide February 2015 in extremely limited quantities. The towering boot-like builds showcases a radical departure from West’s previous designs, featuring a light brown all-suede upper mounted atop a partially ribbed, Boost-equipped rubber tooling in a subtle Off-White shade. The minimalist design is accented with oversized rope laces, perforated detailing on the toe box, and a wide midfoot strap in a tonal twill fabrication. A hidden zipper on the lateral side provides easy on and off.",
+ "details": "Light Brown/Carbon White/Light Brown",
+ "keywords": [
+  "Yeezy",
+  "750"
+ ],
+ "silhouette": "Yeezy Boost 750",
+ "collection_slugs": [
+  "yeezy",
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "artist-collaborations",
+  "sneaker-icons",
+  "sneaker-icons-alias",
+  "on-the-rise-yeezy"
+ ],
+ "season": " 2015",
+ "release_date": "2015-02-14T23:59:59.999Z",
+ "release_year": 2015,
+ "sku": "B35309",
+ "retail_price_cents": 35000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:50.271034+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=B35309&hitsPerPage=20"
+ }
+}

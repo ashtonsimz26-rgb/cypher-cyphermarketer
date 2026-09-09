@@ -1,0 +1,36 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Beluga 2.0'",
+ "nickname": "Beluga 2.0",
+ "designer": "Kanye West",
+ "story_html": "With its name coming from the colorway similarities found on the first Yeezy Boost 350 V2, the Yeezy Boost 350 V2 'Beluga 2.0' dropped on November 25, 2017. It was quickly restocked on November 30th after selling out. The shoe features a muted grey stripe on the laterals instead of the bright orange stripe found on the original ‘Beluga’ sneaker. The Yeezy Boost 350 V2 'Beluga 2.0' also features a heel pull tab with orange stitching and orange ‘SPLY-350’ lettering in reverse on the laterals.",
+ "details": "Grey/Bold Orange/Dark Solid Grey",
+ "keywords": [
+  "Yeezy",
+  "350"
+ ],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "yeezy",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "donda-influence-48b7d420-8d98-4fa1-bb14-9d288b9bfda9",
+  "yeezy-day",
+  "timeline-2017",
+  "womens-yeezy",
+  "back-to-school-sneakers",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2017",
+ "release_date": "2017-11-25T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "AH2203",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:45.020992+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AH2203&hitsPerPage=20"
+ }
+}

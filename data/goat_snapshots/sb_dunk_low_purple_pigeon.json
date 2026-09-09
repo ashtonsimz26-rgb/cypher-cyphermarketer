@@ -1,0 +1,24 @@
+{
+ "name": "Nike Dunk Low Pro SB 'Purple Pigeon'",
+ "nickname": "Purple Pigeon",
+ "designer": "Peter Moore",
+ "story_html": "The Nike SB Dunk Low Pro SB ‘Purple Pigeon’ was released In 2006 and has a close resemblance to the ‘Pigeon’ Dunk since they share a grey base color. The ‘Purple Pigeon’ showcases a Light Graphite upper with a Violet Swoosh and outsole.",
+ "details": "Light Graphite/Prism Violet",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "skate-selcts",
+  "used-dunks"
+ ],
+ "season": " 2006",
+ "release_date": "2006-11-01T23:59:59.999Z",
+ "release_year": 2006,
+ "sku": "304292 051",
+ "retail_price_cents": 6500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:53:32.908950+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=304292 051&hitsPerPage=20"
+ }
+}

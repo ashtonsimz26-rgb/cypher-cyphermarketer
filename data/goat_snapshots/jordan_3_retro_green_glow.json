@@ -1,0 +1,37 @@
+{
+ "name": "Air Jordan 3 Retro 'Green Glow'",
+ "nickname": "Green Glow",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 3 Retro ‘Green Glow’ adds brilliant flashes of color to a neutral design that calls to mind the OG ‘Black Cement’ colorway. The upper features tumbled black leather with grey elephant print detailing on the eyestay, toe cap and heel overlay. Vivid green accents settle on the upper and lower eyelets, along with the raised Jumpman logo that adorns the back tab. A polyurethane midsole packs a visible Air-sole unit in the heel for lightweight cushioning.",
+ "details": "Black/Green Glow/Wolf Grey/White",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "under-retail-sneakers",
+  "singles-day-selects",
+  "shoes-2022",
+  "styled-with-air-jordan-3",
+  "new-arrivals-sneakers",
+  "styled-with-jerseys",
+  "top-trending-uk",
+  "styled-with-jerseys-crm",
+  "summer-sale-nike",
+  "goat-selects-crm-2024",
+  "just-dropped-all",
+  "cwr",
+  "best-of-2024-sneakers",
+  "trending-eu",
+  "used-sneakers"
+ ],
+ "season": " 2024",
+ "release_date": "2024-03-16T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "CT8532 031",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:49.711227+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CT8532 031&hitsPerPage=20"
+ }
+}

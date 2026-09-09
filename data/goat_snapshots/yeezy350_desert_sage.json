@@ -1,0 +1,31 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Desert Sage'",
+ "nickname": "Desert Sage",
+ "designer": "Kanye West",
+ "story_html": "The Yeezy Boost 350 V2 'Desert Sage' is outfitted in a pale green Primeknit upper with tonal rope laces and reflective detailing on the sneaker’s signature side stripe. Contrast pops of color emerge on the orange collar lining and sockliner, the latter printed with dual adidas and Yeezy branding. The minimalist build sits atop full-length Boost midsole, encased in tonal green rubber with grippy gum rubber on the outsole.",
+ "details": "Desert Sage/Desert Sage/Desert Sage",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "yeezy",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "yeezy-day",
+  "timeline-2020",
+  "convenience-store",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2020",
+ "release_date": "2020-03-14T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "FX9035",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:41.598757+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FX9035&hitsPerPage=20"
+ }
+}

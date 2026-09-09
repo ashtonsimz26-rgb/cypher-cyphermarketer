@@ -1,0 +1,34 @@
+{
+ "name": "adidas Yeezy Boost 350 V2 'Semi Frozen Yellow'",
+ "nickname": "Semi Frozen Yellow",
+ "designer": "Kanye West",
+ "story_html": "Kanye West’s Yeezy Boost 350 V2 in Semi Frozen Yellow first hit stores in November 2017, with a restock that released on December 14, 2018. Dressed in adidas’ signature Primeknit upper, the lifestyle runner is finished in an energetic bright yellow hue, one that extends to the laces, heel tab, and Boost-infused ribbed rubber midsole. Zebra-like black stripes add another design dimension to the upper, along with a tonal side stripe emblazoned with ‘SPLY 350’ in reverse red print. A gum rubber outsole adds grippy traction to the eye-catching design.",
+ "details": "Semi Frozen Yellow/Raw Steel/Red",
+ "keywords": [
+  "yebra",
+  "Yeezy",
+  "350"
+ ],
+ "silhouette": "Yeezy Boost 350",
+ "collection_slugs": [
+  "yeezy-350",
+  "yeezy",
+  "techno-revival",
+  "adidas-yeezy-boost",
+  "gift-guide-yeezy-350-v2",
+  "yeezy-day",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2017",
+ "release_date": "2017-11-18T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "B37572",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:43.628548+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=B37572&hitsPerPage=20"
+ }
+}

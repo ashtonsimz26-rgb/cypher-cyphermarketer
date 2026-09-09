@@ -1,0 +1,35 @@
+{
+ "name": "Paris Saint-Germain x Air Jordan 5 Retro 'Off Noir'",
+ "nickname": "Off Noir",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Paris Saint-Germain x Air Jordan 5 Retro 'Off Noir' features a blacked-out upper that combines smooth leather construction with ripstop textile on the midfoot overlay and toe box. The traditional quarter panel netting is replaced with black nubuck covered in PSG's debossed Eiffel Tower logo in a repeating pattern. An embroidered Jumpman in Particle Rose adorns the reflective tongue, matching the satiny collar lining. Soft pink shark tooth detailing adorns the Air-assisted black polyurethane midsole, supported underfoot by a pre-aged translucent rubber outsole.",
+ "details": "Off Noir/Particle Rose/Anthracite/Pearl Pink/Sail",
+ "keywords": [],
+ "silhouette": "Air Jordan 5",
+ "collection_slugs": [
+  "air-jordan-5",
+  "air-jordan-since-1985",
+  "instant",
+  "paris-saint-germain",
+  "summer-sale-shoes",
+  "instant-gifts",
+  "monochrome-sneakers",
+  "high-demand-low-supply-alias",
+  "air-jordan-5-alias",
+  "60",
+  "used-sneakers",
+  "bts-promo",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2025",
+ "release_date": "2025-12-03T23:59:59.000Z",
+ "release_year": 2025,
+ "sku": "HQ3004 001",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:10.700724+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ3004 001&hitsPerPage=20"
+ }
+}

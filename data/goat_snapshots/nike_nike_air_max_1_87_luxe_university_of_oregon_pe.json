@@ -1,0 +1,30 @@
+{
+ "name": "Nike Air Max 1 '87 Luxe 'University of Oregon' PE",
+ "nickname": "University of Oregon",
+ "designer": "",
+ "story_html": "",
+ "details": "Light Orewood Brown/University Gold/White/Starfish",
+ "keywords": [],
+ "silhouette": "Air Max 1",
+ "collection_slugs": [
+  "air-max-day",
+  "oregon",
+  "college-colorways",
+  "division-street-sneakers",
+  "investment-sneakers",
+  "ducks-of-a-feather",
+  "back-to-school-gameday-sneakers-alias",
+  "back-to-school-gameday-sneakers"
+ ],
+ "season": " 2024",
+ "release_date": "2024-03-30T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "HQ2639 100",
+ "retail_price_cents": 35000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:06.764761+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ2639 100&hitsPerPage=20"
+ }
+}

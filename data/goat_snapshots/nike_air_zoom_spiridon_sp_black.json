@@ -1,0 +1,41 @@
+{
+ "name": "Fragment Design x Nike Air Zoom Spiridon SP 'Black'",
+ "nickname": "Black",
+ "designer": "",
+ "story_html": "Launching as part of a collaborative two-piece pack, the Fragment Design x Nike Air Zoom Spiridon 'Black' updates the retro runner with a stealthy monochrome finish. Laces feed through webbing eyelets to secure the black mesh upper, featuring a tonal suede mudguard and lateral-side Swoosh. A cropped white Swoosh adorns the medial side. Wavy lines are etched across the matching black foam midsole, enhanced with responsive Zoom Air cushioning for a comfortable ride.",
+ "details": "Black/Black/Black",
+ "keywords": [],
+ "silhouette": "Zoom Spiridon",
+ "collection_slugs": [
+  "fragment-collabs",
+  "everyday-sneakers",
+  "under-the-radar",
+  "surfaced",
+  "just-dropped-all",
+  "emerging-silhouettes",
+  "best-of-2024-sneakers",
+  "retro-revival",
+  "best-of-2024",
+  "new-and-now",
+  "youre-in-style-index",
+  "apres-sport",
+  "performance-styles",
+  "tech-focus-air-zooms",
+  "under-the-radar-everyday-sneakers",
+  "under-the-radar-spaces-campaign",
+  "city-miles",
+  "level-3f",
+  "fall-staples-footwear"
+ ],
+ "season": " 2024",
+ "release_date": "2024-12-17T23:59:59.000Z",
+ "release_year": 2024,
+ "sku": "HF5455 001",
+ "retail_price_cents": 17000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:39.038353+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HF5455 001&hitsPerPage=20"
+ }
+}

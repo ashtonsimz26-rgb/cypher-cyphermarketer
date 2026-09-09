@@ -1,0 +1,27 @@
+{
+ "name": "Jeff Staple x Nike Dunk Low Pro SB 'Black Pigeon'",
+ "nickname": "Black Pigeon",
+ "designer": "Peter Moore",
+ "story_html": "Released in November 2017, the Nike Jeff Staple x Dunk Low Pro SB 'Black Pigeon' was inspired by Staples’ classic 2005 ‘Pigeon’ colorway. The shoe features a black nubuck and Stetson waterproof leather upper with a black midsole and a sienna outsole. It also comes with the original’s padded thick tongue and the iconic Pigeon logo embroidered on the heel.",
+ "details": "Black/Black-Sienna",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "nike-sb",
+  "new-york",
+  "nike-dunk",
+  "nike-dunk-sb-collabs",
+  "used-dunks"
+ ],
+ "season": " 2017",
+ "release_date": "2017-11-07T23:59:59.999Z",
+ "release_year": 2017,
+ "sku": "883232 008",
+ "retail_price_cents": 11000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:26.473685+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=883232 008&hitsPerPage=20"
+ }
+}

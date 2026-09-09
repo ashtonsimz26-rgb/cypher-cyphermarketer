@@ -1,0 +1,39 @@
+{
+ "name": "DJ Khaled x Air Jordan 5 Retro 'We The Best - Crimson Bliss'",
+ "nickname": "We The Best - Crimson Bliss",
+ "designer": "Tinker Hatfield",
+ "story_html": "Drawn from the collaborative ‘We the Best’ collection, the DJ Khaled x Air Jordan 5 Retro ‘Crimson Bliss’ gives the classic silhouette a pastel makeover. The upper is crafted from coral-hued leather with a satiny quilted lining in Leche Blue. Matching blue embroidery appears on each heel overlay, featuring a Nike Air logo on the right shoe and ‘We the Best’ inscribed on the left. Traditional Jumpman branding decorates the silver reflective tongue. The sneaker is mounted on an off-white polyurethane midsole with blue speckled shark-tooth detailing and a visible Air-sole unit in the heel. Underfoot, translucent rubber outsoles reveal mismatched Jumpman and ‘We the Best’ branding.",
+ "details": "Crimson Bliss/Leche Blue/Sail",
+ "keywords": [],
+ "silhouette": "Air Jordan 5",
+ "collection_slugs": [
+  "instant-ship-gifts",
+  "air-jordan-5",
+  "top-sneaker-collabs",
+  "artist-collaborations",
+  "toptrending",
+  "ombre-pink-shoes",
+  "barbie-colored-shoes",
+  "dj-khaled-air-jordan",
+  "top-sneaker-collabs-uk",
+  "best-collabs-sneakers-uk",
+  "ombre-pink-uk",
+  "artists-bf24",
+  "air-jordan-5-web",
+  "color-compliments-footwear",
+  "air-jordan-5-alias",
+  "level-3f",
+  "used-sneakers"
+ ],
+ "season": " 2022",
+ "release_date": "2022-11-28T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DV4982 641",
+ "retail_price_cents": 22500,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:13.512825+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DV4982 641&hitsPerPage=20"
+ }
+}

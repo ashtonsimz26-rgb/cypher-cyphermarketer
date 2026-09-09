@@ -1,0 +1,36 @@
+{
+ "name": "Levi's x Air Jordan 3 Retro SP 'Denim Blue'",
+ "nickname": "Denim Blue",
+ "designer": "",
+ "story_html": "Drawn from a collaborative footwear collection, the Levi's x Air Jordan 3 Retro SP 'Denim Blue' reimagines the classic silhouette with an upper that discards the traditional full leather build. Instead, the upper is cloaked in dark indigo denim with black elephant-print leather overlays at the forefoot and heel. A crimson embroidered Jumpman stands out on the black leather tongue, matching the Levi's tab that adorns the lateral side of the right shoe. Nike Air branding decorates the heel tab. A two-tone polyurethane midsole in white and black packs a visible Air-Sole unit in the heel for impact protection and a comfortable ride.",
+ "details": "Denim/Black/Sail",
+ "keywords": [],
+ "silhouette": "Air Jordan 3",
+ "collection_slugs": [
+  "air-jordan-3",
+  "aj3",
+  "air-jordan-since-1985",
+  "summer-sale-shoes",
+  "summer-sale-goat-selects",
+  "summer-sale-air-jordan",
+  "summer-sale",
+  "top-trending-eu-footwear",
+  "60",
+  "spotlight-american-brands",
+  "used-sneakers",
+  "75test",
+  "bts-promo",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2026",
+ "release_date": "2026-02-25T23:59:59.000Z",
+ "release_year": 2026,
+ "sku": "IH7959 400",
+ "retail_price_cents": 23000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:54.864991+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IH7959 400&hitsPerPage=20"
+ }
+}

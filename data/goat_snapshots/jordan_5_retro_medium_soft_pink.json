@@ -1,0 +1,32 @@
+{
+ "name": "Air Jordan 5 Retro 'Medium Soft Pink'",
+ "nickname": "Medium Soft Pink",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 5 Retro 'Medium Soft Pink' showcases a white leather upper that is treated to a 3M finish, featuring translucent quarter panel netting and a pink embroidered '23' on the lateral heel. Additional pink accents land on the textile collar lining, the Jumpman logo atop the silver reflective tongue, and the Nike Air logo that graces the back heel. The cushioning setup takes the form of a black polyurethane midsole, accented with pink shark tooth detailing and fitted with a visible Air-sole unit in the heel.",
+ "details": "White/Medium Soft Pink/Black",
+ "keywords": [],
+ "silhouette": "Air Jordan 5",
+ "collection_slugs": [
+  "air-jordan-5",
+  "air-jordan-since-1985",
+  "instant-gifts",
+  "styled-with-varsity-jackets",
+  "air-jordan-5-alias",
+  "top-trending-eu-footwear",
+  "used-sneakers",
+  "retro-jordans",
+  "bts-promo",
+  "most-wanted-aug-2026"
+ ],
+ "season": " 2025",
+ "release_date": "2025-10-11T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "HQ7978 102",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:09.875148+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HQ7978 102&hitsPerPage=20"
+ }
+}

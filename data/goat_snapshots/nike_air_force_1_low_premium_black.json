@@ -1,0 +1,31 @@
+{
+ "name": "Cactus Plant Flea Market x Nike Air Force 1 Low Premium 'Black' 2020",
+ "nickname": "Black",
+ "designer": "Bruce Kilgore",
+ "story_html": "Made in collaboration with the LA-based streetwear brand, the Cactus Plant Flea Market x Nike Air Force 1 Low Premium ‘Black’ features a stealthy monochromatic finish on the all-leather upper. In a nod to the Nike Air More Uptempo, ‘AIR’ is superimposed on the lateral side panel of the right shoe, each letter framed in reflective detailing for added visibility. ‘FLEA’ adorns the side of the left shoe in the same oversized style.",
+ "details": "Black/Black/White",
+ "keywords": [],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "cactus-plant-flea-market",
+  "collabs-by-women",
+  "top-sneaker-collabs",
+  "made-by-women",
+  "nike-cactus-plant-flea-market",
+  "reworked-sneakers",
+  "trackpants-trainers",
+  "remixed-icons-footwear",
+  "level-3f"
+ ],
+ "season": " 2020",
+ "release_date": "2020-09-10T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "DC4457 001",
+ "retail_price_cents": 13000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:25.278126+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DC4457 001&hitsPerPage=20"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "name": "adidas Yeezy 700 V3 'Copper Fade'",
+ "nickname": "Copper Fade",
+ "designer": "Kanye West",
+ "story_html": "The adidas Yeezy 700 V3 ‘Copper Fade’ carries an upper composed of monofilament engineered mesh in a gradient rust orange hue. The lightweight build is secured with no-tie elastic laces and bolstered with a translucent RPU cage for added structure and durability. Interior bootie construction in a dark brown finish delivers a snug, comfortable fit. The sneaker rides atop a PU-encapsulated EVA midsole, reinforced underfoot by a grippy herringbone-traction rubber outsole.",
+ "details": "Copper Fade/Copper Fade/Copper Fade",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 700",
+ "collection_slugs": [
+  "yeezy",
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "back-to-school-sneakers",
+  "just-dropped-yeezy",
+  "futurism",
+  "futurism-footwear",
+  "2024-yeezy-drops",
+  "on-the-rise-yeezy",
+  "used-yeezy"
+ ],
+ "season": " 2021",
+ "release_date": "2021-12-10T23:59:59.999Z",
+ "release_year": 2021,
+ "sku": "GY4109",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:49.627108+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=GY4109&hitsPerPage=20"
+ }
+}

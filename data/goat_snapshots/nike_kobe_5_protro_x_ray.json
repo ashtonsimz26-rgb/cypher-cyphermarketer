@@ -1,0 +1,41 @@
+{
+ "name": "Nike Zoom Kobe 5 Protro 'X-Ray'",
+ "nickname": "X-Ray",
+ "designer": "Eric Avar",
+ "story_html": "The Nike Zoom Kobe 5 Protro 'X-Ray' updates the retro silhouette with a glow-in-the-dark X-ray graphic depicting a skeletal foot. A deep royal blue synthetic upper is equipped with a padded mesh collar and integrated Flywire cables for midfoot lockdown. The cushioning setup features a lightweight Cushlon midsole with a responsive Zoom Air unit in the forefoot. Multi-directional traction is provided by a blue-tinged translucent rubber outsole that glows in the dark.",
+ "details": "Deep Royal Blue/Baltic Blue/Glacier Blue",
+ "keywords": [],
+ "silhouette": "Zoom Kobe 5",
+ "collection_slugs": [
+  "mamba-day",
+  "kobe",
+  "singles-day-selects",
+  "zoom-kobe-protro",
+  "just-dropped-all",
+  "new-in-redeem",
+  "new-in-just-dropped",
+  "halloween",
+  "all-star-silhouettes",
+  "best-of-black-friday-bf-2024",
+  "best-of-black-friday-2024",
+  "best-of-2024-sneakers",
+  "shop-now-holiday",
+  "top-trending-canada",
+  "festival-influence",
+  "festival-influence-crm",
+  "seasonal-selects-halloween",
+  "top-trending-au",
+  "promo-collection"
+ ],
+ "season": " 2024",
+ "release_date": "2024-10-17T23:59:59.999Z",
+ "release_year": 2024,
+ "sku": "HJ4303 400",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:51:02.007391+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=HJ4303 400&hitsPerPage=20"
+ }
+}

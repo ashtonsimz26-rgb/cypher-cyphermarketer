@@ -1,0 +1,42 @@
+{
+ "name": "Fragment Design x CLOT x Nike Dunk Low SP '20th Anniversary'",
+ "nickname": "20th Anniversary",
+ "designer": "Peter Moore",
+ "story_html": "The Fragment Design x CLOT x Nike Dunk Low SP ‘20th Anniversary’ brings together a trio of heavy-hitting creative partners, who’ve united to celebrate two decades of the Hong Kong-based streetwear brand founded by Edison Chen. He and longtime friend Hiroshi Fujiwara dress the Nike Dunk in a tearaway white silk upper, inspired by CLOT’s 2018 Air Force 1 collaboration and featuring the brand’s tonal Silk Royale pattern. Contrasting black accents land on the tongue, collar lining and back tab, marked with mismatched CLOT and FRGMNT branding. A semi-translucent rubber cupsole anchors the low-profile silhouette.",
+ "details": "White/White/Black",
+ "keywords": [],
+ "silhouette": "Dunk",
+ "collection_slugs": [
+  "nike-dunk",
+  "made-in-japan",
+  "fragment-collabs",
+  "nike-dunk-low",
+  "designer-collabs",
+  "styled-with-dunks",
+  "best-collabs-sneakers",
+  "festival-classics",
+  "mini-swooshes",
+  "trending-this-week",
+  "collection-cards-6-9-23",
+  "summer-camp-crm",
+  "top-sneaker-collabs-uk",
+  "craftsmanship",
+  "styled-with-dunks-crm",
+  "complexcon-new",
+  "weekend-in-the-desert",
+  "greyscale-footwear",
+  "luxe-accents",
+  "used-dunks"
+ ],
+ "season": " 2023",
+ "release_date": "2023-06-14T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "FN0315 110",
+ "retail_price_cents": 15000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:55.727716+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FN0315 110&hitsPerPage=20"
+ }
+}

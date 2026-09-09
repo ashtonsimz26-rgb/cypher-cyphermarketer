@@ -1,0 +1,31 @@
+{
+ "name": "adidas Yeezy Boost 700 MNVN 'Triple Black'",
+ "nickname": "Triple Black",
+ "designer": "Kanye West",
+ "story_html": "Kanye West tapped industry legends Christian Tresser and Steven Smith for the adidas 700 MNVN. The sneaker's usual mixed-material profile is overhauled in favor of triple-black nylon designed with heat-welded panels and an enlarged 3M '700' graphic along the lateral. This revamp adds a heel tab and drops the Three-Stripes emblem. The Boost-enclosed midsole is paired with a herringbone-patterned rubber outsole.",
+ "details": "Black/Black/Black",
+ "keywords": [],
+ "silhouette": "Yeezy Boost 700 MNVM",
+ "collection_slugs": [
+  "yeezy",
+  "yeezy-700",
+  "adidas-yeezy-boost",
+  "yeezy-day",
+  "listening-party",
+  "steven-smith",
+  "allblack",
+  "instant",
+  "shoes-2022"
+ ],
+ "season": " 2020",
+ "release_date": "2020-02-08T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "FV4440",
+ "retail_price_cents": 22000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:48.607883+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=FV4440&hitsPerPage=20"
+ }
+}

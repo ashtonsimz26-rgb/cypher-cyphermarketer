@@ -1,0 +1,42 @@
+{
+ "name": "Air Jordan 11 Retro Low 'Cement Grey'",
+ "nickname": "Cement Grey",
+ "designer": "Tinker Hatfield",
+ "story_html": "The Air Jordan 11 Retro Low ‘Cement Grey’ showcases classic two-tone color blocking modeled after the inaugural spate of low-top releases from 2001. The upper combines white ballistic mesh with tonal webbing eyelets and a patent leather mudguard in a light grey finish. A miniature Jumpman in University Blue adorns the tongue and back heel. Underpinning the sneaker is a cushy Phylon midsole, supported by a translucent rubber outsole with grey herringbone traction pods and an exposed carbon fiber shank plate.",
+ "details": "White/University Blue/Cement Grey",
+ "keywords": [],
+ "silhouette": "Air Jordan 11",
+ "collection_slugs": [
+  "air-jordan-11",
+  "everyday-sneakers",
+  "shoes-2022",
+  "new-neutrals-crm",
+  "trending-this-week",
+  "back-to-school",
+  "family-size-runs",
+  "family-size-runs-adult",
+  "styled-with-air-jordan-11",
+  "soft-hues",
+  "patent-leather",
+  "sneakers-socks",
+  "travel-essentials-sneakers-crm",
+  "all-star-silhouettes",
+  "best-of-2024-sneakers",
+  "og-air-jordan-colorways",
+  "air-jordan-11-alias",
+  "city-miles",
+  "fall-staples-footwear",
+  "used-sneakers"
+ ],
+ "season": " 2023",
+ "release_date": "2023-04-01T23:59:59.999Z",
+ "release_year": 2023,
+ "sku": "AV2187 140",
+ "retail_price_cents": 19000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:39.534926+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AV2187 140&hitsPerPage=20"
+ }
+}

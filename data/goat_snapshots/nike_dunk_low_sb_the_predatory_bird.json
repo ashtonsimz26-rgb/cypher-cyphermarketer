@@ -1,0 +1,43 @@
+{
+ "name": "Why So Sad? x Nike Dunk Low SB 'The Predatory Bird'",
+ "nickname": "The Predatory Bird",
+ "designer": "",
+ "story_html": "Designed in collaboration with the mental-health initiative founded by Scottish skater John Rattray, the Why So Sad? x Nike Dunk Low SB ‘The Predatory Bird’ features a design theme centered around positivity and wellness. The low-top sports a light blue leather upper with navy suede overlays and a wear-away Swoosh that fades from Coastal Blue to Speed Yellow. An embroidered graphic depicting the Predatory Bird mascot appears on the lateral heel, while a yellow question mark adorns the red suede heel tab. ‘Why So Sad?’ is inscribed on the interior tongue tag. Underfoot, a translucent rubber outsole yields grippy traction.",
+ "details": "Coastal Blue/Speed Yellow/University Red",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "nike-dunk-low",
+  "top-sneakers",
+  "contrast-stitch",
+  "toptrending",
+  "sau-selects",
+  "trending-france",
+  "back-to-school",
+  "top-sneaker-collabs-uk",
+  "gift-guide-sneaker-icons-fr",
+  "best-collabs-sneakers-uk",
+  "nike-dunk-sb-collabs",
+  "shades-of-blue",
+  "pop-blues",
+  "pop",
+  "styled-with-varsity-jackets-crm",
+  "styled-with-hoodies-580b8671-024a-48eb-b914-b051043b450a",
+  "dark-blues",
+  "prep-redux",
+  "skate-selcts",
+  "match-point",
+  "used-dunks"
+ ],
+ "season": " 2022",
+ "release_date": "2022-11-04T23:59:59.999Z",
+ "release_year": 2022,
+ "sku": "DX5549 400",
+ "retail_price_cents": 12000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:52.897909+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=DX5549 400&hitsPerPage=20"
+ }
+}

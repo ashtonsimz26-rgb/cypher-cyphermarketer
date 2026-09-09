@@ -1,0 +1,38 @@
+{
+ "name": "Off-White x Nike Air Rubber Dunk 'University Blue'",
+ "nickname": "University Blue",
+ "designer": "",
+ "story_html": "Made in collaboration with Virgil Abloh’s luxury streetwear brand, the Off-White x Nike Air Rubber Dunk ‘University Blue’ reimagines the retro low-top with design elements borrowed from the lifestyle running space. The latter includes an upper taken from the P-6000, rendered in white mesh with blue accents and metallic silver overlays, and visible Air cushioning in the gum rubber cupsole. Virgil leaves his personal stamp via an orange tab on the outlined Swoosh and Helvetica text on the medial side panel.",
+ "details": "Grey/University Blue",
+ "keywords": [],
+ "silhouette": "Air Rubber Dunk",
+ "collection_slugs": [
+  "nike-dunk",
+  "university-blue",
+  "donda-influence-48b7d420-8d98-4fa1-bb14-9d288b9bfda9",
+  "top-sneaker-collabs",
+  "off-white-collabs",
+  "convenience-store",
+  "cool-hues-2022",
+  "nike-off-white",
+  "collegiate-dunks",
+  "unc",
+  "varsity-colorways",
+  "ombre-blue-crm",
+  "summer-gradient",
+  "level-3f",
+  "virgil-abloh-influence",
+  "promo-collection"
+ ],
+ "season": " 2020",
+ "release_date": "2020-10-01T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "CU6015 100",
+ "retail_price_cents": 18000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:37.692520+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CU6015 100&hitsPerPage=20"
+ }
+}

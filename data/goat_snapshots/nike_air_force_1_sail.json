@@ -1,0 +1,38 @@
+{
+ "name": "Travis Scott x Nike Air Force 1 'Sail'",
+ "nickname": "Sail",
+ "designer": "Bruce Kilgore",
+ "story_html": "The ‘Sail’ colorway of Travis Scott’s Air Force 1 represents the Houston rapper’s second collaboration with Nike on the classic silhouette. Aside from swapping out the all-white finish of its predecessor with slightly darker Sail, the new model is mostly unchanged. Tonal canvas construction is accented with removable Swooshes and tongue patches, while the shiny lace jewels give a nod to Scott’s signature grill.",
+ "details": "Sail/Gum Light Brown/Sail",
+ "keywords": [
+  "playstation",
+  "PS5"
+ ],
+ "silhouette": "Air Force 1",
+ "collection_slugs": [
+  "travis-scott",
+  "kim-duong-sneaker-collection",
+  "travis-scott-collection",
+  "timeline-2018",
+  "og-white",
+  "artist-collaborations",
+  "trending-now-hong-kong",
+  "music-influence-sneakers",
+  "festival-classics",
+  "travis-scott-nike",
+  "sail-shoes",
+  "accessorized-footwear",
+  "level-3f"
+ ],
+ "season": " 2018",
+ "release_date": "2018-08-10T23:59:59.999Z",
+ "release_year": 2018,
+ "sku": "AQ4211 101",
+ "retail_price_cents": 15000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:50:27.986577+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=AQ4211 101&hitsPerPage=20"
+ }
+}

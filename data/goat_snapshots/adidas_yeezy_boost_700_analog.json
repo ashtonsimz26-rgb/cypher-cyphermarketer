@@ -1,0 +1,41 @@
+{
+ "name": "adidas Men's Yeezy Boost 700 'Analog'",
+ "nickname": "Analog",
+ "designer": "Kanye West",
+ "story_html": "Music and fashion icon Kanye West debuted the Yeezy Boost 700 at his Yeezy Season 5 fashion show in February 2017. This 'Analog' colorway released April 2019, and provides a monochromatic look to the acclaimed shoe. Dressed in shades of white, leather, mesh and suede panels come together to construct its upper. Down below, full-length Boost cushioning provides a responsive feel, built inside the 700's signature chunky midsole.",
+ "details": "Analog/Analog/Analog",
+ "keywords": [
+  "Yeezy",
+  "700"
+ ],
+ "silhouette": "Yeezy Boost 700",
+ "collection_slugs": [
+  "yeezy",
+  "yeezy-700",
+  "techno-revival",
+  "adidas-yeezy-boost",
+  "maggie-macdonald-sneaker-collection",
+  "yeezy-day",
+  "gothic-cathedral",
+  "womens-yeezy",
+  "back-to-school-sneakers",
+  "crm-styled-with-graphic-tees",
+  "kanye-9603e47d-085f-4cbc-9f23-e99a2ac778e7",
+  "minimalist-sneakers",
+  "hype-historians",
+  "on-the-rise-yeezy",
+  "promo-collection",
+  "used-yeezy"
+ ],
+ "season": " 2019",
+ "release_date": "2019-04-27T23:59:59.999Z",
+ "release_year": 2019,
+ "sku": "EG7596",
+ "retail_price_cents": 30000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:48:47.050699+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=EG7596&hitsPerPage=20"
+ }
+}

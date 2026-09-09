@@ -1,0 +1,36 @@
+{
+ "name": "Air Jordan 14 Retro 'Ferrari' 2025",
+ "nickname": "Ferrari",
+ "designer": "Tinker Hatfield",
+ "story_html": "The 2025 edition of the Air Jordan 14 Retro 'Ferrari' brings back a bold colorway that emphasizes the shoe's automotive influences. True to the original 2014 release, the championship silhouette utilizes a one-piece scarlet suede upper with contrasting black accents on the tongue, collar lining and heel panel, marked with an embossed Jumpman and '23' in Vibrant Yellow. A matching yellow Jumpman badge decorates the lateral collar. Accented with faux carbon fiber detailing, the black Phylon midsole features an exposed chrome-plated chassis and springy Zoom Air units in the forefoot and heel.",
+ "details": "Challenge Red/Black/Vibrant Yellow/Anthracite",
+ "keywords": [],
+ "silhouette": "Air Jordan 14",
+ "collection_slugs": [
+  "top-selling",
+  "styled-with-shorts",
+  "air-jordan-since-1985",
+  "color-spotlight-red",
+  "racing-style",
+  "goat-gift-guides",
+  "new-in-redeem",
+  "sneaker-release-roundup",
+  "trackside-f1-grand-prix",
+  "accent-hues",
+  "shades-of-red",
+  "summer-wishlist-footwear",
+  "merch-request-video-screen-alias-app-store-refresh-phase-02",
+  "retro-jordans"
+ ],
+ "season": " 2025",
+ "release_date": "2025-06-14T23:59:59.999Z",
+ "release_year": 2025,
+ "sku": "IF5015 600",
+ "retail_price_cents": 21000,
+ "_meta": {
+  "fetched_at": "2026-09-09T19:49:46.403705+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=IF5015 600&hitsPerPage=20"
+ }
+}
