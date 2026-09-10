@@ -33,7 +33,14 @@ DEFAULT_ENV = Path.home() / "Documents/openclaw/cyphermarketer/.env"
 LEDGER = Path(__file__).resolve().parent / "ledger" / "posts.jsonl"
 MEDIA_URL = "https://api.x.com/2/media/upload"
 TWEET_URL = "https://api.x.com/2/tweets"
+USER_ID = "2085855313014448128"                    # @appCYPHERR
+# OWNED-READ form. Deliberately NOT `GET /2/tweets?ids=`: X prices an "owned
+# resource read" at $0.001 only when the {id} path param matches the
+# authenticated user, so ?ids= risks billing as standard post reads at $0.005 —
+# 5x for identical data. This form also returns every post in ONE request.
+OWN_POSTS_URL = "https://api.x.com/2/users/%s/tweets" % USER_ID
 HANDLE = "appCYPHERR"
+METRICS_LEDGER = Path(__file__).resolve().parent / "ledger" / "metrics.jsonl"
 MAX_POSTS_24H = 4
 MAX_IMAGE_BYTES = 5 * 1024 * 1024
 REQUIRED = ("X_API_KEY", "X_API_SECRET", "X_ACCESS_TOKEN", "X_ACCESS_TOKEN_SECRET")
@@ -183,6 +190,43 @@ def create_tweet(text: str, media_ids: list[str], env: dict) -> dict:
         "User-Agent": "cyphermarketer/1.0"})
     status, raw = _request(req)
     return {"status": status, "raw": raw}
+
+
+# ── reads (F2) ───────────────────────────────────────────────────────────────
+def get_own_posts(env: dict, *, max_results: int = 100,
+                  non_public: bool = True) -> tuple[int, dict]:
+    """One owned read of our own timeline, with metrics.
+
+    non_public_metrics (impressions, profile clicks, link clicks, engagements)
+    require OAuth 1.0a user context — which is what we already use — and are
+    only available for posts created in the LAST 30 DAYS. public_metrics never
+    expire. The caller records which it actually got per post rather than
+    writing silent nulls.
+
+    The OAuth signer already folds query-string params into the signature base
+    (verified), so a GET needs no new auth handling.
+    """
+    fields = "public_metrics,created_at"
+    if non_public:
+        fields += ",non_public_metrics"
+    url = "%s?max_results=%d&tweet.fields=%s" % (
+        OWN_POSTS_URL, max_results, urllib.parse.quote(fields, safe=","))
+    req = urllib.request.Request(url, headers={
+        "Authorization": _auth_header("GET", url, env),
+        "User-Agent": "cyphermarketer/1.0"})
+    status, raw = _request(req)
+    try:
+        return status, json.loads(raw)
+    except Exception:
+        return status, {"unparsed": raw[:800]}
+
+
+def metrics_append(rec: dict):
+    METRICS_LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    rec = dict(rec)
+    rec.setdefault("sampled_at", datetime.now(timezone.utc).isoformat())
+    with METRICS_LEDGER.open("a", encoding="utf-8") as fh:      # append-only
+        fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
 
 def main():
