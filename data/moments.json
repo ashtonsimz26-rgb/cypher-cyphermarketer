@@ -1,0 +1,297 @@
+{
+ "_note": "Cultural on-this-day moments. Release dates live in data/release_dates.json — different lane. EVERY entry here has approved_by:null until Ashton reads the source and approves it by hand. The AGENT MAY NEVER SET approved_by, add an entry, or edit one. The loader rejects any entry that is unapproved or has empty sources[].",
+ "_seeded": "2026-09-10 — 9 of 11 draft entries verified with research/verify.py + web search. m_ts_mocha unresolved (4 sources); m_virgil deliberately unresearched.",
+ "_underscore_note": "Keys beginning with _ are working metadata, ignored by the loader.",
+ "moments": {
+  "02-14": [
+   {
+    "id": "m_yeezy750_first",
+    "title": "The first Yeezy Boost dropped",
+    "year": 2015,
+    "kind": "launch",
+    "text": "The Yeezy Boost 750 was the first shoe of the adidas partnership to reach retail. A grey suede high-top with a strap, sold in tiny numbers through a confirmed-reservation app. It set the template for how every Yeezy after it would be released.",
+    "sources": [
+     "https://sneakerbardetroit.com/adidas-yeezy-boost-750-og-b35309-release-date/"
+    ],
+    "_source_hint": "adidas Yeezy Boost 750 first release February 2015",
+    "_verify_terms": [
+     "Yeezy Boost 750",
+     "2015"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "none",
+    "_confidence": "MEDIUM",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://sneakerbardetroit.com/adidas-yeezy-boost-750-og-b35309-release-date/",
+     "date_in_source": "February 14, 2015",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "02-17": [
+   {
+    "id": "m_mj_born",
+    "title": "Michael Jordan was born",
+    "year": 1963,
+    "kind": "milestone",
+    "text": "Brooklyn, 1963. Every Jordan silhouette that followed traces back to a single endorsement deal a rookie almost turned down because he wanted adidas.",
+    "sources": [
+     "https://blackpast.org/african-american-history/jordan-michael-j-1963/"
+    ],
+    "_source_hint": "Michael Jordan born February 17 1963",
+    "_verify_terms": [
+     "Michael Jordan",
+     "1963"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "none",
+    "_confidence": "HIGH",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://blackpast.org/african-american-history/jordan-michael-j-1963/",
+     "date_in_source": "February 17, 1963",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "02-22": [
+   {
+    "id": "m_pigeon_reed_space",
+    "title": "The Pigeon Dunk turned a shoe release into news",
+    "year": 2005,
+    "kind": "riot",
+    "text": "Jeff Staple's Pigeon Dunk released at Reed Space on Orchard Street with 150 pairs. People camped through the snow, fights broke out, and buyers left in police escorts. The New York Post ran it on the front page. It is the day sneaker releases stopped being a subculture story.",
+    "sources": [
+     "https://www.highsnobiety.com/p/jeff-staple-nike-sb-dunk-pigeon-riot-interview/"
+    ],
+    "_source_hint": "Nike SB Dunk Low Pigeon Reed Space 2005 New York Post riot",
+    "_verify_terms": [
+     "Pigeon",
+     "Reed Space",
+     "2005"
+    ],
+    "linked_image_names": [
+     "sb_dunk_low_black_pigeon",
+     "sb_dunk_low_purple_pigeon"
+    ],
+    "sensitivity": "none",
+    "_confidence": "HIGH",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://www.highsnobiety.com/p/jeff-staple-nike-sb-dunk-pigeon-riot-interview/",
+     "date_in_source": "February 22, 2005",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "02-25": [
+   {
+    "id": "m_banned_letter",
+    "title": "The letter that sold a million shoes",
+    "year": 1985,
+    "kind": "brand_history",
+    "text": "The NBA wrote to Nike objecting to Jordan's shoes under the uniformity rule. Nike's response was to build an ad campaign around the objection. The shoe in the letter was not actually the Jordan 1 — but the story attached to it permanently, and Nike never corrected the record.",
+    "sources": [
+     "https://www.complex.com/sneakers/a/marvin-barias/the-true-story-behind-the-banned-air-jordan"
+    ],
+    "_source_hint": "NBA letter Nike Air Jordan banned 1985 uniformity rule",
+    "_verify_terms": [
+     "NBA",
+     "Nike",
+     "1985"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "none",
+    "_confidence": "CONTESTED",
+    "_contest_note": "The letter's date is cited variously as Feb 25 1985 and later. The Air Ship vs Jordan 1 distinction is well documented and is the interesting part; the date is the weak link. Do not approve until a source pins it.",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://www.complex.com/sneakers/a/marvin-barias/the-true-story-behind-the-banned-air-jordan",
+     "date_in_source": "February 25, 1985",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "03-26": [
+   {
+    "id": "m_air_max_day",
+    "title": "Air Max Day — the day you could see the air",
+    "year": 1987,
+    "kind": "brand_history",
+    "text": "Tinker Hatfield cut a window into the midsole so the cushioning could be seen. Nike's own engineers argued against it. The Air Max 1 released and every visible-air shoe since descends from that one decision.",
+    "sources": [
+     "https://www.highsnobiety.com/p/nike-air-max-1-history/"
+    ],
+    "_source_hint": "Air Max Day March 26 1987 Air Max 1 Tinker Hatfield visible air",
+    "_verify_terms": [
+     "Air Max 1",
+     "1987",
+     "Tinker Hatfield"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "none",
+    "_confidence": "HIGH",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://www.highsnobiety.com/p/nike-air-max-1-history/",
+     "date_in_source": "March 26, 1987",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "06-11": [
+   {
+    "id": "m_flu_game",
+    "title": "The Flu Game",
+    "year": 1997,
+    "kind": "milestone",
+    "text": "Game 5 of the Finals, Jordan visibly unable to stand between plays, 38 points. The black-and-red 12s he wore that night are the reason that colorway is still called the Flu Game and not by its actual name.",
+    "sources": [
+     "https://www.basketball-reference.com/boxscores/199706110UTA.html"
+    ],
+    "_source_hint": "Flu Game June 11 1997 Jordan 12 NBA Finals Game 5",
+    "_verify_terms": [
+     "Flu Game",
+     "1997"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "none",
+    "_confidence": "HIGH",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://www.basketball-reference.com/boxscores/199706110UTA.html",
+     "date_in_source": "June 11, 1997",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "08-23": [
+   {
+    "id": "m_kobe_born",
+    "title": "Kobe Bryant was born",
+    "year": 1978,
+    "kind": "milestone",
+    "text": "Kobe pushed his signature line toward low-cut soccer-inspired silhouettes when every basketball shoe was a high-top. Performance basketball footwear never went back.",
+    "sources": [
+     "https://www.britannica.com/biography/Kobe-Bryant"
+    ],
+    "_source_hint": "Kobe Bryant born August 23 1978",
+    "_verify_terms": [
+     "Kobe Bryant",
+     "1978"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "tragedy_adjacent",
+    "_sensitivity_note": "Birthday, not the death date — but the association is immediate and the audience reaction is unpredictable. Flagged tragedy_adjacent so the loader records it and never proposes it. Rail 4: silence is always acceptable. Included so a future session does not 'discover' it and add it unflagged.",
+    "_confidence": "HIGH",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://www.britannica.com/biography/Kobe-Bryant",
+     "date_in_source": "August 23, 1978",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "10-18": [
+   {
+    "id": "m_air_ship",
+    "title": "The shoe that actually got banned",
+    "year": 1984,
+    "kind": "brand_history",
+    "text": "Jordan wore the black-and-red Nike Air Ship in preseason — not the Jordan 1, which did not exist yet. The Air Ship is the shoe the league objected to, and it spent thirty-five years as a footnote to a story about a different shoe.",
+    "sources": [
+     "https://www.sneakerfreaker.com/features/setting-straight-the-story-of-the-nike-air-ship"
+    ],
+    "_source_hint": "Nike Air Ship black red Jordan preseason 1984 banned",
+    "_verify_terms": [
+     "Air Ship",
+     "1984"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "none",
+    "_confidence": "MEDIUM",
+    "_contest_note": "The substance is well documented; the exact preseason date is not. If verification cannot pin a day, delete rather than approximate.",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://www.sneakerfreaker.com/features/setting-straight-the-story-of-the-nike-air-ship",
+     "date_in_source": "October 18, 1984",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ],
+  "11-28": [
+   {
+    "id": "m_virgil",
+    "title": "Virgil Abloh",
+    "year": 2021,
+    "kind": "culture",
+    "text": "RECORDED, NEVER PROPOSED. Present so no future session adds this date unflagged.",
+    "sources": [],
+    "_source_hint": "n/a — do not research, do not propose",
+    "_verify_terms": [],
+    "linked_image_names": [],
+    "sensitivity": "tragedy_adjacent",
+    "_sensitivity_note": "A brand account posting a card on this date is the exact shape of thing that reads as using a death for reach. Rail 4 governs absolutely. The entry exists to occupy the date defensively.",
+    "_confidence": "HIGH",
+    "approved_by": null,
+    "approved_at": null,
+    "_status": "RECORDED, NEVER PROPOSED. Deliberately unresearched and unsourced; the loader rejects it on empty sources[], which is the correct outcome for an entry that must never be proposed. Present so the date is visibly occupied."
+   }
+  ],
+  "12-03": [
+   {
+    "id": "m_kanye_adidas",
+    "title": "The defection",
+    "year": 2013,
+    "kind": "brand_history",
+    "text": "Kanye left Nike for adidas over royalties and creative control. Nike had the biggest name in sneaker culture and let him walk. adidas built its entire decade on the shoes that followed.",
+    "sources": [
+     "https://www.spin.com/2013/12/kanye-west-adidas-deal-10-million-nike-air-yeezy/"
+    ],
+    "_source_hint": "Kanye West adidas deal announced December 2013 leaves Nike royalties",
+    "_verify_terms": [
+     "adidas",
+     "2013"
+    ],
+    "linked_image_names": [],
+    "sensitivity": "none",
+    "_confidence": "MEDIUM",
+    "_contest_note": "The announcement date and the signing date differ across sources. Pin one and record which.",
+    "approved_by": null,
+    "approved_at": null,
+    "_verified": {
+     "outcome": "verified",
+     "url": "https://www.spin.com/2013/12/kanye-west-adidas-deal-10-million-nike-air-yeezy/",
+     "date_in_source": "December 3, 2013",
+     "method": "research/verify.py verify_fact + web search",
+     "checked": "2026-09-10"
+    }
+   }
+  ]
+ }
+}
