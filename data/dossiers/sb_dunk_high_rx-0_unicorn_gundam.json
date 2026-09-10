@@ -1,11 +1,11 @@
 {
  "image_name": "sb_dunk_high_rx-0_unicorn_gundam",
- "built_at": "2026-09-10T03:11:03.418300+00:00",
- "name_match": "failed",
- "decided_by": "signal_1_silhouette",
+ "built_at": "2026-09-10T03:25:43.090722+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "SB Dunk High",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -26,7 +26,77 @@
   "match": true,
   "applied": false
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2021-11-10.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_high_rx-0_unicorn_gundam"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Gundam x Nike Dunk High SB ‘RX-0 Project Unicorn’ is taken from a collaborative series celebrating the Tokyo 2021 Summer Olympics.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "Nodding to the enduring mecha-based sci-fi franchise and accompanying toys, this pair showcases a unique design inspired by the RX-0 Unicorn Gundam.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The high-top carries a white leather upper with tonal overlays outlined in contrasting red trim and stitching.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Sculpted lines on the collar and toe box replicate the look of the Gundam armor, while interchangeable Swooshes reflect customizable toy models or a sticker-riddled skate deck.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Additional branding elements include a woven yellow Nike SB tag and a red unicorn emblem stamped on the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2",
+  "f3"
+ ],
+ "usable": true
 }

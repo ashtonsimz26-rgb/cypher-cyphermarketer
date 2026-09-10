@@ -1,11 +1,11 @@
 {
  "image_name": "sb_dunk_pro_de_la_soul",
- "built_at": "2026-09-10T03:11:03.421200+00:00",
- "name_match": "failed",
- "decided_by": "signal_1_silhouette",
+ "built_at": "2026-09-10T03:25:43.094403+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "SB Dunk Low",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -26,7 +26,55 @@
   "match": true,
   "applied": false
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Nike Dunk Low Pro SB.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2005-10-01.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_pro_de_la_soul"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Nike linked up with legendary hip-hop group De La Soul to create uniquely designed Dunk High and Dunk Low silhouettes back in 2005.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "cultural_moment",
+   "text": "Released in October of that same year, the Dunk Low Pro SB 'De La Soul’ sneaker features an upper with an eclectic blend of textiles and colors, a combination of white overlays with vivid holographic vinyl panels that boasts the band’s iconic Three Feet High album cover artwork.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f4"
+ ],
+ "usable": true
 }

@@ -1,11 +1,11 @@
 {
  "image_name": "sb_dunk_high_strawberry_cough",
- "built_at": "2026-09-10T03:11:03.418587+00:00",
- "name_match": "failed",
- "decided_by": "signal_1_silhouette",
+ "built_at": "2026-09-10T03:25:43.091176+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "SB Dunk High",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -26,7 +26,66 @@
   "match": true,
   "applied": false
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Nike SB Dunk High.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-10-22.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_high_strawberry_cough"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Designed in collaboration with the artist Todd Bratrud, the Nike Dunk High SB ‘Strawberry Cough’ delivers a literal interpretation of the fragrant marijuana strain for which the shoe is named.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The two-tone upper, resembling an actual strawberry through a blend of textured red leather and hairy green suede, rides on a semi-translucent rubber cupsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A coughing anthropomorphic strawberry adorns both the sneaker’s lateral heel and custom sockliner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
 }

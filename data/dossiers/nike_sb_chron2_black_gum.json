@@ -1,11 +1,11 @@
 {
  "image_name": "nike_sb_chron2_black_gum",
- "built_at": "2026-09-10T03:11:03.415342+00:00",
- "name_match": "failed",
- "decided_by": "signal_1_silhouette",
+ "built_at": "2026-09-10T03:25:43.087107+00:00",
+ "name_match": "silhouette_only",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "SB Chron 2",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -22,7 +22,19 @@
   "match": true,
   "applied": false
  },
- "facts": [],
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2021-06-28.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_sb_chron2_black_gum"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
  "hook_candidates": [],
  "usable": false
 }

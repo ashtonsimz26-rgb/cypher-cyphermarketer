@@ -1,11 +1,11 @@
 {
  "image_name": "sb_dunk_low_gratefuldead_yellow",
- "built_at": "2026-09-10T03:11:03.419857+00:00",
- "name_match": "failed",
- "decided_by": "signal_1_silhouette",
+ "built_at": "2026-09-10T03:25:43.092747+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "SB Dunk Low",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -30,7 +30,66 @@
   "match": true,
   "applied": false
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Nike SB Dunk Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-07-24.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_low_gratefuldead_yellow"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Developed in collaboration with the iconic San Francisco jam band, the Grateful Dead x Nike Dunk Low SB ‘Yellow Bear’ features a unique design inspired by the back cover of ‘History of the Grateful Dead, Volume One (Bear’s Choice),’ a live album originally released in 1973.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A vibrant yellow finish is applied to the furry upper, fortified with tonal suede overlays and mounted atop a matching yellow foam midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Contrasting blue hits appear on the jagged Swoosh, rubber outsole and tongue, the latter furnished with a hidden stash pocket.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
 }

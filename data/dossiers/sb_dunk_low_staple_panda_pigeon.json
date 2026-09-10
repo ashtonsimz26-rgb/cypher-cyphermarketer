@@ -1,11 +1,11 @@
 {
  "image_name": "sb_dunk_low_staple_panda_pigeon",
- "built_at": "2026-09-10T03:11:03.420774+00:00",
- "name_match": "failed",
- "decided_by": "signal_1_silhouette",
+ "built_at": "2026-09-10T03:25:43.093791+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "SB Dunk Low",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -28,7 +28,66 @@
   "match": true,
   "applied": false
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the SB Dunk Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-01-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_low_staple_panda_pigeon"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Originally conceived as a sample colorway that was initially rejected, the Jeff Staple x Dunk Low Pro SB ‘Panda Pigeon’ continues Staple’s long-running partnership with Nike SB.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The design lives up to its name with a black and white color scheme on the leather and suede upper, complete with the all-important pigeon on the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A translucent outsole reveals a collage made up of newspaper headlines alluding to the infamous Pigeon Dunk launch from 2005.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
 }

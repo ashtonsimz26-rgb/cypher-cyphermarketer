@@ -30,6 +30,20 @@ defect, not a style choice. If the source sentence is dull, the fact is dull.
     The snapshot is never edited. It is a faithful record of what GOAT returned;
     the dossier is where judgment is applied (capture vs interpretation).
 
+    ★★ LOCKED INVARIANT — SIGNAL PRECEDENCE. DO NOT "SIMPLIFY".
+    Signal 3 (year) rescues ABSENCE of evidence only; it may NEVER override
+    NEGATIVE evidence. It applies if and only if signal 2 is "unavailable" —
+    never when signal 2 is "fail". nike_air_foamposite_one_wu_tang is the proof:
+    its years agree (2016 == 2016), so any code path that let signal 3 outrank a
+    failed signal 2 would silently recover the exact misattribution this gate
+    was built to stop. If you are tempted to collapse the three-way signal 2
+    into a boolean, this is why you must not.
+
+    ⚠ WATCH ITEM (2026-09-10). Signal 3 has confirmed 11 of 11 and held back 0.
+    It is carrying 11 dossiers on a signal that has never once said no, so it is
+    not yet discriminating on this data. If a later rebuild still shows it at
+    100% pass, it is decoration: give it teeth or remove it.
+
 PRICE: `retail_price_cents` is the ONLY price field in a snapshot and is NEVER
 read. Prose carries no currency at all (verified across 250 files, 0 hits).
 Price claims belong to PK and rails.py alone.
@@ -90,26 +104,25 @@ def has_phrase(haystack: str, phrase: str) -> bool:
     return re.search(rf"(?<![a-z0-9]){re.escape(p)}(?![a-z0-9])", h) is not None
 
 
-def has_ordered_tokens(haystack: str, phrase: str) -> bool:
-    """Every phrase token present, IN ORDER, as whole words. Not contiguous.
+def has_all_tokens(haystack: str, phrase: str) -> bool:
+    """Every phrase token present as a whole word. Order NOT required.
 
-    ★ Contiguity was never the property that mattered — ordered presence is.
-    The catalog says "Jordan 1 High" while GOAT says "Air Jordan 1 Retro High
-    OG", interposing Retro/OG, so a contiguous has_phrase() rejected obvious
-    matches (aj1_dark_mocha, aj11_low_re2pect). Ordered-subsequence still
-    rejects the case the strict form existed for: silhouette "Nike Air Humara"
-    against a Goadome name fails at the third token.
+    ★ Three passes taught this: PRESENCE is what matters, not contiguity and
+    not order. The catalog and GOAT use different naming vocabularies —
+    catalog "Jordan 1 High" vs GOAT "Air Jordan 1 Retro High OG" (interposed
+    modifiers, which killed contiguity), and catalog "SB Dunk Low" vs GOAT
+    "Nike Dunk Low Pro SB" (reordered, which killed ordered-subsequence).
+    Neither is a mismatch; both are the same shoe named differently.
+
+    This still rejects the case the strict form existed for: silhouette
+    "Nike Air Humara" against an "Air Max Goadome" name fails because the
+    token `humara` is ABSENT — in any order. Order never caught Goadome;
+    presence did.
     """
-    h, ph = norm(haystack).split(), norm(phrase).split()
+    h, ph = set(norm(haystack).split()), norm(phrase).split()
     if not h or not ph:
         return False
-    i = 0
-    for tok in h:
-        if tok == ph[i]:
-            i += 1
-            if i == len(ph):
-                return True
-    return False
+    return all(t in h for t in ph)
 
 
 def distinctive_tokens(*sources: str) -> list[str]:
@@ -138,8 +151,8 @@ def name_consistency(cat: dict, snap: dict) -> dict:
     goat_name = snap.get("name") or ""
     silhouette = (cat.get("silhouette") or "").strip()
 
-    sig1 = bool(silhouette) and (has_ordered_tokens(goat_name, silhouette)
-                                 or has_ordered_tokens(story, silhouette))
+    sig1 = bool(silhouette) and (has_all_tokens(goat_name, silhouette)
+                                 or has_all_tokens(story, silhouette))
     # ★ Signal 2 must be INDEPENDENT of signal 1, or it corroborates nothing.
     # First cut pulled tokens from colorway AND name — but `name` contains the
     # silhouette words, so "foamposite" alone satisfied signal 2 for
