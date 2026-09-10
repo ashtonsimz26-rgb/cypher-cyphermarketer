@@ -1,0 +1,93 @@
+{
+ "image_name": "jordan_5_retro_off_noir",
+ "built_at": "2026-09-10T02:40:07.023141+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "5 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "off",
+   "noir"
+  ],
+  "found": [
+   "off",
+   "noir"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 5 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-12-03.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_5_retro_off_noir"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Paris Saint-Germain x Air Jordan 5 Retro 'Off Noir' features a blacked-out upper that combines smooth leather construction with ripstop textile on the midfoot overlay and toe box.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The traditional quarter panel netting is replaced with black nubuck covered in PSG's debossed Eiffel Tower logo in a repeating pattern.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "An embroidered Jumpman in Particle Rose adorns the reflective tongue, matching the satiny collar lining.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Soft pink shark tooth detailing adorns the Air-assisted black polyurethane midsole, supported underfoot by a pre-aged translucent rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

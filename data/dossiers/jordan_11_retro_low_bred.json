@@ -1,0 +1,66 @@
+{
+ "image_name": "jordan_11_retro_low_bred",
+ "built_at": "2026-09-10T02:40:06.991706+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "11 Retro Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "bred"
+  ],
+  "found": [
+   "bred"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2025-04-26.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_11_retro_low_bred"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The 2025 edition of the Air Jordan 11 Retro Low 'Bred' carries a black ballistic mesh upper with a tonal patent leather mudguard.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "A small Jumpman logo adorns the black leather back tab, while 'Jumpman' and 'Jordan' are inscribed in stylized lettering across the tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Augmented with full-length Air-sole cushioning, a white Phylon midsole is supported by a red translucent rubber outsole and a carbon fiber spring plate.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

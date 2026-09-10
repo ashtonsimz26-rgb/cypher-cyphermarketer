@@ -1,0 +1,102 @@
+{
+ "image_name": "aj8_doernbecher",
+ "built_at": "2026-09-10T02:40:06.987786+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Jordan 8",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "doernbecher"
+  ],
+  "found": [
+   "doernbecher"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Air Jordan 8.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2014-11-23.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj8_doernbecher"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Nike Air Jordan 8 Retro DB 'Doernbecher' was released as part of the Nike x Doernbecher 2014 Freestyle Collection.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Designed by Caden Lampert who battles with a life-threatening autoimmune disease known as Guillain-Barré syndrome, the vibrant sneaker features a Hyper Blue speckled upper with Electro Orange, Tour Yellow, and black accents.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Released in November 2014 at the Portland Art Museum, the sneaker also includes a raft of personal details.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A keen basketball player, Caden's jersey #14 hits up the cross-strap, and a cobra graphic accents the right tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Also included are a glow-in-the-dark fingerprint and the inspirational phrases 'Hang Loose,' Rock On,' and 'Brave.'",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

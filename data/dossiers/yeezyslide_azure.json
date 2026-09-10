@@ -1,0 +1,80 @@
+{
+ "image_name": "yeezyslide_azure",
+ "built_at": "2026-09-10T02:40:07.068442+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "azure"
+  ],
+  "found": [
+   "azure"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Yeezy Slide.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-05-31.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezyslide_azure"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Slide ‘Azure’ showcases a vibrant blue finish on the futuristic comfort sandal, featuring a minimalist one-piece build made with injected EVA foam.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "release_drama",
+   "text": "Exterior branding is limited to the soft top layer of the footbed, highlighted by a discreet adidas logo debossed at the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The slip-on is underpinned by a serrated outsole with strategic ridge placement, offering a combination of impact protection and grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f4"
+ ],
+ "usable": true
+}

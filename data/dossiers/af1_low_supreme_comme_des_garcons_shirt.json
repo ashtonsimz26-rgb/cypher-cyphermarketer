@@ -1,0 +1,91 @@
+{
+ "image_name": "af1_low_supreme_comme_des_garcons_shirt",
+ "built_at": "2026-09-10T02:40:06.979652+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "supreme",
+   "comme",
+   "des",
+   "gar",
+   "ons",
+   "shirt"
+  ],
+  "found": [
+   "supreme",
+   "comme",
+   "des",
+   "gar",
+   "ons",
+   "shirt"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2017-05-18.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "af1_low_supreme_comme_des_garcons_shirt"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Supreme x Comme des Garçons SHIRT x Air Force 1 Low was an online exclusive released in May of 2017.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The classic all-white colorway features the collection's eyeball motif on the ankle and heel, as well as CDG branding underneath the swoosh.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "collab_origin",
+   "text": "The release comes a month after the Supreme x COMME des GARÇONS SHIRT collection of Spring 2017.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3",
+  "f5"
+ ],
+ "usable": true
+}

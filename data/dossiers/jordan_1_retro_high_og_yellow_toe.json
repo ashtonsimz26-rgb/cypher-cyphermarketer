@@ -1,0 +1,103 @@
+{
+ "image_name": "jordan_1_retro_high_og_yellow_toe",
+ "built_at": "2026-09-10T02:40:07.005657+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro High OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "yellow",
+   "toe"
+  ],
+  "found": [
+   "yellow",
+   "toe"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro High OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-09-24.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_high_og_yellow_toe"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 1 Retro High OG ‘Yellow Toe’ also known as ‘Taxi’ brings back the distinctive color blocking of the AJ1 ‘Bred Toe’ from 2018.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The all-leather upper combines a white quarter panel with a yellow toe box, black forefoot overlay, and black signature Swoosh.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Additional hits of amber land on the heel overlay and collar flap, featuring a retro Wings logo stamped on the lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A woven Nike Air tag graces the black nylon tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The high-top rests on a durable rubber cupsole, highlighted by white sidewalls and a yellow rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

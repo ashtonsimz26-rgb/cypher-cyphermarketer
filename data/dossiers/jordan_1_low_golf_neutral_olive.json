@@ -1,0 +1,93 @@
+{
+ "image_name": "jordan_1_low_golf_neutral_olive",
+ "built_at": "2026-09-10T02:40:06.997377+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Low Golf",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "neutral",
+   "olive"
+  ],
+  "found": [
+   "neutral",
+   "olive"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Low Golf.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-10-13.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_low_golf_neutral_olive"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Travis Scott x Air Jordan 1 Low Golf ‘Neutral Olive’ updates the iconic silhouette with a retooled construction made for the golf course.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A reverse black leather Swoosh highlights the lateral side of the upper, featuring an olive nubuck base with off-white leather overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A woven Jordan Golf tag stands out on the tongue in a lime green hue, matching the Cactus Jack and Jordan Wings logos that adorn the back tab of the left and right shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, the rubber cupsole features an integrated traction pattern for superior grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

@@ -1,0 +1,82 @@
+{
+ "image_name": "jordan_11_retro_space_jam",
+ "built_at": "2026-09-10T02:40:06.993435+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "11 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "space",
+   "jam"
+  ],
+  "found": [
+   "space",
+   "jam"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 11 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2016-12-09.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_11_retro_space_jam"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The Air Jordan 11 Retro ‘Space Jam’ 2016 commemorates the 20th anniversary of the movie ‘Space Jam.’ Worn by Michael Jordan as a Player Exclusive (PE) in both the movie and the 1995 NBA Playoffs, the 2016 retro ended up being Nike’s largest and most successful shoe launch ever.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "This 2016 sneaker is a more faithful reproduction of the original PE than the 2000 and 2009 retros.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker also swaps the traditional #23 for MJ’s comeback #45 on the heel, a first for an Air Jordan 11 retail release.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

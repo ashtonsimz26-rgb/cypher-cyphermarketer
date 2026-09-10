@@ -1,0 +1,84 @@
+{
+ "image_name": "airmax90_reverse_dunk_camo",
+ "built_at": "2026-09-10T02:40:06.981676+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 90",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "reverse",
+   "duck",
+   "camo"
+  ],
+  "found": [
+   "reverse",
+   "duck",
+   "camo"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Nike Air Max 90 SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-03-26.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "airmax90_reverse_dunk_camo"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The 2024 edition of the Nike Air Max 90 SP 'Reverse Duck Camo' previously released in 2020, delivering a color-flipped version of the 'Duck Camo' Atmos collaboration from 2013.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A black lizard-textured Swoosh adorns the upper, crafted from Infrared mesh with duck camo leather on the midfoot overlay and mudguard.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a lightweight polyurethane midsole with visible Air-sole cushioning in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

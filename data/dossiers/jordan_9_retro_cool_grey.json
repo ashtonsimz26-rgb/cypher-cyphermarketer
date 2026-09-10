@@ -1,0 +1,90 @@
+{
+ "image_name": "jordan_9_retro_cool_grey",
+ "built_at": "2026-09-10T02:40:07.026757+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "9 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cool"
+  ],
+  "found": [
+   "cool"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 9 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-03-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_9_retro_cool_grey"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 9 Retro 'Cool Grey' revives a design true to the original 2002 release, highlighted by a grey nubuck upper with a tonal patent leather overlay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Branding elements include a woven Air Jordan label atop the tongue and Michael Jordan's jersey number embroidered on the back heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker rests on a white polyurethane midsole with encapsulated Air-sole cushioning in the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The grey semi-translucent rubber outsole features multi-lingual details, nodding to MJ's emergence as a global sports star.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

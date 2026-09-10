@@ -1,0 +1,101 @@
+{
+ "image_name": "nike_sb_dunk_black_marina_white",
+ "built_at": "2026-09-10T02:40:07.057557+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "SB Dunk",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "marina"
+  ],
+  "found": [
+   "marina"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-05-12.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_sb_dunk_black_marina_white"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "Designed in partnership with the South Carolina skate shop, the Bluetile x Nike SB Dunk 'Black Marina White' draws inspiration from the monarch butterfly.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Fuzzy laces secure the upper, which combines a shimmering Pitch Blue leather base with coated black suede overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The latter is de-stitched and features butterfly wing graphics printed on the interior side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A subtle hexagonal print covers a teal blue Swoosh that is raised to mimic the look of butterfly eyes.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Orange embroidered detailing is found beneath the heel tab, marked with 'Blue' and 'Tile' on the left and right shoes.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Underfoot, the translucent rubber outsole reveals a blue and orange gradient that denotes the setting sun.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

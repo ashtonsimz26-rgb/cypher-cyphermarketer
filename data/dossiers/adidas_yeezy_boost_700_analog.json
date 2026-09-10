@@ -1,0 +1,91 @@
+{
+ "image_name": "adidas_yeezy_boost_700_analog",
+ "built_at": "2026-09-10T02:40:06.972691+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Boost 700",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "analog"
+  ],
+  "found": [
+   "analog"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Boost 700.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-04-27.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_boost_700_analog"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "Music and fashion icon Kanye West debuted the Yeezy Boost 700 at his Yeezy Season 5 fashion show in February 2017.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "This 'Analog' colorway released April 2019, and provides a monochromatic look to the acclaimed shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Dressed in shades of white, leather, mesh and suede panels come together to construct its upper.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Down below, full-length Boost cushioning provides a responsive feel, built inside the 700's signature chunky midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

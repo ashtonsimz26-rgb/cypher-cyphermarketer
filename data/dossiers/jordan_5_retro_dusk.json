@@ -1,0 +1,102 @@
+{
+ "image_name": "jordan_5_retro_dusk",
+ "built_at": "2026-09-10T02:40:07.021950+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "5 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "dusk"
+  ],
+  "found": [
+   "dusk"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 5 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-11-24.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_5_retro_dusk"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The A Ma Maniére x Air Jordan 5 Retro ‘Dusk’ reunites the creative partners on a two sneaker collaborative pack.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "This pair carries a black nubuck upper, updated with a slimmed-down collar and pre-yellowed quarter panel netting formed with an interlocking series of A Ma Maniére’s signature ‘A’ logo.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "‘Nike Air’ branding is embroidered on the back heel in tonal fashion, while silver reflective tongues display mismatched Jumpman and A Ma Maniére branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The sneaker sits atop a matching black polyurethane midsole with shark-tooth detailing in a dark burgundy hue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "A pre-aged translucent rubber outsole featuring the Atlanta-based retailer’s logo provides durable traction underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

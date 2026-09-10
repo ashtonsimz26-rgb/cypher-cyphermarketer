@@ -1,0 +1,84 @@
+{
+ "image_name": "nike_air_force_1_supreme_tz_chinese_candy_box",
+ "built_at": "2026-09-10T02:40:07.036840+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Supreme TZ",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "chinese",
+   "candy",
+   "box"
+  ],
+  "found": [
+   "chinese",
+   "candy",
+   "box"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Supreme TZ.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2009-01-01.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_force_1_supreme_tz_chinese_candy_box"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "Nike teams up with Hong Kong-based luxury brand CLOT to celebrate the Chinese New Year with the Nike Air Force 1 Supreme TZ 'Chinese Candy Box' sneaker.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The 2009 design ditched the typical shoebox for a meticulous ‘Chinese Candy Box’ packaging set—a red box in a hexagonal shape with festive graphics, an interior tray layer for shoe accessories, CLOT graphics on the back and a matching lid.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The low-top sneaker comes dressed in red and black, with subtle motifs etched along the upper.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

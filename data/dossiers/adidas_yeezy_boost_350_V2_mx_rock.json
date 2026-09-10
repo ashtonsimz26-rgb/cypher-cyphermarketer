@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_boost_350_V2_mx_rock",
+ "built_at": "2026-09-10T02:40:06.970709+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Boost 350 V2",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "rock"
+  ],
+  "found": [
+   "rock"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Boost 350 V2.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-12-22.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_boost_350_V2_mx_rock"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Boost 350 V2 ‘MX Rock’ showcases sedimentary streaks of brown and grey throughout a breathable Primeknit upper in a dark charcoal finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The sock-like build is equipped with traditional lace closure and a webbing pull tab affixed to the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Cutting across the sneaker’s lateral side, a post-dyed monofilament stripe offers improved breathability.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Lightweight cushioning comes courtesy of a fully caged Boost midsole, visible through cutaway detailing in the rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

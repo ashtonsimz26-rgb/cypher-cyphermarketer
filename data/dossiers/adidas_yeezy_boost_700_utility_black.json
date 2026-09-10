@@ -1,0 +1,80 @@
+{
+ "image_name": "adidas_yeezy_boost_700_utility_black",
+ "built_at": "2026-09-10T02:40:06.973620+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Boost 700",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "utility"
+  ],
+  "found": [
+   "utility"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Boost 700.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-06-28.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_boost_700_utility_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The Yeezy Boost 700, designed by music and fashion icon Kanye West, first debuted at the Yeezy Season 5 fashion show in February 2017.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "This 'Utility Black' colorway from June 2019 sees the design in a mesh upper with both plush suede and smooth leather overlays.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "At the bottom, the Yeezy Boost 700's chunky midsole encapsulates adidas' revolutionary Boost cushioning in a full-length format, underscored by gum rubber tread.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

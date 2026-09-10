@@ -1,0 +1,81 @@
+{
+ "image_name": "jordan_jordan_jumpman_jack_tr_bright_cactus",
+ "built_at": "2026-09-10T02:40:07.028360+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Jordan Jumpman Jack TR",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "bright",
+   "cactus"
+  ],
+  "found": [
+   "bright",
+   "cactus"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2025-04-30.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_jordan_jumpman_jack_tr_bright_cactus"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Travis Scott x Jordan Jumpman Jack TR 'Bright Cactus' features an upper that combines neon green canvas with off-white tumbled leather overlays.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Contrasting black accents land on the reverse lateral-side Swoosh, mid-cut collar and tongue, the latter marked with a tonal Jumpman 'Crown' logo.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "'TS' is embroidered on the forefoot strap, while a Cactus Jack smiley graphic adorns the back heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Underfoot, the durable rubber outsole wraps up the lightweight Phylon midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

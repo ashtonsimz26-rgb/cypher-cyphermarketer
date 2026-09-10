@@ -1,0 +1,82 @@
+{
+ "image_name": "airmaxplus_supreme_university_red",
+ "built_at": "2026-09-10T02:40:06.982400+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max Plus",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "supreme",
+   "red"
+  ],
+  "found": [
+   "supreme",
+   "red"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sean McDowell designed the Nike Air Max Plus.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-10-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "airmaxplus_supreme_university_red"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Launching as part of the New York skate brand’s Fall/Winter 2020 collection, the Supreme x Nike Air Max Plus ‘Black’ features a mesh upper overlaid with gradient red and pink TPU fingers that spell out ‘Supreme’ on the side panels.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A yellow mini-Swoosh is matched by Nike’s OG Tuned Air trademark on the heel, while Supreme’s signature box logo adorns the tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A similar color dynamic is utilized on the black foam midsole, enhanced with visible Max Air units and a TPU shank in a dark crimson hue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

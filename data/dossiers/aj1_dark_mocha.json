@@ -1,0 +1,23 @@
+{
+ "image_name": "aj1_dark_mocha",
+ "built_at": "2026-09-10T02:40:06.983432+00:00",
+ "name_match": "failed",
+ "signal_1_silhouette": {
+  "tested": "Jordan 1 High",
+  "found": false
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "dark",
+   "mocha"
+  ],
+  "found": [
+   "dark",
+   "mocha"
+  ],
+  "passed": true
+ },
+ "facts": [],
+ "hook_candidates": [],
+ "usable": false
+}

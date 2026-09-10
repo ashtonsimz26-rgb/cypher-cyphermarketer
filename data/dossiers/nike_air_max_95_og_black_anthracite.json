@@ -1,0 +1,80 @@
+{
+ "image_name": "nike_air_max_95_og_black_anthracite",
+ "built_at": "2026-09-10T02:40:07.039093+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 95 OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "anthracite"
+  ],
+  "found": [
+   "anthracite"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sergio Lozano designed the Nike Air Max 95 OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-07-11.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_95_og_black_anthracite"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Drawn from a collaborative three-piece pack, the Levi's x Nike Air Max 95 OG 'Black Anthracite' showcases a black denim upper with frayed edges for a pre-distressed aesthetic.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Heritage details remain intact, including mesh paneling that partially obscures the lacing system, as well as an embroidered Air Max logo atop the tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Additional branding elements include a mini-Swoosh on the lateral heel, accompanied by the iconic red Levi's tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

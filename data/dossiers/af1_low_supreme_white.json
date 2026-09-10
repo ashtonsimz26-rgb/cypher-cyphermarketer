@@ -1,0 +1,80 @@
+{
+ "image_name": "af1_low_supreme_white",
+ "built_at": "2026-09-10T02:40:06.979963+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "supreme"
+  ],
+  "found": [
+   "supreme"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-03-05.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "af1_low_supreme_white"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Debuting as part of the New York brand’s Spring/Summer 2020 collection, the Supreme x Air Force 1 Low ‘Box Logo’ delivers a minimalist take on Nike’s iconic silhouette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The low-top features an upper crafted from full-grain leather in a monochromatic white finish, accented with Supreme’s signature red box logo on the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Additional Supreme branding hits appear on the custom sockliner and a secondary set of red laces.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

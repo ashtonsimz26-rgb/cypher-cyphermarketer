@@ -1,0 +1,91 @@
+{
+ "image_name": "blazermid_77_vintage_white_black",
+ "built_at": "2026-09-10T02:40:06.988747+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Blazer Mid",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "vintage"
+  ],
+  "found": [
+   "vintage"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bill Bowerman designed the Nike Blazer Mid '77 Vintage.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-03-28.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "blazermid_77_vintage_white_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "As one of the first Nike basketball sneakers ever released, the Nike Blazer has a long heritage.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "cultural_moment",
+   "text": "The Nike Blazer Mid ’77 Vintage ‘White Black’ pays homage to its history with an old-school look.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The upper comes in white leather, with an OG Swoosh taking up the side, and a deconstructed tongue with vintage branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Two forefoot overlays come in a hairy tonal suede, and the rear branding features a distressed ‘NIKE’ logo.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f4"
+ ],
+ "usable": true
+}

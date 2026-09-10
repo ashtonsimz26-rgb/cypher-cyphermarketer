@@ -1,0 +1,93 @@
+{
+ "image_name": "jordan_11_retro_gs_gamma_blue",
+ "built_at": "2026-09-10T02:40:06.991292+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "11 Retro GS",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "gamma",
+   "blue"
+  ],
+  "found": [
+   "gamma",
+   "blue"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 11 Retro GS.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-12-13.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_11_retro_gs_gamma_blue"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "Made for big kids, the 2025 edition of the Air Jordan 11 Retro GS 'Gamma Blue' celebrates the 30th anniversary of the championship silhouette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The design is faithful to the original 2013 release, featuring a black ballistic mesh upper with a color-matched patent leather mudguard.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A Jumpman logo in pastel blue embroidery adorns the lateral collar, while the back tab is marked with a stylized '23' outlined in Varsity Maize.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The sneaker sits atop a matching black Phylon midsole, supported underfoot by a blue-tinged semi-translucent rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

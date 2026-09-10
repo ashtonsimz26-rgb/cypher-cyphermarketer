@@ -1,0 +1,70 @@
+{
+ "image_name": "nike_dunk_low_sb_camper_green",
+ "built_at": "2026-09-10T02:40:07.046650+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Dunk Low SB",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "camper",
+   "green"
+  ],
+  "found": [
+   "camper",
+   "green"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2025-09-04.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_dunk_low_sb_camper_green"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "Dropping as part of a collaborative footwear collection, the Supreme x Nike Dunk Low SB 'Camper Green' showcases a suede upper featuring a moss green base with a black signature Swoosh and Camper Green overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "In addition to a Nike SB tongue tag, branding elements include a Nike wordmark on the back tab and a '94' embroidered on the lateral heel — a nod to Supreme's founding year.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a dark green rubber midsole with 'Supreme' debossed on the lateral sidewall.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

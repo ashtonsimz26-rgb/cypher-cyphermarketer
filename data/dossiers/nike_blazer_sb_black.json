@@ -1,0 +1,42 @@
+{
+ "image_name": "nike_blazer_sb_black",
+ "built_at": "2026-09-10T02:40:07.044055+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "Blazer SB",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bill Bowerman designed the Nike Blazer SB.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2006-04-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_blazer_sb_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

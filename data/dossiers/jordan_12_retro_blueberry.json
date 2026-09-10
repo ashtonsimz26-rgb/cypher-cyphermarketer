@@ -1,0 +1,90 @@
+{
+ "image_name": "jordan_12_retro_blueberry",
+ "built_at": "2026-09-10T02:40:06.994199+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "12 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "blueberry"
+  ],
+  "found": [
+   "blueberry"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 12 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-12-18.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_12_retro_blueberry"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 12 Retro 'Blueberry' utilizes sunrise-inspired stitch lines on the white tumbled leather upper, featuring lizard-textured overlays in a royal blue finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Jumpman branding decorates the tongue and heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Performance benefits include a lightweight Phylon midsole with full-length Zoom Air cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, the blue rubber outsole features herringbone traction pods and an exposed carbon fiber shank plate.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

@@ -1,0 +1,102 @@
+{
+ "image_name": "aj3_fear_pack",
+ "built_at": "2026-09-10T02:40:06.985753+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Jordan 3",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "fear",
+   "pack"
+  ],
+  "found": [
+   "fear"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-11-25.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj3_fear_pack"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The 2023 edition of the Air Jordan 3 Retro ‘Fear’ brings back a 2013 AJ3 colorway that was originally released alongside an Air Jordan 4 and 5.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A dark grey nubuck upper is complemented with tonal elephant print overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Black suede is utilized on the collar and tongue, featuring a stitched Jumpman logo in Total Orange.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The vibrant color is repeated on the shoe’s eyelets, along with a second Jumpman icon on the back heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "An orange-tinged Air-sole unit adds lightweight cushioning to a tri-tone polyurethane midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

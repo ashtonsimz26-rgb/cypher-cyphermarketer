@@ -1,0 +1,91 @@
+{
+ "image_name": "jordan_3_retro_rio",
+ "built_at": "2026-09-10T02:40:07.012675+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "rio"
+  ],
+  "found": [
+   "rio"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-05-22.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_rio"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The J Balvin x Air Jordan 3 Retro 'Rio' takes its name from the reggaeton artist's son.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The legacy silhouette carries a black leather upper with grey elephant print overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Gradient accents in Solar Flare and Total Crimson Abyss coat the back tab, marked with Nike Air branding on the left foot and J Balvin's smiley face logo on the right.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The sunset colors are repeated on the rear of the polyurethane midsole, supported by a red-tinged translucent rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

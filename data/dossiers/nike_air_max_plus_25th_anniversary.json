@@ -1,0 +1,82 @@
+{
+ "image_name": "nike_air_max_plus_25th_anniversary",
+ "built_at": "2026-09-10T02:40:07.040690+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max Plus",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "25th",
+   "anniversary"
+  ],
+  "found": [
+   "25th",
+   "anniversary"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sean McDowell designed the Nike Air Max Plus.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-11-09.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_plus_25th_anniversary"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The Nike Air Max Plus '25th Anniversary' celebrates a quarter-century of the retro running shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Modeled after palm trees swaying in the wind, a wavy black TPU cage reinforces the breathable mesh upper, finished in gradient hues that nod to nod to classic AM Plus colorways in Hyper Blue, Sanguine, Palm and Fireberry.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a black polyurethane midsole, fitted with a whale tail-inspired midfoot shank and visible Air-sole cushioning in the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

@@ -1,0 +1,115 @@
+{
+ "image_name": "jordan_4_retro_red_cement",
+ "built_at": "2026-09-10T02:40:07.018378+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "4 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "red",
+   "cement"
+  ],
+  "found": [
+   "red",
+   "cement"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-09-09.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_4_retro_red_cement"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "release_drama",
+   "text": "The Air Jordan 4 Retro ‘Red Cement’ showcases color blocking that recalls the OG ‘White Cement’ colorway.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The mid-top carries a white leather upper with tonal quarter panel netting and contrasting black accents on the molded eyelets and interior lining.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Vibrant hits of Fire Red — accompanied by black speckled detailing — land on the shoe’s support wings, polyurethane midsole and heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The latter features embossed Jumpman branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "A second Jumpman icon decorates the Flight tongue tag.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f8",
+   "tag": "spec",
+   "text": "Underfoot, a herringbone-traction rubber outsole delivers superior grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

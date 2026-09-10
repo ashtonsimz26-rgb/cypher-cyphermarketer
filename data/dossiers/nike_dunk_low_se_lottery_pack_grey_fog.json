@@ -1,0 +1,95 @@
+{
+ "image_name": "nike_dunk_low_se_lottery_pack_grey_fog",
+ "built_at": "2026-09-10T02:40:07.049152+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Dunk Low SE",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "lottery",
+   "pack",
+   "fog"
+  ],
+  "found": [
+   "lottery",
+   "pack",
+   "fog"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Nike Dunk Low SE.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-08-31.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_dunk_low_se_lottery_pack_grey_fog"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The Nike Dunk Low SE ‘Grey Fog’ is drawn from the ‘Lottery Pack,’ inspired by fortune-seekers who thrive on games of chance.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The low-top showcases an understated palette in neutral tones, highlighted by an all-leather upper in white and grey.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Nodding to a scratch-off lottery ticket, the signature black Swoosh is coated in a wear-away top layer that reveals a hidden pop of color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The sneaker is mounted on a sturdy rubber cupsole, featuring an interior foam wedge for lightweight cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

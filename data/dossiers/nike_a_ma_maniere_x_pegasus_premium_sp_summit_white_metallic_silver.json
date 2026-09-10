@@ -1,0 +1,83 @@
+{
+ "image_name": "nike_a_ma_maniere_x_pegasus_premium_sp_summit_white_metallic_silver",
+ "built_at": "2026-09-10T02:40:07.028789+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "A Ma Maniere X Pegasus Premium SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "summit",
+   "metallic",
+   "silver"
+  ],
+  "found": [
+   "summit",
+   "metallic",
+   "silver"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-06-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_a_ma_maniere_x_pegasus_premium_sp_summit_white_metallic_silver"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The A Ma Maniére x Pegasus Premium SP 'Summit White Metallic Silver' updates the performance road running shoe in an essential two-tone palette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The white mesh and textile upper features a molded metallic silver Swoosh with contrasting black accents on the curvilinear overlay and textile collar lining.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "'A Ma Maniére' is inscribed in muted violet script on the lateral forefoot of the right shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker rides atop a cream-colored ZoomX foam midsole, augmented with full-length Zoom Air cushioning and ReactX foam in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

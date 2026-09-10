@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_foam_runner_sand",
+ "built_at": "2026-09-10T02:40:06.976758+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Foam Runner",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "sand"
+  ],
+  "found": [
+   "sand"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Foam Runner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-03-26.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_foam_runner_sand"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Foam Runner ‘Sand’ complements its molded one-piece construction with an understated light tan finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Built with EVA foam, the upper features sculpted lines and a series of mapped vents throughout the midfoot and vamp for enhanced breathability.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A textured footbed keeps the foot locked in place, while the contoured outsole utilizes a wavy traction pattern for optimal grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "An adidas logo is stamped under the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

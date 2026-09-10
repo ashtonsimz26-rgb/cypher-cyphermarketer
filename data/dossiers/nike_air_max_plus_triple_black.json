@@ -1,0 +1,90 @@
+{
+ "image_name": "nike_air_max_plus_triple_black",
+ "built_at": "2026-09-10T02:40:07.041013+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max Plus",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "triple"
+  ],
+  "found": [
+   "triple"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sean McDowell designed the Nike Air Max Plus.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2017-12-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_plus_triple_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike Air Max Plus is one of several hybridized models that combines fundamental and distinctive characteristics from the brand's most coveted styles.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "This 'Triple Black' iteration is treated with a monochromatic theme to emphasize its cutting-edge appeal.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The graphic-style textile upper is injected with undulating TPU stripes and structured with leather panels at the base and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Classic logos on the tongue and heel call out the innovative Tuned Air tech underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

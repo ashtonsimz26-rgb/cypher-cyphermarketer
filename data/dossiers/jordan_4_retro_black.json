@@ -1,0 +1,42 @@
+{
+ "image_name": "jordan_4_retro_black",
+ "built_at": "2026-09-10T02:40:07.015020+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "4 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-11-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_4_retro_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

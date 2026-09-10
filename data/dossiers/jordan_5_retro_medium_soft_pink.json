@@ -1,0 +1,83 @@
+{
+ "image_name": "jordan_5_retro_medium_soft_pink",
+ "built_at": "2026-09-10T02:40:07.022784+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "5 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "medium",
+   "soft",
+   "pink"
+  ],
+  "found": [
+   "medium",
+   "soft",
+   "pink"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 5 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-10-11.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_5_retro_medium_soft_pink"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 5 Retro 'Medium Soft Pink' showcases a white leather upper that is treated to a 3M finish, featuring translucent quarter panel netting and a pink embroidered '23' on the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Additional pink accents land on the textile collar lining, the Jumpman logo atop the silver reflective tongue, and the Nike Air logo that graces the back heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The cushioning setup takes the form of a black polyurethane midsole, accented with pink shark tooth detailing and fitted with a visible Air-sole unit in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

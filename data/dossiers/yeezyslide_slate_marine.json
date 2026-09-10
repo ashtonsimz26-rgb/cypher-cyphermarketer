@@ -1,0 +1,93 @@
+{
+ "image_name": "yeezyslide_slate_marine",
+ "built_at": "2026-09-10T02:40:07.069893+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "slate",
+   "marine"
+  ],
+  "found": [
+   "slate",
+   "marine"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the adidas Yeezy Slide.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-08-11.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezyslide_slate_marine"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Slide ‘Slate Marine’ pairs a minimalist design with a tonal finish in a subdued shade of blue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Built with a single piece of injected EVA foam, the slip-on boasts a wide strap upper that entirely covers the top of the foot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "release_drama",
+   "text": "Exterior branding is limited to adidas’ three stripes logo, debossed on the soft top lay of the footbed.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, the outsole features a series of horizontal grooves for improved cushioning and traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f5"
+ ],
+ "usable": true
+}

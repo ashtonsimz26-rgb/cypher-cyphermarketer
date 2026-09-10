@@ -1,0 +1,45 @@
+{
+ "image_name": "nike_air_vapormax_2023_flyknit_pure_platinum_white",
+ "built_at": "2026-09-10T02:40:07.042210+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "Air VaporMax 2023 Flyknit",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "pure",
+   "platinum"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Andreas Harlow designed the Nike Air VaporMax 2023 Flyknit.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-05-18.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_vapormax_2023_flyknit_pure_platinum_white"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

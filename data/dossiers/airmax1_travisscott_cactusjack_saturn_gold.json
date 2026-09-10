@@ -1,0 +1,101 @@
+{
+ "image_name": "airmax1_travisscott_cactusjack_saturn_gold",
+ "built_at": "2026-09-10T02:40:06.980991+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 1",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "travis",
+   "scott",
+   "cactus",
+   "jack",
+   "saturn",
+   "gold"
+  ],
+  "found": [
+   "travis",
+   "scott",
+   "cactus",
+   "jack",
+   "saturn",
+   "gold"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Nike Air Max 1.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-05-27.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "airmax1_travisscott_cactusjack_saturn_gold"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Travis Scott x Nike Air Max 1 ‘Saturn Gold’ features a monochrome yellow palette throughout an upper crafted from breathable mesh with stitched leather overlays.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Outdoor-inspired details include two-tone rope laces and brown webbing straps integrated into the laces and heel overlay, branded with mismatched Nike and Cactus Jack logos.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A rubberized Cactus Jack patch adorns the tongue, while Scott’s trademark reverse Swoosh adorns the sneaker’s lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The one-note finish extends to a wedge-shaped foam midsole with Air-sole cushioning in the heel and a waffle-tread rubber outsole underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

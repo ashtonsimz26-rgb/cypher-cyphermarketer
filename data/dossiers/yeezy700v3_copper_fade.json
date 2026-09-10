@@ -1,0 +1,92 @@
+{
+ "image_name": "yeezy700v3_copper_fade",
+ "built_at": "2026-09-10T02:40:07.066989+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy 700 V3",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "copper",
+   "fade"
+  ],
+  "found": [
+   "copper",
+   "fade"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Yeezy 700 V3.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-12-10.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezy700v3_copper_fade"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy 700 V3 ‘Copper Fade’ carries an upper composed of monofilament engineered mesh in a gradient rust orange hue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The lightweight build is secured with no-tie elastic laces and bolstered with a translucent RPU cage for added structure and durability.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Interior bootie construction in a dark brown finish delivers a snug, comfortable fit.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The sneaker rides atop a PU-encapsulated EVA midsole, reinforced underfoot by a grippy herringbone-traction rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

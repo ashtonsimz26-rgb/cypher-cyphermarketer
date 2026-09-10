@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_slide_onyx",
+ "built_at": "2026-09-10T02:40:06.978482+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "onyx"
+  ],
+  "found": [
+   "onyx"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Slide.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-07-25.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_slide_onyx"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Slide ‘Onyx’ brings a stealthy monochrome finish to Kanye West’s futuristic sandal.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A single piece of injected EVA foam is molded for a comfortable fit.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The minimalist design is highlighted by ventilated open-toe construction and a soft footbed marked with debossed adidas branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The serrated outsole features strategic groove placement, good for a combination of impact protection, exceptional grip, and improved impact protection.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

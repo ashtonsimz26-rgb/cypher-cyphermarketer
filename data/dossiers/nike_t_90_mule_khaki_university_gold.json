@@ -1,0 +1,32 @@
+{
+ "image_name": "nike_t_90_mule_khaki_university_gold",
+ "built_at": "2026-09-10T02:40:07.058667+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "T-90 Mule",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "khaki",
+   "gold"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-05-28.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_t_90_mule_khaki_university_gold"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

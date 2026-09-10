@@ -1,0 +1,83 @@
+{
+ "image_name": "ow_blazer_hallows_eve",
+ "built_at": "2026-09-10T02:40:07.060189+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Blazer Mid",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "off",
+   "hallow",
+   "eve"
+  ],
+  "found": [
+   "off",
+   "eve"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bill Bowerman designed the Blazer Mid.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2018-10-03.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "ow_blazer_hallows_eve"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Off-White x Blazer Mid ‘All Hallows Eve’ showcases a seasonally appropriate orange Swoosh atop a Pale Vanilla base.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The yellowish tan hue extends to the exposed-foam tongue and rubber midsole, with the signature zip tie in blue adding a contrasting pop of color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Virgil Abloh’s signature lines of text register an appearance on the medial-side quarter panel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

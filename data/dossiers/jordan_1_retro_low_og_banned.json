@@ -1,0 +1,103 @@
+{
+ "image_name": "jordan_1_retro_low_og_banned",
+ "built_at": "2026-09-10T02:40:07.006132+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro Low OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "banned"
+  ],
+  "found": [
+   "banned"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro Low OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-05-02.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_low_og_banned"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "release_drama",
+   "text": "The 2026 edition of the Air Jordan 1 Retro Low OG 'Banned' revives the iconic colorway of the foundational sneaker in versatile low-top form.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The tumbled leather upper combines a black base with Varsity Red accents on the toe box, Swoosh, heel overlay, and back tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "release_drama",
+   "text": "The latter is marked with a tonal 'X,' a design flourish carried over from the 'Banned' AJ1 High released in 2011.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A woven Nike Air tag adorns the breathable nylon tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The sneaker is mounted on a rubber cupsole that pairs white sidewalls with a grippy crimson rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3",
+  "f5"
+ ],
+ "usable": true
+}

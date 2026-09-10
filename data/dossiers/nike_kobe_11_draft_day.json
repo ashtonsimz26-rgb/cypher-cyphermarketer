@@ -1,0 +1,70 @@
+{
+ "image_name": "nike_kobe_11_draft_day",
+ "built_at": "2026-09-10T02:40:07.050688+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Kobe 11",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "draft",
+   "day"
+  ],
+  "found": [
+   "draft"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Kobe 11.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2016-04-28.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_kobe_11_draft_day"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "Inspired by the 1996 NBA Draft, which saw the Charlotte Hornets select Kobe Bryant before immediately trading him to the Los Angeles Lakers, the Kobe 11 implements Charlotte’s team colors, featuring a series of purples and teals that contrast the grey Engineered Mesh upper.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Flywire cables on the eyelets promote greater forefoot support, while the Lunarlon cushioning system promotes a cushioned ride.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

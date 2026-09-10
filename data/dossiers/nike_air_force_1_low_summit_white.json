@@ -1,0 +1,91 @@
+{
+ "image_name": "nike_air_force_1_low_summit_white",
+ "built_at": "2026-09-10T02:40:07.035121+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "summit"
+  ],
+  "found": [
+   "summit"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-09-30.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_force_1_low_summit_white"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Sushi Club x Nike Air Force 1 Low 'Summit White' delivers a collaborative design that places a premium on elegant simplicity.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Built with white leather construction, the upper features an off-white suede Swoosh and custom chopstick lace dubraes.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "'Sushi Club' is inscribed in debossed lettering on the lateral forefoot and back tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The low-top is mounted on a durable rubber cupsole that maintains the pristine monochromatic aesthetic.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

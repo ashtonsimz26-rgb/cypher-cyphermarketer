@@ -1,0 +1,97 @@
+{
+ "image_name": "nike_air_force_1_low_concrete_boys_lucky_green",
+ "built_at": "2026-09-10T02:40:07.032407+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "concrete",
+   "boys",
+   "lucky",
+   "green"
+  ],
+  "found": [
+   "concrete",
+   "boys",
+   "lucky",
+   "green"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-05-22.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_force_1_low_concrete_boys_lucky_green"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Lil Yachty x Nike Air Force 1 Low 'Concrete Boys - Lucky Green' presents a two-tone design in University Gold and Lucky Green on the glossy patent leather upper.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Contrasting pops of Mystic Red land on the signature Swoosh, outlined in green trim, and collar lining.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Nodding to Lil Yachty's rap collective, 'Concrete Boys' is stamped on the back tab, while the crew's embroidered logo adorns the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "'It's Us' branding appears on the woven tongue tag and sockliner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

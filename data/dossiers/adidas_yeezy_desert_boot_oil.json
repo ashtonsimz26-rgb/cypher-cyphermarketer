@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_desert_boot_oil",
+ "built_at": "2026-09-10T02:40:06.974380+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Desert Boot",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "oil"
+  ],
+  "found": [
+   "oil"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Desert Boot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-04-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_desert_boot_oil"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Borrowing the suede toe box and oval overlays from the Yeezy 500, 2019's Yeezy Desert Boot 'Oil' takes Kanye West's signature line into boot territory.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The three-quarter cut upper comes in a smooth suede and mesh, with thick rope laces and an exaggerated mudguard.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The chunky foam midsole pairs with a thick rugged outsole for outdoors-ready cushioning and traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The entire silhouette comes in an earth-toned motif, with just a bit of branding on the bottom of the sole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

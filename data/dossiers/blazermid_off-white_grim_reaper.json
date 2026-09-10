@@ -1,0 +1,73 @@
+{
+ "image_name": "blazermid_off-white_grim_reaper",
+ "built_at": "2026-09-10T02:40:06.989138+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Blazer Mid",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "off",
+   "grim",
+   "reaper"
+  ],
+  "found": [
+   "off",
+   "grim"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bill Bowerman designed the Nike Blazer Mid.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2018-10-03.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "blazermid_off-white_grim_reaper"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Releasing alongside an accompanying ‘All Hallow’s Eve’ colorway in orange, the Off-White x Blazer Mid ‘Grim Reapers’ completes Virgil Abloh’s Halloween-themed sneaker pack.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "cultural_moment",
+   "text": "The black and grey upper sports contrast orange stitching in celebration of the October holiday, along with an oversized white Swoosh, blue zip tie and Off-White lettering on the quarter panel of the shoe’s medial side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3",
+  "f4"
+ ],
+ "usable": true
+}

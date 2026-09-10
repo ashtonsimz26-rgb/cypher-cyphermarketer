@@ -1,0 +1,77 @@
+{
+ "image_name": "nike_air_zoom_vomero_5_black_sequoia",
+ "built_at": "2026-09-10T02:40:07.042659+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Zoom Vomero 5",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "sequoia"
+  ],
+  "found": [
+   "sequoia"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2024-10-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_zoom_vomero_5_black_sequoia"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike Air Zoom Vomero 5 'Black Sequoia' outfits the lifestyle runner in subdued tones.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Speckled rope laces secure the upper, crafted from dark green mesh with contrasting black overlays in synthetic nubuck and suede.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Coated in a reflective finish, a Metallic Pewter Swoosh is stitched atop a black TPU midfoot cage.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker rests on a solid black Cushlon midsole with responsive Zoom Air cushioning in the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

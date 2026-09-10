@@ -1,0 +1,94 @@
+{
+ "image_name": "nike_air_max_95_big_bubble_granite",
+ "built_at": "2026-09-10T02:40:07.038565+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 95",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "big",
+   "bubble",
+   "granite"
+  ],
+  "found": [
+   "big",
+   "bubble",
+   "granite"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sergio Lozano designed the Nike Air Max 95.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-02-05.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_95_big_bubble_granite"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike Air Max 95 'Big Bubble - Granite' updates the retro runner with a tonal color palette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Rope laces feed through white webbing eyelets to secure the upper, featuring wavy synthetic suede panels in a gradient grey design.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The lace cover and molded heel panel, marked with debossed Nike Air branding, feature a reflective matte silver finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a black polyurethane midsole with exposed Air-Sole cushioning, highlighted by the original 'Big Bubble' heel unit.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

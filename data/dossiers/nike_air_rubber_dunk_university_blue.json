@@ -1,0 +1,68 @@
+{
+ "image_name": "nike_air_rubber_dunk_university_blue",
+ "built_at": "2026-09-10T02:40:07.041329+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Rubber Dunk",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "blue"
+  ],
+  "found": [
+   "blue"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2020-10-01.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_rubber_dunk_university_blue"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "Made in collaboration with Virgil Abloh’s luxury streetwear brand, the Off-White x Nike Air Rubber Dunk ‘University Blue’ reimagines the retro low-top with design elements borrowed from the lifestyle running space.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The latter includes an upper taken from the P-6000, rendered in white mesh with blue accents and metallic silver overlays, and visible Air cushioning in the gum rubber cupsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Virgil leaves his personal stamp via an orange tab on the outlined Swoosh and Helvetica text on the medial side panel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

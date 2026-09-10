@@ -1,0 +1,29 @@
+{
+ "image_name": "nike_air_zoom_spiridon_sp_black",
+ "built_at": "2026-09-10T02:40:07.042396+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "Air Zoom Spiridon SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2024-12-17.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_zoom_spiridon_sp_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

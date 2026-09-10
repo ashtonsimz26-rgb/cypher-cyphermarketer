@@ -1,0 +1,119 @@
+{
+ "image_name": "nike_kobe_6_protro_mambacita_sweet_sixteen",
+ "built_at": "2026-09-10T02:40:07.053012+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Kobe 6 Protro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "mambacita",
+   "sweet",
+   "sixteen"
+  ],
+  "found": [
+   "mambacita",
+   "sweet",
+   "sixteen"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Kobe 6 Protro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-05-01.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_kobe_6_protro_mambacita_sweet_sixteen"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The Nike Kobe 6 Protro 'Mambacita Sweet Sixteen' pays tribute to Kobe Bryant and his daughter Gigi.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Black snake scales on the upper reference Bryant's Black Mamba alter ego.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Notes of white appear on the Swoosh, tongue logo and leather back panels.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "cultural_moment",
+   "text": "The heel mold swaps out the traditional Kobe signature for the Mamba & Mambacita Sports Foundation crest, with \"Kobe\" and \"Gigi\" inscribed on the left and right shoe, respectively.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "A gilded \"2\" on the lateral window represents Gigi's AAU uniform number.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f8",
+   "tag": "cultural_moment",
+   "text": "The insoles further honor Gigi with a design that features angel wings, a halo, the nickname \"Mambacita\" and another \"2.\" GOAT is donating net proceeds on the sale of this item to organizations providing under-resourced communities with footwear.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3",
+  "f6",
+  "f8"
+ ],
+ "usable": true
+}

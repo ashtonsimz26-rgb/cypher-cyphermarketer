@@ -1,0 +1,92 @@
+{
+ "image_name": "yeezyslide_enflame_orange",
+ "built_at": "2026-09-10T02:40:07.068812+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "enflame",
+   "orange"
+  ],
+  "found": [
+   "enflame",
+   "orange"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Yeezy Slide.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-06-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezyslide_enflame_orange"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Slide ‘Enflame Orange’ updates the minimalist slip-on with a deep citrus hue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The lightweight build, formed with injected EVA, features breathable open-toe construction and a plush footbed for soft landings.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The latter is marked with adidas’ three-stripe logo, representing the only bit of exterior branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Pronounced flex grooves distinguish the outsole, offering improved cushioning and durable traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

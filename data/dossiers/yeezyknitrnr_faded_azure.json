@@ -1,0 +1,20 @@
+{
+ "image_name": "yeezyknitrnr_faded_azure",
+ "built_at": "2026-09-10T02:40:07.068171+00:00",
+ "name_match": "failed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Knit RNR",
+  "found": false
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "faded",
+   "azure"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [],
+ "hook_candidates": [],
+ "usable": false
+}

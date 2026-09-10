@@ -1,0 +1,106 @@
+{
+ "image_name": "nike_kobe_5_protro_coconut_milk_spruce",
+ "built_at": "2026-09-10T02:40:07.051907+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Kobe 5 Protro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "coconut",
+   "milk",
+   "spruce"
+  ],
+  "found": [
+   "coconut",
+   "milk",
+   "spruce"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Kobe 5 Protro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-06-02.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_kobe_5_protro_coconut_milk_spruce"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Caitlin Clark x Nike Kobe 5 Protro 'Coconut Milk Spruce' delivers a PE colorway of the classic silhouette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The upper is constructed from glossy synthetic leather in a subtle ivory finish with dark teal overlays and a color-matched Swoosh.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A contrasting splash of crimson appears on the tongue, marked with Kobe Bryant's signature Sheath logo.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "This Protro edition features a lightweight Cushlon midsole with an articulated Zoom Air unit in the forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "A grippy rubber outsole reveals an exposed glass-based carbon fiber shank plate underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

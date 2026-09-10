@@ -1,0 +1,86 @@
+{
+ "image_name": "nike_air_force_1_low_box_logo_baroque_brown",
+ "built_at": "2026-09-10T02:40:07.031459+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "box",
+   "logo",
+   "baroque",
+   "brown"
+  ],
+  "found": [
+   "box",
+   "logo",
+   "baroque",
+   "brown"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-11-02.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_force_1_low_box_logo_baroque_brown"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Supreme x Nike Air Force 1 Low ‘Box Logo’ steps out in ‘Baroque Brown.’ Made exclusively for the New York skate brand, the iconic silhouette dons a smooth leather upper in a monochromatic brown finish, contrasted by a red Supreme box logo on the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Dual Nike and Supreme branding adorns the tongue tag and sockliner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker rests on a color-matched rubber cupsole, featuring encapsulated Air-sole cushioning in the heel and a pivot-point rubber outsole underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

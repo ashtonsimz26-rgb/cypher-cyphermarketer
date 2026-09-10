@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_slide_granite",
+ "built_at": "2026-09-10T02:40:06.978193+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "granite"
+  ],
+  "found": [
+   "granite"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Slide.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-08-25.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_slide_granite"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Slide ‘Granite’ accentuates the sandal’s sleek, modern lines with a tonal dark grey finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Built with a solitary piece of lightweight and durable EVA foam, the slip-on delivers a comfortable fit, thanks to the combination of a wide strap upper and soft footbed.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The latter is embellished with adidas’ three-stripe logo, representing the only bit of exterior branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The outsole features strategic groove placement for improved traction and a smooth, natural ride.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

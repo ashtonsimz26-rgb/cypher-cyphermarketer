@@ -1,0 +1,91 @@
+{
+ "image_name": "adidas_yeezy_slide_bone",
+ "built_at": "2026-09-10T02:40:06.977113+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "bone"
+  ],
+  "found": [
+   "bone"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Slide.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-10-07.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_slide_bone"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The 2022 edition of the adidas Yeezy Slide ‘Bone’ brings back a neutral colorway of the minimalist sandal originally released in 2019.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "An understated ivory hue permeates the one-piece build, crafted from injection-molded EVA for lightweight and durable comfort.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "release_drama",
+   "text": "Exterior branding is limited to a discreet adidas logo stamped on the plush footbed.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, the outsole features a series of deep grooves for a blend of traction and impact protection.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f5"
+ ],
+ "usable": true
+}

@@ -1,0 +1,77 @@
+{
+ "image_name": "adidas_yeezy_450_stone_grey",
+ "built_at": "2026-09-10T02:40:06.966246+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy 450",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "stone"
+  ],
+  "found": [
+   "stone"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2023-08-04.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_450_stone_grey"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The adidas Yeezy 450 ‘Stone Grey’ showcases eye-catching lines and a monochromatic finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "A medium shade of grey is executed on the one-piece knit upper, secured with standard lace closure and a sock-like collar.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Underpinning the sneaker is a PU-injected midsole that wraps up the sides, giving the shoe its one-of-a-kind aesthetic while providing structural support and stability.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Underfoot, the contoured rubber outsole features a wavy traction pattern for optimal grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

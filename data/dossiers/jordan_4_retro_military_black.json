@@ -1,0 +1,90 @@
+{
+ "image_name": "jordan_4_retro_military_black",
+ "built_at": "2026-09-10T02:40:07.016490+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "4 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "military"
+  ],
+  "found": [
+   "military"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-05-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_4_retro_military_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 4 Retro ‘Military Black’ showcases the same color blocking and materials featured on the OG ‘Military Blue’ colorway from 1989.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Smooth white leather is utilized on the upper, bolstered with a forefoot overlay in grey suede.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Contrasting black accents make their way to the TPU eyelets, molded heel tab, and the Jumpman logo displayed on the woven tongue tag.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Lightweight cushioning comes courtesy of a two-tone polyurethane midsole, enhanced with a visible Air-sole unit under the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

@@ -1,0 +1,131 @@
+{
+ "image_name": "jordan_jordan_1_retro_high_og_sp_fragment_design_x_travis_scott",
+ "built_at": "2026-09-10T02:40:07.027428+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro High",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "fragment",
+   "design",
+   "travis",
+   "scott"
+  ],
+  "found": [
+   "fragment",
+   "design",
+   "travis",
+   "scott"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro High OG SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-07-29.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_jordan_1_retro_high_og_sp_fragment_design_x_travis_scott"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Fragment Design x Travis Scott x Air Jordan 1 Retro High brings together two of Jordan Brand’s most influential creative partners.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The resulting design finds the foundational sneaker dressed in white tumbled leather with Scott’s signature inverted Swoosh in contrasting black leather.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "collab_origin",
+   "text": "Similar to the rapper’s AJ1 collaboration from 2019, a hidden pouch is built into the black nylon collar.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Contrasting military blue hits settle on the toe box, collar flap and heel overlay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The latter is stamped with Fragment’s lightning bolt logo on the right shoe and La Flame’s Cactus Jack smiley face on the left.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f8",
+   "tag": "spec",
+   "text": "Additional branding elements include a standard Nike Air woven tongue tag, a secondary Cactus Jack tongue tag and a classic Jordan Wings logo imprinted on the lateral ankle.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f9",
+   "tag": "spec",
+   "text": "A rubber cupsole with pre-yellowed sidewalls lend the shoe a vintage aesthetic.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3",
+  "f5"
+ ],
+ "usable": true
+}

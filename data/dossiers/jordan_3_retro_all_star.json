@@ -1,0 +1,103 @@
+{
+ "image_name": "jordan_3_retro_all_star",
+ "built_at": "2026-09-10T02:40:07.008009+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "all",
+   "star"
+  ],
+  "found": [
+   "all",
+   "star"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-02-13.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_all_star"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Levi’s x Air Jordan 3 Retro 'All-Star' launched exclusively in LA as part of the 2026 NBA All-Star Weekend festivities.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The legacy silhouette sports a white leather upper with washed indigo denim detailing.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The cotton twill material appears on the forefoot and heel overlay, as well as the collar and eyestay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The latter is marked with the iconic red Levi's tab on the lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A matching red Jumpman adorns the tongue, while Nike Air branding embellishes the molded heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The sneaker is mounted on a lightweight polyurethane midsole with visible Air-Sole cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

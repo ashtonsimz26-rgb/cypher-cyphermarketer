@@ -1,0 +1,103 @@
+{
+ "image_name": "jordan_1_retro_high_og_green_glow",
+ "built_at": "2026-09-10T02:40:07.001613+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro High OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "green",
+   "glow"
+  ],
+  "found": [
+   "green",
+   "glow"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro High OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-04-20.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_high_og_green_glow"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 1 Retro High OG 'Green Glow' showcases 'Bred Toe' color blocking with vibrant pops of color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The smooth leather upper combines white side panels with contrasting black accents on the high-cut collar, forefoot overlay and signature Swoosh.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Green Glow covers the toe box, heel and ankle flap, marked with a black Wings logo on the lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A woven Nike Air tag adorns the black nylon tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Supporting the sneaker is a durable cupsole, featuring white sidewalls and a bright teal rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

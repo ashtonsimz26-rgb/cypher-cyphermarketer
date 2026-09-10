@@ -1,0 +1,106 @@
+{
+ "image_name": "jordan_1_low_og_better_with_time",
+ "built_at": "2026-09-10T02:40:06.998626+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Low OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "better",
+   "with",
+   "time"
+  ],
+  "found": [
+   "better",
+   "with",
+   "time"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Low OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-08-16.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_low_og_better_with_time"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Nigel Sylvester x Air Jordan 1 Low OG 'Better With Time' takes inspiration from an unreleased AJ1 High that was gifted to the BMX star in 2022.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The low-top sports a black tumbled leather upper, featuring abrasions and scuff marks throughout.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A woven 'Bike Air' tag graces the Muslin-colored nylon tongue, matching the signature Swoosh and the Wings logo stamped on the back tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "An embroidered mini-Swoosh adorns the lateral forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The sneaker rests on a durable cupsole, highlighted by aged off-white sidewalls and a pre-distressed rubber outsole in Varsity Red.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

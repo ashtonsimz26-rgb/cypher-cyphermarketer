@@ -1,0 +1,91 @@
+{
+ "image_name": "nike_dunk_low_sb_rammellzee",
+ "built_at": "2026-09-10T02:40:07.047195+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Dunk Low SB",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "rammellzee"
+  ],
+  "found": [
+   "rammellzee"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2023-08-31.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_dunk_low_sb_rammellzee"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Supreme x Nike Dunk Low SB ‘Rammellzee’ reunites the NYC skate brand with the late artist known for his graffiti writing and multi-media sculptures.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The collaboration centers around the Dunk Low silhouette, featuring a canvas upper covered in Rammellzee’s original designs.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Durable black suede is utilized on the eyestay, Swoosh and forefoot overlay, matching the shoe’s padded mesh tongue and textile collar lining.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Gleaming accents arrive via ‘Supreme’ lace dubrae in a metallic gold finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a durable cupsole that pairs black sidewalls with a gum rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2",
+  "f3"
+ ],
+ "usable": true
+}

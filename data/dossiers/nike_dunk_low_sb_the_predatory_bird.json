@@ -1,0 +1,104 @@
+{
+ "image_name": "nike_dunk_low_sb_the_predatory_bird",
+ "built_at": "2026-09-10T02:40:07.048008+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Dunk Low SB",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "predatory",
+   "bird"
+  ],
+  "found": [
+   "predatory",
+   "bird"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2022-11-04.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_dunk_low_sb_the_predatory_bird"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "Designed in collaboration with the mental-health initiative founded by Scottish skater John Rattray, the Why So Sad?",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "x Nike Dunk Low SB ‘The Predatory Bird’ features a design theme centered around positivity and wellness.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The low-top sports a light blue leather upper with navy suede overlays and a wear-away Swoosh that fades from Coastal Blue to Speed Yellow.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "An embroidered graphic depicting the Predatory Bird mascot appears on the lateral heel, while a yellow question mark adorns the red suede heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "‘Why So Sad?’ is inscribed on the interior tongue tag.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Underfoot, a translucent rubber outsole yields grippy traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2",
+  "f3"
+ ],
+ "usable": true
+}

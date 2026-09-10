@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_boost_700_mnvn_triple_black",
+ "built_at": "2026-09-10T02:40:06.973334+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Boost 700 MNVN",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "triple"
+  ],
+  "found": [
+   "triple"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Boost 700 MNVN.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-02-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_boost_700_mnvn_triple_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Kanye West tapped industry legends Christian Tresser and Steven Smith for the adidas 700 MNVN.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The sneaker's usual mixed-material profile is overhauled in favor of triple-black nylon designed with heat-welded panels and an enlarged 3M '700' graphic along the lateral.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "This revamp adds a heel tab and drops the Three-Stripes emblem.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The Boost-enclosed midsole is paired with a herringbone-patterned rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

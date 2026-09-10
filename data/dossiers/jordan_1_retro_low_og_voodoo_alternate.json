@@ -1,0 +1,93 @@
+{
+ "image_name": "jordan_1_retro_low_og_voodoo_alternate",
+ "built_at": "2026-09-10T02:40:07.007354+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro Low OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "voodoo",
+   "alternate"
+  ],
+  "found": [
+   "voodoo",
+   "alternate"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro Low OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-10-29.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_low_og_voodoo_alternate"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Zion Williamson x Air Jordan 1 Retro Low OG 'Voodoo Alternate' pays tribute to New Orleans with a vibrant blue suede upper, secured with braided rope laces and fortified with mismatched burlap-like overlays in blue, purple and dark indigo hues.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Violet embroidered detailing adorns the black suede toe box, while irregular stitching embellishes the forefoot and signature Swoosh.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Vapor Green accents land on the reverse mini-Swoosh embroidered on the lateral toe, along with inverted Nike Air and Wings logos on the woven tongue tag and black suede back tab, respectively.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A voodoo doll graphic on the lateral heel completes the playful theme.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

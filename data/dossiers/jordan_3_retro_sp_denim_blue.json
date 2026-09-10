@@ -1,0 +1,92 @@
+{
+ "image_name": "jordan_3_retro_sp_denim_blue",
+ "built_at": "2026-09-10T02:40:07.014020+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "denim",
+   "blue"
+  ],
+  "found": [
+   "denim",
+   "blue"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-02-25.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_sp_denim_blue"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "Drawn from a collaborative footwear collection, the Levi's x Air Jordan 3 Retro SP 'Denim Blue' reimagines the classic silhouette with an upper that discards the traditional full leather build.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Instead, the upper is cloaked in dark indigo denim with black elephant-print leather overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A crimson embroidered Jumpman stands out on the black leather tongue, matching the Levi's tab that adorns the lateral side of the right shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Nike Air branding decorates the heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A two-tone polyurethane midsole in white and black packs a visible Air-Sole unit in the heel for impact protection and a comfortable ride.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

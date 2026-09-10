@@ -1,0 +1,68 @@
+{
+ "image_name": "aj4_black_cat_og",
+ "built_at": "2026-09-10T02:40:06.986435+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Jordan 4",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cat"
+  ],
+  "found": [
+   "cat"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2006-05-20.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj4_black_cat_og"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 4 ‘Black Cat’ focuses on simplicity, featuring a Triple Black color scheme that’s constructed with nubuck paneling on the upper and charcoal accents on the webbing, branding and eyelets.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Similar to a majority of retro Jordan 4 offerings, this silhouette showcases the Jumpman icon on the heel, as opposed to the Nike Air branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

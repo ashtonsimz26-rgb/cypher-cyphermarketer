@@ -1,0 +1,104 @@
+{
+ "image_name": "nike_air_force_1_low_pink_prime",
+ "built_at": "2026-09-10T02:40:07.033754+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "pink",
+   "prime"
+  ],
+  "found": [
+   "pink",
+   "prime"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-11-18.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_force_1_low_pink_prime"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Undefeated x Nike Air Force 1 Low ‘Pink Prime’ is taken from the AF1 Multi-Color Patent project, a collaborative series celebrating the 40th anniversary of the iconic silhouette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Taking cues from Undefeated’s Nike Dunk High NL from 2005, this pair features a paneled patent leather upper in a clashing mix of powder blue, brown, black and purple.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Color-popped accents arrive via a translucent pink Swoosh, matching ‘UNDFTD’ lace dubrae, and a bright yellow tongue tag marked with Undefeated’s Five Strikes logo.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The insignia is repeated on the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a durable rubber cupsole in a tonal green finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

@@ -1,0 +1,93 @@
+{
+ "image_name": "jordan_3_retro_og_sp_for_the_love",
+ "built_at": "2026-09-10T02:40:07.010696+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro OG SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "for",
+   "love"
+  ],
+  "found": [
+   "for",
+   "love"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3 Retro OG SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-04-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_og_sp_for_the_love"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The A Ma Maniére x Air Jordan 3 Retro OG SP 'For The Love' features a white tumbled leather upper with anthracite suede overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Contrasting blue accents settle on the molded eyelets and the Nike Air logo that decorates the heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "An additional splash of blue wraps around the heel of the off-white polyurethane midsole, enhanced with visible Air-sole cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "An anthracite rubber outsole yields grippy traction underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

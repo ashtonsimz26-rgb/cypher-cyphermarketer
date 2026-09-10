@@ -1,0 +1,117 @@
+{
+ "image_name": "jordan_5_retro_we_the_best_crimson_bliss",
+ "built_at": "2026-09-10T02:40:07.025555+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "5 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "best",
+   "crimson",
+   "bliss"
+  ],
+  "found": [
+   "best",
+   "crimson",
+   "bliss"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 5 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-11-28.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_5_retro_we_the_best_crimson_bliss"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Drawn from the collaborative ‘We the Best’ collection, the DJ Khaled x Air Jordan 5 Retro ‘Crimson Bliss’ gives the classic silhouette a pastel makeover.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The upper is crafted from coral-hued leather with a satiny quilted lining in Leche Blue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Matching blue embroidery appears on each heel overlay, featuring a Nike Air logo on the right shoe and ‘We the Best’ inscribed on the left.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Traditional Jumpman branding decorates the silver reflective tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The sneaker is mounted on an off-white polyurethane midsole with blue speckled shark-tooth detailing and a visible Air-sole unit in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f8",
+   "tag": "spec",
+   "text": "Underfoot, translucent rubber outsoles reveal mismatched Jumpman and ‘We the Best’ branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

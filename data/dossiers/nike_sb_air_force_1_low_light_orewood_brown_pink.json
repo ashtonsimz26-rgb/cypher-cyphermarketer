@@ -1,0 +1,34 @@
+{
+ "image_name": "nike_sb_air_force_1_low_light_orewood_brown_pink",
+ "built_at": "2026-09-10T02:40:07.056287+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "SB Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "light",
+   "orewood",
+   "brown",
+   "pink"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-04-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_sb_air_force_1_low_light_orewood_brown_pink"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

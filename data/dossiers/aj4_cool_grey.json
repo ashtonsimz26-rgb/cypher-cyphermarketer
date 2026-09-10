@@ -1,0 +1,79 @@
+{
+ "image_name": "aj4_cool_grey",
+ "built_at": "2026-09-10T02:40:06.986791+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Jordan 4",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cool"
+  ],
+  "found": [
+   "cool"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2004-09-25.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj4_cool_grey"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Jordan Brand puts the classic ‘Cool Grey’ color scheme on the Air Jordan 4, featuring a grayscale palette on the upper’s leather and nubuck construction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Black accents on the eyelets match the midsole and outsole, while the only bit of color appears on the yellow Air unit and Jordan 4 lettering on the tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Similar to many of the silhouette’s line of reissues, this style implements the Jumpman logo on the heel instead of Nike Air branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

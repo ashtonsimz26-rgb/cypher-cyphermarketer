@@ -1,0 +1,93 @@
+{
+ "image_name": "aj6_unc_home",
+ "built_at": "2026-09-10T02:40:06.987377+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Jordan 6",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "unc",
+   "home"
+  ],
+  "found": [
+   "unc",
+   "home"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 6 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-03-05.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj6_unc_home"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The Air Jordan 6 Retro ‘UNC Home’ features a familiar color combination that pays homage to MJ’s alma mater.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The iconic silhouette carries a white leather upper with nubuck underlays in University Blue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Contrasting navy accents make their way to the molded TPU heel tab, textile collar lining and polyurethane midsole, the latter enhanced with visible Air-sole cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Reflective perforations provide added visibility in low-light conditions, while a woven jock tag at the heel nods to the shoe’s varsity athletics theme.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

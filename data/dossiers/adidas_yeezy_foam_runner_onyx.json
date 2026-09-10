@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_foam_runner_onyx",
+ "built_at": "2026-09-10T02:40:06.976391+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Foam Runner",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "onyx"
+  ],
+  "found": [
+   "onyx"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Foam Runner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-06-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_foam_runner_onyx"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Foam Runner ‘Onyx’ applies a sleek monochrome finish to the futuristic slip-on.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Black injected EVA foam is utilized on the molded one-piece upper, featuring sculpted lines and a series of strategically mapped vents that allow for increased airflow.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A contoured heel provides a secure fit, while the soft top layer of the footbed delivers step-in comfort.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The lightweight build is underpinned by a wavy-traction outsole that offers sure footing on wet or dry surfaces.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

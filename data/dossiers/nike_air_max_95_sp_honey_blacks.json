@@ -1,0 +1,82 @@
+{
+ "image_name": "nike_air_max_95_sp_honey_blacks",
+ "built_at": "2026-09-10T02:40:07.040327+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 95 SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "honey",
+   "blacks"
+  ],
+  "found": [
+   "honey",
+   "blacks"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sergio Lozano designed the Nike Air Max 95 SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-04-30.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_95_sp_honey_blacks"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Corteiz x Nike Air Max 95 SP 'Honey Blacks' showcases a solid black finish on a layered leather upper with tonal mesh netting surrounding the lace bed.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Contrasting yellow accents land on the shoe's branding elements, which include embroidered tongue patches and a Cortiez logo on the lateral forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker rests on a matching black polyurethane midsole with yellow-tinged Max Air units.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

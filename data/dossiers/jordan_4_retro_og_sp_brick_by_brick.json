@@ -1,0 +1,91 @@
+{
+ "image_name": "jordan_4_retro_og_sp_brick_by_brick",
+ "built_at": "2026-09-10T02:40:07.017404+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "4 Retro OG SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "brick"
+  ],
+  "found": [
+   "brick"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4 Retro OG SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-03-14.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_4_retro_og_sp_brick_by_brick"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Nigel Sylvester x Air Jordan 4 Retro OG SP 'Brick By Brick' delivers a monochrome suede upper finished in Firewood Orange and features heritage details, including quarter panel netting, molded eyelets and TPU support wings.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The tonal design is disrupted by discreet off-white accents, including the Flight logo on the woven Jumpman tongue tag and an embroidered mini-Swoosh on the lateral forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Bike Air branding adorns the heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A Sail-colored polyurethane midsole packs visible Air-sole cushioning in the heel for a comfortable ride.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

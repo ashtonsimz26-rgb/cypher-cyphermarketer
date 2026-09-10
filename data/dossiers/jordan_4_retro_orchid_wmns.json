@@ -1,0 +1,79 @@
+{
+ "image_name": "jordan_4_retro_orchid_wmns",
+ "built_at": "2026-09-10T02:40:07.018053+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "4 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "orchid"
+  ],
+  "found": [
+   "orchid"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-10-26.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_4_retro_orchid_wmns"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Women's Air Jordan 4 Retro 'Orchid' is crafted from lilac-colored suede with breathable quarter panel netting and grey molded eyelets.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Speckled detailing enlivens the TPU support wings and molded back tab, marked with classic Jumpman branding, as well as the lightweight polyurethane midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Encapsulated Air-sole cushioning is nestled in the forefoot, while the heel is fitted with an exposed Air bag.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

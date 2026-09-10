@@ -1,0 +1,70 @@
+{
+ "image_name": "airmax90_bacon_og",
+ "built_at": "2026-09-10T02:40:06.981322+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 90",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "dqm",
+   "bacon"
+  ],
+  "found": [
+   "bacon"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Air Max 90.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2004-01-01.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "airmax90_bacon_og"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "Nike partnered with Dave Ortiz of New York boutique Dave’s Quality Meat on the Air Max 90 ‘Bacon,’ which is inspired by the layout of the store’s butcher-shop theme.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The shoe’s color palette draws from bacon, manifested through the upper’s suede and leather construction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

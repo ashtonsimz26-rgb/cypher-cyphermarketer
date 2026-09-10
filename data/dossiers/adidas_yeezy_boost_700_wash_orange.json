@@ -1,0 +1,92 @@
+{
+ "image_name": "adidas_yeezy_boost_700_wash_orange",
+ "built_at": "2026-09-10T02:40:06.973981+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Boost 700",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "wash",
+   "orange"
+  ],
+  "found": [
+   "wash",
+   "orange"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Boost 700.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-10-16.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_boost_700_wash_orange"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Boost 700 ‘Wash Orange’ spotlights the sneaker’s elevated tooling with a bold splash of color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "An eye-catching shade of coral is executed on a sculpted PU midsole that houses full-length Boost cushioning, visible through cut-out sections in the herringbone-tread rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Up top, the layered build is composed of breathable grey mesh with tonal overlays in suede and leather.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Across the vamp, mesh paneling in dark teal and bright blue is reinforced with contrasting black suede overlays.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

@@ -1,0 +1,103 @@
+{
+ "image_name": "nike_dunk_low_se_safari_mix_wmns",
+ "built_at": "2026-09-10T02:40:07.049521+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Dunk Low SE",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "safari",
+   "mix"
+  ],
+  "found": [
+   "safari",
+   "mix"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Nike Dunk Low SE.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-05-05.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_dunk_low_se_safari_mix_wmns"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike women’s Dunk Low SE ‘Safari Mix’ updates the retro silhouette with a patchwork design that highlights animal prints and vibrant hues.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The low-top sports a white leather base with a blend of safari and cheetah prints on the forefoot overlay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The latter design reappears on the heel, while the collar overlay features teal and purple pony hair between the left and right shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The mismatched theme continues on the eyestay, signature Swoosh, and Nike-branded heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The collage-like arrangement up top is countered by a crisp white midsole and black rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

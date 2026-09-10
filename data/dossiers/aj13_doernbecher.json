@@ -1,0 +1,90 @@
+{
+ "image_name": "aj13_doernbecher",
+ "built_at": "2026-09-10T02:40:06.983150+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Jordan 13",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "doernbecher"
+  ],
+  "found": [
+   "doernbecher"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Air Jordan 13.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2015-11-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj13_doernbecher"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Part of the 2015 Doernbecher collection, this Air Jordan 13 Retro ‘DB’ was designed by John Charles, an 11-year-old Crohn’s Disease patient.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The design combines a black snakeskin-like upper with emerald green patent leather overlays and Volt laces.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Details from John's personal life include his soccer number, the seven pills he takes per day to manage his condition and the ‘Crohn’s’ on the outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Pink accents highlight the collar and outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

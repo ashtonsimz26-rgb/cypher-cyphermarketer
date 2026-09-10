@@ -1,0 +1,90 @@
+{
+ "image_name": "jordan_3_retro_cement_grey",
+ "built_at": "2026-09-10T02:40:07.008338+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cement"
+  ],
+  "found": [
+   "cement"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-08-31.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_cement_grey"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 3 Retro 'Cement Grey' is built with white tumbled leather on the upper, featuring dark grey elephant print on the eyestay and forefoot and heel overlay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Atop the tongue, an embroidered crimson Jumpman delivers a pop of color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A second Jumpman logo adorns the molded heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Finished in grey and off-white tones, the polyurethane midsole packs an encapsulated Air-sole unit in the forefoot and an exposed Air bag in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

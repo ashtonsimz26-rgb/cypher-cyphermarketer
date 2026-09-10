@@ -1,0 +1,90 @@
+{
+ "image_name": "nike_mind_001_mule_light_smoke_grey",
+ "built_at": "2026-09-10T02:40:07.054903+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Mind 001 Mule",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "light",
+   "smoke"
+  ],
+  "found": [
+   "light",
+   "smoke"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-01-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_mind_001_mule_light_smoke_grey"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike Mind 001 'Light Smoke Grey' combines science and style to upgrade your daily routine.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Featuring a neutral Light Smoke Grey and Photon Dust palette, this mule is designed to activate your senses through its innovative 22-node outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Each node moves independently to stimulate sensory areas of the brain, helping you stay grounded.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The upper is crafted from soft knit materials with perforations for breathability, making it perfect for pregame relaxation or post-game recovery.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "With robust foam cushioning and Hyper Crimson accents, it delivers a comfortable and responsive ride.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

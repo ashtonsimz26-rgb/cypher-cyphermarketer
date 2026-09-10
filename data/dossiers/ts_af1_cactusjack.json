@@ -1,0 +1,86 @@
+{
+ "image_name": "ts_af1_cactusjack",
+ "built_at": "2026-09-10T02:40:07.064046+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "travis",
+   "scott",
+   "cactus",
+   "jack"
+  ],
+  "found": [
+   "travis",
+   "scott",
+   "cactus",
+   "jack"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-11-16.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "ts_af1_cactusjack"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Travis Scott x Air Force 1 Low 'Cactus Jack' is a unique creation featuring the rapper's trademark utilitarian cues.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Released in November 2019, this edition has printed canvas, leather and suede uppers with zipped corduroy lace shrouds and different colored Swooshes on the sides.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker rests atop a classic AF1 midsole and gum rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

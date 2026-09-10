@@ -1,0 +1,102 @@
+{
+ "image_name": "nike_air_max_1_monarch",
+ "built_at": "2026-09-10T02:40:07.037669+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 1",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "monarch"
+  ],
+  "found": [
+   "monarch"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Nike Air Max 1.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-10-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_1_monarch"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Patta x Nike Air Max 1 ‘Monarch’ reunites the Amsterdam-based retailer on a revamped edition of the retro silhouette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The upper is crafted from light grey ballistic mesh with white leather overlays and an orange suede Swoosh.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The autumnal hue is repeated on a wavy suede mudguard, accented with an embroidered mini-Swoosh on the lateral forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Additional branding elements include woven Patta tongue tags and a Nike Air callout on the back heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The sneaker rides on a pre-yellowed polyurethane midsole, equipped with visible Air-sole cushioning and reinforced by a waffle-tread rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

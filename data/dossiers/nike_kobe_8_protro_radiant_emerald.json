@@ -1,0 +1,103 @@
+{
+ "image_name": "nike_kobe_8_protro_radiant_emerald",
+ "built_at": "2026-09-10T02:40:07.053821+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Kobe 8 Protro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "radiant",
+   "emerald"
+  ],
+  "found": [
+   "radiant",
+   "emerald"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Kobe 8 Protro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-02-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_kobe_8_protro_radiant_emerald"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike Kobe 8 Protro ‘Radiant Emerald’ features a white Engineered Mesh upper, covered in an all-over print made up of the jersey numbers that Kobe Bryant wore during his NBA career.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "An embroidered teal Swoosh adorns the lateral side, while the Mamba’s sheath logo adorns the tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The athlete’s signature appears on the lateral heel counter.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Lightweight cushioning arrives via a drop-in React foam midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Underfoot, a herringbone-traction rubber outsole reveals an exposed carbon fiber shank plate.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

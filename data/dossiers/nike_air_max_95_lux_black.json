@@ -1,0 +1,42 @@
+{
+ "image_name": "nike_air_max_95_lux_black",
+ "built_at": "2026-09-10T02:40:07.038800+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "Air Max 95 Lux",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sergio Lozano designed the Nike Air Max 95 Lux.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-11-07.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_95_lux_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

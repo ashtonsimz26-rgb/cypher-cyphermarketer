@@ -1,0 +1,32 @@
+{
+ "image_name": "nike_air_max_1000_2_black_pink_spell",
+ "built_at": "2026-09-10T02:40:07.037344+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "Air Max 1000.2",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "pink",
+   "spell"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-06-25.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_1000_2_black_pink_spell"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

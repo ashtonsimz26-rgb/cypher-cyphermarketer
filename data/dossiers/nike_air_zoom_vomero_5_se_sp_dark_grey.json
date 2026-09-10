@@ -1,0 +1,66 @@
+{
+ "image_name": "nike_air_zoom_vomero_5_se_sp_dark_grey",
+ "built_at": "2026-09-10T02:40:07.043584+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Zoom Vomero 5 SE SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "dark"
+  ],
+  "found": [
+   "dark"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2019-04-18.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_zoom_vomero_5_se_sp_dark_grey"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The April 2019 released Nike Air Zoom Vomero 5 SE SP 'Dark Grey' sneaker builds upon the design elements of the original model and reworks it with modern style and technology.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Keeping the core design of the upper the same, the shoe is constructed of mesh with TecTuff leather overlays and a plastic heel counter.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Accented with 3M details and a Nike Swoosh above, below, the upper is supported by a Cushlon midsole and Zoom Air for soft, energized steps.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

@@ -1,0 +1,23 @@
+{
+ "image_name": "aj1_patent_bred",
+ "built_at": "2026-09-10T02:40:06.984227+00:00",
+ "name_match": "failed",
+ "signal_1_silhouette": {
+  "tested": "Air Jordan 1 High",
+  "found": false
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "patent",
+   "bred"
+  ],
+  "found": [
+   "patent",
+   "bred"
+  ],
+  "passed": true
+ },
+ "facts": [],
+ "hook_candidates": [],
+ "usable": false
+}

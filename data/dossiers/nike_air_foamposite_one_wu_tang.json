@@ -1,0 +1,44 @@
+{
+ "image_name": "nike_air_foamposite_one_wu_tang",
+ "built_at": "2026-09-10T02:40:07.029771+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "Air Foamposite One",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "tang"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Air Foamposite One.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2016-06-24.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_foamposite_one_wu_tang"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

@@ -1,0 +1,80 @@
+{
+ "image_name": "jordan_4_retro_university_blue",
+ "built_at": "2026-09-10T02:40:07.020060+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "4 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "blue"
+  ],
+  "found": [
+   "blue"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-04-28.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_4_retro_university_blue"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The Air Jordan 4 Retro ‘University Blue’ updates the classic silhouette with a suede upper in a familiar hue inspired by Michael Jordan’s UNC alma mater.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The bright blue palette is contrasted by a speckled grey finish on the sneaker’s supportive wings and back heel, featuring a raised Jumpman icon in black.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Secondary Jumpman branding adorns the woven tongue tag, designed to mimic a jock tag that typically appears on the bottom hem of Jordan jerseys.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

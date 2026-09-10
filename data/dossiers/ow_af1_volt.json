@@ -1,0 +1,82 @@
+{
+ "image_name": "ow_af1_volt",
+ "built_at": "2026-09-10T02:40:07.059885+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "off",
+   "volt"
+  ],
+  "found": [
+   "off",
+   "volt"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2018-12-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "ow_af1_volt"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Off-White x Air Force 1 ‘Volt’ veers from the established orthodoxy of Virgil Abloh’s Nike design playbook, maximizing a neon hue from the Swoosh’s signature palette that the designer had previously left untouched.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "It coats the shoe’s mixed-material upper as well as its laces and midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Contrasting hits of black bring tonal variety to the Swoosh and medial-side quarter panel, which is printed with Virgil’s trademark text.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

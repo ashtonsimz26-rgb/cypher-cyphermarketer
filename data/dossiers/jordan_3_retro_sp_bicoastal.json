@@ -1,0 +1,80 @@
+{
+ "image_name": "jordan_3_retro_sp_bicoastal",
+ "built_at": "2026-09-10T02:40:07.013154+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "bicoastal"
+  ],
+  "found": [
+   "bicoastal"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3 Retro SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-06-20.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_sp_bicoastal"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Nina Chanel Abney x Women's Air Jordan 3 Retro SP 'Bicoastal' reunites the creative partners on a recrafted edition of the classic silhouette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Rope laces secure the upper, featuring a green canvas build with tonal suede overlays at the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Cream-colored TPU eyelets are matched by a molded back tab marked with embossed Nike Air branding, as well as a lightweight polyurethane midsole with encapsulated Air-sole cushioning in the forefoot and an exposed Air unit in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

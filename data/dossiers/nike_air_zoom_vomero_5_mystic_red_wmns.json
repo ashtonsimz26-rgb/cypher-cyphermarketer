@@ -1,0 +1,90 @@
+{
+ "image_name": "nike_air_zoom_vomero_5_mystic_red_wmns",
+ "built_at": "2026-09-10T02:40:07.042945+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Zoom Vomero 5",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "mystic",
+   "red"
+  ],
+  "found": [
+   "mystic",
+   "red"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2023-09-02.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_zoom_vomero_5_mystic_red_wmns"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike Women’s Air Zoom Vomero 5 ‘Mystic Red’ combines a distinctively layered design with rich hues and metallic accents.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The upper features scarlet open-cell mesh with synthetic leather overlays in a shiny platinum finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A molded midfoot cage in burgundy matches the synthetic suede detailing that appears along the forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker sits atop a sculpted foam midsole with Zoom Air cushioning for improved responsiveness.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, a waffle-tread rubber outsole in red and burgundy delivers superior traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

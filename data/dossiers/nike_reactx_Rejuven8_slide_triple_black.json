@@ -1,0 +1,79 @@
+{
+ "image_name": "nike_reactx_Rejuven8_slide_triple_black",
+ "built_at": "2026-09-10T02:40:07.055653+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "ReactX Rejuven8 Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "triple"
+  ],
+  "found": [
+   "triple"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2025-04-23.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_reactx_Rejuven8_slide_triple_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike ReactX Rejuven8 Slide 'Triple Black' brings a sleek monochrome finish to a comfortable slip-on built with soft and responsive ReactX foam.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "A contoured footbed is designed to cradle the foot, while extra room at the toe accommodates various foot widths.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "release_drama",
+   "text": "Exterior branding is limited to a molded Swoosh on the lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Underfoot, the outsole utilizes a radial traction pattern for multi-surface grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f4"
+ ],
+ "usable": true
+}

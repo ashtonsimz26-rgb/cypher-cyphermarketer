@@ -1,0 +1,70 @@
+{
+ "image_name": "sb_dunk_low_purple_pigeon",
+ "built_at": "2026-09-10T02:40:07.063003+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "SB Dunk Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "purple",
+   "pigeon"
+  ],
+  "found": [
+   "purple",
+   "pigeon"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the SB Dunk Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2006-11-01.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_low_purple_pigeon"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike SB Dunk Low Pro SB ‘Purple Pigeon’ was released In 2006 and has a close resemblance to the ‘Pigeon’ Dunk since they share a grey base color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The ‘Purple Pigeon’ showcases a Light Graphite upper with a Violet Swoosh and outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

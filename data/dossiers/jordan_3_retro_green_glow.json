@@ -1,0 +1,92 @@
+{
+ "image_name": "jordan_3_retro_green_glow",
+ "built_at": "2026-09-10T02:40:07.009111+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "green",
+   "glow"
+  ],
+  "found": [
+   "green",
+   "glow"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-03-16.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_green_glow"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 3 Retro ‘Green Glow’ adds brilliant flashes of color to a neutral design that calls to mind the OG ‘Black Cement’ colorway.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The upper features tumbled black leather with grey elephant print detailing on the eyestay, toe cap and heel overlay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Vivid green accents settle on the upper and lower eyelets, along with the raised Jumpman logo that adorns the back tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A polyurethane midsole packs a visible Air-sole unit in the heel for lightweight cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

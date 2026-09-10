@@ -1,0 +1,26 @@
+{
+ "image_name": "sb_dunk_low_gratefuldead_green",
+ "built_at": "2026-09-10T02:40:07.061672+00:00",
+ "name_match": "failed",
+ "signal_1_silhouette": {
+  "tested": "SB Dunk Low",
+  "found": false
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "grateful",
+   "dead",
+   "bears",
+   "green"
+  ],
+  "found": [
+   "grateful",
+   "dead",
+   "green"
+  ],
+  "passed": true
+ },
+ "facts": [],
+ "hook_candidates": [],
+ "usable": false
+}

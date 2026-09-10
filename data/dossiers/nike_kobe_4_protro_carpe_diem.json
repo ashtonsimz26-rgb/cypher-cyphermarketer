@@ -1,0 +1,93 @@
+{
+ "image_name": "nike_kobe_4_protro_carpe_diem",
+ "built_at": "2026-09-10T02:40:07.051033+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Kobe 4 Protro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "carpe",
+   "diem"
+  ],
+  "found": [
+   "carpe",
+   "diem"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Kobe 4 Protro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-06-01.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_kobe_4_protro_carpe_diem"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "First debuted in 2009, the Nike Zoom Kobe 4 Protro 'Carpe Diem' sneaker returns in June 2019 to honor the Los Angeles Lakers.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Notes of team-inspired colors are seen throughout the synthetic, thermo-molded upper, Swooshes and quilted textile collar.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A tongue emblem, snakeskin-textured detailing and a signature on the external heel nod to the legendary player.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Lunar foam and Zoom Air cushioning tech combine to energize the rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

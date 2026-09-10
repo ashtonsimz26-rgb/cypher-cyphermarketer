@@ -1,0 +1,88 @@
+{
+ "image_name": "nike_sb_air_force_1_low_flax",
+ "built_at": "2026-09-10T02:40:07.056126+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "SB Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "flax"
+  ],
+  "found": [
+   "flax"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-06-09.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_sb_air_force_1_low_flax"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike SB Air Force 1 Low 'Flax' delivers a monochrome colorway of an updated model built for skate.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Wheat-colored suede is utilized on the upper, featuring tonal leather detailing on the heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The latter is marked with Nike SB Air branding, matching the woven tag that adorns the padded tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "This SB edition features a lower-profile midsole with Air-Sole cushioning in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, the gum rubber outsole retains the pivot circle traction pattern of the original.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

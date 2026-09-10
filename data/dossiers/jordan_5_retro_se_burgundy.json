@@ -1,0 +1,101 @@
+{
+ "image_name": "jordan_5_retro_se_burgundy",
+ "built_at": "2026-09-10T02:40:07.024872+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "5 Retro SE",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "burgundy"
+  ],
+  "found": [
+   "burgundy"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 5 Retro SE.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-08-29.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_5_retro_se_burgundy"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The 2023 edition of the Air Jordan 5 Retro SE ‘Burgundy’ brings back a 2006 colorway from Jordan Brand’s Lifestyle Series.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The legacy silhouette utilizes a burgundy suede upper, accented with contrast stitching and breathable translucent netting on the quarter panel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Embroidered Jumpman branding decorates the heel overlay and tongue, treated with a sliver reflective finish for added visibility during low-light conditions.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A color-matched polyurethane features speckled shark-tooth detailing and a visible Air-sole unit nestled in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Underfoot, a translucent herringbone-traction outsole delivers reliable grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

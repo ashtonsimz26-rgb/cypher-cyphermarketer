@@ -1,0 +1,114 @@
+{
+ "image_name": "nike_sb_x_air_max_95_og_cacao_wow",
+ "built_at": "2026-09-10T02:40:07.057997+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "SB x Air Max 95 OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cacao",
+   "wow"
+  ],
+  "found": [
+   "cacao",
+   "wow"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sergio Lozano designed the Nike SB x Air Max 95 OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-01-20.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_sb_x_air_max_95_og_cacao_wow"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike SB Air Max 95 OG 'Cacao Wow' delivers a skate-ready edition of the classic retro running shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Laces feed through brown webbing eyelets to secure the mixed-material upper, featuring folded edges and double-stitch reinforcement in key wear areas.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The side panels are covered in four wavy layers, one in leather, the bottom three in suede, with a gradient design that transitions from light grey to dark.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "An embroidered Air Max patch adorns the tongue, while Nike SB Air branding is embossed on the molded heel panel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Revised tooling takes the form of a reduced-foam polyurethane midsole with exposed Max Air cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f8",
+   "tag": "spec",
+   "text": "The rubber outsole is updated with herringbone-traction lugs for superior board feel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

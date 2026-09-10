@@ -1,0 +1,101 @@
+{
+ "image_name": "adidas_yeezy_foam_runner_mx_cinder",
+ "built_at": "2026-09-10T02:40:06.975957+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Foam Runner",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cinder"
+  ],
+  "found": [
+   "cinder"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Foam Runner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-05-31.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_foam_runner_mx_cinder"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Foam Runner ‘MX Cinder’ enlivens the slip-on silhouette with cooling splashes of color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Built with injected EVA foam, the one-piece upper is rendered in an earthy mix of brown and tan shades.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Atop the vamp, a solid black finish is contrasted by unexpected bursts of aqua blue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A series of strategically mapped vents provide enhanced breathability, while the soft top layer of the footbed delivers step-in comfort.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Underfoot, the contoured outsole features a wavy tread for optimal grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

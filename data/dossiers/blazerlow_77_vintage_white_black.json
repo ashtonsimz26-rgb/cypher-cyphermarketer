@@ -1,0 +1,79 @@
+{
+ "image_name": "blazerlow_77_vintage_white_black",
+ "built_at": "2026-09-10T02:40:06.988297+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Blazer Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "vintage"
+  ],
+  "found": [
+   "vintage"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bill Bowerman designed the Nike Blazer Low '77 Vintage.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-12-04.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "blazerlow_77_vintage_white_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike Blazer Low ‘77 Vintage ‘White Black’ showcases an essential color scheme on a nearly one-to-one remake of the silhouette originally made for the hardwood.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "White leather is utilized on the upper, accented with a black retro Swoosh and fortified with suede overlays at the toe and lateral forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Vintage details include an exposed-foam tongue and an off-white midsole that gives way to a herringbone rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

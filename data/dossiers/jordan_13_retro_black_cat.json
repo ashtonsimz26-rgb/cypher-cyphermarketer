@@ -1,0 +1,90 @@
+{
+ "image_name": "jordan_13_retro_black_cat",
+ "built_at": "2026-09-10T02:40:06.995850+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "13 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cat"
+  ],
+  "found": [
+   "cat"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 13 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2017-01-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_13_retro_black_cat"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 13 Retro ‘Black Cat’ showcases a monochromatic finish that plays off one of Michael Jordan’s many nicknames.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The black suede upper is accented with a holographic cat eye and reflective detailing on the sneaker’s mesh overlays and rope laces.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A glossy finish is applied to the matching black Phylon midsole, which houses Zoom Air units in the heel and forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The 13’s signature panther paw outsole features herringbone traction for maximum grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

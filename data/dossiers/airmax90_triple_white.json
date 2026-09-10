@@ -1,0 +1,80 @@
+{
+ "image_name": "airmax90_triple_white",
+ "built_at": "2026-09-10T02:40:06.981941+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 90",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "triple"
+  ],
+  "found": [
+   "triple"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Air Max 90.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-01-09.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "airmax90_triple_white"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Max 90 'Triple White' launched in January 2020, marking the classic silhouette’s 30th anniversary.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "cultural_moment",
+   "text": "Featuring a recrafted build inspired by the original 1990 release, the sneaker is dressed in an all-white finish that allows its clean lines to stand out.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Details include a mesh upper with stitched leather overlays, TPU eyelets and an Air-infused midsole reinforced by a waffle-tread rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f4"
+ ],
+ "usable": true
+}

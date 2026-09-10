@@ -1,0 +1,92 @@
+{
+ "image_name": "nike_dunk_low_sb_rayssa_leal",
+ "built_at": "2026-09-10T02:40:07.047533+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Dunk Low SB",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "rayssa",
+   "leal"
+  ],
+  "found": [
+   "rayssa",
+   "leal"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2024-03-20.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_dunk_low_sb_rayssa_leal"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Rayssa Leal x Nike Dunk Low SB debuts a special-edition colorway designed in collaboration with the Brazilian skateboarder.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Mismatched blue and fuchsia Swooshes adorn the upper, featuring a white leather base with patterned grey suede overlays.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Rayssa's personal logo decorates the lateral heel, while a trio of multicolored lace charms display digital smiley faces.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The same graphic is embossed in a repeating pattern throughout each quarter panel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, a gum rubber outsole provides grippy traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

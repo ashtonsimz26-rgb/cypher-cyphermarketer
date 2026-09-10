@@ -1,0 +1,32 @@
+{
+ "image_name": "nike_nike_air_max_1_87_luxe_university_of_oregon_pe",
+ "built_at": "2026-09-10T02:40:07.055063+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "Air Max 1",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "oregon",
+   "luxe"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2024-03-30.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_nike_air_max_1_87_luxe_university_of_oregon_pe"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

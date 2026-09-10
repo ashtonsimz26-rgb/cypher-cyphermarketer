@@ -1,0 +1,32 @@
+{
+ "image_name": "nike_p_6000_flat_pewter",
+ "built_at": "2026-09-10T02:40:07.055358+00:00",
+ "name_match": "silhouette_only",
+ "signal_1_silhouette": {
+  "tested": "P-6000",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "flat",
+   "pewter"
+  ],
+  "found": [],
+  "passed": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2023-08-14.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_p_6000_flat_pewter"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

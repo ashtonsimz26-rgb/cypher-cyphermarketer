@@ -1,0 +1,90 @@
+{
+ "image_name": "nike_kd_6_brazil",
+ "built_at": "2026-09-10T02:40:07.050353+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "KD 6",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "brazil"
+  ],
+  "found": [
+   "brazil"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Leo Chang designed the Nike KD 6.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-06-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_kd_6_brazil"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike KD 6 'Brazil' revives a 2014 colorway of Kevin Durant's sixth signature shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The low-profile silhouette features a black synthetic upper with a speckled multicolor Swoosh outlined in bright green trim along the lateral forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The vibrant emerald hue makes repeat appearances on the textile collar lining and rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Performance benefits include a lightweight Phylon midsole with responsive Zoom Air cushioning in the forefoot and an exposed Air-Sole unit in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

@@ -1,0 +1,23 @@
+{
+ "image_name": "aj1_sb_lance_mountain_black",
+ "built_at": "2026-09-10T02:40:06.984616+00:00",
+ "name_match": "failed",
+ "signal_1_silhouette": {
+  "tested": "Air Jordan 1 High",
+  "found": false
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "lance",
+   "mountain"
+  ],
+  "found": [
+   "lance",
+   "mountain"
+  ],
+  "passed": true
+ },
+ "facts": [],
+ "hook_candidates": [],
+ "usable": false
+}

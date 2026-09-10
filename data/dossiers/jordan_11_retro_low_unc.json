@@ -1,0 +1,91 @@
+{
+ "image_name": "jordan_11_retro_low_unc",
+ "built_at": "2026-09-10T02:40:06.992953+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "11 Retro Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "unc"
+  ],
+  "found": [
+   "unc"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 11 Retro Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-04-18.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_11_retro_low_unc"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The 2026 edition of the Air Jordan 11 Retro Low 'UNC' brings back a two-tone colorway of the classic silhouette that pays homage to Michael Jordan's alma mater.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Faithful to the original 2001 release, the low-top features a white leather upper with a glossy patent leather mudguard in University Blue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a white lightweight Phylon midsole that houses a full-length Air-Sole unit.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, the translucent rubber outsole reveals a carbon fiber spring plate for enhanced stability and energy return.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

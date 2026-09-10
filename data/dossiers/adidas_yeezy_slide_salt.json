@@ -1,0 +1,80 @@
+{
+ "image_name": "adidas_yeezy_slide_salt",
+ "built_at": "2026-09-10T02:40:06.978790+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Slide",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "salt"
+  ],
+  "found": [
+   "salt"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Slide.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-03-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_slide_salt"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Slide ‘Salt’ carries a lightweight build crafted from injected EVA foam and rendered in a monochromatic grey finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "release_drama",
+   "text": "Exterior branding is limited to adidas’ three-stripe logo debossed on the footbed, featuring a soft top layer for step-in comfort.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Open-toe construction provides improved airflow, while the outsole utilizes a series of deep horizontal grooves, resulting in a serrated traction pattern for cushioning and grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f4"
+ ],
+ "usable": true
+}

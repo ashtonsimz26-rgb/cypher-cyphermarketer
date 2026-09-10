@@ -1,0 +1,81 @@
+{
+ "image_name": "nike_dunk_low_premium_sb_qs_de_la_soul",
+ "built_at": "2026-09-10T02:40:07.045155+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Dunk Low Premium SB QS",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "soul"
+  ],
+  "found": [
+   "soul"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Nike Dunk Low Premium SB QS.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2015-05-16.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_dunk_low_premium_sb_qs_de_la_soul"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Nike SB Dunk Low 'De La Soul' is a low-top remix of the 2005 high-top colorway designed in collaboration with alt-rap trio De La Soul.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "cultural_moment",
+   "text": "The design features a Baroque Brown suede upper with Altitude Green elephant print and vinyl graphic overlays inspired by the cover of their debut album 3 Feet High and Rising.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Released in May 2015, the sneaker also comes with a green midsole and brown outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3",
+  "f4"
+ ],
+ "usable": true
+}

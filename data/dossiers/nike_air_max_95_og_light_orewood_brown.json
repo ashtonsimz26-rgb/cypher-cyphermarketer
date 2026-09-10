@@ -1,0 +1,84 @@
+{
+ "image_name": "nike_air_max_95_og_light_orewood_brown",
+ "built_at": "2026-09-10T02:40:07.039839+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 95 OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "light",
+   "orewood",
+   "brown"
+  ],
+  "found": [
+   "light",
+   "orewood",
+   "brown"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sergio Lozano designed the Nike Air Max 95 OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-07-11.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_95_og_light_orewood_brown"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Launching as part of a collaborative three-piece pack, the Levi's x Nike Air Max 95 OG 'Light Orewood Brown' features an ivory-colored denim upper, complete with frayed edges and signature wavy overlays along the side panel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Air Max branding decorates the tongue, while the classic red Levi's tag accompanies a mini-Swoosh embroidered on the lateral heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A white polyurethane midsole packs visible Air-sole cushioning for a comfortable ride.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

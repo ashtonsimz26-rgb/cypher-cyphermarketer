@@ -1,0 +1,90 @@
+{
+ "image_name": "nike_air_max_95_bb_doaf_oregon_the_woods",
+ "built_at": "2026-09-10T02:40:07.038134+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 95 BB DOAF Oregon",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "woods"
+  ],
+  "found": [
+   "woods"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-03-26.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_95_bb_doaf_oregon_the_woods"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "Created by Division Street’s Ducks of a Feather, the Air Max 95 BB DOAF Oregon 'Deep in the Woods' PE embodies the lush environment of the Pacific Northwest.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The silhouette's signature wavy upper is constructed of full hairy suede with a moss-textured back heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Fuzzy laces secure the suede tongue, displaying dual branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Both the sockliner and outsole spine continue the concept with printed graphics underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "cultural_moment",
+   "text": "Proceeds benefit participating University of Oregon student-athletes.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f6"
+ ],
+ "usable": true
+}

@@ -1,0 +1,79 @@
+{
+ "image_name": "nike_mind_001_blackened_blue",
+ "built_at": "2026-09-10T02:40:07.054551+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Mind 001",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "blackened",
+   "blue"
+  ],
+  "found": [
+   "blackened",
+   "blue"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-04-30.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_mind_001_blackened_blue"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike Mind 001 'Blackened Blue' brings a gradient design to the pre-game mule.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The slip-on features a molded black foam upper that gradually transitions to royal blue along the bottom edge of the midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The latter hue makes repeat appearances on the interior lining and outsole, which reveal the model's standout feature: twenty-two anatomically mapped foam nodes that move up and down in a piston-like rhythm with each step.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "By activating key pressure points in the foot, they strengthen the mind-body connection, resulting in heightened focus and mindfulness.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

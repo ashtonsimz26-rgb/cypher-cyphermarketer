@@ -1,0 +1,95 @@
+{
+ "image_name": "jordan_11_retro_gratitude_defining_moments",
+ "built_at": "2026-09-10T02:40:06.990904+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "11 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "gratitude",
+   "defining",
+   "moments"
+  ],
+  "found": [
+   "gratitude",
+   "defining",
+   "moments"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 11 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-12-09.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_11_retro_gratitude_defining_moments"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The 2023 edition of the Air Jordan 11 Retro 'Gratitude / Defining Moments', also known as 'DMP', brings back a coveted colorway of the iconic silhouette, originally paired with an Air Jordan 6 as one-half of the 'Defining Moments Pack' from 2006.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "cultural_moment",
+   "text": "Inspired by the OG 'Concord' colorway, the championship model features a white tumbled leather upper with tonal webbing eyelets and a black patent leather mudguard.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Metallic gold accents highlight the shoe's branding elements, including an embossed Jumpman logo on the lateral ankle and a '23' stamped on the heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The sneaker sits atop a Phylon midsole, supported by a carbon fiber shank plate and a translucent rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f4"
+ ],
+ "usable": true
+}

@@ -1,0 +1,102 @@
+{
+ "image_name": "jordan_1_low_mocha",
+ "built_at": "2026-09-10T02:40:06.997879+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "mocha"
+  ],
+  "found": [
+   "mocha"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-07-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_low_mocha"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Travis Scott and Jordan Brand collaborate on an Air Jordan 1 Low, taking similar design cues from the high-top version.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "An oversized backward facing Swoosh is featured prominently on the lateral side of the shoe, while a regular Swoosh graces the medial side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Black and Dark Mocha nubuck dominate the upper, with a few pops of University Red adding a nice contrast.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Travis Scott details are subtly placed on the shoe, with the ‘Cactus Jack’ logo appearing on the tongue, medial side panel and sockliner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The back heel tabs feature intricately stitched logos, with the Air Jordan Wings on the right shoe and Scott’s crudely drawn face on the left shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

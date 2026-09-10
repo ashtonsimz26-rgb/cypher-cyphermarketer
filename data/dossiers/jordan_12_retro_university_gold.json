@@ -1,0 +1,69 @@
+{
+ "image_name": "jordan_12_retro_university_gold",
+ "built_at": "2026-09-10T02:40:06.995516+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "12 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "gold"
+  ],
+  "found": [
+   "gold"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 12 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-07-24.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_12_retro_university_gold"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "release_drama",
+   "text": "The Air Jordan 12 Retro ‘University Gold’ features a simple two-tone color scheme that recalls the ‘Away’ PE that Gary Payton during the ’03 to ’04 NBA season – the only stretch in his lengthy career with the Los Angeles Lakers.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The retro mid-stop sports a black tumbled leather upper with signature stitch detailing, contrasted by a University Gold finish on the textured forefoot overlays, rubber outsole and branding elements.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

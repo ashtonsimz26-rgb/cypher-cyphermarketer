@@ -1,0 +1,91 @@
+{
+ "image_name": "adidas_yeezy_desert_boot_salt",
+ "built_at": "2026-09-10T02:40:06.975019+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Desert Boot",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "salt"
+  ],
+  "found": [
+   "salt"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Desert Boot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-09-14.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_desert_boot_salt"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "As part of the Season 7 collection, the adidas Yeezy Desert Boot is equal parts style and function in a look driven by military inspiration.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "This edition—launched in September 2019—is constructed of breathable mesh, suede and nubuck in a Salt scheme.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "release_drama",
+   "text": "Its deconstructed design lines recall the iconic 500 sneaker.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The shoe is mounted on top of a robust rubber outsole with a rugged tread pattern for durability and traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f5"
+ ],
+ "usable": true
+}

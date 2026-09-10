@@ -1,0 +1,83 @@
+{
+ "image_name": "nike_air_zoom_vomero_5_photon_dust_metallic_silver_wmns",
+ "built_at": "2026-09-10T02:40:07.043272+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Zoom Vomero 5",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "photon",
+   "dust",
+   "metallic",
+   "silver"
+  ],
+  "found": [
+   "photon",
+   "dust",
+   "metallic",
+   "silver"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2023-02-22.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_zoom_vomero_5_photon_dust_metallic_silver_wmns"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike Women’s Air Zoom Vomero 5 ‘Photon Dust Metallic Silver’ brings gleaming accents to a retro running shoe built for all-day comfort.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "A refined light grey finish permeates the upper, built with a traditional blend of airy mesh and synthetic leather.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Chrome detailing shines on the toe box and signature Swoosh, while a molded heel cage provides lightweight stability and support.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The sneaker rides on a foam midsole with snappy Zoom Air cushioning nestled in the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

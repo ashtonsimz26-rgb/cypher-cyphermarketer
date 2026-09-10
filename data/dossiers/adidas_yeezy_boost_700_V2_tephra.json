@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_boost_700_V2_tephra",
+ "built_at": "2026-09-10T02:40:06.972307+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Boost 700 V2",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "tephra"
+  ],
+  "found": [
+   "tephra"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Boost 700 V2.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-06-14.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_boost_700_V2_tephra"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Yeezy Boost 700 V2 is the striking follow up to the Yeezy 700 which originally debuted at Kanye West's 2017 Yeezy Season 5 show.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The V2 is more aerodynamic in appearance, with sleek, reflective overlays that draw the eye in.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "This rendition, the Yeezy Boost 700 V2 'Tephra' sneaker, features a mesh and suede upper with subdued natural tones, culminating in deeper hues on the midsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "This version reprises the 700's chunky sole, concealing full-length adidas Boost cushioning, underscored by gum-rubber tread.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

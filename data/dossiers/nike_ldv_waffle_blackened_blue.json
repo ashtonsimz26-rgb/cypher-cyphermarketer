@@ -1,0 +1,81 @@
+{
+ "image_name": "nike_ldv_waffle_blackened_blue",
+ "built_at": "2026-09-10T02:40:07.054208+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "LDV Waffle",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "blackened",
+   "blue"
+  ],
+  "found": [
+   "blackened",
+   "blue"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2021-08-27.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_ldv_waffle_blackened_blue"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Fragment Design x sacai x Nike LDV Waffle ‘Blackened Blue’ delivers a sneaker collaboration that leverages the creativity of renowned Japanese labels from the worlds of streetwear and high fashion.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Blending elements from the Nike LDV and Waffle Racer, the hybrid silhouette is dressed in a traditional blend of mesh and suede.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The tonal navy finish is contrasted by hits of white on the double-stacked leather Swoosh and heel tab, the latter marked with dual Nike and sacai branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Woven Nike and Fragment tags adorn the doubled-up tongues, while the elongated foam midsole is inscribed with ‘The Classic / Fragment: sacai.’ Nike’s waffle-traction rubber outsole provides superior grip underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

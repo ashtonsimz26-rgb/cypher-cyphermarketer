@@ -1,0 +1,104 @@
+{
+ "image_name": "jordan_1_retro_high_og_varsity_red",
+ "built_at": "2026-09-10T02:40:07.005168+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro High OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "varsity",
+   "red"
+  ],
+  "found": [
+   "varsity",
+   "red"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro High OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-02-27.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_high_og_varsity_red"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Fragment Design x Union LA x Air Jordan 1 Retro High OG 'Varsity Red Sport Royal' continues the cobbled-together design language featured on previous Union LA AJ1s.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The tumbled leather upper combines a white base with contrasting black accents on the eyestay, Swoosh and forefoot overlay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Adorned with Fragment branding, a Sport Royal leather overlay wraps around the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Exposed stitching connects the upper to the black suede collar, contrasted by Varsity Red leather overlays marked with a black Wings logo on the lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "A vintage off-white finish is applied to the midsole, supported underfoot by a grippy royal blue outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

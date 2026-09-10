@@ -1,0 +1,92 @@
+{
+ "image_name": "nike_kobe_8_protro_court_purple",
+ "built_at": "2026-09-10T02:40:07.053353+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Kobe 8 Protro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "court",
+   "purple"
+  ],
+  "found": [
+   "court",
+   "purple"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Kobe 8 Protro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-02-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_kobe_8_protro_court_purple"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike Kobe 8 Protro 'Court Purple' showcases an all-over print made up of the jersey numbers that Kobe Bryant wore during his 20-year career with the Los Angeles Lakers.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "'8' and '24' are arranged in a repeating pattern throughout the white engineered mesh upper, secured with purple laces and equipped with a padded low-cut collar.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A drop-in React foam midsole delivers lightweight cushioning with each step.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, a violet-tinged translucent rubber reveals a carbon fiber shank plate for midfoot stability.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

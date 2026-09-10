@@ -1,0 +1,77 @@
+{
+ "image_name": "yeezy450_cinder",
+ "built_at": "2026-09-10T02:40:07.066469+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy 450",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cinder"
+  ],
+  "found": [
+   "cinder"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2022-03-24.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezy450_cinder"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The adidas Yeezy 450 ‘Cinder’ combines a monochrome dark taupe hue with a futuristic design language.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Equipped with rope laces, the knit textile upper wraps the foot in a sock-like build.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "An elastic cuff secures the ankle, while the foot is cradled by the PU-injected midsole, highlighted by tapered ‘fingers’ that extend up the heel and sides.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "An Ortholite sockliner provides lightweight cushioning, while the rubber outsole features a wavy traction pattern for optimal grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

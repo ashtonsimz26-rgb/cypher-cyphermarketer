@@ -1,0 +1,71 @@
+{
+ "image_name": "jordan_1_retro_high_og_shattered_backboard",
+ "built_at": "2026-09-10T02:40:07.004316+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro High OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "shattered",
+   "backboard"
+  ],
+  "found": [
+   "shattered",
+   "backboard"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro High OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-08-23.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_high_og_shattered_backboard"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "The 2025 edition of the Air Jordan 1 Retro High OG 'Shattered Backboard' revives the popular 2015 colorway, inspired by the jersey that Michael Jordan wore during an exhibition game in Italy following his rookie NBA season.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "(He shattered the backboard while executing a one-handed dunk.) The high-top sports a leather upper that combines white quarter panels with a black forefoot overlay and matching black Swoosh while orange accents land on the toe box, heel, and collar flap.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

@@ -1,0 +1,92 @@
+{
+ "image_name": "nike_air_max_95_og_blue_spark",
+ "built_at": "2026-09-10T02:40:07.039487+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Max 95 OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "blue",
+   "spark"
+  ],
+  "found": [
+   "blue",
+   "spark"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Sergio Lozano designed the Nike Air Max 95 OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-08-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_max_95_og_blue_spark"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike Air Max 95 OG 'Blue Spark' showcases the retro runner's gradient suede side panels, which transition from light grey to black.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "White mesh partially covers the webbing eyelets, rendered in a vibrant blue shade that matches the embroidered mini-Swoosh and Air Max tongue patch.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Silver reflective detailing covers the tongue and molded heel panel, marked with debossed Nike Air branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a black polyurethane midsole with blue-tinged Air-sole units in the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

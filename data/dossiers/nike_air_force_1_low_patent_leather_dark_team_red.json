@@ -1,0 +1,109 @@
+{
+ "image_name": "nike_air_force_1_low_patent_leather_dark_team_red",
+ "built_at": "2026-09-10T02:40:07.033257+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "patent",
+   "leather",
+   "dark",
+   "team",
+   "red"
+  ],
+  "found": [
+   "patent",
+   "leather",
+   "dark",
+   "team",
+   "red"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2026-04-09.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_force_1_low_patent_leather_dark_team_red"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Nike Air Force 1 Low 'Patent Leather Dark Team Red' pairs rich hues with a polished finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The classic silhouette is updated with a patent leather upper, featuring a burgundy base with orange accents on the Swoosh and heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The latter is marked with 'Nike Air' in yellow embroidery, with additional Nike branding appearing on the woven tongue tag and sockliner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a maroon midsole with encapsulated Air-Sole cushioning in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Underfoot, a crimson semi-translucent rubber outsole provides reliable traction.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

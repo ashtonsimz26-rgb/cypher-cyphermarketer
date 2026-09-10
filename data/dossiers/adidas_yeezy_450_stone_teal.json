@@ -1,0 +1,79 @@
+{
+ "image_name": "adidas_yeezy_450_stone_teal",
+ "built_at": "2026-09-10T02:40:06.966993+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy 450",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "stone",
+   "teal"
+  ],
+  "found": [
+   "stone",
+   "teal"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2023-05-31.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_450_stone_teal"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The adidas Yeezy 450 ‘Stone Teal’ delivers a stealthy colorway of the lifestyle silhouette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "A neutral grey finish is applied to the one-piece knit upper, secured with traditional lace closure and a stretchy sock-like collar.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A hint of teal along the back heel adds a subtle pop of color, disrupting the shoe’s monochrome palette.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The lightweight build is mounted on a PU-injected midsole, featuring distinctive lines that give the sneaker its unique, one-of-a-kind aesthetic.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

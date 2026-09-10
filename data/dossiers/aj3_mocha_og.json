@@ -1,0 +1,90 @@
+{
+ "image_name": "aj3_mocha_og",
+ "built_at": "2026-09-10T02:40:06.986127+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Jordan 3",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "mocha"
+  ],
+  "found": [
+   "mocha"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2001-09-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj3_mocha_og"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "This Air Jordan 3 Retro ‘Mocha’ dropped in September 2001.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "It comes with a tumbled white leather upper with smooth white leather at the base and perforated detailing at the tongue, eyestays, and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "It also features a Dark Mocha elephant skin overlays at the toe and heel, as well as Dark Mocha accents on the top eyelets and tongue and heel branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The upper comes mounted on a white midsole with a Dark Mocha Air unit in the heel and a matching outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

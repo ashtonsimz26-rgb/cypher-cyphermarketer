@@ -1,0 +1,95 @@
+{
+ "image_name": "jordan_jordan_1_retro_low_og_sp_travis_scott_olive_wmns",
+ "built_at": "2026-09-10T02:40:07.027874+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro Low OG SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "travis",
+   "scott",
+   "olive"
+  ],
+  "found": [
+   "travis",
+   "scott",
+   "olive"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro Low OG SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-04-26.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_jordan_1_retro_low_og_sp_travis_scott_olive_wmns"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Travis Scott x Women’s Air Jordan 1 Retro Low OG SP ‘Olive’ presents the chart-topping rapper’s first sneaker collaboration in female sizing.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The upper combines a black suede base with off-white leather overlays and olive suede Swooshes, featuring a reverse check on the lateral side and a traditional design on the opposite side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The neutral earth tones are punctuated by bold crimson accents, highlighted by woven Nike Air tongue tags and mismatched Jordan and Cactus Jack branding on each heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Anchoring the low-top is a rubber cupsole that pairs vintage off-white sidewalls with an olive green rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

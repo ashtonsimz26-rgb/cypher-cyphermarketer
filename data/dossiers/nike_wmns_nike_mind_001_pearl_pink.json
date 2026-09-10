@@ -1,0 +1,79 @@
+{
+ "image_name": "nike_wmns_nike_mind_001_pearl_pink",
+ "built_at": "2026-09-10T02:40:07.059432+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Wmns Nike Mind 001",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "pearl",
+   "pink"
+  ],
+  "found": [
+   "pearl",
+   "pink"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-05-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_wmns_nike_mind_001_pearl_pink"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike Women's Mind 001 'Pearl Pink' gives the pregame mule a pastel makeover.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "A soft pink hue is applied to the molded foam upper, featuring perforated textile at the vamp for improved breathability.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Underfoot, the outsole reveals the slip-on's standout feature: a series of twenty-two foam nodes, anatomically mapped and designed to independently move with each step.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Made with stretchy fabric, the footbed allows the foot to feel the pressure of the nodes, which are scientifically shown to activate sensory areas of the brain.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [],
+ "usable": false
+}

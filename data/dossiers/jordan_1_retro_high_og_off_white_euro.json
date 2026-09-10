@@ -1,0 +1,81 @@
+{
+ "image_name": "jordan_1_retro_high_og_off_white_euro",
+ "built_at": "2026-09-10T02:40:07.002402+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro High OG",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "off",
+   "euro"
+  ],
+  "found": [
+   "off"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro High OG.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2018-03-03.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_high_og_off_white_euro"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Inspired by Air Jordan 1 colorways, the Off-White x Air Jordan 1 Retro High OG 'White' 2018 is a reimagination of its 'Chicago'-themed predecessor.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Designed by Virgil Abloh, the model features an all-white premium leather and mesh upper with deconstructed Swoosh branding and blue detailing, and Wings logos on the ankles.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "It is accented by black “AIR” lettering on the midsole, black 'Off-White™ for NIKE' text on the side panels, and orange tabs.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

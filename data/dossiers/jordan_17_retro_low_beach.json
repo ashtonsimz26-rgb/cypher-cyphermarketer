@@ -1,0 +1,91 @@
+{
+ "image_name": "jordan_17_retro_low_beach",
+ "built_at": "2026-09-10T02:40:06.996688+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "17 Retro Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "beach"
+  ],
+  "found": [
+   "beach"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Wilson Smith designed the Jordan 17 Retro Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-10-17.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_17_retro_low_beach"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Infinite Archives x Air Jordan 17 Retro Low 'Beach' makes use of a cream-colored leather upper with chrome eyelets and oblong perforations on the side panel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Contrasting black accents make their way to the knit collar and perforated leather eyestay.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A prismatic pop of color arrives via the iridescent TPU heel clip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Performance benefits include a polyurethane midsole, wrapped in a translucent TPU chassis and equipped with a top-loaded Zoom Air unit in the forefoot and Air-sole cushioning in the heel",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

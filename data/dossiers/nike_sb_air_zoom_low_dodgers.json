@@ -1,0 +1,79 @@
+{
+ "image_name": "nike_sb_air_zoom_low_dodgers",
+ "built_at": "2026-09-10T02:40:07.056578+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "SB Air Zoom Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "dodgers"
+  ],
+  "found": [
+   "dodgers"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "release_date",
+   "text": "Released 2026-06-16.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_sb_air_zoom_low_dodgers"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Paul Rodriguez x Nike SB Air Zoom Low 'Dodgers' dresses the retro skate shoe in a color palette inspired by LA's MLB franchise.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "P-Rod's debut signature model features a two-tone suede upper in Flint Grey and Medium Grey.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The perforated Swoosh is rendered in Deep Royal Blue, matching the textile collar lining and the Nike SB logo that graces the tongue tag.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Anchoring the sneaker is a rubber cupsole with exposed Zoom Air cushioning in the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
+}

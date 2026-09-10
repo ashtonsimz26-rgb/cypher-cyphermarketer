@@ -1,0 +1,92 @@
+{
+ "image_name": "jordan_3_retro_pine_green",
+ "built_at": "2026-09-10T02:40:07.011628+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "3 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "pine",
+   "green"
+  ],
+  "found": [
+   "pine",
+   "green"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 3 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-10-30.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_3_retro_pine_green"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Air Jordan 3 Retro ‘Pine Green’ combines OG-style color blocking with updated materials.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Black textured nubuck replaces traditional leather construction on the upper, which is enlivened with verdant green accents on the molded eyelets, perforated leather collar, and embroidered Jumpman branding atop the tongue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Forefoot and heel overlays are rendered in the 3’s signature elephant print, while the molded heel tab displays a second Jumpman icon.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "The retro silhouette is mounted on a white polyurethane midsole with contrast green detailing and visible Air-sole cushioning under the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

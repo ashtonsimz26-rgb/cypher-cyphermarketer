@@ -1,0 +1,80 @@
+{
+ "image_name": "nike_supreme_x_dunk_high_pro_sb_red",
+ "built_at": "2026-09-10T02:40:07.058478+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Supreme x Dunk High Pro SB",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "red"
+  ],
+  "found": [
+   "red"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Nike Supreme x Dunk High Pro SB.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2003-08-08.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_supreme_x_dunk_high_pro_sb_red"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Alongside two additional colorways, the Supreme x Dunk High Pro SB 'Red' made up the second collaboration between Nike SB and Supreme.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The high-top sports gold stars and crocodile-textured overlays, the latter included in lieu of Tinker Hatfield’s elephant print.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The two-tone white and red design is finished with a choice of three lace colors and a metallic gold Supreme lace jewel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

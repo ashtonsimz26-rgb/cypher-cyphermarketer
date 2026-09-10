@@ -1,0 +1,80 @@
+{
+ "image_name": "jordan_4_retro_bordeaux",
+ "built_at": "2026-09-10T02:40:07.015330+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "4 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "bordeaux"
+  ],
+  "found": [
+   "bordeaux"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 4 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-10-10.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_4_retro_bordeaux"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Celebrating Jordan Brand’s partnership with the French football club, the Paris Saint-Germain x Air Jordan 4 Retro ‘Bordeaux’ features color blocking that recalls the silhouette’s OG ‘Fire Red’ composition.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The white leather upper is accented with black wings and Bordeaux detailing on the eyelets, interior tongue and heel, the latter marked with dual Jumpman and PSG branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A black woven tab on the lateral forefoot is inscribed with ‘Paname,’ a slang term for the French capital.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

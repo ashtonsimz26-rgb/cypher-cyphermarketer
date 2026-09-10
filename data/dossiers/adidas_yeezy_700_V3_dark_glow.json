@@ -1,0 +1,92 @@
+{
+ "image_name": "adidas_yeezy_700_V3_dark_glow",
+ "built_at": "2026-09-10T02:40:06.967608+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy 700 V3",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "dark",
+   "glow"
+  ],
+  "found": [
+   "dark",
+   "glow"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy 700 V3.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-08-02.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_700_V3_dark_glow"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy 700 V3 ‘Dark Glow’ features a black engineered mesh upper with charcoal accents and smoky RPU overlays — a neutral design that’s virtually identical to the ‘Alvah’ colorway from April 2020.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The key difference centers around the sneaker’s glow-in-the-dark RPU cage, which emits a blue luminescence versus the older shoe’s green-tinged glow.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Lightweight cushioning arrives via a solid black EVA midsole with an encapsulated polyurethane core.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underfoot, a herringbone-traction rubber outsole delivers superior grip.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

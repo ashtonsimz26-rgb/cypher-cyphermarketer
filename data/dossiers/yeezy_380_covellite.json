@@ -1,0 +1,79 @@
+{
+ "image_name": "yeezy_380_covellite",
+ "built_at": "2026-09-10T02:40:07.067520+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Boost 380",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "covellite"
+  ],
+  "found": [
+   "covellite"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the adidas Yeezy Boost 380.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2021-03-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezy_380_covellite"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Boost 380 ‘Covellite’ showcases a mix of navy, indigo, and grey tones throughout the re-engineered Primeknit upper.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The camo-like design is punctuated by perforated detailing that accompanies the sneaker’s semi-translucent monofilament window, woven into the side panel to enhance the breathability of the sock-like build.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Responsive cushioning arrives via a caged full-length Boost midsole, featuring a stacked, elevated heel and supported underfoot by a herringbone rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

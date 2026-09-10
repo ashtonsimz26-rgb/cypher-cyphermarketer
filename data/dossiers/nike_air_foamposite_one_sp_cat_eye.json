@@ -1,0 +1,93 @@
+{
+ "image_name": "nike_air_foamposite_one_sp_cat_eye",
+ "built_at": "2026-09-10T02:40:07.029500+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Foamposite One SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "cat",
+   "eye"
+  ],
+  "found": [
+   "cat",
+   "eye"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Eric Avar designed the Nike Air Foamposite One SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2024-07-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_foamposite_one_sp_cat_eye"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Comme des Garçons Homme Plus x Nike Air Foamposite One SP 'Cat Eye' celebrates the 2024 Summer Games with embossed circular patterns and a marbled finish in charcoal and off-white tones.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "In keeping with the Olympic theme, a webbing pull tab at the heel is marked with bronze, silver, and gold stripes.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "'COMME des GARÇONS HOMME PLUS' is inscribed in white lettering on the black leather back tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underpinning the sneaker is a dark grey semi-translucent rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}

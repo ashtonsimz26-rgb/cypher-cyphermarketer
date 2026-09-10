@@ -1,0 +1,90 @@
+{
+ "image_name": "adidas_yeezy_foam_runner_carbon",
+ "built_at": "2026-09-10T02:40:06.975573+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy Foam Runner",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "carbon"
+  ],
+  "found": [
+   "carbon"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Adidas Yeezy Foam Runner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-08-07.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "adidas_yeezy_foam_runner_carbon"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Foam Runner ‘Carbon’ brings a stealthy one-note finish to the futuristic slip-on.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A dark shade of grey is applied to the one-piece build, made with injected EVA foam and featuring flowing lines and a sculpted heel designed to cradle the back of the foot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Strategically mapped vents throughout the vamp and side panels provide enhanced breathability, while the textured footbed offers a comfortable fit.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Underpinning the clog-like silhouette is a durable rubber outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

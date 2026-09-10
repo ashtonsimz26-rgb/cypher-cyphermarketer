@@ -1,0 +1,23 @@
+{
+ "image_name": "yeezy700_hi-res_red",
+ "built_at": "2026-09-10T02:40:07.066705+00:00",
+ "name_match": "failed",
+ "signal_1_silhouette": {
+  "tested": "Yeezy 700",
+  "found": false
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "res",
+   "red"
+  ],
+  "found": [
+   "res",
+   "red"
+  ],
+  "passed": true
+ },
+ "facts": [],
+ "hook_candidates": [],
+ "usable": false
+}

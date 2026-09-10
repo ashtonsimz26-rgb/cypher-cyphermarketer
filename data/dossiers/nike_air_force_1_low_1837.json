@@ -1,0 +1,125 @@
+{
+ "image_name": "nike_air_force_1_low_1837",
+ "built_at": "2026-09-10T02:40:07.030166+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "Air Force 1 Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "1837"
+  ],
+  "found": [
+   "1837"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2023-03-07.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "nike_air_force_1_low_1837"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The Tiffany & Co.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "collab_origin",
+   "text": "x Nike Air Force 1 Low ‘1837’ delivers the debut collaboration between the iconic New York-based jeweler and the Swoosh.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "collab_origin",
+   "text": "While the ‘Diamond’ Dunk SB from 2005 paid homage to the luxury emporium by featuring a leather base in Tiffany’s signature hue, this AF1 release makes the brand partnership official.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Named after Tiffany’s founding year, the low-top utilizes a black suede upper with a tumbled leather Swoosh in the instantly recognizable shade of robin’s-egg blue.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "Woven tongue tags display ‘Tiffany’ script, while traditional ‘Nike Air’ branding appears in tonal embroidery on each black leather heel tab.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f8",
+   "tag": "spec",
+   "text": "Below that, an engraved Tiffany badge shines in metallic silver.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f9",
+   "tag": "spec",
+   "text": "Tiffany unveiled a range of sterling silver accessories to accompany the premium kicks, available separately from the AF1: a shoe horn, a shoe brush, lace dubrae and a whistle chain.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f4",
+  "f5"
+ ],
+ "usable": true
+}

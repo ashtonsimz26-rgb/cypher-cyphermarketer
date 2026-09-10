@@ -1,0 +1,90 @@
+{
+ "image_name": "jordan_14_retro_ferrari",
+ "built_at": "2026-09-10T02:40:06.996210+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "14 Retro",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "ferrari"
+  ],
+  "found": [
+   "ferrari"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Jordan 14 Retro.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2025-06-14.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_14_retro_ferrari"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The 2025 edition of the Air Jordan 14 Retro 'Ferrari' brings back a bold colorway that emphasizes the shoe's automotive influences.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "True to the original 2014 release, the championship silhouette utilizes a one-piece scarlet suede upper with contrasting black accents on the tongue, collar lining and heel panel, marked with an embossed Jumpman and '23' in Vibrant Yellow.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "A matching yellow Jumpman badge decorates the lateral collar.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Accented with faux carbon fiber detailing, the black Phylon midsole features an exposed chrome-plated chassis and springy Zoom Air units in the forefoot and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
+}

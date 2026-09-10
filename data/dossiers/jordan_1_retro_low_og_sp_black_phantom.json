@@ -1,0 +1,102 @@
+{
+ "image_name": "jordan_1_retro_low_og_sp_black_phantom",
+ "built_at": "2026-09-10T02:40:07.006908+00:00",
+ "name_match": "confirmed",
+ "signal_1_silhouette": {
+  "tested": "1 Retro Low OG SP",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "phantom"
+  ],
+  "found": [
+   "phantom"
+  ],
+  "passed": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro Low OG SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-12-15.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "jordan_1_retro_low_og_sp_black_phantom"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Travis Scott x Air Jordan 1 Retro Low OG SP ‘Black Phantom’ continues the Houston rapper’s remixed series centered around Michael Jordan’s debut signature shoe.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "This pair sports a black nubuck upper with tonal suede overlays and contrast white stitching throughout.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Scott’s signature reverse Swoosh decorates the lateral side, while the opposite side features a traditional Swoosh accompanied by Cactus Jack branding.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Mismatched heel tabs display a retro Wings logo on the right shoe and an embroidered bee motif on the left.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "The low-top is mounted on a black rubber cupsole with stitched sidewall construction and encapsulated Air-sole cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
+}
