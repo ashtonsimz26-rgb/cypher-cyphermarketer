@@ -1,7 +1,8 @@
 {
  "image_name": "aj2_sp_union_grey_fog",
- "built_at": "2026-09-10T02:40:06.985334+00:00",
+ "built_at": "2026-09-10T03:11:03.357675+00:00",
  "name_match": "silhouette_only",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Jordan 2",
   "found": true
@@ -12,7 +13,15 @@
    "fog"
   ],
   "found": [],
-  "passed": false
+  "result": "fail"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2022,
+   "goat_release_year": 2022
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

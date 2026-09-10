@@ -1,7 +1,8 @@
 {
  "image_name": "nike_wmns_nike_mind_001_pearl_pink",
- "built_at": "2026-09-10T02:40:07.059432+00:00",
+ "built_at": "2026-09-10T03:11:03.417291+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Wmns Nike Mind 001",
   "found": true
@@ -15,7 +16,15 @@
    "pearl",
    "pink"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2026,
+   "goat_release_year": 2026
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

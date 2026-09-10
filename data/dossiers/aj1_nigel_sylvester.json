@@ -1,10 +1,11 @@
 {
  "image_name": "aj1_nigel_sylvester",
- "built_at": "2026-09-10T02:40:06.983799+00:00",
- "name_match": "failed",
+ "built_at": "2026-09-10T03:11:03.356350+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Jordan 1 High",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -15,9 +16,76 @@
    "nigel",
    "sylvester"
   ],
-  "passed": true
+  "result": "pass"
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2018,
+   "goat_release_year": 2018
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 High.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2018-08-31.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj1_nigel_sylvester"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Nigel Sylvester x Air Jordan 1 Retro High OG gives Nigel Sylvester, a pro rider from Queens, New York, a high-top AJ1 in cream leather showcasing a worn-in aesthetic.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Sylvester prefers the Air Jordan 1 when cruising around on his BMX, and the distressed shoe mimics natural scuffs and abrasions from mastering tricks.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Pre-scuffed markings can be found on the toe and heel, while a mini-Swoosh can be found near the front toe of the shoe, a first for the Air Jordan 1.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
 }

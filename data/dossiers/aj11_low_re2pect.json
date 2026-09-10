@@ -1,10 +1,11 @@
 {
  "image_name": "aj11_low_re2pect",
- "built_at": "2026-09-10T02:40:06.982762+00:00",
- "name_match": "failed",
+ "built_at": "2026-09-10T03:11:03.355448+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Air Jordan 11 Low",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -13,9 +14,86 @@
   "found": [
    "re2pect"
   ],
-  "passed": true
+  "result": "pass"
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2018,
+   "goat_release_year": 2018
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Tinker Hatfield designed the Air Jordan 11 Retro Low.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2018-05-14.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj11_low_re2pect"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Translating the 2017 “Derek Jeter” high-top into a low-top style, this model sports a Yankee-themed Binary Blue and Sail colorway.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The sneaker comes dressed in an entirely suede upper with embroidery of Jeter’s jersey number “2” on the back heel, with a clean white coating and translucent outsole rounding out the design.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The original model was released in an edition of five and given to five raffle winners for free.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Now, the Jordan 11 Retro Low RE2PECT is available to the public.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
 }

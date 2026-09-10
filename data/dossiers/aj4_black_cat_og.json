@@ -1,7 +1,8 @@
 {
  "image_name": "aj4_black_cat_og",
- "built_at": "2026-09-10T02:40:06.986435+00:00",
+ "built_at": "2026-09-10T03:11:03.358490+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Jordan 4",
   "found": true
@@ -13,7 +14,15 @@
   "found": [
    "cat"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2006,
+   "goat_release_year": 2006
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

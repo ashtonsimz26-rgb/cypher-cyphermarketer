@@ -1,7 +1,8 @@
 {
  "image_name": "nike_air_max_95_lux_black",
- "built_at": "2026-09-10T02:40:07.038800+00:00",
- "name_match": "silhouette_only",
+ "built_at": "2026-09-10T03:11:03.398112+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_3_year",
  "signal_1_silhouette": {
   "tested": "Air Max 95 Lux",
   "found": true
@@ -9,7 +10,15 @@
  "signal_2_colorway": {
   "tested": [],
   "found": [],
-  "passed": false
+  "result": "unavailable"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2019,
+   "goat_release_year": 2019
+  },
+  "match": true,
+  "applied": true
  },
  "facts": [
   {
@@ -33,10 +42,44 @@
    },
    "verified": "self_evident",
    "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Part of a trio of colorways released for November 2019, the Supreme x Air Max 95 Lux 'Black' sneaker is a premium take on the iconic Nike Air Max 95 model.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Dressing its wavy, anatomy-inspired panels in full Italian leather, the cult skate brand delivers a fashion-forward twist on the legendary, Sergio Lozano Air Max design with a laser perforated SUPREME logo on the sides.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "This ultra-sleek, blacked-out version is finished with a full-length Air-sole unit which grounds the design in heritage style.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
   }
  ],
  "hook_candidates": [
-  "f1"
+  "f1",
+  "f3"
  ],
  "usable": true
 }

@@ -1,7 +1,8 @@
 {
  "image_name": "nike_air_humara_17_black",
- "built_at": "2026-09-10T02:40:07.037049+00:00",
- "name_match": "silhouette_only",
+ "built_at": "2026-09-10T03:11:03.396428+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_3_year",
  "signal_1_silhouette": {
   "tested": "Air Humara 17",
   "found": true
@@ -9,7 +10,15 @@
  "signal_2_colorway": {
   "tested": [],
   "found": [],
-  "passed": false
+  "result": "unavailable"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2017,
+   "goat_release_year": 2017
+  },
+  "match": true,
+  "applied": true
  },
  "facts": [
   {
@@ -33,10 +42,55 @@
    },
    "verified": "self_evident",
    "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Supreme revived the Air Humara trail runner from Nike’s outdoor archive with this October 2017 release.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "collab_origin",
+   "text": "One of four colorways from the collaborative release, this pair differs from its two-tone counterparts with a monochromatic finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Basic black covers the lightweight mesh upper and synthetic leather overlays, coated in a reflective finish on the toe and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "An embossed Supreme logo appears on the lateral-side toe wrap, while embossed ‘World’ and ‘Famous’ inscriptions are stamped on the heel tabs of the left and right shoes.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
   }
  ],
  "hook_candidates": [
-  "f1"
+  "f1",
+  "f4"
  ],
  "usable": true
 }

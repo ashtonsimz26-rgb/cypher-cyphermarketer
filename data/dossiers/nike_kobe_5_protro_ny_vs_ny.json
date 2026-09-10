@@ -1,7 +1,8 @@
 {
  "image_name": "nike_kobe_5_protro_ny_vs_ny",
- "built_at": "2026-09-10T02:40:07.052079+00:00",
- "name_match": "silhouette_only",
+ "built_at": "2026-09-10T03:11:03.410707+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_3_year",
  "signal_1_silhouette": {
   "tested": "Kobe 5 Protro",
   "found": true
@@ -9,7 +10,15 @@
  "signal_2_colorway": {
   "tested": [],
   "found": [],
-  "passed": false
+  "result": "unavailable"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2026,
+   "goat_release_year": 2026
+  },
+  "match": true,
+  "applied": true
  },
  "facts": [
   {
@@ -22,8 +31,78 @@
    },
    "verified": "self_evident",
    "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The Jalen Brunson x Nike Zoom Kobe 5 Protro 'NY vs.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "cultural_moment",
+   "text": "NY' celebrates the annual Nike-sponsored summer streetball tournament showcasing the region's top high school talent.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "cultural_moment",
+   "text": "Inspired by the Statue of Liberty, a vibrant turquoise hue is applied to the seamless synthetic upper.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Splatter graphics in the New York Knicks' signature blue and orange hues covers the forefoot overlay, eyestay, and heel counter.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "This Protro edition is updated with a lightweight Cushlon midsole with snappy Zoom Air cushioning in the forefoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "spec",
+   "text": "A translucent rubber outsole provides multi-directional traction underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
   }
  ],
- "hook_candidates": [],
- "usable": false
+ "hook_candidates": [
+  "f2",
+  "f3",
+  "f4"
+ ],
+ "usable": true
 }

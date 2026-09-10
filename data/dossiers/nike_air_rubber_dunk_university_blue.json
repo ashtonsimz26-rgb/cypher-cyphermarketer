@@ -1,7 +1,8 @@
 {
  "image_name": "nike_air_rubber_dunk_university_blue",
- "built_at": "2026-09-10T02:40:07.041329+00:00",
+ "built_at": "2026-09-10T03:11:03.400846+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Air Rubber Dunk",
   "found": true
@@ -13,7 +14,15 @@
   "found": [
    "blue"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2020,
+   "goat_release_year": 2020
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

@@ -1,7 +1,8 @@
 {
  "image_name": "jordan_11_retro_low_unc",
- "built_at": "2026-09-10T02:40:06.992953+00:00",
+ "built_at": "2026-09-10T03:11:03.363820+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "11 Retro Low",
   "found": true
@@ -13,7 +14,15 @@
   "found": [
    "unc"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2026,
+   "goat_release_year": 2026
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

@@ -1,10 +1,11 @@
 {
  "image_name": "yeezy350_sand_taupe",
- "built_at": "2026-09-10T02:40:07.065400+00:00",
- "name_match": "failed",
+ "built_at": "2026-09-10T03:11:03.422943+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Yeezy 350 V2",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -15,9 +16,86 @@
    "sand",
    "taupe"
   ],
-  "passed": true
+  "result": "pass"
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2020,
+   "goat_release_year": 2020
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Yeezy 350 V2.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-12-19.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezy350_sand_taupe"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Boost 350 V2 ‘Sand Taupe’ delivers yet another in a long line of neutral colorways that have dominate the silhouette’s many releases since its global debut in 2016.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Decorative no-tie laces are integrated into to the breathable Primeknit upper, featuring a patchwork-like pattern and a prominent seam that runs down the length of the vamp.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "On the lateral side panel, coral fibers are woven into the knit construction above the post-dyed monofilament side stripe for a subtle pop of color.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A fully caged Boost midsole provides lightweight cushioning.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
 }

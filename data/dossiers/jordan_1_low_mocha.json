@@ -1,7 +1,8 @@
 {
  "image_name": "jordan_1_low_mocha",
- "built_at": "2026-09-10T02:40:06.997879+00:00",
+ "built_at": "2026-09-10T03:11:03.367188+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "1 Low",
   "found": true
@@ -13,7 +14,15 @@
   "found": [
    "mocha"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2019,
+   "goat_release_year": 2019
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

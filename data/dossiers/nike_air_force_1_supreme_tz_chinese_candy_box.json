@@ -1,7 +1,8 @@
 {
  "image_name": "nike_air_force_1_supreme_tz_chinese_candy_box",
- "built_at": "2026-09-10T02:40:07.036840+00:00",
+ "built_at": "2026-09-10T03:11:03.395993+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Air Force 1 Supreme TZ",
   "found": true
@@ -17,7 +18,15 @@
    "candy",
    "box"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2009,
+   "goat_release_year": 2009
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

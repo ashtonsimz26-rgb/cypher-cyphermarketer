@@ -1,10 +1,11 @@
 {
  "image_name": "aj1_travisscott_mocha",
- "built_at": "2026-09-10T02:40:06.985031+00:00",
- "name_match": "failed",
+ "built_at": "2026-09-10T03:11:03.357432+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Jordan 1 High",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -16,9 +17,76 @@
    "travis",
    "scott"
   ],
-  "passed": true
+  "result": "pass"
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2019,
+   "goat_release_year": 2019
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 Retro High OG SP.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2019-05-11.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj1_travisscott_mocha"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Travis Scott x Air Jordan 1 Retro High features a new look on the iconic silhouette, thanks to an oversized backward-facing Swoosh on the lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A traditionally oriented Swoosh graces the medial side of the upper, which is built with a blend of white leather and brown suede.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Additional unique details include a double-layer construction on the collar and Scott’s crudely drawn face logo embossed on the heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
 }

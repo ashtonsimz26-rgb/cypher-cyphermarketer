@@ -1,7 +1,8 @@
 {
  "image_name": "jordan_1_retro_high_nrg_storm_blue",
- "built_at": "2026-09-10T02:40:07.000697+00:00",
+ "built_at": "2026-09-10T03:11:03.369028+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "1 Retro High NRG",
   "found": true
@@ -15,7 +16,15 @@
    "storm",
    "blue"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2018,
+   "goat_release_year": 2018
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

@@ -1,7 +1,8 @@
 {
  "image_name": "nike_calm_slide_black",
- "built_at": "2026-09-10T02:40:07.044274+00:00",
- "name_match": "silhouette_only",
+ "built_at": "2026-09-10T03:11:03.403731+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_3_year",
  "signal_1_silhouette": {
   "tested": "Calm Slide",
   "found": true
@@ -9,7 +10,15 @@
  "signal_2_colorway": {
   "tested": [],
   "found": [],
-  "passed": false
+  "result": "unavailable"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2023,
+   "goat_release_year": 2023
+  },
+  "match": true,
+  "applied": true
  },
  "facts": [
   {
@@ -19,6 +28,50 @@
    "source": {
     "kind": "release_dates",
     "ref": "nike_calm_slide_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "spec",
+   "text": "The Nike Calm Slide 'Black' delivers an easy-to-wear slip-on in a stealthy finish.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Built with flexible foam, the minimalist sandal is equipped with a comfortable wide-strap upper with debossed Nike Swoosh branding on the lateral side.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A second larger Swoosh adorns the footbed, featuring a textured top layer that holds the foot securely in place.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The seamless silhouette is underpinned by a full-length rubber outsole, good for durable traction on wet or dry surfaces.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
    },
    "verified": "self_evident",
    "checked_at": null

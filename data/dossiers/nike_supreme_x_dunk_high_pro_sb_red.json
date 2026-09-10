@@ -1,7 +1,8 @@
 {
  "image_name": "nike_supreme_x_dunk_high_pro_sb_red",
- "built_at": "2026-09-10T02:40:07.058478+00:00",
+ "built_at": "2026-09-10T03:11:03.416381+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Supreme x Dunk High Pro SB",
   "found": true
@@ -13,7 +14,15 @@
   "found": [
    "red"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2003,
+   "goat_release_year": 2003
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

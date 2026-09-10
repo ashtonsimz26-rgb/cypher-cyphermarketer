@@ -1,10 +1,11 @@
 {
  "image_name": "aj1_sb_lance_mountain_black",
- "built_at": "2026-09-10T02:40:06.984616+00:00",
- "name_match": "failed",
+ "built_at": "2026-09-10T03:11:03.357148+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Air Jordan 1 High",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -15,9 +16,100 @@
    "lance",
    "mountain"
   ],
-  "passed": true
+  "result": "pass"
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2014,
+   "goat_release_year": 2014
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Peter Moore designed the Jordan 1 SB.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2014-06-07.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "aj1_sb_lance_mountain_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The Lance Mountain x Air Jordan 1 Retro SB QS pays homage to the 1987 skate video, The Search for Animal Chin, which showcases Pasadena Pro Skater Lance Mountain wearing an Air Jordan 1 'Royal' sneaker on his left foot and a white/Carolina blue Air Jordan 1 on his right.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Skaters adopted the Air Jordan 1 for its durable leather, high ankle coverage, and Nike Air technology.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "To extend the life of their shoes, skaters wore mismatched pairs and sometimes painted them the same color to recreate a uniform look.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "collab_origin",
+   "text": "Inspired by this DIY-aesthetic, the Lance Mountain x Air Jordan 1 Retro SB QS features a black/red and a black/royal colorway with a coat of black paint that wears away with each trick, creating a design that's unique to the individual skater.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f7",
+   "tag": "release_drama",
+   "text": "Released in limited quantities in June 2014, the sneaker dropped in a two-pack alongside a colorway given a treatment of white paint.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3",
+  "f6",
+  "f7"
+ ],
+ "usable": true
 }

@@ -90,6 +90,28 @@ def has_phrase(haystack: str, phrase: str) -> bool:
     return re.search(rf"(?<![a-z0-9]){re.escape(p)}(?![a-z0-9])", h) is not None
 
 
+def has_ordered_tokens(haystack: str, phrase: str) -> bool:
+    """Every phrase token present, IN ORDER, as whole words. Not contiguous.
+
+    ★ Contiguity was never the property that mattered — ordered presence is.
+    The catalog says "Jordan 1 High" while GOAT says "Air Jordan 1 Retro High
+    OG", interposing Retro/OG, so a contiguous has_phrase() rejected obvious
+    matches (aj1_dark_mocha, aj11_low_re2pect). Ordered-subsequence still
+    rejects the case the strict form existed for: silhouette "Nike Air Humara"
+    against a Goadome name fails at the third token.
+    """
+    h, ph = norm(haystack).split(), norm(phrase).split()
+    if not h or not ph:
+        return False
+    i = 0
+    for tok in h:
+        if tok == ph[i]:
+            i += 1
+            if i == len(ph):
+                return True
+    return False
+
+
 def distinctive_tokens(*sources: str) -> list[str]:
     toks, seen = [], set()
     for s in sources:
@@ -102,13 +124,22 @@ def distinctive_tokens(*sources: str) -> list[str]:
 
 # ── the gate ─────────────────────────────────────────────────────────────────
 def name_consistency(cat: dict, snap: dict) -> dict:
-    """Two signals, fail-closed. Auditable per shoe — every input is recorded."""
+    """Three signals, fail-closed. Auditable per shoe — every input recorded.
+
+    Signal 2 is THREE-WAY, because "nothing to test" and "tested and found
+    nothing" are different outcomes — the same distinction verify.py draws
+    between unverified and contradicted. Collapsing them rejects shoes whose
+    colorway is simply generic ("Black"); granting them a free pass is the
+    opposite error. Signal 3 (year agreement) resolves the unavailable case:
+    weak alone, but genuinely independent of silhouette, and a snapshot about a
+    different shoe usually carries a different year.
+    """
     story = strip_html(snap.get("story_html"))
     goat_name = snap.get("name") or ""
     silhouette = (cat.get("silhouette") or "").strip()
 
-    sig1 = bool(silhouette) and (has_phrase(goat_name, silhouette)
-                                 or has_phrase(story, silhouette))
+    sig1 = bool(silhouette) and (has_ordered_tokens(goat_name, silhouette)
+                                 or has_ordered_tokens(story, silhouette))
     # ★ Signal 2 must be INDEPENDENT of signal 1, or it corroborates nothing.
     # First cut pulled tokens from colorway AND name — but `name` contains the
     # silhouette words, so "foamposite" alone satisfied signal 2 for
@@ -121,12 +152,27 @@ def name_consistency(cat: dict, snap: dict) -> dict:
                                             cat.get("name") or "")
               if t not in sil_tokens]
     found = [t for t in tokens if has_phrase(story, t)]
-    sig2 = bool(found)
+    sig2 = "unavailable" if not tokens else ("pass" if found else "fail")
 
-    verdict = "confirmed" if (sig1 and sig2) else ("silhouette_only" if sig1 else "failed")
+    cat_year, goat_year = cat.get("year"), snap.get("release_year")
+    year_match = bool(cat_year) and bool(goat_year) and int(cat_year) == int(goat_year)
+    sig3 = {"tested": {"catalog_year": cat_year, "goat_release_year": goat_year},
+            "match": year_match, "applied": sig2 == "unavailable"}
+
+    if not sig1:
+        verdict, decided_by = "failed", "signal_1_silhouette"
+    elif sig2 == "pass":
+        verdict, decided_by = "confirmed", "signal_2_colorway"
+    elif sig2 == "fail":
+        verdict, decided_by = "silhouette_only", "signal_2_colorway"
+    else:                                   # unavailable -> fall back to year
+        verdict = "confirmed" if year_match else "silhouette_only"
+        decided_by = "signal_3_year"
     return {"name_match": verdict,
+            "decided_by": decided_by,
             "signal_1_silhouette": {"tested": silhouette, "found": sig1},
-            "signal_2_colorway": {"tested": tokens, "found": found, "passed": sig2}}
+            "signal_2_colorway": {"tested": tokens, "found": found, "result": sig2},
+            "signal_3_year": sig3}
 
 
 # ── sentence-level extraction ────────────────────────────────────────────────

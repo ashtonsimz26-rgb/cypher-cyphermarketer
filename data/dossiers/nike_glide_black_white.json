@@ -1,7 +1,8 @@
 {
  "image_name": "nike_glide_black_white",
- "built_at": "2026-09-10T02:40:07.050060+00:00",
- "name_match": "silhouette_only",
+ "built_at": "2026-09-10T03:11:03.408671+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_3_year",
  "signal_1_silhouette": {
   "tested": "Glide",
   "found": true
@@ -9,7 +10,15 @@
  "signal_2_colorway": {
   "tested": [],
   "found": [],
-  "passed": false
+  "result": "unavailable"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2023,
+   "goat_release_year": 2023
+  },
+  "match": true,
+  "applied": true
  },
  "facts": [
   {
@@ -22,8 +31,54 @@
    },
    "verified": "self_evident",
    "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "collab_origin",
+   "text": "The NOCTA x Nike Glide ‘Black White’ delivers an eye-catching silhouette under the banner of the Nike sub-label founded by Drake.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Taking cues from the Nike Zoom Flight 95, the retro-inspired model is distinguished by a wavy foam midsole, featuring distinctive ‘bug eye’ detailing embedded in the sidewall and a translucent rubber outsole underfoot.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Up top, breathable black mesh is overlaid with woven textile side panels in white and black.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "NOCTA branding appears on the tongue, while ‘NIKE’ is spelled out on each of the shoe’s decorative eyelets.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
   }
  ],
- "hook_candidates": [],
- "usable": false
+ "hook_candidates": [
+  "f2"
+ ],
+ "usable": true
 }

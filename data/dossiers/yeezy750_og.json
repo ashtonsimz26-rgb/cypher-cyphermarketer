@@ -1,17 +1,96 @@
 {
  "image_name": "yeezy750_og",
- "built_at": "2026-09-10T02:40:07.067206+00:00",
- "name_match": "failed",
+ "built_at": "2026-09-10T03:11:03.425186+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_3_year",
  "signal_1_silhouette": {
   "tested": "Yeezy 750",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [],
   "found": [],
-  "passed": false
+  "result": "unavailable"
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2015,
+   "goat_release_year": 2015
+  },
+  "match": true,
+  "applied": true
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Yeezy 750.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2015-02-14.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezy750_og"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Kanye West’s very first collaborative adidas shoe, the Yeezy Boost 750 ‘OG’ released worldwide February 2015 in extremely limited quantities.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The towering boot-like builds showcases a radical departure from West’s previous designs, featuring a light brown all-suede upper mounted atop a partially ribbed, Boost-equipped rubber tooling in a subtle Off-White shade.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The minimalist design is accented with oversized rope laces, perforated detailing on the toe box, and a wide midfoot strap in a tonal twill fabrication.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "A hidden zipper on the lateral side provides easy on and off.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1",
+  "f3"
+ ],
+ "usable": true
 }

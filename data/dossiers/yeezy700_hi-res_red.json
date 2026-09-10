@@ -1,10 +1,11 @@
 {
  "image_name": "yeezy700_hi-res_red",
- "built_at": "2026-09-10T02:40:07.066705+00:00",
- "name_match": "failed",
+ "built_at": "2026-09-10T03:11:03.424647+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Yeezy 700",
-  "found": false
+  "found": true
  },
  "signal_2_colorway": {
   "tested": [
@@ -15,9 +16,86 @@
    "res",
    "red"
   ],
-  "passed": true
+  "result": "pass"
  },
- "facts": [],
- "hook_candidates": [],
- "usable": false
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2022,
+   "goat_release_year": 2022
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "designer",
+   "text": "Kanye West designed the Yeezy 700.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2022-06-17.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "yeezy700_hi-res_red"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "The adidas Yeezy Boost 700 ‘Hi-Res Red’ delivers an especially vibrant colorway of Kanye West’s maximalist lifestyle runner.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A bold crimson finish dominates the top portion of the upper, featuring a mesh base with tonal leather and suede construction on the eyestay and heel.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Contrasting hits of black and grey land on reinforced suede overlays, along with burgundy mesh on the toe box.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f6",
+   "tag": "spec",
+   "text": "Responsive cushioning is provided by a full-length Boost midsole, encapsulated within a maroon-colored PU carrier with orange and green accents.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f1"
+ ],
+ "usable": true
 }

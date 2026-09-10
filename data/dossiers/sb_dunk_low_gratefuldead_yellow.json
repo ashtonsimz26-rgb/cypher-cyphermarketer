@@ -1,7 +1,8 @@
 {
  "image_name": "sb_dunk_low_gratefuldead_yellow",
- "built_at": "2026-09-10T02:40:07.062084+00:00",
+ "built_at": "2026-09-10T03:11:03.419857+00:00",
  "name_match": "failed",
+ "decided_by": "signal_1_silhouette",
  "signal_1_silhouette": {
   "tested": "SB Dunk Low",
   "found": false
@@ -19,7 +20,15 @@
    "dead",
    "yellow"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2020,
+   "goat_release_year": 2020
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [],
  "hook_candidates": [],

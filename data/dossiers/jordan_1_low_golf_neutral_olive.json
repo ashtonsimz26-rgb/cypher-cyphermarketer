@@ -1,7 +1,8 @@
 {
  "image_name": "jordan_1_low_golf_neutral_olive",
- "built_at": "2026-09-10T02:40:06.997377+00:00",
+ "built_at": "2026-09-10T03:11:03.366866+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "1 Low Golf",
   "found": true
@@ -15,7 +16,15 @@
    "neutral",
    "olive"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2023,
+   "goat_release_year": 2023
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

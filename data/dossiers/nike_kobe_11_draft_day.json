@@ -1,7 +1,8 @@
 {
  "image_name": "nike_kobe_11_draft_day",
- "built_at": "2026-09-10T02:40:07.050688+00:00",
+ "built_at": "2026-09-10T03:11:03.409263+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Kobe 11",
   "found": true
@@ -14,7 +15,15 @@
   "found": [
    "draft"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2016,
+   "goat_release_year": 2016
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

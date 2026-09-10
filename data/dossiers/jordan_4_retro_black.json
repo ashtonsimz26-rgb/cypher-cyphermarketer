@@ -1,7 +1,8 @@
 {
  "image_name": "jordan_4_retro_black",
- "built_at": "2026-09-10T02:40:07.015020+00:00",
- "name_match": "silhouette_only",
+ "built_at": "2026-09-10T03:11:03.378366+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_3_year",
  "signal_1_silhouette": {
   "tested": "4 Retro",
   "found": true
@@ -9,7 +10,15 @@
  "signal_2_colorway": {
   "tested": [],
   "found": [],
-  "passed": false
+  "result": "unavailable"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2019,
+   "goat_release_year": 2019
+  },
+  "match": true,
+  "applied": true
  },
  "facts": [
   {
@@ -30,6 +39,39 @@
    "source": {
     "kind": "release_dates",
     "ref": "jordan_4_retro_black"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "spec",
+   "text": "Olivia Kim's reinterpretation of the Wmns Air Jordan 4 Retro for the 'No Cover' collection is nostalgic of New York City's playful energy in the 90s.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "Launched in October 2019, the women's sneaker nods to the silhouette's 'Black Cat' nickname in black bovine fur with suede trim and glossy lace wings.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "Throwback Nike Air branding replaces the Jumpman on the heel, and an Air-boosted midsole and rubber outsole underscore the sleek look.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
    },
    "verified": "self_evident",
    "checked_at": null

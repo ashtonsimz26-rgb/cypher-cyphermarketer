@@ -1,7 +1,8 @@
 {
  "image_name": "nike_dunk_low_sb_ink",
- "built_at": "2026-09-10T02:40:07.046910+00:00",
+ "built_at": "2026-09-10T03:11:03.405572+00:00",
  "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
   "tested": "Dunk Low SB",
   "found": true
@@ -13,7 +14,15 @@
   "found": [
    "ink"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2025,
+   "goat_release_year": 2025
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [
   {

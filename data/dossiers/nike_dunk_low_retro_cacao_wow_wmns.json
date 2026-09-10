@@ -1,7 +1,8 @@
 {
  "image_name": "nike_dunk_low_retro_cacao_wow_wmns",
- "built_at": "2026-09-10T02:40:07.045732+00:00",
+ "built_at": "2026-09-10T03:11:03.404528+00:00",
  "name_match": "failed",
+ "decided_by": "signal_1_silhouette",
  "signal_1_silhouette": {
   "tested": "Dunk Low Retro",
   "found": false
@@ -15,7 +16,15 @@
    "cacao",
    "wow"
   ],
-  "passed": true
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2023,
+   "goat_release_year": 2023
+  },
+  "match": true,
+  "applied": false
  },
  "facts": [],
  "hook_candidates": [],
