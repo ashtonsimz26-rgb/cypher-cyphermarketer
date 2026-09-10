@@ -14,6 +14,25 @@ selector.py — chooses at most ONE candidate for a given day (F4.1).
    candidate. Found in F4.1 verify — a 25-year anniversary was losing to
    whichever narrative-hook dossier sorted first alphabetically.
 
+   ⚠ WHY THE ANNIVERSARY PASS RETURNS EARLY — DO NOT "SIMPLIFY" IT.
+   It looks like a redundant branch. It is not. Before it existed,
+   select(2026-09-15) returned adidas_yeezy_boost_700_analog instead of
+   aj3_mocha_og's 25th, because the general pass took the first pool-order
+   match and ~136 narrative-hook dossiers outrank the 0-1 anniversary ones by
+   accident of the alphabet. The anniversary rule was correctly implemented and
+   completely INERT. Collapse this branch and it goes inert again.
+
+   LESSON, banked 2026-09-10: a rule can be correctly implemented and still
+   inert if an earlier selection stage resolves first. Test that the SELECTOR
+   RETURNS the thing, never that the calendar CONTAINS it. The first version of
+   the F4.1 suite asserted the anniversary calendar contained aj3_mocha_og —
+   which was true — and passed while select() returned a different shoe.
+
+   PATTERN, banked 2026-09-10: structural guarantees in this repo are proved by
+   AST — that a shape CANNOT BE EXPRESSED — not by asserting a case does not
+   occur. See the F4.1 suite: no lane returns a list/tuple/set/comprehension,
+   so no lane can carry two candidates, regardless of input.
+
    This is enforced BY CONSTRUCTION, not by checking. select() returns from the
    moment lane before the release lane is reachable, and each lane returns at
    most one candidate. There is no merge step anywhere in this module, so there
