@@ -26,6 +26,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, budget, editorial  # noqa: E402
 from research import compose_text as CT  # noqa: E402  (assembly; owns attribution + link)
+from research import writer as WR, composition as COMP, rotation as ROT  # noqa: E402
+from research import selector as SEL, moments as MOM  # noqa: E402
 
 RUNS = HERE / "ledger" / "runs.jsonl"
 SEED = HERE / "data" / "on_this_day.json"
@@ -115,6 +117,40 @@ def candidates(limit: int) -> list[dict]:
     return out[:limit]
 
 
+def occasion_for(image_name: str, day) -> tuple[dict | None, dict | None]:
+    """(occasion, moment). WHY this post exists today — the writer's real hook.
+
+    The selector computes anniversary_age; if it never reaches the writer the
+    rule is inert (R3). This is the digest-side half of that wiring.
+    """
+    key = "%02d-%02d" % (day.month, day.day)
+    for m in MOM.proposable(key):
+        if image_name in (m.get("linked_image_names") or []):
+            return {"kind": "verified_moment", "today": key}, m
+    age = SEL.anniversary_age(image_name, day, SEL.load_release_dates())
+    if age is not None:
+        return {"kind": "round_anniversary", "years": age,
+                "today": day.isoformat()}, None
+    return None, None
+
+
+def pick_composition(fmt: str, hook_type: str, brand: str, scene: str) -> str:
+    """First composition that clears depth-3 rotation; no_backdrop breaks ties.
+
+    no_backdrop is preferred on a tie because it uses NO generated imagery —
+    it is the only composition Phase 2 could ever auto-post, and it is free.
+    """
+    order = ["no_backdrop", "off_centre", "close_crop", "hero"]
+    hist = ROT.recent()
+    for name in order:
+        cand = {"format": fmt, "hook_type": hook_type, "brand": brand,
+                "composition": name, "scene": scene}
+        ok, _why = ROT.is_varied(cand, hist)
+        if ok:
+            return name
+    return order[0]
+
+
 def gate8(text: str, price_ok: bool) -> tuple[bool, list[str]]:
     """rails.check_draft on the ASSEMBLED text, plus the 280 ceiling.
 
@@ -144,7 +180,7 @@ def skeleton_draft_fn(ctx: dict, attempt: int, failed_rails: list[str]) -> dict 
 
 
 def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
-                     draft_fn, max_retries: int = 2):
+                     draft_fn, max_retries: int = 2, moment: dict | None = None):
     """Draft -> compose -> gate 8, retrying with the failed rail labels fed back.
 
     Returns (text|None, failed_rails, attempts). Bounded at 1 + max_retries:
@@ -159,18 +195,39 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
         parts = draft_fn(ctx, attempt, failed)
         if not parts or not (parts.get("lead") or "").strip():
             break
-        text = CT.compose(lead=parts["lead"], body=parts.get("body"),
-                          include_link=False)
+        if moment:
+            # MOMENT LANE: the approved post_text ships VERBATIM and the writer
+            # supplies only a linking line. Composing the lead alone would drop
+            # the verified moment and leave a dangling reference ("that day"
+            # with no antecedent) — caught in the 2026-02-22 dry run.
+            text = CT.compose(moment_text=moment["post_text"], moment_id=moment["id"],
+                              linking_line=parts["lead"], include_link=False)
+        else:
+            text = CT.compose(lead=parts["lead"], body=parts.get("body"),
+                              include_link=False)
         ok, failed = gate8(text, price_ok)
         if ok:
             return text, [], attempt
         run_log(event="writer_gate_failed", proposal_id=None,
                 image_name=cand["image_name"], failed_rails=failed, attempt=attempt)
+    if moment:
+        # An approved moment plus a card is ALREADY a complete post. The linking
+        # line is enhancement, not requirement — ship without it rather than
+        # lose the day (ruled). Reached when the writer declines or its line
+        # fails gate 8 twice.
+        bare = CT.compose(moment_text=moment["post_text"], moment_id=moment["id"],
+                          linking_line=None, include_link=False)
+        ok, bare_failed = gate8(bare, price_ok)
+        if ok:
+            run_log(event="moment_shipped_without_linking_line",
+                    image_name=cand["image_name"], attempts=attempt)
+            return bare, [], attempt
+        failed = bare_failed
     return None, failed, attempt
 
 
 def build_one(cand: dict, card_only: bool, draft_fn=None,
-              max_retries: int = 2) -> dict | None:
+              max_retries: int = 2, moment: dict | None = None) -> dict | None:
     """Returns a proposal-ready draft, or None when the BAR is not cleared.
 
     Returning None is a normal, healthy outcome (gate d: zero is a valid day).
@@ -197,9 +254,24 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     # The draft is produced, gated, and retried BEFORE render_card or
     # BD.generate. A gate-8 failure therefore costs $0.00: the $0.04 backdrop
     # is only reached by a draft that has already passed.
+    if draft_fn is None:
+        # SKELETONS ARE RETIRED (ruled). The writer is the only drafter; a
+        # fallback would fire precisely when the material is weakest.
+        dpath = HERE / "data" / "dossiers" / ("%s.json" % cand["image_name"])
+        try:
+            dj = json.loads(dpath.read_text())
+            hook_facts = [f for f in dj["facts"] if f["id"] in dj["hook_candidates"]]
+        except Exception:
+            hook_facts = []
+        occ, moment_ctx = occasion_for(cand["image_name"], datetime.now().date())
+        moment = moment_ctx
+        draft_fn = WR.make_draft_fn(
+            hook_facts=hook_facts, release=SEL.load_release_dates().get(cand["image_name"]),
+            moment=moment_ctx, occasion=occ, price_permitted=price_ok,
+            display_name=display, env=X.load_env(Path(X.DEFAULT_ENV)))
     text, gate_failed, attempts = draft_with_gate8(
         cand, row, fmt, hook_type, display, price_ok,
-        draft_fn=draft_fn or skeleton_draft_fn, max_retries=max_retries)
+        draft_fn=draft_fn, max_retries=max_retries, moment=moment)
     if text is None:
         # Abandoned. The candidate does NOT consume the daily proposal budget —
         # the caller advances through the existing POOL_FACTOR x pool. Skeletons
@@ -220,25 +292,36 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
     card = OUT / f"{stem}_card.png"
     CR.render_card(cand["image_name"], cand["rarity"], card)
+    brand = (row.get("brand") or "").strip() or None
+    scene = row.get("category") or "Lifestyle"
+    composition = pick_composition(fmt, hook_type, brand, scene)
     visual, insp = card, "N/A (card only)"
     if not card_only:
         env = X.load_env(Path(X.DEFAULT_ENV))
-        bd = OUT / f"{stem}_bd.png"
-        BD.generate(BD.build_prompt(row), "3:4", bd, env)
-        BD.record_verdict(str(bd), "UNINSPECTED_AUTOMATED",
-                          "unattended launchd run — no Claude in the loop; Ashton is "
-                          "the first human eye on this image")
+        bd = None
+        if composition in COMP.NEEDS_BACKDROP:
+            bd = OUT / f"{stem}_bd.png"
+            BD.generate(BD.build_prompt(row), "3:4", bd, env)
+            BD.record_verdict(str(bd), "UNINSPECTED_AUTOMATED",
+                              "unattended launchd run — no Claude in the loop; Ashton is "
+                              "the first human eye on this image")
+            insp = "NOT pre-inspected (automated run)"
+        else:
+            # no generated imagery at all — nothing to inspect, and no spend
+            insp = "N/A (no generated imagery)"
         visual = OUT / f"{stem}_45.png"
-        CP.compose(card, bd, "4:5", visual)
-        insp = "NOT pre-inspected (automated run)"
+        COMP.render(composition, card, bd, visual, ratio="4:5")
 
+    wl = X.weighted_len(text)
     tf = OUT / f"{stem}.txt"; tf.write_text(text, encoding="utf-8")
     editorial.record_format(fmt)
     run_log(event="draft_built", image_name=cand["image_name"], hook_type=hook_type,
+            brand=brand, composition=composition, scene=scene,
             format=fmt, weighted=wl)
     return {"text_file": tf, "image": visual, "cand": cand, "insp": insp,
             "price_ok": price_ok, "price_why": price_why, "weighted": wl,
             "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why,
+            "brand": brand, "composition": composition, "scene": scene,
             # RAILS CONTEXT — persisted on the proposal so rails.check_draft() can
             # re-run at APPROVE time (F1.5). The ledger row previously carried none
             # of this, so the approve path could not re-derive price_verified and
@@ -306,7 +389,9 @@ def main():
         # is ambiguous when one candidate is drafted repeatedly.
         run_log(event="draft_proposed", proposal_id=pid,
                 image_name=cand["image_name"], format=built["format"],
-                hook_type=built["hook_type"], weighted=built["weighted"])
+                hook_type=built["hook_type"], weighted=built["weighted"],
+                brand=built.get("brand"), composition=built.get("composition"),
+                scene=built.get("scene"))
         n += 1
     run_log(event="run_end", job=a.source, proposed=n)
     # Gate (d): zero is a valid outcome, and says so rather than looking broken.

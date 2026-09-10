@@ -143,12 +143,17 @@ def two_card(card, backdrop, size, card_b=None):
     which SOUL names and which has never once been produced (compose.py is
     single-card, so the format was DECLARED_NOT_READY)."""
     canvas = _fit(backdrop, size) if backdrop else _gradient(size)
-    # Offsets are tuned so BOTH TITLES stay legible: a "which would you pull"
-    # post is unreadable if the front card covers the back card's name.
-    b = _scaled(card_b or card, int(size[1] * 0.56))
-    a = _scaled(card, int(size[1] * 0.60))
-    pb = (int(size[0] * 0.68) - b.width // 2, int(size[1] * 0.40) - b.height // 2)
-    pa = (int(size[0] * 0.34) - a.width // 2, int(size[1] * 0.60) - a.height // 2)
+    # ★ BOTH TITLES AND BOTH COLORWAY LINES MUST BE FULLY LEGIBLE.
+    # The card lays its title at roughly 0.23 of card height and the colorway
+    # line just under it, so the front card's TOP EDGE must sit BELOW the back
+    # card's colorway line — not merely below its title. The previous offsets
+    # put the front top at y=405 against a back title zone ending at y=426,
+    # which clipped the back title mid-word and hid its colorway entirely.
+    # A "which would you pull" post is unreadable if either shoe has no name.
+    b = _scaled(card_b or card, int(size[1] * 0.52))
+    a = _scaled(card, int(size[1] * 0.56))
+    pb = (int(size[0] * 0.72) - b.width // 2, int(size[1] * 0.34) - b.height // 2)
+    pa = (int(size[0] * 0.30) - a.width // 2, int(size[1] * 0.66) - a.height // 2)
     canvas = _shadow_glow(canvas, b, pb, size, glow=False)
     canvas.paste(b, pb, b)
     canvas = _shadow_glow(canvas, a, pa, size)
