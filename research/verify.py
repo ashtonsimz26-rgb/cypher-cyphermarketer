@@ -19,6 +19,24 @@ WHAT THIS IS FOR
   Callers must branch on `outcome`, never on `ok` alone. `ok` is a convenience
   for the "verified" case only.
 
+★ "contradicted" IS PHRASING-SENSITIVE — IT IS NOT PROOF OF FALSEHOOD
+  required_terms are matched with has_phrase(), which is WORD-BOUNDED and
+  order-preserving. A term-order variant therefore returns "contradicted" on a
+  page that plainly confirms the fact.
+
+  CANONICAL CASE (D2, 2026-09-10). Verifying m_yeezy750_first with the entry's
+  own term "Yeezy Boost 750" against NiceKicks returned:
+      contradicted   found=['2015']   missing=['Yeezy Boost 750']
+  The page confirms the shoe and the date — it simply writes "Yeezy 750 Boost".
+  Re-probing the same URL with the reordered phrase returned "verified". The
+  fact was true, the source was right, and only the word order differed.
+
+  So: a caller must RETRY WITH PHRASING VARIANTS before treating "contradicted"
+  as evidence against a claim. Deleting an entry on a single contradicted
+  result will delete true entries. What "contradicted" actually means is "this
+  page does not contain these exact phrases" — which is a statement about the
+  terms, not about the world.
+
 NO LLM. NO PAID CALLS. stdlib only.
 
 SHARED PRIMITIVES ARE BORROWED, NEVER MODIFIED
