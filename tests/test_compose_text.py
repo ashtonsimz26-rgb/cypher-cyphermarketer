@@ -73,7 +73,7 @@ alt = Path(tempfile.mkdtemp()) / "m.json"
 d2 = json.loads(json.dumps(d))
 for entries in d2["moments"].values():
     for e in entries:
-        if e["id"] == mid: e["text"] = mtext + " EDITED"
+        if e["id"] == mid: e["post_text"] = mtext + " EDITED"
 alt.write_text(json.dumps(d2))
 try:
     C.compose(moment_text=mtext, moment_id=mid, linking_line="x", moments_path=alt)
