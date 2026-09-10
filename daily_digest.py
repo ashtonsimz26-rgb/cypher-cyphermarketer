@@ -29,6 +29,12 @@ from research import compose_text as CT  # noqa: E402  (assembly; owns attributi
 from research import writer as WR, composition as COMP, rotation as ROT  # noqa: E402
 from research import selector as SEL, moments as MOM  # noqa: E402
 
+# ⚠ EDITING THIS FILE PROGRAMMATICALLY: assert the match count before every
+# replace (see README "Working conventions"). The moment-lane fallback below
+# was inserted by an unasserted replace whose anchor had already been rewritten
+# earlier in the same script — it matched nothing, changed nothing, and
+# reported success, turning a wrong-post bug into a no-post bug.
+
 RUNS = HERE / "ledger" / "runs.jsonl"
 SEED = HERE / "data" / "on_this_day.json"
 OUT = HERE / "content"

@@ -6,6 +6,28 @@ X marketing agent for CYPHER, posting as **@appCYPHERR**.
 (locked 2026-08-19). **Voice + rails:** `~/.hermes/profiles/cyphermarketer/SOUL.md` (canonical).
 Anything not ruled in the contract is a HALT-and-ask, not a judgement call.
 
+---
+
+## WORKING CONVENTIONS
+
+**Every string mutation asserts its match count.** When editing source
+programmatically, `assert s.count(old) == 1` before `s.replace(old, new)` —
+always, including "obviously unique" anchors.
+
+Why this is a rule and not a preference (2026-09-10): while wiring the moment
+lane into `daily_digest.draft_with_gate8`, one edit in a batch of six skipped
+the assertion. Its anchor had already been changed by an earlier replacement in
+the same script, so it matched zero times and silently did nothing. The script
+reported success. The digest then went from producing a WRONG post (the linking
+line shipped alone, dropping the verified moment and leaving "that day" with no
+antecedent) to producing NO post — a second, different bug — while every log
+line said the fix had applied. It cost two dry-run cycles to find.
+
+A raised error is cheap. A silent no-op is expensive, because it looks exactly
+like success and the next symptom appears somewhere else. The same applies to
+any narrowing operation whose "nothing matched" case is indistinguishable from
+"nothing needed changing": prefer the form that fails loudly.
+
 ## Layout
 
 | Path | Role |
