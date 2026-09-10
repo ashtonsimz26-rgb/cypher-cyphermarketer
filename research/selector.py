@@ -78,6 +78,15 @@ RELEASE_DATES = HERE / "data" / "release_dates.json"
 
 ROUND_ANNIVERSARIES = frozenset({5, 10, 15, 20, 25, 30})
 
+# Every key a candidate dict carries. writer._assert_selector_boundary() fails
+# AT IMPORT if any of these is neither passed to the writer nor explicitly
+# withheld with a reason — see the R3 notes in writer.py. Adding a field here
+# without accounting for it downstream is how a rule goes inert.
+SELECTOR_OUTPUT_FIELDS = frozenset({
+    "lane", "day", "image_name", "moment", "moment_text", "hook_facts",
+    "supporting_facts", "eligibility", "dossier_usable",
+})
+
 # Positive filter: a hook tag that can carry a post on its own. `designer` is
 # deliberately ABSENT — it is a payload, not a hook, unless a date supplies one.
 NARRATIVE_HOOK_TAGS = frozenset({

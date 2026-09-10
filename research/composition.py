@@ -1,0 +1,177 @@
+#!/usr/bin/env python3.12
+"""
+composition.py — FRAMING variants (F4.5). The card pixels are never touched.
+
+THE SAMENESS PROBLEM, measured: every image ever produced is one composition —
+card centred, CARD_HEIGHT_FRACTION 0.76, fixed cyan glow, fixed shadow offset —
+over one of 6 scenes of which only 5 are distinct (Retro is byte-identical to
+Basketball), and ALL SIX are night/dark with 5 of 6 wet or reflective. The feed
+reads as one continuous rainy street. That is not a tuning problem; it is what
+the code can express.
+
+INVARIANT, unchanged from compose.py: the card is the pixel-true PNG from CPA's
+renderer, scaled with LANCZOS and alpha-composited. Only FRAMING changes here —
+scale, position, crop, and what sits behind it. No restyling, no recolouring,
+no redrawing, and assert_renderer_pristine is untouched.
+
+NO_BACKDROP is the strategically important one: it uses no generated imagery at
+all, so it is the ONLY composition that could ever auto-post under the Phase-2
+structural exclusion on uninspected generated images. It is also free.
+"""
+from __future__ import annotations
+from pathlib import Path
+from PIL import Image, ImageFilter, ImageDraw
+
+TARGETS = {"4:5": (1080, 1350), "16:9": (1600, 900)}
+ACCENT = (0, 229, 255)                     # CypherColors.accent
+
+
+# ── scenes v2 ────────────────────────────────────────────────────────────────
+# backdrop.py is C1-PARKED and must not be edited, so the corrected scene set
+# lives here. Adopting it in backdrop.build_prompt is a follow-up gated on C1.
+#   - Retro no longer duplicates Basketball
+#   - three of eight are NOT night-and-wet
+SCENES_V2 = {
+    "Skateboarding": "a gritty empty concrete skate park at dusk under harsh floodlights, "
+                     "worn ledges and rails, cracked asphalt, chain-link fencing, urban decay",
+    "Basketball":    "an empty retro indoor basketball arena at night, polished hardwood floor "
+                     "with mirror-like reflections, tiered empty seating fading into darkness, "
+                     "dramatic overhead spotlights, drifting haze",
+    # was a byte-identical copy of Basketball
+    "Retro":         "a sunlit 1980s gymnasium in the late afternoon, varnished parquet, dust "
+                     "motes in shafts of window light, folded bleachers, warm faded paintwork",
+    "Running":       "an empty outdoor running track at blue hour, wet rubberized lanes with "
+                     "reflections, stadium lights flaring, mist low to the ground",
+    "Lifestyle":     "an empty rain-slicked city street at night, neon shop glow reflecting in "
+                     "puddles, steam rising from grates, deep shadows, cinematic wide angle",
+    "Training":      "an empty industrial training facility at night, polished concrete floor, "
+                     "shafts of light through high windows, haze",
+    # daylight / interior, so the feed is not one continuous rainy street
+    "Daylight":      "a bright empty rooftop basketball court at midday, bleached concrete, "
+                     "crisp hard shadows, clear blue sky, chain-link fence, no people",
+    "Studio":        "a clean seamless photographic studio backdrop in warm off-white, soft "
+                     "even light, subtle floor gradient, no props, no people",
+}
+NON_NIGHT_SCENES = frozenset({"Retro", "Daylight", "Studio"})
+
+
+def _fit(bd: Image.Image, size: tuple[int, int]) -> Image.Image:
+    tw, th = size
+    s = max(tw / bd.width, th / bd.height)
+    nb = bd.resize((max(1, round(bd.width * s)), max(1, round(bd.height * s))), Image.LANCZOS)
+    l, t = (nb.width - tw) // 2, (nb.height - th) // 2
+    return nb.crop((l, t, l + tw, t + th)).convert("RGBA")
+
+
+def _scaled(card: Image.Image, height: int) -> Image.Image:
+    s = height / card.height
+    return card.resize((max(1, round(card.width * s)), height), Image.LANCZOS)
+
+
+def _shadow_glow(canvas, card, pos, size, *, glow=True):
+    cx, cy = pos
+    sh = Image.new("RGBA", size, (0, 0, 0, 0))
+    s = Image.new("RGBA", card.size, (0, 0, 0, 170))
+    s.putalpha(card.getchannel("A").point(lambda a: int(a * 0.66)))
+    sh.paste(s, (cx, cy + int(size[1] * 0.018)), s)
+    canvas = Image.alpha_composite(canvas, sh.filter(
+        ImageFilter.GaussianBlur(radius=max(10, size[0] // 45))))
+    if glow:
+        g = Image.new("RGBA", size, (0, 0, 0, 0))
+        gl = Image.new("RGBA", card.size, (*ACCENT, 130))
+        gl.putalpha(card.getchannel("A").point(lambda a: int(a * 0.5)))
+        g.paste(gl, (cx, cy), gl)
+        canvas = Image.alpha_composite(canvas, g.filter(
+            ImageFilter.GaussianBlur(radius=max(14, size[0] // 30))))
+    return canvas
+
+
+def _gradient(size, top=(14, 16, 22), bottom=(4, 5, 8)) -> Image.Image:
+    w, h = size
+    g = Image.new("RGB", (1, h))
+    d = ImageDraw.Draw(g)
+    for y in range(h):
+        f = y / max(1, h - 1)
+        d.point((0, y), tuple(round(top[i] + (bottom[i] - top[i]) * f) for i in range(3)))
+    return g.resize(size, Image.BILINEAR).convert("RGBA")
+
+
+# ── the compositions ─────────────────────────────────────────────────────────
+def hero(card, backdrop, size):
+    """Current production framing: centred, 0.76 height."""
+    canvas = _fit(backdrop, size)
+    c = _scaled(card, int(size[1] * 0.76))
+    pos = ((size[0] - c.width) // 2, (size[1] - c.height) // 2)
+    canvas = _shadow_glow(canvas, c, pos, size)
+    canvas.paste(c, pos, c)
+    return canvas
+
+
+def close_crop(card, backdrop, size):
+    """Same pixels, tight framing — card oversized so its edges bleed off frame."""
+    canvas = _fit(backdrop, size)
+    c = _scaled(card, int(size[1] * 1.45))
+    pos = ((size[0] - c.width) // 2, int(-c.height * 0.20))
+    canvas = _shadow_glow(canvas, c, pos, size, glow=False)
+    canvas.paste(c, pos, c)
+    return canvas
+
+
+def off_centre(card, backdrop, size):
+    """Card on a thirds intersection; the backdrop carries the negative space."""
+    canvas = _fit(backdrop, size)
+    c = _scaled(card, int(size[1] * 0.66))
+    pos = (int(size[0] * 0.62) - c.width // 2, int(size[1] * 0.56) - c.height // 2)
+    canvas = _shadow_glow(canvas, c, pos, size)
+    canvas.paste(c, pos, c)
+    return canvas
+
+
+def no_backdrop(card, backdrop, size):
+    """Clean dark gradient. NO generated imagery — the only composition Phase 2
+    could ever auto-post under the uninspected-imagery exclusion. Free."""
+    canvas = _gradient(size)
+    c = _scaled(card, int(size[1] * 0.80))
+    pos = ((size[0] - c.width) // 2, (size[1] - c.height) // 2)
+    canvas = _shadow_glow(canvas, c, pos, size)
+    canvas.paste(c, pos, c)
+    return canvas
+
+
+def two_card(card, backdrop, size, card_b=None):
+    """Two cards, overlapping, angled apart — unlocks `which_would_you_pull`,
+    which SOUL names and which has never once been produced (compose.py is
+    single-card, so the format was DECLARED_NOT_READY)."""
+    canvas = _fit(backdrop, size) if backdrop else _gradient(size)
+    # Offsets are tuned so BOTH TITLES stay legible: a "which would you pull"
+    # post is unreadable if the front card covers the back card's name.
+    b = _scaled(card_b or card, int(size[1] * 0.56))
+    a = _scaled(card, int(size[1] * 0.60))
+    pb = (int(size[0] * 0.68) - b.width // 2, int(size[1] * 0.40) - b.height // 2)
+    pa = (int(size[0] * 0.34) - a.width // 2, int(size[1] * 0.60) - a.height // 2)
+    canvas = _shadow_glow(canvas, b, pb, size, glow=False)
+    canvas.paste(b, pb, b)
+    canvas = _shadow_glow(canvas, a, pa, size)
+    canvas.paste(a, pa, a)
+    return canvas
+
+
+COMPOSITIONS = {
+    "hero": hero, "close_crop": close_crop, "off_centre": off_centre,
+    "no_backdrop": no_backdrop, "two_card": two_card,
+}
+NEEDS_BACKDROP = frozenset({"hero", "close_crop", "off_centre", "two_card"})
+
+
+def render(name: str, card_path: Path, backdrop_path: Path | None, out: Path,
+           ratio: str = "4:5", card_b_path: Path | None = None) -> dict:
+    size = TARGETS[ratio]
+    card = Image.open(card_path).convert("RGBA")
+    bd = Image.open(backdrop_path) if backdrop_path else None
+    fn = COMPOSITIONS[name]
+    canvas = fn(card, bd, size, Image.open(card_b_path).convert("RGBA")) \
+        if name == "two_card" else fn(card, bd, size)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    canvas.convert("RGB").save(out, "PNG", optimize=True)
+    return {"composition": name, "ratio": ratio, "output": str(out),
+            "bytes": out.stat().st_size}

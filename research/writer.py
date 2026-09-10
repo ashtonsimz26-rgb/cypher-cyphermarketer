@@ -45,6 +45,47 @@ PAYLOAD_FIELDS = frozenset({
 })
 
 
+# ══ R3 — THE INERT-RULE GUARD ════════════════════════════════════════════════
+# THREE TIMES a mechanism existed and the information never reached it. Each was
+# caught by a strict test, never by reading the code:
+#   1. D1 signal 2 drew its tokens from colorway AND name — but `name` contains
+#      the silhouette, so signal 2 was satisfied by signal 1's own evidence and
+#      the gate "confirmed" the exact misattribution it existed to stop.
+#   2. F4.1 computed anniversary_age correctly, and the general pass resolved
+#      first, so a 25-year anniversary lost to whichever dossier sorted first
+#      alphabetically. The rule was implemented and completely inert.
+#   3. F4.4 — this boundary. The selector computed anniversary_age and NOTHING
+#      PASSED IT HERE, so the writer saw only "X designed the Y" and correctly
+#      declined. The reason the post existed today was invisible to the only
+#      component that needed it.
+#
+# So: every field the SELECTOR computes must either appear in the writer's
+# whitelist or be listed as DELIBERATELY WITHHELD with a reason. A new selector
+# field that is neither is a HARD FAILURE AT IMPORT, not a silent omission.
+SELECTOR_WITHHELD = {
+    "lane":            "routing, not content — which lane won says nothing to a writer",
+    "day":             "reaches the writer inside `occasion`, which also says WHY",
+    "image_name":      "an identifier, not a fact; the display name is passed instead",
+    "moment_text":     "shipped VERBATIM by the composer; the writer must never rewrite it",
+    "dossier_usable":  "a gate result already applied upstream, not content",
+    "supporting_facts": "reaches the writer as `release` after field selection",
+    "eligibility":     "reaches the writer as `occasion` — the hook, not the bookkeeping",
+}
+
+
+def _assert_selector_boundary() -> None:
+    from research import selector as _sel                 # noqa: PLC0415
+    computed = set(_sel.SELECTOR_OUTPUT_FIELDS)
+    mapped = {"hook_facts", "moment"}                     # pass through by name
+    unaccounted = computed - PAYLOAD_FIELDS - set(SELECTOR_WITHHELD) - mapped
+    if unaccounted:
+        raise ImportError(
+            "selector computes %s but writer neither passes nor withholds them. "
+            "Add each to PAYLOAD_FIELDS or to SELECTOR_WITHHELD with a reason — "
+            "an unaccounted field is how a rule goes inert (see R3 notes above)."
+            % sorted(unaccounted))
+
+
 class WriterError(RuntimeError):
     pass
 
@@ -198,3 +239,6 @@ def make_draft_fn(*, hook_facts, release, moment, price_permitted, display_name,
             return None                     # the model declined — silence is valid
         return {"lead": str(lead).strip(), "body": None}
     return draft_fn
+
+
+_assert_selector_boundary()      # HARD FAILURE at import, never a silent omission
