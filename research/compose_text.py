@@ -41,11 +41,15 @@ LINK = "https://apps.apple.com/app/cypher-unlock-the-vault/id6761334111"
 # A TUPLE, not a list: it cannot be appended to at runtime. Every member must
 # satisfy rails' has_attr; the suite asserts it for all of them.
 # [0] is the default and is the exact line shipped in production to date.
+# [0] is the production default (ruled 2026-09-10). It replaced the longer
+# "est. value ... tracks the real pair's resale" line, which read as a
+# disclaimer and doubled est.value/resale; this one works identically whether
+# or not the text mentioned a price, and returns 13 characters to the lead.
 ATTRIBUTION_LINES: tuple[str, ...] = (
+    "Its card is in CYPHER. That estimate is for the real pair, not for the card.",
     "Its card is in CYPHER — the est. value on it tracks the real pair's resale, not the card.",
     "Its card is in CYPHER. The estimate on the card follows the real pair, not the card.",
     "Its card is in CYPHER — the number on it is the real pair's market, not the card's.",
-    "Its card is in CYPHER. That estimate is for the real pair, not for the card.",
 )
 DEFAULT_ATTRIBUTION = 0
 
@@ -86,11 +90,19 @@ def assert_moment_verbatim(moment_id: str, composed: str,
             "  composed: %r" % (moment_id, on_disk, composed))
 
 
+REPLY_TEXT = "Free on the App Store: %s" % LINK
+"""The link LEAVES the post body (ruled 2026-09-10). A post containing a URL
+costs $0.20 on X vs $0.015 without — 13x — against a $15/cycle cap, and link
+posts are the most reach-suppressed shape on the platform. It ships as
+reply_text in the proposal for Ashton to post as a first reply by hand; the
+auto-reply mechanic is a later commit."""
+
+
 def compose(*, lead: str | None = None, body: str | None = None,
             moment_text: str | None = None, moment_id: str | None = None,
             linking_line: str | None = None,
             attribution_index: int = DEFAULT_ATTRIBUTION,
-            include_link: bool = True, moments_path: Path | None = None) -> str:
+            include_link: bool = False, moments_path: Path | None = None) -> str:
     """Assemble the post.
 
     MOMENT DAY  -> moment_text VERBATIM, then the writer's linking_line (which

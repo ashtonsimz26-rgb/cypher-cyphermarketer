@@ -25,6 +25,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, budget, editorial  # noqa: E402
+from research import compose_text as CT  # noqa: E402  (assembly; owns attribution + link)
 
 RUNS = HERE / "ledger" / "runs.jsonl"
 SEED = HERE / "data" / "on_this_day.json"
@@ -114,7 +115,62 @@ def candidates(limit: int) -> list[dict]:
     return out[:limit]
 
 
-def build_one(cand: dict, card_only: bool) -> dict | None:
+def gate8(text: str, price_ok: bool) -> tuple[bool, list[str]]:
+    """rails.check_draft on the ASSEMBLED text, plus the 280 ceiling.
+
+    card_shows_value / pool_reachable are passed exactly as they always have
+    been, so this call site treats the rail identically — gate 8 is the SAME
+    rail moved EARLIER, never a different one.
+    """
+    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
+                               price_verified=price_ok)
+    failed = [c[0] for c in checks if not c[1]]
+    if X.weighted_len(text) > 280:
+        failed = failed + ["over 280 weighted characters"]
+    return (not failed), failed
+
+
+def skeleton_draft_fn(ctx: dict, attempt: int, failed_rails: list[str]) -> dict | None:
+    """Default drafter until F4.4 lands: the existing template, adapted to
+    return only the LEAD. build_draft assembles lead + attribution + link; the
+    composer owns the last two now, so we take the lead and drop the tail.
+    It cannot act on failed_rails — a template has nothing to revise."""
+    if attempt > 1:
+        return None                       # retrying a deterministic template is pointless
+    full = editorial.build_draft(ctx["row"], ctx["hook_type"], ctx["fmt"],
+                                 price_verified=ctx["price_ok"],
+                                 display_name=ctx["display"])
+    return {"lead": full.split("\n\n")[0], "body": None}
+
+
+def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
+                     draft_fn, max_retries: int = 2):
+    """Draft -> compose -> gate 8, retrying with the failed rail labels fed back.
+
+    Returns (text|None, failed_rails, attempts). Bounded at 1 + max_retries:
+    repeated failure on the same facts means the FACTS are the problem, not the
+    phrasing, so re-prompting further is waste.
+    """
+    ctx = {"cand": cand, "row": row, "fmt": fmt, "hook_type": hook_type,
+           "display": display, "price_ok": price_ok}
+    failed: list[str] = []
+    attempt = 0
+    for attempt in range(1, max_retries + 2):
+        parts = draft_fn(ctx, attempt, failed)
+        if not parts or not (parts.get("lead") or "").strip():
+            break
+        text = CT.compose(lead=parts["lead"], body=parts.get("body"),
+                          include_link=False)
+        ok, failed = gate8(text, price_ok)
+        if ok:
+            return text, [], attempt
+        run_log(event="writer_gate_failed", proposal_id=None,
+                image_name=cand["image_name"], failed_rails=failed, attempt=attempt)
+    return None, failed, attempt
+
+
+def build_one(cand: dict, card_only: bool, draft_fn=None,
+              max_retries: int = 2) -> dict | None:
     """Returns a proposal-ready draft, or None when the BAR is not cleared.
 
     Returning None is a normal, healthy outcome (gate d: zero is a valid day).
@@ -136,22 +192,28 @@ def build_one(cand: dict, card_only: bool) -> dict | None:
 
     fmt = editorial.choose_format(hook_type)
     display = CR.normalize_display_name(row.get("brand", ""), row.get("name", ""))
-    text = editorial.build_draft(row, hook_type, fmt, price_verified=price_ok,
-                                 display_name=display)
+
+    # ── GATE 8 (F4.3) — rails at GENERATION time, inside the PRE-SPEND block ──
+    # The draft is produced, gated, and retried BEFORE render_card or
+    # BD.generate. A gate-8 failure therefore costs $0.00: the $0.04 backdrop
+    # is only reached by a draft that has already passed.
+    text, gate_failed, attempts = draft_with_gate8(
+        cand, row, fmt, hook_type, display, price_ok,
+        draft_fn=draft_fn or skeleton_draft_fn, max_retries=max_retries)
+    if text is None:
+        # Abandoned. The candidate does NOT consume the daily proposal budget —
+        # the caller advances through the existing POOL_FACTOR x pool. Skeletons
+        # stay retired: a fallback would fire precisely when the material is
+        # weakest, which is the worst possible coupling.
+        run_log(event="writer_abandoned", image_name=cand["image_name"],
+                failed_rails=gate_failed, attempts=attempts)
+        return None
 
     # (b) LEAD SPECIFICITY — the swap test.
     ok_lead, lead_why = editorial.lead_is_specific(text, row)
     if not ok_lead:
         run_log(event="skipped_generic_lead", image_name=cand["image_name"],
                 format=fmt, reason=lead_why)
-        return None
-
-    wl = X.weighted_len(text)
-    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
-                               price_verified=price_ok)
-    if not all(c[1] for c in checks) or wl > 280:
-        run_log(event="draft_rejected_by_rails", image_name=cand["image_name"],
-                failed=[c[0] for c in checks if not c[1]], weighted=wl)
         return None
 
     # Only now is it worth rendering and generating.
