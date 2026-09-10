@@ -51,8 +51,10 @@ d = json.loads((Path(__file__).resolve().parent.parent / "data/moments.json").re
 mid, mtext = None, None
 for entries in d["moments"].values():
     for e in entries:
-        if e.get("sources"):
-            mid, mtext = e["id"], e["text"]; break
+        if e.get("sources") and e.get("post_text"):
+            # post_text is what ships; `text` is the verified fact record and
+            # composing it must HALT (asserted below).
+            mid, mtext = e["id"], e["post_text"]; break
     if mid: break
 post = C.compose(moment_text=mtext, moment_id=mid, linking_line="Its card is pullable today.")
 ok(mtext in post, f"moment {mid} carried verbatim")
@@ -83,6 +85,17 @@ try:
     ok(False, "unknown moment id raised")
 except C.MomentTextMismatch:
     ok(True, "unknown moment id -> HALT, never silent pass")
+
+print("\n=== 6b. composing the fact RECORD instead of post_text HALTs ===")
+rec = None
+for entries in d["moments"].values():
+    for e in entries:
+        if e.get("id") == mid: rec = e["text"]
+try:
+    C.compose(moment_text=rec, moment_id=mid, linking_line="x")
+    ok(False, "posting `text` raises")
+except C.MomentTextMismatch:
+    ok(True, "the long-form verified record can never ship by accident")
 
 print("\n=== 7. a failed linking line is DROPPED, not fatal ===")
 p1 = C.compose(moment_text=mtext, moment_id=mid, linking_line=None)
