@@ -20,7 +20,9 @@ compose_text.py — assembles a post from parts (F4.2). ZERO LLM. Pure assembly.
    test suite, so an edit that silently drops a marker fails the tests rather
    than production.
 
-★★ MOMENT TEXT IS BYTE-IDENTICAL TO THE FILE, OR WE HALT.
+★★ MOMENT post_text IS BYTE-IDENTICAL TO THE FILE, OR WE HALT.
+   `text` is the verified fact RECORD and is never posted; `post_text` is the
+   copy that ships and is a strict factual subset of it (loader-enforced).
    A verified moment's prose is the only text in this system that has passed
    HUMAN judgment against a FETCHED SOURCE. assert_moment_verbatim() RE-READS
    data/moments.json FROM DISK at compose time and compares bytes. It
@@ -72,7 +74,10 @@ def _moment_text_on_disk(moment_id: str, path: Path | None = None) -> str | None
     for entries in (raw.get("moments") or {}).values():
         for e in entries:
             if e.get("id") == moment_id:
-                return e.get("text")
+                # post_text is what ships (ruled 2026-09-10). `text` is the
+                # verified fact record and is never posted, so the byte-identity
+                # assertion is on post_text.
+                return e.get("post_text")
     return None
 
 

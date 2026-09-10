@@ -29,7 +29,8 @@
      "date_in_source": "February 14, 2015",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "The Yeezy Boost 750 was the first adidas Yeezy to reach retail. Grey suede, a strap, sold in tiny numbers through a reservation app — the template every Yeezy after it copied."
    }
   ],
   "02-17": [
@@ -58,7 +59,8 @@
      "date_in_source": "February 17, 1963",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "Brooklyn, 1963. Every Jordan that followed traces back to an endorsement deal a rookie almost turned down, because he wanted adidas."
    }
   ],
   "02-22": [
@@ -91,7 +93,8 @@
      "date_in_source": "February 22, 2005",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "150 pairs at Reed Space. Fights broke out, buyers left in police escorts, and the New York Post ran it on the front page. The day a sneaker release became news."
    }
   ],
   "02-25": [
@@ -122,7 +125,8 @@
      "date_in_source": "February 25, 1985",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "The NBA wrote to Nike objecting to Jordan's shoes. Nike built an ad campaign around the objection — and never corrected the part where the shoe in the letter wasn't the Jordan 1."
    }
   ],
   "03-26": [
@@ -152,7 +156,8 @@
      "date_in_source": "March 26, 1987",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "Tinker Hatfield cut a window into the midsole so the cushioning could be seen. Nike's own engineers argued against it. Every visible-air shoe since descends from that."
    }
   ],
   "06-11": [
@@ -181,7 +186,8 @@
      "date_in_source": "June 11, 1997",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "Game 5 of the Finals. Jordan could barely stand between plays and put up 38. The black-and-red 12s are still called the Flu Game, not by their actual name."
    }
   ],
   "08-23": [
@@ -211,7 +217,8 @@
      "date_in_source": "August 23, 1978",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "Kobe pushed his line toward low-cut soccer-inspired silhouettes when every basketball shoe was a high-top. Performance basketball footwear never went back."
    }
   ],
   "10-18": [
@@ -241,7 +248,8 @@
      "date_in_source": "October 18, 1984",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "The shoe the league objected to was the Nike Air Ship, not the Jordan 1, which did not exist yet. It spent thirty-five years as a footnote to a story about a different shoe."
    }
   ],
   "11-28": [
@@ -260,7 +268,8 @@
     "_confidence": "HIGH",
     "approved_by": null,
     "approved_at": null,
-    "_status": "RECORDED, NEVER PROPOSED. Deliberately unresearched and unsourced; the loader rejects it on empty sources[], which is the correct outcome for an entry that must never be proposed. Present so the date is visibly occupied."
+    "_status": "RECORDED, NEVER PROPOSED. Deliberately unresearched and unsourced; the loader rejects it on empty sources[], which is the correct outcome for an entry that must never be proposed. Present so the date is visibly occupied.",
+    "post_text": null
    }
   ],
   "12-03": [
@@ -290,8 +299,10 @@
      "date_in_source": "December 3, 2013",
      "method": "research/verify.py verify_fact + web search",
      "checked": "2026-09-10"
-    }
+    },
+    "post_text": "Kanye left Nike for adidas over royalties and creative control. Nike had the biggest name in sneaker culture and let him walk. adidas built its entire decade on what followed."
    }
   ]
- }
+ },
+ "_post_text_note": "`text` is the VERIFIED FACT RECORD — what the source check ran against. It is never posted. `post_text` is the copy that ships: <=180 weighted chars, and a strict factual SUBSET of its own `text` (no proper noun, date or number that `text` does not contain). That is what lets the copy be short without re-opening verification. The byte-identity assertion at compose time is on post_text."
 }

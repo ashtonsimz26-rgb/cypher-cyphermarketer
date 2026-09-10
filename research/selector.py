@@ -164,8 +164,8 @@ def _moment_lane(day: date, moments_mod, moments_path, reachable,
         if f:
             supporting.append(f)                 # supporting FACT, not a candidate
     return {"lane": "moment", "day": key, "image_name": image_name,
-            "moment": m,                          # text used VERBATIM downstream
-            "moment_text": m["text"],
+            "moment": m,                          # post_text used VERBATIM downstream
+            "moment_text": m["post_text"],        # NOT `text` — that is the fact record
             "hook_facts": [],                     # writer supplies a linking line only
             "supporting_facts": supporting,
             "eligibility": {"reason": "verified_moment", "anniversary_age": None},
