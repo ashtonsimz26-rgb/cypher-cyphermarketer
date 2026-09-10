@@ -236,8 +236,15 @@ def main():
         # SimpleNamespace has no scoping surprise.
         argv = SimpleNamespace(text_file=str(built["text_file"]),
                                image=str(built["image"]), note=note,
-                               rails_ctx=built["rails_ctx"])
-        TB.cmd_propose(argv, e)
+                               rails_ctx=built["rails_ctx"],
+                               format=built["format"], hook_type=built["hook_type"])
+        pid = TB.cmd_propose(argv, e)
+        # EXACT linking row. draft_built alone could not be joined to a post:
+        # it carries no proposal_id, and matching on (image_name, nearest ts)
+        # is ambiguous when one candidate is drafted repeatedly.
+        run_log(event="draft_proposed", proposal_id=pid,
+                image_name=cand["image_name"], format=built["format"],
+                hook_type=built["hook_type"], weighted=built["weighted"])
         n += 1
     run_log(event="run_end", job=a.source, proposed=n)
     # Gate (d): zero is a valid outcome, and says so rather than looking broken.

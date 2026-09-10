@@ -1,0 +1,46 @@
+{
+ "_note": "Format labels for posts predating denormalised format on the posted row (F2b). Going forward the posted row carries format/hook_type directly and this file is not consulted. Each entry records HOW it was labelled and how much to trust it, so a future session can tell a joined label from a hand one (ruling C4).",
+ "_methods": {
+  "joined_exact": "posted.note -> proposal_id -> proposed.weighted_len -> unique draft_built row. Deterministic.",
+  "joined_format_unambiguous": "join returned >1 draft_built candidate, but ALL candidates shared one format, so the format resolves even though the row does not.",
+  "hand_from_skeleton": "no draft_built row existed yet (logging postdates the post); labelled by matching the copy against editorial.build_draft's skeletons."
+ },
+ "2090222611443732627": {
+  "format": null,
+  "kind": "announcement",
+  "method": "hand_from_text",
+  "confidence": "exact",
+  "note": "v1.3 referral feature announcement. NOT one of the four content formats; excluded from format aggregation, tracked as its own category (ruling C3). Posted directly via x_client, not through the digest."
+ },
+ "2090241631622508607": {
+  "format": "story_spotlight",
+  "kind": "content",
+  "method": "hand_from_skeleton",
+  "confidence": "high",
+  "note": "draft_built logging postdates this post (earliest draft_built 2026-08-20T13:31:56; this posted 00:56:54), so no join was possible. Copy is story-shaped with the standard attribution line. Lead reads '2005. Retail $65.' rather than the current skeleton's '2005. $65 retail.' — its punctuation predates the present template (ruling C4)."
+ },
+ "2090440063456846009": {
+  "format": "story_spotlight",
+  "hook_type": "story",
+  "kind": "content",
+  "method": "joined_exact",
+  "confidence": "exact",
+  "note": "p_0d2495326d, weighted 271, unique draft_built match aj8_doernbecher 2026-08-20T13:37:12."
+ },
+ "2090809639650590877": {
+  "format": "price_journey",
+  "hook_type": "price_journey",
+  "kind": "content",
+  "method": "joined_exact",
+  "confidence": "exact",
+  "note": "p_7d35e2e649, weighted 209, unique draft_built match sb_dunk_low_black_pigeon 2026-08-21T14:29:33."
+ },
+ "2092418322251813367": {
+  "format": "story_spotlight",
+  "hook_type": "price_journey",
+  "kind": "content",
+  "method": "joined_format_unambiguous",
+  "confidence": "high",
+  "note": "p_136f87712f, weighted 274, TWO draft_built candidates (aj8_doernbecher, nike_air_force_1_low_lemonade) — but both are story_spotlight, so the format resolves regardless. Post text is an Off-White AF1, which matches the lemonade candidate and not the Jordan 8."
+ }
+}

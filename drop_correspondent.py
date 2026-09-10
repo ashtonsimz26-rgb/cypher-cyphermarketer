@@ -165,7 +165,11 @@ def main():
                     # leave drop proposals silently unprotected at approve time —
                     # the half-wired state F1.5 exists to avoid.
                     rails_ctx = built["rails_ctx"]
-                TB.cmd_propose(_A, TB.env())
+                    format = built["format"]; hook_type = built["hook_type"]
+                pid = TB.cmd_propose(_A, TB.env())
+                DD.run_log(event="draft_proposed", proposal_id=pid,
+                           image_name=m["image_name"], format=built["format"],
+                           hook_type=built["hook_type"], weighted=built["weighted"])
                 hits += 1
             break                                     # at most one extra draft per run
         if hits:

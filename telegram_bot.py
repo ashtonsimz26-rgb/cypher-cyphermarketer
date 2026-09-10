@@ -198,7 +198,8 @@ def proposal_state() -> dict:
         if ev == "proposed":
             cur.update(status="pending", text=r.get("text"), image=r.get("image"),
                        message_id=r.get("message_id"), proposed_ts=r.get("ts"),
-                       rails_ctx=r.get("rails_ctx"))
+                       rails_ctx=r.get("rails_ctx"), format=r.get("format"),
+                       hook_type=r.get("hook_type"))
         # ⚠️ "rails_blocked" and "edit_too_long" are DELIBERATELY ABSENT from this
         # tuple. A validation failure is information, not a verdict: the proposal
         # stays pending so it can be fixed with `edit:` and re-approved. Logging
@@ -277,9 +278,12 @@ def cmd_propose(a, e):
     # at [:40] in the stem, so long names would be silently wrong.
     ledger({"event": "proposed", "proposal_id": pid, "text": text, "image": str(img),
             "note": a.note, "message_id": res.get("message_id"), "weighted_len": wl,
-            "rails_ctx": getattr(a, "rails_ctx", None)})
+            "rails_ctx": getattr(a, "rails_ctx", None),
+            "format": getattr(a, "format", None),
+            "hook_type": getattr(a, "hook_type", None)})
     print("  proposed %s  (telegram message_id %s)" % (pid, res.get("message_id")))
     print("  awaiting decision in Telegram…")
+    return pid                       # so callers can emit an EXACT linking row
 
 
 # ── poll ─────────────────────────────────────────────────────────────────────
@@ -404,8 +408,14 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
         return
     tid = json.loads(res["raw"])["data"]["id"]
     url = "https://x.com/%s/status/%s" % (X.HANDLE, tid)
+    # format/hook_type are DENORMALISED here on purpose: a post's format must be
+    # readable straight off the posted row, not reconstructed by joining
+    # posts -> proposals -> runs on timestamp proximity. That join was ambiguous
+    # (aj8_doernbecher was drafted 3x in 6 minutes under two formats).
     X.ledger_append({"event": "posted", "text": text, "tweet_id": tid, "url": url,
-                     "media_ids": [mid], "note": "telegram approval %s" % pid})
+                     "media_ids": [mid], "note": "telegram approval %s" % pid,
+                     "proposal_id": pid, "format": st.get("format"),
+                     "hook_type": st.get("hook_type")})
     ledger({"event": "posted", "proposal_id": pid, "tweet_id": tid, "url": url,
             "final_text": text, "edited": edited})
     send_text(e, "✅ POSTED%s\n%s\n\n(%d/%d posts used in the last 24h)"
