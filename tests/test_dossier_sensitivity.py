@@ -19,7 +19,11 @@ def ok(c, m):
     print(("  PASS  " if c else "  FAIL  ") + m)
     if not c: FAILS.append(m)
 
-FLAGGED = ("aj8_doernbecher", "aj13_doernbecher")
+# ★ PINNED ON PURPOSE. This list is the reviewed set; adding a flag must be a
+# deliberate edit here as well as in the curated file, so no flag appears
+# without someone changing the suite that asserts it.
+FLAGGED = ("aj8_doernbecher", "aj13_doernbecher",
+           "nike_kobe_6_protro_mambacita_sweet_sixteen")
 
 print("\n=== 1. the filter is POSITIVE, same position as PROPOSABLE_SENSITIVITIES ===")
 from research import moments as MOM
@@ -102,11 +106,12 @@ D._DOSSIER_SENS = saved
 print("\n=== 7. the curated file is human-approved data ===")
 blob = json.loads(D.DOSSIER_SENSITIVITY.read_text())
 ents = {k: v for k, v in blob["dossiers"].items() if not k.startswith("_")}
-ok(set(ents) == set(FLAGGED), "exactly the two Doernbecher dossiers are flagged: %s" % sorted(ents))
+ok(set(ents) == set(FLAGGED), "the flagged set is exactly the reviewed set (%d): %s"
+   % (len(ents), sorted(ents)))
 ok(all(e["approved_by"] == D.SENSITIVITY_APPROVER for e in ents.values()),
    "every entry approved by %s" % D.SENSITIVITY_APPROVER)
 ok(all(e.get("human_copy") is None for e in ents.values()),
-   "no human copy exists yet — so neither shoe posts, which is the correct outcome")
+   "no human copy exists yet — so none of these shoes post, which is correct")
 ok(all(len(e.get("_why", "")) > 40 for e in ents.values()), "every entry carries a reason")
 D._DOSSIER_SENS = None
 orig = D.DOSSIER_SENSITIVITY.read_text()
