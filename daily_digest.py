@@ -319,13 +319,16 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             dj = json.loads(dpath.read_text())
             hook_facts = [f for f in dj["facts"] if f["id"] in dj["hook_candidates"]]
             lineage = [f for f in dj["facts"] if f["tag"] == "silhouette_lineage"]
+            from research.dossier import support_facts as _support   # noqa: PLC0415
+            support = _support(dj)
         except Exception:
-            hook_facts = []; lineage = []
+            hook_facts = []; lineage = []; support = []
         occ, moment_ctx = occasion_for(cand["image_name"], datetime.now().date())
         moment = moment_ctx
         draft_fn = WR.make_draft_fn(
             hook_facts=hook_facts, release=SEL.load_release_dates().get(cand["image_name"]),
             moment=moment_ctx, occasion=occ, price_permitted=price_ok, lineage=lineage,
+            support_facts=support,
             display_name=display, env=X.load_env(Path(X.DEFAULT_ENV)))
     text, gate_failed, attempts = draft_with_gate8(
         cand, row, fmt, hook_type, display, price_ok,

@@ -71,9 +71,76 @@ ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec", "silhouette_lineage"}
 
 # What a dossier EMITS into the pipeline (contracts.py).
 DOSSIER_OUTPUT_FIELDS = frozenset({
-    "hook_facts", "lineage_facts", "spec_facts", "release_date_fact",
-    "dossier_usable", "name_match",
+    "hook_facts", "lineage_facts", "spec_facts", "support_facts",
+    "release_date_fact", "dossier_usable", "name_match",
 })
+
+# ── support_facts: the THIRD BUCKET (ruled 2026-09-12) ───────────────────────
+# spec facts were withheld from the writer ABSOLUTELY. That is right for HOOKS
+# — a spec cannot open a post — but it was also deciding what the writer may
+# KNOW, and those are different jobs. Measured across 136 usable dossiers: 156
+# hook facts / 24,648 chars reached the writer while 367 spec facts / 45,036
+# chars were discarded — 65% of the story prose. 94 dossiers handed the writer
+# under 200 characters.
+#
+# The canonical case is the CLOT Chinese Candy Box: its best detail — "ditched
+# the typical shoebox for a hexagonal red candy box with an interior tray" —
+# was tagged spec and never reached the writer, which then had 152 characters
+# to work with and produced a 98-character post. Correct behaviour on starved
+# input; the starvation was self-inflicted.
+#
+# ★ A SUPPORT FACT CAN NEVER BECOME A HOOK. It is not in HOOKABLE_TAGS and
+# never will be — same positive filter that keeps `designer` out. Support
+# material may only EXTEND a lead hooked elsewhere.
+
+# The closed vocabulary generic spec copy draws on. A sentence made mostly of
+# these says nothing distinctive about THIS shoe.
+GENERIC_SPEC = frozenset({
+    "rubber","outsole","midsole","upper","leather","suede","mesh","tongue","collar",
+    "swoosh","stripes","eyelets","laces","lining","insole","sockliner","heel","toe",
+    "panel","panels","overlay","overlays","branding","logo","hits","accents","tonal",
+    "premium","classic","design","designs","silhouette","low","high","mid","top",
+    "shoe","sneaker","pair","colorway","white","black","red","blue","green","grey",
+    "gray","cream","sail","bone","olive","navy","brown","tan","gum","featuring",
+    "features","comes","dressed","finished","constructed","built","sits","atop",
+    "paired","complemented","punctuated","anchoring","combines","base","cupsole",
+    "sidewalls",
+})
+_SUPPORT_STOP = frozenset({
+    "the","a","an","and","with","of","in","on","for","to","is","are","was","were",
+    "its","it","this","that","by","from","as","at","also","along","into","their","has",
+})
+MAX_SUPPORT_FACTS = 3
+
+
+def distinctiveness(text: str) -> int:
+    """Rank support facts by what they say about THIS shoe, not by order.
+
+    Content words OUTSIDE the generic-spec vocabulary, plus proper nouns and
+    numbers double-weighted. Verified to discriminate: the CLOT packaging
+    sentence scores 29 against 3-8 for materials copy of comparable length.
+
+    CAVEAT, stated because it is real: the score is a raw count, so longer
+    sentences score higher all else equal. It beats length alone — a 111-char
+    materials sentence scores 5 where a 235-char story sentence scores 29, far
+    above the ~11 that length alone would predict — but it is a heuristic, not
+    a semantic judgement.
+    """
+    import re as _re
+    words = _re.findall(r"[A-Za-z][A-Za-z'\-]*|\d+", text or "")
+    sent0 = {m.group(1) for m in _re.finditer(r"(?:^|[.!?]\s+)([A-Za-z]+)", text or "")}
+    pn = sum(1 for w in words if w[:1].isupper() and w not in sent0)
+    nums = sum(1 for w in words if w.isdigit())
+    novel = sum(1 for w in words
+                if w.lower() not in GENERIC_SPEC and w.lower() not in _SUPPORT_STOP
+                and not w.isdigit() and not (w[:1].isupper() and w not in sent0))
+    return novel + 2 * pn + 2 * nums
+
+
+def support_facts(dossier: dict, limit: int = MAX_SUPPORT_FACTS) -> list[dict]:
+    """Top-N spec facts by distinctiveness. NEVER hook candidates."""
+    specs = [f for f in dossier.get("facts", []) if f.get("tag") == "spec"]
+    return sorted(specs, key=lambda f: -distinctiveness(f.get("text", "")))[:limit]
 
 # ★★ "designer" IS GONE FROM HOOKABLE_TAGS, AND FROM THE TAG SET ENTIRELY.
 # GOAT's `designer` field describes the SILHOUETTE, not the colorway, collab or

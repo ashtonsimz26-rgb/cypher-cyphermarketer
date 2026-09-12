@@ -40,8 +40,8 @@ COST_PER_M_IN, COST_PER_M_OUT = 1.25, 2.50
 LEAD_BUDGET = 202          # weighted chars left after attribution, no link (F4.3)
 
 PAYLOAD_FIELDS = frozenset({
-    "hook_facts", "lineage", "release", "moment", "occasion", "format_contract",
-    "price_permitted", "display_name", "lead_budget", "task",
+    "hook_facts", "support_facts", "lineage", "release", "moment", "occasion",
+    "format_contract", "price_permitted", "display_name", "lead_budget", "task",
 })
 
 
@@ -107,7 +107,8 @@ def build_payload(*, hook_facts: list[dict], release: dict | None,
                   moment: dict | None, price_permitted: bool,
                   display_name: str, task: str, format_contract: str,
                   occasion: dict | None = None,
-                  lineage: list[dict] | None = None) -> dict:
+                  lineage: list[dict] | None = None,
+                  support_facts: list[dict] | None = None) -> dict:
     """The whitelist. Only these keys, ever."""
     payload = {
         # text/tag/id only — never the whole fact object, never a spec fact
@@ -117,6 +118,10 @@ def build_payload(*, hook_facts: list[dict], release: dict | None,
         # the SILHOUETTE, so it may appear inside a lead hooked elsewhere and
         # must never be the reason a post exists (G1).
         "lineage": [{"text": f["text"]} for f in (lineage or [])],
+        # SUPPORT — may EXTEND a lead hooked elsewhere, never carry a post.
+        # Capped and ranked upstream by distinctiveness, not order of appearance.
+        "support_facts": [{"id": f["id"], "text": f["text"]}
+                          for f in (support_facts or [])],
         "release": ({"release_date": release.get("release_date"),
                      "year": release.get("year")} if release else None),
         # ★ WHY THE POST EXISTS TODAY. Without this the writer sees only
@@ -185,6 +190,27 @@ day costs nothing; a filler post costs attention we cannot buy back.
 
 TASK_GENERAL = """\
 Write the opening line of a post for a sneaker trading-card app's X account.
+
+`support_facts` are DETAIL, never a hook. They describe the shoe — materials,
+packaging, construction. THE ASYMMETRY MATTERS:
+  - they may EXTEND a lead that is already hooked on something else
+  - they may NEVER carry the post. A post whose content is entirely support
+    material IS a spec post, and the swap test exists to reject exactly that
+  - a lead that could be swapped onto another shoe still FAILS even if a
+    support fact makes it longer
+BUT USE THEM WHEN THEY EARN IT. A support fact that names a concrete, surprising
+thing — an object, a place, a number, a piece of packaging — is often the detail
+a reader actually stops for. "It came in a hexagonal red candy box with an
+interior tray" is worth more than another clause about the shoe. Lead with the
+hook, then let ONE such detail land.
+
+What does NOT earn it: materials and construction. "Full hairy suede", "rubber
+cupsole", "padded tongue" describe every shoe of that type and will fail the
+swap test on their own.
+
+LENGTH IS NOT THE GOAL. A 98-character post that lands beats a 240-character
+post padded with materials copy. If no support fact carries a concrete detail,
+leave them all out and write the short post.
 
 `lineage` is SUPPORTING COLOUR, never a hook. It names the silhouette a shoe is
 built on and who designed THAT SILHOUETTE — not this colorway, collab or SP. So
@@ -255,12 +281,13 @@ def _call(payload: dict, env: dict, failed_rails: list[str] | None = None) -> tu
 
 
 def make_draft_fn(*, hook_facts, release, moment, price_permitted, display_name,
-                  env, occasion=None, lineage=None, meter: list | None = None):
+                  env, occasion=None, lineage=None, support_facts=None,
+                  meter: list | None = None):
     """A draft_fn for daily_digest.draft_with_gate8. Returns {"lead","body"}."""
     task = TASK_MOMENT_LINK if moment else TASK_GENERAL
     payload = build_payload(hook_facts=hook_facts, release=release, moment=moment,
                             price_permitted=price_permitted, occasion=occasion,
-                            lineage=lineage,
+                            lineage=lineage, support_facts=support_facts,
                             display_name=display_name, task=task,
                             format_contract=FORMAT_CONTRACT)
 
