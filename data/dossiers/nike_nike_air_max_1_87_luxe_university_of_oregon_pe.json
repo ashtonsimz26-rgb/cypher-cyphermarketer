@@ -1,6 +1,6 @@
 {
  "image_name": "nike_nike_air_max_1_87_luxe_university_of_oregon_pe",
- "built_at": "2026-09-12T00:21:54.239335+00:00",
+ "built_at": "2026-09-12T18:36:51.108187+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -32,6 +32,7 @@
     "kind": "release_dates",
     "ref": "nike_nike_air_max_1_87_luxe_university_of_oregon_pe"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

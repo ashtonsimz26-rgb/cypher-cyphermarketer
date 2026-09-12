@@ -1,0 +1,28 @@
+{
+ "_note": "Fact-level sensitivity. A fact listed here NEVER reaches the writer — not as a hook, not as support, not as lineage. It stays in its dossier as a record of what the source said; only its REACH is removed. research/dossier.py applies this; WRITER_REACHABLE_SENSITIVITIES is a positive filter, so an unanticipated value is excluded by construction.",
+ "_agent_may_never": "THE AGENT MAY NEVER ADD, EDIT, OR APPROVE AN ENTRY. approved_by is set by Ashton, by hand. Terms are used only to SURFACE candidates for his review — a regex does not decide this. The 2026-09-12 surfacing pass over 250 dossiers returned 8 candidates of which 5 were FALSE POSITIVES ('given a treatment of white paint', three 'low-light conditions', 'post-game recovery'), which is the argument against letting a pattern decide.",
+ "_matching": "An entry is matched to a fact by (image_name, whitespace-collapsed text). NOT by fact id: ids are positional (f1, f2 ...) and shift the moment the tagger changes, which would silently move a flag onto a different sentence. dossier.py's main() FAILS LOUDLY if an entry here matches no fact — a flag that has lost its target must never fail open.",
+ "_surfacing_terms": [
+  "pills",
+  "medication",
+  "dose",
+  "symptoms",
+  "treatment",
+  "chemotherapy",
+  "surgery",
+  "terminal",
+  "life-threatening",
+  "prognosis",
+  "diagnosis"
+ ],
+ "facts": [
+  {
+   "image_name": "aj13_doernbecher",
+   "sensitivity": "medical_detail",
+   "text": "Details from John's personal life include his soccer number, the seven pills he takes per day to manage his condition and the ‘Crohn’s’ on the outsole.",
+   "approved_by": "ashton",
+   "approved_at": "2026-09-12T18:36:50.972400+00:00",
+   "_why": "A named 11-year-old's daily medication count. distinctiveness double-weights numbers, so this ranked FIRST of aj13's support facts and was handed to the writer on every call. Named in the H4 ruling as the fact the rail exists for."
+  }
+ ]
+}

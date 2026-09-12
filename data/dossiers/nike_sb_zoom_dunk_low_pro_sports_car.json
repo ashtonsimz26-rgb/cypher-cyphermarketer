@@ -1,6 +1,6 @@
 {
  "image_name": "nike_sb_zoom_dunk_low_pro_sports_car",
- "built_at": "2026-09-12T00:21:54.241883+00:00",
+ "built_at": "2026-09-12T18:36:51.110910+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -32,6 +32,7 @@
     "kind": "goat_snapshot",
     "ref": "designer"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -43,6 +44,7 @@
     "kind": "release_dates",
     "ref": "nike_sb_zoom_dunk_low_pro_sports_car"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

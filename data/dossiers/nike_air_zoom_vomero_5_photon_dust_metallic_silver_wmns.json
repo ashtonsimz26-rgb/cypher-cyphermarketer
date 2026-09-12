@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_zoom_vomero_5_photon_dust_metallic_silver_wmns",
- "built_at": "2026-09-12T00:21:54.227337+00:00",
+ "built_at": "2026-09-12T18:36:51.096122+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -39,6 +39,7 @@
     "kind": "release_dates",
     "ref": "nike_air_zoom_vomero_5_photon_dust_metallic_silver_wmns"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -50,6 +51,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -61,6 +63,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -72,6 +75,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -83,6 +87,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

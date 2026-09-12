@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_foamposite_one_wu_tang",
- "built_at": "2026-09-12T00:21:54.213827+00:00",
+ "built_at": "2026-09-12T18:36:51.084359+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -31,6 +31,7 @@
     "kind": "goat_snapshot",
     "ref": "designer"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -42,6 +43,7 @@
     "kind": "release_dates",
     "ref": "nike_air_foamposite_one_wu_tang"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

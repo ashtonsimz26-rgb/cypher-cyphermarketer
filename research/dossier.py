@@ -47,6 +47,30 @@ defect, not a style choice. If the source sentence is dull, the fact is dull.
 PRICE: `retail_price_cents` is the ONLY price field in a snapshot and is NEVER
 read. Prose carries no currency at all (verified across 250 files, 0 hits).
 Price claims belong to PK and rails.py alone.
+
+★★ FACT-LEVEL SENSITIVITY — A FACT THE WRITER CAN NEVER SEE (R1, 2026-09-12)
+    Some facts are true, verified, on-topic, and must still never reach a
+    generator. aj13_doernbecher's best-scoring support fact is a named
+    11-year-old's daily medication count: distinctiveness double-weights
+    numbers, so "the seven pills he takes per day to manage his condition"
+    ranked FIRST and was handed to the writer on every single call. Four
+    sampled drafts happening not to use it is luck, not a rail.
+
+    Every fact carries `sensitivity`, default "none".
+    WRITER_REACHABLE_SENSITIVITIES is a POSITIVE FILTER — a fact reaches the
+    writer by MEMBERSHIP, so a value nobody anticipated is excluded BY
+    CONSTRUCTION rather than by remembering to blocklist it. Same discipline as
+    moments.PROPOSABLE_SENSITIVITIES and editorial.ALLOWED_FEEDBACK_CODES.
+
+    A flagged fact is removed AT THE SOURCE: it never enters hook_candidates,
+    never enters the support bucket, never enters lineage. The dossier still
+    records it — the record is not censored, the REACH is.
+
+    ★ THE FLAGS ARE HUMAN-APPROVED DATA, NEVER A REGEX. Terms only SURFACE
+    candidates; data/fact_sensitivity.json carries what Ashton approved. The
+    surfacing pass over 250 dossiers returned 8 candidates of which 5 were
+    false positives — "given a treatment of white paint", three "low-light
+    conditions", "post-game recovery". A pattern would have flagged all five.
 """
 from __future__ import annotations
 import html, json, re, sys
@@ -58,6 +82,7 @@ HERE = Path(__file__).resolve().parent.parent
 SNAPS = HERE / "data" / "goat_snapshots"
 OUT = HERE / "data" / "dossiers"
 RELEASE_DATES = HERE / "data" / "release_dates.json"
+FACT_SENSITIVITY = HERE / "data" / "fact_sensitivity.json"
 
 # ── tags ─────────────────────────────────────────────────────────────────────
 # POSITIVE FILTER, same discipline as editorial.ALLOWED_FEEDBACK_CODES and
@@ -72,7 +97,7 @@ ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec", "silhouette_lineage"}
 # What a dossier EMITS into the pipeline (contracts.py).
 DOSSIER_OUTPUT_FIELDS = frozenset({
     "hook_facts", "lineage_facts", "spec_facts", "support_facts",
-    "release_date_fact", "dossier_usable", "name_match",
+    "release_date_fact", "dossier_usable", "name_match", "fact_sensitivity",
 })
 
 # ── support_facts: the THIRD BUCKET (ruled 2026-09-12) ───────────────────────
@@ -112,6 +137,74 @@ _SUPPORT_STOP = frozenset({
 })
 MAX_SUPPORT_FACTS = 3
 
+# ── fact-level sensitivity (R1, ruled 2026-09-12) ────────────────────────────
+# POSITIVE FILTER. DO NOT WIDEN, and do not convert to a blocklist: the point is
+# that a sensitivity value nobody anticipated is unreachable by construction.
+WRITER_REACHABLE_SENSITIVITIES = frozenset({"none"})
+SENSITIVITY_APPROVER = "ashton"                  # the only valid approver
+_FACT_SENS: dict | None = None
+
+
+def _norm_text(s: str) -> str:
+    """Whitespace-collapsed text — the identity a curated flag matches on.
+
+    NOT the fact id. Ids are positional (f1, f2 ...) and shift the moment the
+    tagger changes; keying a flag by id would silently move it onto a different
+    sentence, which is the worst possible failure for this particular rail.
+    """
+    return re.sub(r"\s+", " ", (s or "")).strip()
+
+
+def fact_sensitivity(image_name: str | None = None) -> dict:
+    """Curated per-fact flags. LOUD on a missing file or an unapproved entry.
+
+    Failing open here means a medical detail reaches a generator, so every
+    failure mode is a raise. An unapproved entry is NOT silently skipped — that
+    would leave a flag someone wrote sitting inert in the file.
+    """
+    global _FACT_SENS
+    if _FACT_SENS is None:
+        blob = json.loads(FACT_SENSITIVITY.read_text())
+        out: dict[str, dict[str, str]] = {}
+        for e in blob.get("facts", []):
+            missing = [k for k in ("image_name", "sensitivity", "text", "approved_by")
+                       if not e.get(k)]
+            if missing:
+                raise ValueError("fact_sensitivity.json: entry missing %s" % missing)
+            if e["approved_by"] != SENSITIVITY_APPROVER:
+                raise ValueError("fact_sensitivity.json: entry for %s is not approved by %s "
+                                 "(found %r). The agent may never approve one."
+                                 % (e["image_name"], SENSITIVITY_APPROVER, e["approved_by"]))
+            if e["sensitivity"] in WRITER_REACHABLE_SENSITIVITIES:
+                raise ValueError("fact_sensitivity.json: %r is a reachable sensitivity — "
+                                 "flagging a fact with it is a no-op" % e["sensitivity"])
+            out.setdefault(e["image_name"], {})[_norm_text(e["text"])] = e["sensitivity"]
+        _FACT_SENS = out
+    return _FACT_SENS if image_name is None else _FACT_SENS.get(image_name, {})
+
+
+def writer_reachable(fact: dict) -> bool:
+    """Membership, never absence-from-a-blocklist. The whole rail is this line."""
+    return fact.get("sensitivity", "none") in WRITER_REACHABLE_SENSITIVITIES
+
+
+def hook_facts(dossier: dict) -> list[dict]:
+    """The dossier's hook facts. THE ONLY correct way to obtain them.
+
+    Three call sites used to inline `[f for f in d["facts"] if f["id"] in
+    d["hook_candidates"]]`. A rail added to one of those would have been
+    silently absent from the other two — the exact gap-between-components shape
+    contracts.py exists to fight. One function, one rail.
+    """
+    ids = set(dossier.get("hook_candidates") or [])
+    return [f for f in dossier.get("facts", []) if f["id"] in ids and writer_reachable(f)]
+
+
+def lineage_facts(dossier: dict) -> list[dict]:
+    """Silhouette-lineage facts, sensitivity-filtered. Same reasoning."""
+    return [f for f in dossier.get("facts", [])
+            if f.get("tag") == "silhouette_lineage" and writer_reachable(f)]
+
 
 def distinctiveness(text: str) -> int:
     """Rank support facts by what they say about THIS shoe, not by order.
@@ -138,8 +231,15 @@ def distinctiveness(text: str) -> int:
 
 
 def support_facts(dossier: dict, limit: int = MAX_SUPPORT_FACTS) -> list[dict]:
-    """Top-N spec facts by distinctiveness. NEVER hook candidates."""
-    specs = [f for f in dossier.get("facts", []) if f.get("tag") == "spec"]
+    """Top-N spec facts by distinctiveness. NEVER hook candidates.
+
+    ★ SENSITIVITY IS FILTERED BEFORE RANKING, not after. Filtering after would
+    let a flagged fact consume one of the three slots and silently shrink the
+    bucket — and the flagged fact is, by construction, the one that ranks
+    highest (numbers are double-weighted).
+    """
+    specs = [f for f in dossier.get("facts", [])
+             if f.get("tag") == "spec" and writer_reachable(f)]
     return sorted(specs, key=lambda f: -distinctiveness(f.get("text", "")))[:limit]
 
 # ★★ "designer" IS GONE FROM HOOKABLE_TAGS, AND FROM THE TAG SET ENTIRELY.
@@ -333,6 +433,7 @@ def build(image_name: str, cat: dict, snap: dict, release_dates: dict) -> dict:
     gate = name_consistency(cat, snap)
     facts: list[dict] = []
     n = 0
+    sens = fact_sensitivity(image_name)
 
     def add(tag, text, kind, ref, verified="self_evident"):
         nonlocal n
@@ -344,6 +445,9 @@ def build(image_name: str, cat: dict, snap: dict, release_dates: dict) -> dict:
         n += 1
         facts.append({"id": "f%d" % n, "tag": tag, "text": text,
                       "source": {"kind": kind, "ref": ref},
+                      # stamped HERE, before any bucket exists, so there is no
+                      # later branch that could forget to apply it
+                      "sensitivity": sens.get(_norm_text(text), "none"),
                       "verified": verified, "checked_at": None})
 
     # designer — 83.6% populated, 13 distinct values: a controlled vocabulary and
@@ -369,7 +473,10 @@ def build(image_name: str, cat: dict, snap: dict, release_dates: dict) -> dict:
         for s in split_sentences(strip_html(snap.get("story_html"))):
             add(tag_sentence(s), s, "goat_snapshot", "story_html")
 
-    hooks = [f["id"] for f in facts if f["tag"] in HOOKABLE_TAGS]
+    # A flagged fact is never a hook CANDIDATE, so nothing downstream — not the
+    # selector, not detect_hook, not the writer — can ever see it as one.
+    hooks = [f["id"] for f in facts
+             if f["tag"] in HOOKABLE_TAGS and writer_reachable(f)]
     return {"image_name": image_name,
             "built_at": datetime.now(timezone.utc).isoformat(),
             **gate,
@@ -421,7 +528,23 @@ def main():
         d = build(image_name, cat, snap, rd)
         (OUT / ("%s.json" % image_name)).write_text(json.dumps(d, indent=1, ensure_ascii=False) + "\n")
         built += 1
+    # ★ A CURATED FLAG THAT MATCHES NOTHING IS A HARD FAILURE. If GOAT rewrites
+    # a story sentence, the flag silently stops applying and the fact becomes
+    # reachable again — fail-open, on the one rail that must never fail open.
+    seen = set()
+    for f in sorted(OUT.glob("*.json")):
+        d = json.loads(f.read_text())
+        for fact in d["facts"]:
+            if fact.get("sensitivity", "none") != "none":
+                seen.add((d["image_name"], _norm_text(fact["text"])))
+    orphans = [(im, t[:60]) for im, texts in fact_sensitivity().items()
+               for t in texts if (im, t) not in seen]
+    if orphans:
+        raise SystemExit("FATAL: curated sensitivity flags matched no fact — a flag "
+                         "has lost its target and the fact is REACHABLE again:\n" +
+                         "\n".join("  %s  %s..." % o for o in orphans))
     print("built %d dossiers -> %s" % (built, OUT))
+    print("sensitivity flags applied: %d" % len(seen))
 
 
 if __name__ == "__main__":

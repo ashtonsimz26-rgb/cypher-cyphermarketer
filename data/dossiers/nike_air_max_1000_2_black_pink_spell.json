@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_max_1000_2_black_pink_spell",
- "built_at": "2026-09-12T00:21:54.219680+00:00",
+ "built_at": "2026-09-12T18:36:51.090645+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -32,6 +32,7 @@
     "kind": "release_dates",
     "ref": "nike_air_max_1000_2_black_pink_spell"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

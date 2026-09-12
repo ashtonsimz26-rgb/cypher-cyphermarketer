@@ -1,6 +1,6 @@
 {
  "image_name": "nike_glide_black_white",
- "built_at": "2026-09-12T00:21:54.233861+00:00",
+ "built_at": "2026-09-12T18:36:51.102980+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -29,6 +29,7 @@
     "kind": "release_dates",
     "ref": "nike_glide_black_white"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -40,6 +41,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -51,6 +53,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -62,6 +65,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -73,6 +77,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

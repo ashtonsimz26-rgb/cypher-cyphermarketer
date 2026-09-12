@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_5_protro_pe_particle_grey_light_cream_sail_white",
- "built_at": "2026-09-12T00:21:54.235984+00:00",
+ "built_at": "2026-09-12T18:36:51.105399+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -34,6 +34,7 @@
     "kind": "goat_snapshot",
     "ref": "designer"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -45,6 +46,7 @@
     "kind": "release_dates",
     "ref": "nike_kobe_5_protro_pe_particle_grey_light_cream_sail_white"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

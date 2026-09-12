@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_3_retro_sp_denim_blue",
- "built_at": "2026-09-12T00:21:54.202181+00:00",
+ "built_at": "2026-09-12T18:36:51.071276+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -35,6 +35,7 @@
     "kind": "release_dates",
     "ref": "jordan_3_retro_sp_denim_blue"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -46,6 +47,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -57,6 +59,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -68,6 +71,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -79,6 +83,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -90,6 +95,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

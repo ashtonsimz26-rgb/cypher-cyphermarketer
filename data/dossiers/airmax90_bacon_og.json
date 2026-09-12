@@ -1,6 +1,6 @@
 {
  "image_name": "airmax90_bacon_og",
- "built_at": "2026-09-12T00:21:54.176740+00:00",
+ "built_at": "2026-09-12T18:36:51.046161+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -34,6 +34,7 @@
     "kind": "goat_snapshot",
     "ref": "designer"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -45,6 +46,7 @@
     "kind": "release_dates",
     "ref": "airmax90_bacon_og"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -56,6 +58,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -67,6 +70,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

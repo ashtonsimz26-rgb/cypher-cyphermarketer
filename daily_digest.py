@@ -28,6 +28,7 @@ import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, b
 from research import compose_text as CT  # noqa: E402  (assembly; owns attribution + link)
 from research import writer as WR, composition as COMP, rotation as ROT  # noqa: E402
 from research import selector as SEL, moments as MOM  # noqa: E402
+from research import dossier as DOS  # noqa: E402  (hook/lineage/support rails)
 
 # ⚠ EDITING THIS FILE PROGRAMMATICALLY: assert the match count before every
 # replace (see README "Working conventions"). The moment-lane fallback below
@@ -286,7 +287,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     _dp = HERE / "data" / "dossiers" / ("%s.json" % cand["image_name"])
     try:
         _dj = json.loads(_dp.read_text())
-        _hooks = [f for f in _dj["facts"] if f["id"] in _dj["hook_candidates"]]
+        _hooks = DOS.hook_facts(_dj)          # sensitivity-filtered at the source
     except Exception:
         _hooks = []
     hook_type, hook = editorial.detect_hook(
@@ -317,10 +318,10 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
         dpath = HERE / "data" / "dossiers" / ("%s.json" % cand["image_name"])
         try:
             dj = json.loads(dpath.read_text())
-            hook_facts = [f for f in dj["facts"] if f["id"] in dj["hook_candidates"]]
-            lineage = [f for f in dj["facts"] if f["tag"] == "silhouette_lineage"]
-            from research.dossier import support_facts as _support   # noqa: PLC0415
-            support = _support(dj)
+            # all three go through the sensitivity rail; none is inlined again
+            hook_facts = DOS.hook_facts(dj)
+            lineage = DOS.lineage_facts(dj)
+            support = DOS.support_facts(dj)
         except Exception:
             hook_facts = []; lineage = []; support = []
         occ, moment_ctx = occasion_for(cand["image_name"], datetime.now().date())

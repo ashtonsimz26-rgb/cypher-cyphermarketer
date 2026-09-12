@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_humara_17_black",
- "built_at": "2026-09-12T00:21:54.219335+00:00",
+ "built_at": "2026-09-12T18:36:51.090408+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -29,6 +29,7 @@
     "kind": "goat_snapshot",
     "ref": "designer"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -40,6 +41,7 @@
     "kind": "release_dates",
     "ref": "nike_air_humara_17_black"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -51,6 +53,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -62,6 +65,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -73,6 +77,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   },
@@ -84,6 +89,7 @@
     "kind": "goat_snapshot",
     "ref": "story_html"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }

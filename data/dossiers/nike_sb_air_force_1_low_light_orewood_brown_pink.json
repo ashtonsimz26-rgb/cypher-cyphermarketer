@@ -1,6 +1,6 @@
 {
  "image_name": "nike_sb_air_force_1_low_light_orewood_brown_pink",
- "built_at": "2026-09-12T00:21:54.240392+00:00",
+ "built_at": "2026-09-12T18:36:51.109249+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -34,6 +34,7 @@
     "kind": "release_dates",
     "ref": "nike_sb_air_force_1_low_light_orewood_brown_pink"
    },
+   "sensitivity": "none",
    "verified": "self_evident",
    "checked_at": null
   }
