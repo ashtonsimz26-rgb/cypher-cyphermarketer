@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_force_1_low_patent_leather_dark_team_red",
- "built_at": "2026-09-10T03:25:43.062346+00:00",
+ "built_at": "2026-09-12T00:21:54.216027+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -35,8 +35,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Bruce Kilgore designed the Nike Air Force 1 Low.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Air Force 1 Low silhouette, designed by Bruce Kilgore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -111,8 +111,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_max_95_og_blue_spark",
- "built_at": "2026-09-10T03:25:43.068536+00:00",
+ "built_at": "2026-09-12T00:21:54.223493+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Sergio Lozano designed the Nike Air Max 95 OG.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Air Max 95 OG silhouette, designed by Sergio Lozano.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -94,8 +94,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

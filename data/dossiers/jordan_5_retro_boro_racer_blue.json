@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_5_retro_boro_racer_blue",
- "built_at": "2026-09-10T03:25:43.053905+00:00",
+ "built_at": "2026-09-12T00:21:54.208090+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -31,8 +31,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Tinker Hatfield designed the Jordan 5 Retro.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the 5 Retro silhouette, designed by Tinker Hatfield.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -86,7 +86,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3"
  ],
  "usable": true

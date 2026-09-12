@@ -40,7 +40,7 @@ COST_PER_M_IN, COST_PER_M_OUT = 1.25, 2.50
 LEAD_BUDGET = 202          # weighted chars left after attribution, no link (F4.3)
 
 PAYLOAD_FIELDS = frozenset({
-    "hook_facts", "release", "moment", "occasion", "format_contract",
+    "hook_facts", "lineage", "release", "moment", "occasion", "format_contract",
     "price_permitted", "display_name", "lead_budget", "task",
 })
 
@@ -101,12 +101,17 @@ def _soul() -> str:
 def build_payload(*, hook_facts: list[dict], release: dict | None,
                   moment: dict | None, price_permitted: bool,
                   display_name: str, task: str, format_contract: str,
-                  occasion: dict | None = None) -> dict:
+                  occasion: dict | None = None,
+                  lineage: list[dict] | None = None) -> dict:
     """The whitelist. Only these keys, ever."""
     payload = {
         # text/tag/id only — never the whole fact object, never a spec fact
         "hook_facts": [{"id": f["id"], "tag": f["tag"], "text": f["text"]}
                        for f in hook_facts if f["tag"] != "spec"],
+        # SUPPORTING COLOUR ONLY — never a hook. GOAT's designer field describes
+        # the SILHOUETTE, so it may appear inside a lead hooked elsewhere and
+        # must never be the reason a post exists (G1).
+        "lineage": [{"text": f["text"]} for f in (lineage or [])],
         "release": ({"release_date": release.get("release_date"),
                      "year": release.get("year")} if release else None),
         # ★ WHY THE POST EXISTS TODAY. Without this the writer sees only
@@ -157,6 +162,11 @@ day costs nothing; a filler post costs attention we cannot buy back.
 
 TASK_GENERAL = """\
 Write the opening line of a post for a sneaker trading-card app's X account.
+
+`lineage` is SUPPORTING COLOUR, never a hook. It names the silhouette a shoe is
+built on and who designed THAT SILHOUETTE — not this colorway, collab or SP. So
+never write "the [this shoe] designed by [name]"; that is false. You may write
+"built on the silhouette [name] drew" inside a line hooked on something else.
 
 `occasion` tells you WHY THIS POST EXISTS TODAY — an anniversary, a moment.
 If there is an occasion, IT is your hook and the facts are the payload:
@@ -222,11 +232,12 @@ def _call(payload: dict, env: dict, failed_rails: list[str] | None = None) -> tu
 
 
 def make_draft_fn(*, hook_facts, release, moment, price_permitted, display_name,
-                  env, occasion=None, meter: list | None = None):
+                  env, occasion=None, lineage=None, meter: list | None = None):
     """A draft_fn for daily_digest.draft_with_gate8. Returns {"lead","body"}."""
     task = TASK_MOMENT_LINK if moment else TASK_GENERAL
     payload = build_payload(hook_facts=hook_facts, release=release, moment=moment,
                             price_permitted=price_permitted, occasion=occasion,
+                            lineage=lineage,
                             display_name=display_name, task=task,
                             format_contract=FORMAT_CONTRACT)
 

@@ -1,6 +1,6 @@
 {
  "image_name": "yeezy700v3_copper_fade",
- "built_at": "2026-09-10T03:25:43.098103+00:00",
+ "built_at": "2026-09-12T00:21:54.251998+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Kanye West designed the Yeezy 700 V3.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Yeezy 700 V3 silhouette, designed by Kanye West.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -94,8 +94,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

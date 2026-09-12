@@ -1,6 +1,6 @@
 {
  "image_name": "nike_sb_zoom_dunk_low_pro_sports_car",
- "built_at": "2026-09-10T03:25:43.088064+00:00",
+ "built_at": "2026-09-12T00:21:54.241883+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -26,8 +26,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Peter Moore designed the Nike SB Zoom Dunk Low Pro.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the SB Zoom Dunk Low Pro silhouette, designed by Peter Moore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -47,8 +47,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

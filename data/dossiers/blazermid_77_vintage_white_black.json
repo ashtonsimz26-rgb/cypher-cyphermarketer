@@ -1,6 +1,6 @@
 {
  "image_name": "blazermid_77_vintage_white_black",
- "built_at": "2026-09-10T03:25:43.029433+00:00",
+ "built_at": "2026-09-12T00:21:54.182862+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -27,8 +27,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Bill Bowerman designed the Nike Blazer Mid '77 Vintage.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Blazer Mid silhouette, designed by Bill Bowerman.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -93,7 +93,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f4"
  ],
  "usable": true

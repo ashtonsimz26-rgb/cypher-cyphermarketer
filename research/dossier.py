@@ -65,9 +65,38 @@ RELEASE_DATES = HERE / "data" / "release_dates.json"
 # "spec" is deliberately ABSENT: a spec is not a story. Materials, silhouette
 # geometry and construction can never open a post, no matter how well written.
 HOOKABLE_TAGS = frozenset({
-    "designer", "collab_origin", "cultural_moment", "release_drama", "price_reason",
+    "collab_origin", "cultural_moment", "release_drama", "price_reason",
 })
-ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec"}
+ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec", "silhouette_lineage"}
+
+# ★★ "designer" IS GONE FROM HOOKABLE_TAGS, AND FROM THE TAG SET ENTIRELY.
+# GOAT's `designer` field describes the SILHOUETTE, not the colorway, collab or
+# SP built on it. It is correct on an original release and MISLEADING on
+# everything after — the same class as D1's name-consistency problem, one layer
+# down: the fact is true about a shoe, just not about THIS shoe.
+#
+# It shipped on 2026-09-11 as "...the Jordan 1 Retro Low OG SP designed by Peter
+# Moore." Peter Moore designed the Jordan 1 in 1985; he had nothing to do with a
+# 2023 Travis Scott SP.
+#
+# WHY EVERY CARD IS LINEAGE, measured rather than assumed. The obvious test —
+# compare the card's year against the earliest year for its silhouette in
+# release_dates.json — DOES NOT WORK, for two reasons:
+#   1. the catalog's `silhouette` strings are VARIANT-level, not model-level.
+#      The Jordan 1 is split across 13 of them ("1 Retro High OG", "1 Retro Low
+#      OG SP", "Jordan 1 Mid", ...), 92 of 144 are singletons, and each carries
+#      its own earliest year. A 2022 SP therefore looks like an "OG".
+#   2. the catalog is a SAMPLE, not the historical record. Of the 97 cards that
+#      test calls "OG", 90 released in 2010 or later and NONE in the 1980s or
+#      1990s. It is measuring catalog coverage, not design origin.
+# So the test is unusable, and since no card in this catalog is plausibly the
+# original release of its silhouette, the fail-closed answer is that ALL of
+# them are lineage. Confidence in that: high — it follows from the year
+# distribution, not from a judgement call.
+#
+# A lineage fact is still worth carrying as supporting colour inside a lead
+# hooked elsewhere, so it is emitted with its text SAYING SO EXPLICITLY. It can
+# never be a hook_candidate, which is enforced by its absence above.
 
 # Tokens that corroborate nothing — present in half the catalog.
 GENERIC_TOKENS = frozenset({
@@ -248,8 +277,12 @@ def build(image_name: str, cat: dict, snap: dict, release_dates: dict) -> dict:
     # the highest-confidence target in the snapshot. Emitted at every gate level
     # except "failed", because it is a field, not prose.
     designer = (snap.get("designer") or "").strip()
-    if designer and gate["name_match"] != "failed":
-        add("designer", "%s designed the %s." % (designer, cat.get("name") or image_name),
+    silhouette = (cat.get("silhouette") or "").strip()
+    if designer and silhouette and gate["name_match"] != "failed":
+        # Phrased as LINEAGE, never as authorship of this card. The subject of
+        # the sentence is the silhouette, which is what GOAT's field describes.
+        add("silhouette_lineage",
+            "Built on the %s silhouette, designed by %s." % (silhouette, designer),
             "goat_snapshot", "designer")
 
     # release_date — from cyphermarketer-owned release_dates.json (v1.2 ruling)

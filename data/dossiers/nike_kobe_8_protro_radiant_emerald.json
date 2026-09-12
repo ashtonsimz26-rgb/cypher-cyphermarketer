@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_8_protro_radiant_emerald",
- "built_at": "2026-09-10T03:25:43.083598+00:00",
+ "built_at": "2026-09-12T00:21:54.237563+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Eric Avar designed the Nike Kobe 8 Protro.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Kobe 8 Protro silhouette, designed by Eric Avar.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -105,8 +105,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

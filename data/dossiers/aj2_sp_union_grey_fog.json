@@ -1,6 +1,6 @@
 {
  "image_name": "aj2_sp_union_grey_fog",
- "built_at": "2026-09-10T03:25:43.026822+00:00",
+ "built_at": "2026-09-12T00:21:54.180392+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -26,8 +26,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Bruce Kilgore designed the Jordan 2 Retro SP.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Jordan 2 silhouette, designed by Bruce Kilgore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -47,8 +47,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

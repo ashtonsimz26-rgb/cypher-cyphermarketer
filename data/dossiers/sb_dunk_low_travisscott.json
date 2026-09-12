@@ -1,6 +1,6 @@
 {
  "image_name": "sb_dunk_low_travisscott",
- "built_at": "2026-09-10T03:25:43.094031+00:00",
+ "built_at": "2026-09-12T00:21:54.247454+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Peter Moore designed the Nike SB Dunk Low.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the SB Dunk Low silhouette, designed by Peter Moore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -84,7 +84,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3"
  ],
  "usable": true

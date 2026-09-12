@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kd_6_brazil",
- "built_at": "2026-09-10T03:25:43.079892+00:00",
+ "built_at": "2026-09-12T00:21:54.234136+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -27,8 +27,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Leo Chang designed the Nike KD 6.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the KD 6 silhouette, designed by Leo Chang.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -92,8 +92,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

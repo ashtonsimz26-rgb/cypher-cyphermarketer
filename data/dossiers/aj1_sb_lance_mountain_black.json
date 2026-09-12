@@ -1,6 +1,6 @@
 {
  "image_name": "aj1_sb_lance_mountain_black",
- "built_at": "2026-09-10T03:25:43.026329+00:00",
+ "built_at": "2026-09-12T00:21:54.179867+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Peter Moore designed the Jordan 1 SB.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Air Jordan 1 High silhouette, designed by Peter Moore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -106,7 +106,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3",
   "f6",
   "f7"

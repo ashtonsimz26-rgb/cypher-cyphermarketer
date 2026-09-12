@@ -1,6 +1,6 @@
 {
  "image_name": "nike_dunk_low_premium_sb_qs_de_la_soul",
- "built_at": "2026-09-10T03:25:43.074560+00:00",
+ "built_at": "2026-09-12T00:21:54.229089+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -27,8 +27,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Peter Moore designed the Nike Dunk Low Premium SB QS.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Dunk Low Premium SB QS silhouette, designed by Peter Moore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -82,7 +82,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3",
   "f4"
  ],

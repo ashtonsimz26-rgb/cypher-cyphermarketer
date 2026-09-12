@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_11_retro_gratitude_defining_moments",
- "built_at": "2026-09-10T03:25:43.031290+00:00",
+ "built_at": "2026-09-12T00:21:54.184772+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -31,8 +31,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Tinker Hatfield designed the Jordan 11 Retro.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the 11 Retro silhouette, designed by Tinker Hatfield.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -97,7 +97,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f4"
  ],
  "usable": true

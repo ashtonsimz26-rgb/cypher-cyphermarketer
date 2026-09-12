@@ -1,6 +1,6 @@
 {
  "image_name": "airmax90_bacon_og",
- "built_at": "2026-09-10T03:25:43.023467+00:00",
+ "built_at": "2026-09-12T00:21:54.176740+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -28,8 +28,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Tinker Hatfield designed the Air Max 90.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Air Max 90 silhouette, designed by Tinker Hatfield.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -72,7 +72,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3"
  ],
  "usable": true

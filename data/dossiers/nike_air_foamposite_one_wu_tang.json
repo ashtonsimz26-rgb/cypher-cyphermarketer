@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_foamposite_one_wu_tang",
- "built_at": "2026-09-10T03:25:43.060091+00:00",
+ "built_at": "2026-09-12T00:21:54.213827+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -25,8 +25,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Eric Avar designed the Nike Air Foamposite One.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Air Foamposite One silhouette, designed by Eric Avar.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -46,8 +46,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

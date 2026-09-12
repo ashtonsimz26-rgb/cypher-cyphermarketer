@@ -1,6 +1,6 @@
 {
  "image_name": "nike_blazer_sb_black",
- "built_at": "2026-09-10T03:25:43.073736+00:00",
+ "built_at": "2026-09-12T00:21:54.228280+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -23,8 +23,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Bill Bowerman designed the Nike Blazer SB.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Blazer SB silhouette, designed by Bill Bowerman.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -78,7 +78,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3",
   "f4"
  ],

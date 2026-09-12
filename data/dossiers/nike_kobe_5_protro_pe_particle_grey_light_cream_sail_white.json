@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_5_protro_pe_particle_grey_light_cream_sail_white",
- "built_at": "2026-09-10T03:25:43.081936+00:00",
+ "built_at": "2026-09-12T00:21:54.235984+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -28,8 +28,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Eric Avar designed the Nike Kobe 5 Protro PE.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Kobe 5 Protro PE silhouette, designed by Eric Avar.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -49,8 +49,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

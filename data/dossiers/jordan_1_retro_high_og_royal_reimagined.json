@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_1_retro_high_og_royal_reimagined",
- "built_at": "2026-09-10T03:25:43.040673+00:00",
+ "built_at": "2026-09-12T00:21:54.193456+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Peter Moore designed the Jordan 1 Retro High OG.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the 1 Retro High OG silhouette, designed by Peter Moore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -94,8 +94,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

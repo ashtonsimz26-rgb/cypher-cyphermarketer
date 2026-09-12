@@ -267,13 +267,14 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
         try:
             dj = json.loads(dpath.read_text())
             hook_facts = [f for f in dj["facts"] if f["id"] in dj["hook_candidates"]]
+            lineage = [f for f in dj["facts"] if f["tag"] == "silhouette_lineage"]
         except Exception:
-            hook_facts = []
+            hook_facts = []; lineage = []
         occ, moment_ctx = occasion_for(cand["image_name"], datetime.now().date())
         moment = moment_ctx
         draft_fn = WR.make_draft_fn(
             hook_facts=hook_facts, release=SEL.load_release_dates().get(cand["image_name"]),
-            moment=moment_ctx, occasion=occ, price_permitted=price_ok,
+            moment=moment_ctx, occasion=occ, price_permitted=price_ok, lineage=lineage,
             display_name=display, env=X.load_env(Path(X.DEFAULT_ENV)))
     text, gate_failed, attempts = draft_with_gate8(
         cand, row, fmt, hook_type, display, price_ok,

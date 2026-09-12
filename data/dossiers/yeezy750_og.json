@@ -1,6 +1,6 @@
 {
  "image_name": "yeezy750_og",
- "built_at": "2026-09-10T03:25:43.098339+00:00",
+ "built_at": "2026-09-12T00:21:54.252263+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -23,8 +23,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Kanye West designed the Yeezy 750.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Yeezy 750 silhouette, designed by Kanye West.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -89,7 +89,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3"
  ],
  "usable": true

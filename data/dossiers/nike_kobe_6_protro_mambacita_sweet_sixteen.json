@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_6_protro_mambacita_sweet_sixteen",
- "built_at": "2026-09-10T03:25:43.082713+00:00",
+ "built_at": "2026-09-12T00:21:54.236696+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -31,8 +31,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Eric Avar designed the Nike Kobe 6 Protro.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Kobe 6 Protro silhouette, designed by Eric Avar.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -119,7 +119,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3",
   "f6",
   "f8"

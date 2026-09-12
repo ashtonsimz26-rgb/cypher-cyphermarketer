@@ -1,6 +1,6 @@
 {
  "image_name": "nike_dunk_low_se_safari_mix_wmns",
- "built_at": "2026-09-10T03:25:43.078955+00:00",
+ "built_at": "2026-09-12T00:21:54.233185+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Peter Moore designed the Nike Dunk Low SE.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Dunk Low SE silhouette, designed by Peter Moore.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -105,8 +105,6 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [
-  "f1"
- ],
- "usable": true
+ "hook_candidates": [],
+ "usable": false
 }

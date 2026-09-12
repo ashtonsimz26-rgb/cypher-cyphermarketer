@@ -1,6 +1,6 @@
 {
  "image_name": "airmax1_patta_white",
- "built_at": "2026-09-10T03:25:43.022737+00:00",
+ "built_at": "2026-09-12T00:21:54.175996+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -27,8 +27,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Tinker Hatfield designed the Nike Air Max 1.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Air Max 1 silhouette, designed by Tinker Hatfield.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -93,7 +93,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3"
  ],
  "usable": true

@@ -1,6 +1,6 @@
 {
  "image_name": "airmaxplus_supreme_university_red",
- "built_at": "2026-09-10T03:25:43.024275+00:00",
+ "built_at": "2026-09-12T00:21:54.177679+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -29,8 +29,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Sean McDowell designed the Nike Air Max Plus.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Air Max Plus silhouette, designed by Sean McDowell.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -84,7 +84,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3"
  ],
  "usable": true

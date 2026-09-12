@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_5_protro_coconut_milk_spruce",
- "built_at": "2026-09-10T03:25:43.081341+00:00",
+ "built_at": "2026-09-12T00:21:54.235470+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -31,8 +31,8 @@
  "facts": [
   {
    "id": "f1",
-   "tag": "designer",
-   "text": "Eric Avar designed the Nike Kobe 5 Protro.",
+   "tag": "silhouette_lineage",
+   "text": "Built on the Kobe 5 Protro silhouette, designed by Eric Avar.",
    "source": {
     "kind": "goat_snapshot",
     "ref": "designer"
@@ -108,7 +108,6 @@
   }
  ],
  "hook_candidates": [
-  "f1",
   "f3"
  ],
  "usable": true
