@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_force_1_supreme_tz_chinese_candy_box",
- "built_at": "2026-09-12T18:39:10.489720+00:00",
+ "built_at": "2026-09-12T18:41:41.684357+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -67,7 +67,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The 2009 design ditched the typical shoebox for a meticulous ‘Chinese Candy Box’ packaging set—a red box in a hexagonal shape with festive graphics, an interior tray layer for shoe accessories, CLOT graphics on the back and a matching lid.",
    "source": {
     "kind": "goat_snapshot",

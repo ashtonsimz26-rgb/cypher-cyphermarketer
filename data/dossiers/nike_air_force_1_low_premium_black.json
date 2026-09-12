@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_force_1_low_premium_black",
- "built_at": "2026-09-12T18:39:10.487118+00:00",
+ "built_at": "2026-09-12T18:41:41.679881+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -59,7 +59,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "In a nod to the Nike Air More Uptempo, ‘AIR’ is superimposed on the lateral side panel of the right shoe, each letter framed in reflective detailing for added visibility.",
    "source": {
     "kind": "goat_snapshot",

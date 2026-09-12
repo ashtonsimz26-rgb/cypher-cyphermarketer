@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_4_retro_thunder",
- "built_at": "2026-09-12T18:39:10.475510+00:00",
+ "built_at": "2026-09-12T18:41:41.654720+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The 2023 edition of the Air Jordan 4 Retro ‘Thunder’ brings back the coveted colorway originally released in 2006 (and previously reissued in 2012).",
    "source": {
     "kind": "goat_snapshot",

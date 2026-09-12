@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_11_retro_bred",
- "built_at": "2026-09-12T18:39:10.451442+00:00",
+ "built_at": "2026-09-12T18:41:41.594164+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Air Jordan 11 Retro 'Bred' 2019 brings back an original colorway initially debuted in 1995.",
    "source": {
     "kind": "goat_snapshot",
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Tinker Hatfield-designed silhouette features Chicago Bulls colors, with black mesh on the upper sitting atop shiny black patent leather.",
    "source": {
     "kind": "goat_snapshot",
@@ -75,7 +75,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "A white midsole melds nicely with a translucent Varsity Red outsole, and is the same colorway that Michael Jordan wore during the 1996 NBA championship playoff run.",
    "source": {
     "kind": "goat_snapshot",

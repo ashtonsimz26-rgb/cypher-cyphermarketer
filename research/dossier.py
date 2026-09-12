@@ -71,6 +71,50 @@ Price claims belong to PK and rails.py alone.
     surfacing pass over 250 dossiers returned 8 candidates of which 5 were
     false positives — "given a treatment of white paint", three "low-light
     conditions", "post-game recovery". A pattern would have flagged all five.
+
+★★ WHAT `spec` IS — AND WHY THAT IS THE ROOT DEFECT (R3, banked 2026-09-12)
+    `spec` IS THE ELSE BRANCH. IT CLASSIFIES NOTHING BY EVIDENCE. A sentence is
+    tagged spec because no story pattern matched it — never because anything
+    tested it for BEING a spec. There is no materials vocabulary deciding this,
+    and if you go looking for one you will find SPEC_MARKERS below and be
+    misled: it is compiled, it is never read, and it has never once classified
+    a sentence.
+
+    That shape is the defect, not a detail of it. A classifier whose default
+    bucket is "everything that did not match" will always accumulate whatever
+    the patterns do not cover, and EVERY FUTURE PATTERN GAP LANDS THERE
+    SILENTLY. That is how 89 facts naming people, collectives, events and
+    origins sat in the same bucket as "a rubber outsole delivers grip", and
+    nothing in the code could have told you.
+
+    The narrative_detail tier below ROUTES part of that accumulation somewhere
+    useful. It does not fix the shape, and it was not meant to. THE REAL FIX IS
+    POSITIVE CLASSIFICATION FOR SPEC — a sentence should have to prove it is
+    materials copy, the same way a hook has to prove it is a story, and the
+    else branch should end up meaning "unclassified" rather than "spec".
+    Deliberately not done here. Written down so a future session inherits the
+    shape instead of rediscovering it.
+
+★ THE narrative_detail COUNT IS UNACCOUNTED, AND STAYS THAT WAY (R5, ruled)
+    The H4 proposal measured 101 of 735 facts moving and 86.3% retention. This
+    implementation moves 89 and retains 87.3%. The rule here was rebuilt from
+    the ruling's four categories — people, collectives, provenance, events —
+    because the proposal's actual term list was never written down. Three of
+    the difference is the B fixes claiming those sentences first; the remaining
+    ~9 is UNRECONCILED, and deliberately so: the lists were not widened to
+    reach a number. The direction is conservative. Ruled to record the gap
+    rather than close it retroactively, because a count reached by tuning
+    toward it is not a measurement.
+
+★ H3 IS RETIRED (R7, ruled 2026-09-12)
+    H3 was a two-shoe batch selected by "the support bucket is empty". After
+    this tier airmax90_bacon_og left it — its one spec fact is narrative_detail
+    now — and blazermid_off-white_grim_reaper stayed, having no spec prose at
+    all to reclassify. Retired not because one shoe is too few, but because THE
+    PREMISE IS GONE: support-emptiness was only ever a proxy for the writer
+    being STARVED, and writer payload under 200 characters is now ZERO across
+    138 usable dossiers (it is 3 without narrative_detail). blazermid hands the
+    writer 391 characters across two hooks. There is nothing left to fix.
 """
 from __future__ import annotations
 import html, json, re, sys
@@ -93,13 +137,18 @@ DOSSIER_SENSITIVITY = HERE / "data" / "dossier_sensitivity.json"
 HOOKABLE_TAGS = frozenset({
     "collab_origin", "cultural_moment", "release_drama", "price_reason",
 })
-ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec", "silhouette_lineage"}
+# narrative_detail is SUPPORT-ONLY and joins ALL_TAGS here and nowhere else.
+# Its absence from HOOKABLE_TAGS above is the whole guarantee: a fact tagged
+# narrative_detail cannot enter hook_candidates, cannot make a dossier usable,
+# and cannot open a post. Do not "tidy" it into the frozenset above.
+ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec", "silhouette_lineage",
+                            "narrative_detail"}
 
 # What a dossier EMITS into the pipeline (contracts.py).
 DOSSIER_OUTPUT_FIELDS = frozenset({
-    "hook_facts", "lineage_facts", "spec_facts", "support_facts",
-    "release_date_fact", "dossier_usable", "name_match", "fact_sensitivity",
-    "dossier_sensitivity",
+    "hook_facts", "lineage_facts", "spec_facts", "narrative_detail_facts",
+    "support_facts", "release_date_fact", "dossier_usable", "name_match",
+    "fact_sensitivity", "dossier_sensitivity",
 })
 
 # ── support_facts: the THIRD BUCKET (ruled 2026-09-12) ───────────────────────
@@ -284,17 +333,30 @@ def distinctiveness(text: str) -> int:
     return novel + 2 * pn + 2 * nums
 
 
-def support_facts(dossier: dict, limit: int = MAX_SUPPORT_FACTS) -> list[dict]:
-    """Top-N spec facts by distinctiveness. NEVER hook candidates.
+# The support bucket is spec + narrative_detail. Both are non-hookable by
+# construction (neither is in HOOKABLE_TAGS), so widening the bucket widens what
+# the writer may KNOW and nothing else.
+SUPPORT_TAGS = frozenset({"spec", "narrative_detail"})
 
-    ★ SENSITIVITY IS FILTERED BEFORE RANKING, not after. Filtering after would
-    let a flagged fact consume one of the three slots and silently shrink the
-    bucket — and the flagged fact is, by construction, the one that ranks
-    highest (numbers are double-weighted).
+
+def support_facts(dossier: dict, limit: int = MAX_SUPPORT_FACTS) -> list[dict]:
+    """Top-N support facts by distinctiveness. NEVER hook candidates.
+
+    spec and narrative_detail rank TOGETHER in one pool. A narrative_detail
+    fact gets no privilege for being narrative — it simply tends to score
+    higher, because distinctiveness double-weights proper nouns and numbers and
+    that is what a person, a collective or a date is made of. Ranking them in
+    separate tiers would have been a second, untested judgement on top of a
+    heuristic that is already only a heuristic.
+
+    ★ SENSITIVITY IS FILTERED BEFORE RANKING, not after (R1). Filtering after
+    would let a flagged fact consume one of the three slots and silently shrink
+    the bucket — and the flagged fact is, by construction, the one that ranks
+    highest, because numbers are double-weighted.
     """
-    specs = [f for f in dossier.get("facts", [])
-             if f.get("tag") == "spec" and writer_reachable(f)]
-    return sorted(specs, key=lambda f: -distinctiveness(f.get("text", "")))[:limit]
+    pool = [f for f in dossier.get("facts", [])
+            if f.get("tag") in SUPPORT_TAGS and writer_reachable(f)]
+    return sorted(pool, key=lambda f: -distinctiveness(f.get("text", "")))[:limit]
 
 # ★★ "designer" IS GONE FROM HOOKABLE_TAGS, AND FROM THE TAG SET ENTIRELY.
 # GOAT's `designer` field describes the SILHOUETTE, not the colorway, collab or
@@ -447,22 +509,158 @@ def name_consistency(cat: dict, snap: dict) -> dict:
 # ── sentence-level extraction ────────────────────────────────────────────────
 # Sentence-level, NOT story-level: most GOAT prose is 60-80% materials copy, so a
 # whole-story blob would bury the one real fact under four sentences of spec.
+# ⚠ UNUSED — READ BY NOTHING. This compiles a materials vocabulary and no code
+# path calls it; it is not the spec classifier and never has been (see the R3
+# note in the module docstring). Kept, not deleted, because it is the obvious
+# seed for the positive spec classifier that R3 says is the real fix.
+#
+# ★ AND ITS EXISTENCE IS ITS OWN HAZARD (R8, banked 2026-09-12). A dead
+# constant that LOOKS like the live mechanism is worse than no constant at all.
+# This one describes a classifier that is present in the file and wired to
+# nothing, and reading it is how the "spec is decided by materials vocabulary"
+# hypothesis was invented — a description of behaviour that has never occurred.
+# If you find yourself citing SPEC_MARKERS as evidence of what this module
+# does, you are citing dead code. Wire it or delete it; do not believe it.
 SPEC_MARKERS = re.compile(
     r"\b(upper|midsole|outsole|sockliner|insole|tongue|heel|collar|eyelet|lace|"
     r"suede|leather|mesh|nubuck|canvas|rubber|foam|boost|cushion|shank|overlay|"
     r"panel|stitch|embroider|print|graphic|branding|constructed|features|"
     r"crafted|built|finish|textured|colorway|palette|hue|tonal)\b", re.I)
 
+# ★ FOUR FIXES, 2026-09-12 (H4 rulings B, R3, R4). ALL ARE BUG FIXES, NOT POLICY.
+#   (i)   \bexclusive\b -> \bexclusiv\w+ . A word boundary was silently dropping
+#         every "launched exclusively in Japan" — the adverb form, which is how
+#         GOAT actually writes regional exclusivity. Measured: 5 sentences the
+#         old boundary missed, 3 already tagged by another rule, 2 newly
+#         release_drama (nike_dunk_low_retro_qs_argon f3, yeezy350v2_clay f5).
+#   (ii)  patient / syndrome / disease added to cultural_moment. The Doernbecher
+#         near-miss: a child at a children's hospital designs a shoe, and the
+#         sentence saying so fell to spec because it named the illness and not
+#         the hospital. Measured across all 250 dossiers: exactly 2 facts match,
+#         both Doernbecher, both human stories, ZERO false positives.
+#   (iii) R3 — \bdisease\b(?!-) . "disease" sits on a word boundary before a
+#         hyphen, so the bare form would have matched "disease-resistant" and
+#         "disease-causing" in performance and materials copy: a false positive
+#         that promotes FILLER INTO A HOOK, the one direction fail-closed exists
+#         to prevent. Zero hyphenated occurrences in the corpus today — the
+#         guard is preventive, and measured at 0 deltas. Note the plural
+#         "diseases" is still not matched; that is the ruled trade.
+#   (iv)  R4 — \bsold out\b now also \bsell(?:s|ing)? out\b. Identical
+#         word-boundary class to (i), no policy content. Measured: 1 sentence
+#         newly reached — yeezy350v2_beluga_2.0 f4, "It was quickly restocked on
+#         November 30th after selling out." — spec -> release_drama. Leaving a
+#         known identical bug in place because it fell outside a prompt's
+#         literal scope was the wrong kind of discipline.
 TAG_RULES = (
     ("collab_origin",   re.compile(r"\bcollaborat\w*|\bpartnership\b|\bteamed up\b|\bjoint\b|\bx\s+[A-Z]", re.I)),
     ("cultural_moment", re.compile(r"\bhomage\b|\binspired by\b|\bpays? tribute\b|\bcelebrat\w+|\bcommemorat\w+|"
                                    r"\bproceeds\b|\bcharit\w+|\bfoundation\b|\bhospital\b|\bhonor\w*\b|"
+                                   r"\bpatients?\b|\bsyndromes?\b|\bdisease\b(?!-)|"
                                    r"\bculture\b|\bmovie\b|\bfilm\b|\bvideo\b|\balbum\b|\bmusic\b", re.I)),
     ("release_drama",   re.compile(r"\bbanned\b|\bcontrovers\w+|\brecall\w*|\bcancel\w+|\blimited\b|"
-                                   r"\bexclusive\b|\bfriends and family\b|\bplayer exclusive\b|\bunreleased\b|"
-                                   r"\bsold out\b|\briot\w*", re.I)),
+                                   r"\bexclusiv\w+|\bfriends and family\b|\bplayer exclusive\b|\bunreleased\b|"
+                                   r"\bsold out\b|\bsell(?:s|ing)? out\b|\briot\w*", re.I)),
     ("price_reason",    re.compile(r"\brare\b|\bscarc\w+|\bonly \d+ pairs?\b|\bnumbered\b|\bone[- ]of[- ]one\b", re.I)),
 )
+
+
+# ── narrative_detail: the SUPPORT tier, from CURATED DATA (ruled 2026-09-12) ──
+# Of the 735 spec facts across 250 dossiers, a measured 89 are not materials
+# copy at all: they name a PERSON, a COLLECTIVE, an EVENT, or say where the
+# design CAME FROM. They reached the writer as nothing, because the else branch
+# does not distinguish "a shoe designed by an 11-year-old" from "a rubber
+# outsole delivers grip".
+#
+# ★ NEVER HOOKABLE. narrative_detail is absent from HOOKABLE_TAGS, and the tag
+# is tested AFTER every rule in TAG_RULES, so it can only ever claim a sentence
+# the hook patterns have already declined. Note the near-collision with
+# selector.NARRATIVE_HOOK_TAGS — that frozenset is the HOOK filter and this tag
+# must never be added to it. tests/test_narrative_detail.py asserts both.
+#
+# ★ THE VOCABULARY IS DATA, NOT CODE (ruled). The curated lists live in two
+# reviewable JSON files, amendable by hand like data/moments.json. They are
+# judgement calls about names — the kind that must stay visible to a human — and
+# a regex literal buried in this module is not reviewable by anyone.
+NARRATIVE_ENTITIES = HERE / "data" / "narrative_entities.json"
+NARRATIVE_MARKERS = HERE / "data" / "narrative_markers.json"
+
+_VOCAB: dict | None = None
+
+
+def _phrase_rx(terms: list[str], *, case_sensitive: bool, closed: bool):
+    """Word-bounded alternation. `closed` bounds the END of the phrase too."""
+    tail = r"(?![A-Za-z0-9])" if closed else ""
+    body = "|".join(r"(?<![A-Za-z0-9])%s%s" % (re.escape(t), tail) for t in terms)
+    return re.compile(body, 0 if case_sensitive else re.I)
+
+
+def _load_list(blob: dict, key: str, path: Path) -> list[str]:
+    v = blob.get(key)
+    if not isinstance(v, list) or not v or not all(
+            isinstance(t, str) and t.strip() for t in v):
+        raise ValueError("%s: '%s' must be a non-empty list of non-empty strings"
+                         % (path.name, key))
+    return v
+
+
+def narrative_vocab() -> dict:
+    """Compiled curated vocabulary. LOUD on a missing or malformed file.
+
+    A missing list must never degrade to "matches nothing": that would retire
+    the whole tier while every reader of this module still believed it was on.
+    Same reasoning as contracts.py — silence is the failure mode, so it is made
+    impossible rather than merely discouraged.
+    """
+    global _VOCAB
+    if _VOCAB is None:
+        ents = json.loads(NARRATIVE_ENTITIES.read_text())
+        mrks = json.loads(NARRATIVE_MARKERS.read_text())
+        # ★ ENTITIES MATCH CASE-SENSITIVELY. The colour "off-white" and the
+        # label "Off-White" are the same letters; case is the ONLY thing
+        # separating "off-white leather overlays" (materials) from
+        # "Off-White™ for NIKE" (a collaborator). Matching insensitively put 11
+        # pure materials sentences into this tier. Proper nouns are capitalised
+        # in GOAT prose, so case-sensitivity costs nothing.
+        entities = (_load_list(ents, "people", NARRATIVE_ENTITIES)
+                    + _load_list(ents, "collectives", NARRATIVE_ENTITIES)
+                    + _load_list(ents, "events", NARRATIVE_ENTITIES))
+        prov = _load_list(mrks, "provenance", NARRATIVE_MARKERS)
+        place = _load_list(mrks, "placement_frames", NARRATIVE_MARKERS)
+        _VOCAB = {
+            "entities": _phrase_rx(entities, case_sensitive=True, closed=True),
+            # markers are verbs and prepositions: "debut" must also catch
+            # "debuted", so the END of the phrase is deliberately unbounded.
+            "provenance": _phrase_rx(prov, case_sensitive=False, closed=False),
+            "placement": _phrase_rx(place, case_sensitive=False, closed=False),
+            "counts": {"entities": len(entities), "provenance": len(prov),
+                       "placement_frames": len(place)},
+        }
+    return _VOCAB
+
+
+def is_narrative_detail(s: str) -> bool:
+    """POSITIVE test: does this sentence name someone, or say where this came from?
+
+    Two signals and one exclusion:
+      entity      a curated name appears (case-sensitive)
+      provenance  a curated origin/event frame appears
+      placement   the entity is ONLY a logo sitting on a part of the shoe, so
+                  the sentence stays spec — "a rubberized Cactus Jack patch
+                  adorns the tongue" names a collaborator and is still pure
+                  materials copy. 54 sentences are held back this way.
+
+    A provenance marker OVERRIDES the placement exclusion, because
+    "a '94' embroidered on the lateral heel — a nod to Supreme's founding year"
+    is placement AND provenance, and the nod is the part worth telling.
+    """
+    v = narrative_vocab()
+    entity = bool(v["entities"].search(s))
+    prov = bool(v["provenance"].search(s))
+    if not (entity or prov):
+        return False
+    if v["placement"].search(s) and not prov:
+        return False
+    return True
 
 
 def split_sentences(text: str) -> list[str]:
@@ -470,16 +668,24 @@ def split_sentences(text: str) -> list[str]:
 
 
 def tag_sentence(s: str) -> str:
-    """First matching story tag wins; everything else is spec.
+    """Hook tags first, then narrative_detail, then spec.
 
-    FAIL-CLOSED on purpose. A sentence that matches no story pattern is either
-    materials copy or generic filler, and both are non-hookable — so the safe
-    default is the one tag that can never become a hook. Being wrong here costs
-    a dull fact; the opposite default would let filler open a post.
+    FAIL-CLOSED on purpose, and STILL fail-closed after narrative_detail. Every
+    HOOKABLE tag is tested BEFORE narrative_detail, so a sentence that could
+    carry a post always becomes the hook; narrative_detail can only ever claim
+    one the hook patterns have already declined. Both remaining outcomes are
+    non-hookable, so being wrong between them costs a dull support fact, while
+    the opposite default would let filler open a post.
+
+    ★ `spec` IS STILL THE ELSE BRANCH AND STILL CLASSIFIES NOTHING BY EVIDENCE.
+    narrative_detail routes part of the accumulation somewhere useful; it gives
+    spec no evidence of its own. See the R3 note in the module docstring.
     """
     for tag, pat in TAG_RULES:
         if pat.search(s):
             return tag
+    if is_narrative_detail(s):
+        return "narrative_detail"
     return "spec"
 
 

@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_humara_17_black",
- "built_at": "2026-09-12T18:39:10.490015+00:00",
+ "built_at": "2026-09-12T18:41:41.685118+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -47,7 +47,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Supreme revived the Air Humara trail runner from Nike’s outdoor archive with this October 2017 release.",
    "source": {
     "kind": "goat_snapshot",

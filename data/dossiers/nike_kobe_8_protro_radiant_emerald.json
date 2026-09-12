@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_8_protro_radiant_emerald",
- "built_at": "2026-09-12T18:39:10.507407+00:00",
+ "built_at": "2026-09-12T18:41:41.722694+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Nike Kobe 8 Protro ‘Radiant Emerald’ features a white Engineered Mesh upper, covered in an all-over print made up of the jersey numbers that Kobe Bryant wore during his NBA career.",
    "source": {
     "kind": "goat_snapshot",

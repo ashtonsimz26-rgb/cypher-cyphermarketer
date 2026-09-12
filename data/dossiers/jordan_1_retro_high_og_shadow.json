@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_1_retro_high_og_shadow",
- "built_at": "2026-09-12T18:39:10.462440+00:00",
+ "built_at": "2026-09-12T18:41:41.621779+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "This Nike Air Jordan 1 Retro High OG 'Shadow' 2018 is a retro re-release of an original 1985 colorway.",
    "source": {
     "kind": "goat_snapshot",
@@ -87,7 +87,7 @@
   },
   {
    "id": "f6",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "It was last retroed in 2013, and a low-top version dropped in 2015.",
    "source": {
     "kind": "goat_snapshot",

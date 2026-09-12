@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_5_retro_se_burgundy",
- "built_at": "2026-09-12T18:39:10.479950+00:00",
+ "built_at": "2026-09-12T18:41:41.664880+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The 2023 edition of the Air Jordan 5 Retro SE ‘Burgundy’ brings back a 2006 colorway from Jordan Brand’s Lifestyle Series.",
    "source": {
     "kind": "goat_snapshot",

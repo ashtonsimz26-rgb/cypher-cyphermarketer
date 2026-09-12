@@ -1,6 +1,6 @@
 {
  "image_name": "aj1_sb_lance_mountain_black",
- "built_at": "2026-09-12T18:39:10.446814+00:00",
+ "built_at": "2026-09-12T18:41:41.584084+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -77,7 +77,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "To extend the life of their shoes, skaters wore mismatched pairs and sometimes painted them the same color to recreate a uniform look.",
    "source": {
     "kind": "goat_snapshot",

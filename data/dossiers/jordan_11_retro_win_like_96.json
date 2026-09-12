@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_11_retro_win_like_96",
- "built_at": "2026-09-12T18:39:10.455194+00:00",
+ "built_at": "2026-09-12T18:41:41.602552+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "For Chicago Bulls Fans, the historical significance of the Air Jordan 11 Retro ‘Win Like 96’ will be abundantly clear.",
    "source": {
     "kind": "goat_snapshot",
@@ -65,7 +65,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "1996 is the year that the Bulls capped off the regular season with a record-breaking 72 wins, on their way to a fourth NBA title in six seasons.",
    "source": {
     "kind": "goat_snapshot",

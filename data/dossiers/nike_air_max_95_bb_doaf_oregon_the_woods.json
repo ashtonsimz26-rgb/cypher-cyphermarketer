@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_max_95_bb_doaf_oregon_the_woods",
- "built_at": "2026-09-12T18:39:10.490890+00:00",
+ "built_at": "2026-09-12T18:41:41.687213+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -39,7 +39,7 @@
   },
   {
    "id": "f2",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Created by Division Street’s Ducks of a Feather, the Air Max 95 BB DOAF Oregon 'Deep in the Woods' PE embodies the lush environment of the Pacific Northwest.",
    "source": {
     "kind": "goat_snapshot",

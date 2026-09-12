@@ -1,6 +1,6 @@
 {
  "image_name": "sb_dunk_pro_de_la_soul",
- "built_at": "2026-09-12T18:39:10.518219+00:00",
+ "built_at": "2026-09-12T18:41:41.745197+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Nike linked up with legendary hip-hop group De La Soul to create uniquely designed Dunk High and Dunk Low silhouettes back in 2005.",
    "source": {
     "kind": "goat_snapshot",

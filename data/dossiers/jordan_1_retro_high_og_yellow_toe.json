@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_1_retro_high_og_yellow_toe",
- "built_at": "2026-09-12T18:39:10.463768+00:00",
+ "built_at": "2026-09-12T18:41:41.625781+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Air Jordan 1 Retro High OG ‘Yellow Toe’ also known as ‘Taxi’ brings back the distinctive color blocking of the AJ1 ‘Bred Toe’ from 2018.",
    "source": {
     "kind": "goat_snapshot",

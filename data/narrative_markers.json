@@ -1,0 +1,34 @@
+{
+ "_note": "Curated PHRASE FRAMES for the narrative_detail support tier (research/dossier.py). Where narrative_entities.json holds names, this holds the frames that make a sentence tell you where something CAME FROM or what HAPPENED. Amend it the way you amend moments.json.",
+ "_never_a_hook": "narrative_detail is NOT in HOOKABLE_TAGS and never will be. Everything listed here can only affect what SUPPORTS a lead, never what opens one.",
+ "_matching": "CASE-INSENSITIVE, word-bounded at the start of the phrase (so 'debut' also catches 'debuted', 'debuts'). These are ordinary verbs and prepositions, not proper nouns, so case carries no information.",
+ "_seeded": "2026-09-12 — derived from the 735 spec facts across 250 dossiers.",
+
+ "provenance": [
+  "originally released", "originally debuted", "originally made", "first released",
+  "first introduced", "first hit stores", "first seen", "debuted", "debut",
+  "named after", "named for", "takes its name", "name coming from",
+  "nod to", "nods to", "referencing", "reference to", "alluding to", "allusion",
+  "reminiscent of", "takes cues from", "taking cues from", "modeled after",
+  "based on", "draws from", "draws on", "draws inspiration", "drawing from",
+  "drawing inspiration", "plays off", "influenced by", "in lieu of",
+  "founding year", "archive", "worn by", "wore", "laced up", "designed by",
+  "created by", "tapped", "linked up with", "an edition of", "raffle",
+  "given away", "pre-sale", "anniversary", "retirement", "alter ego",
+  "championship", "playoff", "title run", "rookie", "mantra", "revived",
+  "brings back", "bringing back", "revives", "reintroduces",
+  "true to the original", "faithful to the original", "stays true", "reissue",
+  "retro'd", "retroed", "re-release", "released again", "remake", "inaugural",
+  "OG colorway", "one of the original", "the first of"
+ ],
+ "_provenance_note": "Phrases here are ORIGIN and EVENT frames. Two that look like they belong and do not: 'heritage' and 'vintage' — both are GOAT materials boilerplate ('Heritage details include a perforated toe box'), and adding either pulls in pure spec copy.",
+
+ "placement_frames": [
+  "adorn", "appears on", "appear on", "stamped", "embroider", "emboss", "deboss",
+  "inscrib", "printed", "graces", "decorat", "marked with", "branding",
+  "lace jewel", "dubrae", "tongue tag", "back tab", "heel tab", "wordmark",
+  "patch", "motif", "logo", "tag ", "tags", "signature text", "text on the",
+  "badge", "emblem", "engraved", "lateral", "medial"
+ ],
+ "_placement_note": "THE EXCLUSION, and the reason the tier has any precision at all. A sentence can name Supreme, Cactus Jack and Levi's and still be pure materials copy, because the entity is a LOGO SITTING ON A PART OF THE SHOE: 'a rubberized Cactus Jack patch adorns the tongue'. A sentence whose only signal is an entity inside one of these frames STAYS SPEC. A provenance marker overrides the exclusion — \"a '94' embroidered on the lateral heel — a nod to Supreme's founding year\" is placement AND provenance, and the provenance is the part worth telling. 54 of the 146 entity/provenance hits are held back here."
+}

@@ -1,6 +1,6 @@
 {
  "image_name": "airmax90_triple_white",
- "built_at": "2026-09-12T18:39:10.443407+00:00",
+ "built_at": "2026-09-12T18:41:41.577826+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Air Max 90 'Triple White' launched in January 2020, marking the classic silhouette’s 30th anniversary.",
    "source": {
     "kind": "goat_snapshot",

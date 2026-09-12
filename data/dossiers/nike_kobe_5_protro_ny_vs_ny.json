@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_5_protro_ny_vs_ny",
- "built_at": "2026-09-12T18:39:10.505470+00:00",
+ "built_at": "2026-09-12T18:41:41.718326+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -71,7 +71,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Splatter graphics in the New York Knicks' signature blue and orange hues covers the forefoot overlay, eyestay, and heel counter.",
    "source": {
     "kind": "goat_snapshot",

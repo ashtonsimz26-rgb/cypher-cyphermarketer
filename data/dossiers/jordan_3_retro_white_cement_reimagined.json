@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_3_retro_white_cement_reimagined",
- "built_at": "2026-09-12T18:39:10.470532+00:00",
+ "built_at": "2026-09-12T18:41:41.640980+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -65,7 +65,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Designed by Tinker Hatfield, the Reimagined iteration is built to the original 1988 specs.",
    "source": {
     "kind": "goat_snapshot",

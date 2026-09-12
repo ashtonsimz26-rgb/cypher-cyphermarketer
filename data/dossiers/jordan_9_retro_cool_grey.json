@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_9_retro_cool_grey",
- "built_at": "2026-09-12T18:39:10.481382+00:00",
+ "built_at": "2026-09-12T18:41:41.667214+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Air Jordan 9 Retro 'Cool Grey' revives a design true to the original 2002 release, highlighted by a grey nubuck upper with a tonal patent leather overlay.",
    "source": {
     "kind": "goat_snapshot",
@@ -87,7 +87,7 @@
   },
   {
    "id": "f6",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The grey semi-translucent rubber outsole features multi-lingual details, nodding to MJ's emergence as a global sports star.",
    "source": {
     "kind": "goat_snapshot",

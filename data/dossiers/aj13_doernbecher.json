@@ -1,6 +1,6 @@
 {
  "image_name": "aj13_doernbecher",
- "built_at": "2026-09-12T18:39:10.444963+00:00",
+ "built_at": "2026-09-12T18:41:41.580519+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "cultural_moment",
    "text": "Part of the 2015 Doernbecher collection, this Air Jordan 13 Retro ‘DB’ was designed by John Charles, an 11-year-old Crohn’s Disease patient.",
    "source": {
     "kind": "goat_snapshot",
@@ -98,7 +98,9 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [],
+ "hook_candidates": [
+  "f3"
+ ],
  "sensitivity": "human_copy_required",
- "usable": false
+ "usable": true
 }

@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_4_retro_og_white_cement",
- "built_at": "2026-09-12T18:39:10.473300+00:00",
+ "built_at": "2026-09-12T18:41:41.648907+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Air Jordan 4 Retro OG 'Cement’ 2016 was one of the original four colorways released in 1989.",
    "source": {
     "kind": "goat_snapshot",
@@ -75,7 +75,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Released during the 2016 NBA All-Star weekend in Toronto, the sneaker was also retro’d in 1999 and 2012.",
    "source": {
     "kind": "goat_snapshot",

@@ -1,6 +1,6 @@
 {
  "image_name": "aj1_nigel_sylvester",
- "built_at": "2026-09-12T18:39:10.445870+00:00",
+ "built_at": "2026-09-12T18:41:41.582023+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -65,7 +65,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Sylvester prefers the Air Jordan 1 when cruising around on his BMX, and the distressed shoe mimics natural scuffs and abrasions from mastering tricks.",
    "source": {
     "kind": "goat_snapshot",

@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_4_retro_off_noir",
- "built_at": "2026-09-12T18:39:10.472673+00:00",
+ "built_at": "2026-09-12T18:41:41.646946+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -89,7 +89,7 @@
   },
   {
    "id": "f6",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The TPU wings are filled in, reminiscent of an original Tinker Hatfield sketch of the AJ4, while the AIR JORDAN tag usually found on the inside of the tongue conveys a unique look, like someone folded the tongue over to expose the inside tag.",
    "source": {
     "kind": "goat_snapshot",

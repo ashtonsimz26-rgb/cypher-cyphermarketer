@@ -1,6 +1,6 @@
 {
  "image_name": "adidas_yeezy_boost_350_V2_dazzling_blue",
- "built_at": "2026-09-12T18:39:10.432500+00:00",
+ "built_at": "2026-09-12T18:41:41.551636+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The adidas Yeezy Boost 350 V2 ‘Dazzling Blue’ delivers a two-tone colorway of Kanye West’s popular lifestyle runner.",
    "source": {
     "kind": "goat_snapshot",

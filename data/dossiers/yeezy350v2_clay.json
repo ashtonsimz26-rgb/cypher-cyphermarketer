@@ -1,6 +1,6 @@
 {
  "image_name": "yeezy350v2_clay",
- "built_at": "2026-09-12T18:39:10.521908+00:00",
+ "built_at": "2026-09-12T18:41:41.753006+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "This ‘Clay’ colorway retains the stand-out features of the original 350 V2 shoe, first seen in September 2016, including a flexible Primeknit upper and full-length Boost cushioning.",
    "source": {
     "kind": "goat_snapshot",
@@ -75,7 +75,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "release_drama",
    "text": "This shoe released March 2019 exclusively in select cities in North America and Latin America.",
    "source": {
     "kind": "goat_snapshot",
@@ -86,7 +86,9 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [],
+ "hook_candidates": [
+  "f5"
+ ],
  "sensitivity": "none",
- "usable": false
+ "usable": true
 }

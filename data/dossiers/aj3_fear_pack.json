@@ -1,6 +1,6 @@
 {
  "image_name": "aj3_fear_pack",
- "built_at": "2026-09-12T18:39:10.447799+00:00",
+ "built_at": "2026-09-12T18:41:41.586255+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -52,7 +52,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The 2023 edition of the Air Jordan 3 Retro ‘Fear’ brings back a 2013 AJ3 colorway that was originally released alongside an Air Jordan 4 and 5.",
    "source": {
     "kind": "goat_snapshot",

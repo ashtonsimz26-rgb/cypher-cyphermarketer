@@ -1,6 +1,6 @@
 {
  "image_name": "yeezy350v2_beluga_2.0",
- "built_at": "2026-09-12T18:39:10.521595+00:00",
+ "built_at": "2026-09-12T18:41:41.752224+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "With its name coming from the colorway similarities found on the first Yeezy Boost 350 V2, the Yeezy Boost 350 V2 'Beluga 2.0' dropped on November 25, 2017.",
    "source": {
     "kind": "goat_snapshot",
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "release_drama",
    "text": "It was quickly restocked on November 30th after selling out.",
    "source": {
     "kind": "goat_snapshot",
@@ -98,7 +98,9 @@
    "checked_at": null
   }
  ],
- "hook_candidates": [],
+ "hook_candidates": [
+  "f4"
+ ],
  "sensitivity": "none",
- "usable": false
+ "usable": true
 }

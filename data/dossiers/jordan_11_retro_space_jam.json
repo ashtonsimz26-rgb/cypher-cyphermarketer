@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_11_retro_space_jam",
- "built_at": "2026-09-12T18:39:10.454802+00:00",
+ "built_at": "2026-09-12T18:41:41.601855+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -77,7 +77,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The sneaker also swaps the traditional #23 for MJ’s comeback #45 on the heel, a first for an Air Jordan 11 retail release.",
    "source": {
     "kind": "goat_snapshot",

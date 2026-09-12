@@ -1,6 +1,6 @@
 {
  "image_name": "yeezy350_sand_taupe",
- "built_at": "2026-09-12T18:39:10.520842+00:00",
+ "built_at": "2026-09-12T18:41:41.750056+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The adidas Yeezy Boost 350 V2 ‘Sand Taupe’ delivers yet another in a long line of neutral colorways that have dominate the silhouette’s many releases since its global debut in 2016.",
    "source": {
     "kind": "goat_snapshot",

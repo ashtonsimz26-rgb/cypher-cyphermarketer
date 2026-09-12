@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_force_1_low_1837",
- "built_at": "2026-09-12T18:39:10.484157+00:00",
+ "built_at": "2026-09-12T18:41:41.673340+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Tiffany & Co.",
    "source": {
     "kind": "goat_snapshot",
@@ -87,7 +87,7 @@
   },
   {
    "id": "f6",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Named after Tiffany’s founding year, the low-top utilizes a black suede upper with a tumbled leather Swoosh in the instantly recognizable shade of robin’s-egg blue.",
    "source": {
     "kind": "goat_snapshot",

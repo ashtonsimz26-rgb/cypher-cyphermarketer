@@ -1,6 +1,6 @@
 {
  "image_name": "nike_supreme_x_dunk_high_pro_sb_red",
- "built_at": "2026-09-12T18:39:10.511518+00:00",
+ "built_at": "2026-09-12T18:41:41.733030+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The high-top sports gold stars and crocodile-textured overlays, the latter included in lieu of Tinker Hatfield’s elephant print.",
    "source": {
     "kind": "goat_snapshot",

@@ -1,6 +1,6 @@
 {
  "image_name": "nike_glide_black_white",
- "built_at": "2026-09-12T18:39:10.503275+00:00",
+ "built_at": "2026-09-12T18:41:41.713289+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -47,7 +47,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Taking cues from the Nike Zoom Flight 95, the retro-inspired model is distinguished by a wavy foam midsole, featuring distinctive ‘bug eye’ detailing embedded in the sidewall and a translucent rubber outsole underfoot.",
    "source": {
     "kind": "goat_snapshot",

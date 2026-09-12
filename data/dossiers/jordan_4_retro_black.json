@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_4_retro_black",
- "built_at": "2026-09-12T18:39:10.470853+00:00",
+ "built_at": "2026-09-12T18:41:41.641873+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -59,7 +59,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Launched in October 2019, the women's sneaker nods to the silhouette's 'Black Cat' nickname in black bovine fur with suede trim and glossy lace wings.",
    "source": {
     "kind": "goat_snapshot",

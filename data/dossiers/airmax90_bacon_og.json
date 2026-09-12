@@ -1,6 +1,6 @@
 {
  "image_name": "airmax90_bacon_og",
- "built_at": "2026-09-12T18:39:10.442806+00:00",
+ "built_at": "2026-09-12T18:41:41.576379+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -64,7 +64,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The shoe’s color palette draws from bacon, manifested through the upper’s suede and leather construction.",
    "source": {
     "kind": "goat_snapshot",

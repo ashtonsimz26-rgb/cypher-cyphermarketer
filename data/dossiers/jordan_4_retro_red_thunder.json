@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_4_retro_red_thunder",
- "built_at": "2026-09-12T18:39:10.474415+00:00",
+ "built_at": "2026-09-12T18:41:41.651734+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -65,7 +65,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The mid-top sports a black nubuck upper with contrasting pops of crimson in lieu of the older shoe’s Tour Yellow accents.",
    "source": {
     "kind": "goat_snapshot",

@@ -1,6 +1,6 @@
 {
  "image_name": "nike_vapormax_cpfm",
- "built_at": "2026-09-12T18:39:10.512180+00:00",
+ "built_at": "2026-09-12T18:41:41.734177+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -69,7 +69,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Released May 2019, the deconstructed design features an exposed-seam mesh upper, underscored by a cord Swoosh and a smiley face at heel, a nod to Nike’s ‘Just Do It’ campaign.",
    "source": {
     "kind": "goat_snapshot",

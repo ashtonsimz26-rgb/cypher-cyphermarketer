@@ -1,0 +1,33 @@
+{
+ "_note": "Curated NAMED ENTITIES for the narrative_detail support tier (research/dossier.py). A sentence that names one of these is about a PERSON, a GROUP or an EVENT, not about materials — so it becomes support material for the writer instead of falling into spec. Amend this file the way you amend moments.json: it is data, and the classifier has no entity knowledge of its own.",
+ "_never_a_hook": "narrative_detail is NOT in HOOKABLE_TAGS and never will be. Adding a name here can only ever affect what SUPPORTS a lead, never what opens one. Adding a wrong name costs a dull support fact; it cannot promote filler into a hook.",
+ "_matching": "CASE-SENSITIVE, whole-phrase, word-bounded. Case-sensitive because the colour 'off-white' and the label 'Off-White' are the same letters — case is the only thing that separates a materials sentence ('off-white leather overlays') from a collaborator ('Off-White™ for NIKE'). Matching these case-insensitively put 11 pure materials sentences into the narrative tier. Proper nouns are capitalised in GOAT prose, so nothing is lost.",
+ "_placement_exception": "Naming an entity is NOT enough on its own. If the only mention sits in a branding-placement frame ('a Cactus Jack patch adorns the tongue'), the sentence stays spec — see placement_frames in narrative_markers.json. 54 sentences are held back that way.",
+ "_seeded": "2026-09-12 — derived from the 735 spec facts across 250 dossiers. Names present in that corpus, plus collaborators likely to appear next.",
+
+ "people": [
+  "Michael Jordan", "MJ", "Kanye West", "Kanye", "Tinker Hatfield", "Hatfield",
+  "Kobe Bryant", "Bryant", "Virgil Abloh", "Abloh", "Virgil", "Travis Scott",
+  "La Flame", "Kevin Durant", "Derek Jeter", "Christian Tresser", "Steven Smith",
+  "Sergio Lozano", "Peter Moore", "Bruce Kilgore", "Hiroshi Fujiwara",
+  "Ronnie Fieg", "Edison Chen", "Jerry Lorenzo", "Sean Wotherspoon",
+  "Paul Rodriguez", "P-Rod", "Nigel Sylvester", "Sylvester", "Mark Smith",
+  "Jeff Staple", "John Charles", "Caden Lampert", "Dave Ortiz"
+ ],
+
+ "collectives": [
+  "Supreme", "Patta", "Off-White", "Fragment", "FRGMNT", "Awake NY", "Awake",
+  "Undefeated", "UNDFTD", "Levi's", "CLOT", "Union", "Kith", "Stussy", "sacai",
+  "Comme des Garcons", "CDG", "A Ma Maniere", "We The Best", "Cactus Jack",
+  "De La Soul", "Staple", "Cactus Plant Flea Market", "CPFM", "Tiffany",
+  "Chicago Bulls", "Bulls", "Lakers", "Knicks", "Yankees", "Dodgers",
+  "NBA", "NFL", "MLB", "Doernbecher"
+ ],
+ "_collectives_note": "OUTSIDE parties only. 'Nike SB' and 'Jordan Brand' are deliberately absent: they are the house, they appear on half the catalog, and they corroborate nothing — the same reasoning that keeps 'nike' and 'jordan' in GENERIC_TOKENS.",
+
+ "events": [
+  "NBA Finals", "Finals", "All-Star", "Olympic", "Olympics", "World Cup",
+  "Super Bowl", "Slam Dunk Contest", "Yeezy Season", "Fashion Week",
+  "Portland Art Museum", "Hall of Fame"
+ ]
+}

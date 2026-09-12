@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_14_retro_ferrari",
- "built_at": "2026-09-12T18:39:10.457292+00:00",
+ "built_at": "2026-09-12T18:41:41.609224+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The 2025 edition of the Air Jordan 14 Retro 'Ferrari' brings back a bold colorway that emphasizes the shoe's automotive influences.",
    "source": {
     "kind": "goat_snapshot",
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "True to the original 2014 release, the championship silhouette utilizes a one-piece scarlet suede upper with contrasting black accents on the tongue, collar lining and heel panel, marked with an embossed Jumpman and '23' in Vibrant Yellow.",
    "source": {
     "kind": "goat_snapshot",

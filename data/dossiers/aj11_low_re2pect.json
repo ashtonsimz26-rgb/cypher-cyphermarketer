@@ -1,6 +1,6 @@
 {
  "image_name": "aj11_low_re2pect",
- "built_at": "2026-09-12T18:39:10.444395+00:00",
+ "built_at": "2026-09-12T18:41:41.579715+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Translating the 2017 “Derek Jeter” high-top into a low-top style, this model sports a Yankee-themed Binary Blue and Sail colorway.",
    "source": {
     "kind": "goat_snapshot",
@@ -75,7 +75,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The original model was released in an edition of five and given to five raffle winners for free.",
    "source": {
     "kind": "goat_snapshot",

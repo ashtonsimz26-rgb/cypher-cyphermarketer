@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_8_protro_court_purple",
- "built_at": "2026-09-12T18:39:10.506971+00:00",
+ "built_at": "2026-09-12T18:41:41.721530+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Nike Kobe 8 Protro 'Court Purple' showcases an all-over print made up of the jersey numbers that Kobe Bryant wore during his 20-year career with the Los Angeles Lakers.",
    "source": {
     "kind": "goat_snapshot",

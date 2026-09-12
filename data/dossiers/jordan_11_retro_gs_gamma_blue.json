@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_11_retro_gs_gamma_blue",
- "built_at": "2026-09-12T18:39:10.453011+00:00",
+ "built_at": "2026-09-12T18:41:41.597065+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -65,7 +65,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The design is faithful to the original 2013 release, featuring a black ballistic mesh upper with a color-matched patent leather mudguard.",
    "source": {
     "kind": "goat_snapshot",

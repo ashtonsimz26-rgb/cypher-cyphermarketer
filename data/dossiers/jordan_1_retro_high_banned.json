@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_1_retro_high_banned",
- "built_at": "2026-09-12T18:39:10.460025+00:00",
+ "built_at": "2026-09-12T18:41:41.615711+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -75,7 +75,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The sneaker also received retro re-releases in 1994, 2009, 2013, and 2016.",
    "source": {
     "kind": "goat_snapshot",

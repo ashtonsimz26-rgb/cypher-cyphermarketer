@@ -1,6 +1,6 @@
 {
  "image_name": "nike_dunk_low_retro_qs_argon",
- "built_at": "2026-09-12T18:39:10.499019+00:00",
+ "built_at": "2026-09-12T18:41:41.704440+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "release_drama",
    "text": "The 2022 edition of the Nike Dunk Low Retro QS ‘Argon’ brings back a coveted CO.JP colorway that launched exclusively in Japan in 2001.",
    "source": {
     "kind": "goat_snapshot",
@@ -99,6 +99,7 @@
   }
  ],
  "hook_candidates": [
+  "f3",
   "f4"
  ],
  "sensitivity": "none",

@@ -116,6 +116,7 @@ WITHHELD: dict[str, str] = {
     "dossier_usable": "a gate result applied upstream; no downstream decision reads it",
     "name_match": "a dossier-build gate result, not a drafting input",
     "spec_facts": "ranked and capped into support_facts; the raw bucket is not consumed",
+    "narrative_detail_facts": "ranked and capped into support_facts alongside spec_facts; the raw bucket is not consumed",
     "fact_sensitivity": "applied inside dossier.build() before any bucket exists — it REMOVES facts from hooks, support and lineage; no drafting decision reads the field itself",
     "lineage_facts": "reaches the writer as `lineage` after field selection",
     "release_date_fact": "reaches consumers as `release_date` from release_dates",

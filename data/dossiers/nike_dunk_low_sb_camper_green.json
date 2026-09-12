@@ -1,6 +1,6 @@
 {
  "image_name": "nike_dunk_low_sb_camper_green",
- "built_at": "2026-09-12T18:39:10.499343+00:00",
+ "built_at": "2026-09-12T18:41:41.705155+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -53,7 +53,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "In addition to a Nike SB tongue tag, branding elements include a Nike wordmark on the back tab and a '94' embroidered on the lateral heel — a nod to Supreme's founding year.",
    "source": {
     "kind": "goat_snapshot",

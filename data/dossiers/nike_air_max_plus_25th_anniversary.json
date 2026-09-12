@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_max_plus_25th_anniversary",
- "built_at": "2026-09-12T18:39:10.493535+00:00",
+ "built_at": "2026-09-12T18:41:41.693227+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -65,7 +65,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Modeled after palm trees swaying in the wind, a wavy black TPU cage reinforces the breathable mesh upper, finished in gradient hues that nod to nod to classic AM Plus colorways in Hyper Blue, Sanguine, Palm and Fireberry.",
    "source": {
     "kind": "goat_snapshot",

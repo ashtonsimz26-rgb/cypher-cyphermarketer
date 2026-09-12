@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_5_retro_gs_wolf_grey",
- "built_at": "2026-09-12T18:39:10.477619+00:00",
+ "built_at": "2026-09-12T18:41:41.660293+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Made for big kids, the 2026 edition of the Air Jordan 5 Retro GS 'Wolf Grey' revives a neutral non-OG colorway of the legacy silhouette.",
    "source": {
     "kind": "goat_snapshot",
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The design is true to the original 2011 release, featuring a textured grey nubuck upper with translucent quarter panel netting and an embroidered '23' on the lateral heel.",
    "source": {
     "kind": "goat_snapshot",

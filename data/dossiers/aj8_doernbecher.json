@@ -1,6 +1,6 @@
 {
  "image_name": "aj8_doernbecher",
- "built_at": "2026-09-12T18:39:10.449614+00:00",
+ "built_at": "2026-09-12T18:41:41.590992+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "cultural_moment",
    "text": "Designed by Caden Lampert who battles with a life-threatening autoimmune disease known as Guillain-Barré syndrome, the vibrant sneaker features a Hyper Blue speckled upper with Electro Orange, Tour Yellow, and black accents.",
    "source": {
     "kind": "goat_snapshot",
@@ -75,7 +75,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Released in November 2014 at the Portland Art Museum, the sneaker also includes a raft of personal details.",
    "source": {
     "kind": "goat_snapshot",
@@ -111,7 +111,8 @@
   }
  ],
  "hook_candidates": [
-  "f3"
+  "f3",
+  "f4"
  ],
  "sensitivity": "human_copy_required",
  "usable": true

@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_13_retro_black_cat",
- "built_at": "2026-09-12T18:39:10.456955+00:00",
+ "built_at": "2026-09-12T18:41:41.608081+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "The Air Jordan 13 Retro ‘Black Cat’ showcases a monochromatic finish that plays off one of Michael Jordan’s many nicknames.",
    "source": {
     "kind": "goat_snapshot",

@@ -1,6 +1,6 @@
 {
  "image_name": "nike_dunk_low_sb_ink",
- "built_at": "2026-09-12T18:39:10.499624+00:00",
+ "built_at": "2026-09-12T18:41:41.705670+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Referencing Supreme's founding year, '94' is embroidered on the lateral heel, while a standard Nike wordmark adorns the back tab.",
    "source": {
     "kind": "goat_snapshot",

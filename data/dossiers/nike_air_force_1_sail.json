@@ -1,6 +1,6 @@
 {
  "image_name": "nike_air_force_1_sail",
- "built_at": "2026-09-12T18:39:10.489244+00:00",
+ "built_at": "2026-09-12T18:41:41.683315+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -75,7 +75,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Tonal canvas construction is accented with removable Swooshes and tongue patches, while the shiny lace jewels give a nod to Scott’s signature grill.",
    "source": {
     "kind": "goat_snapshot",

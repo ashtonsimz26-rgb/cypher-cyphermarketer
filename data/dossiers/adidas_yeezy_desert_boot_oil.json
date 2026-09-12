@@ -1,6 +1,6 @@
 {
  "image_name": "adidas_yeezy_desert_boot_oil",
- "built_at": "2026-09-12T18:39:10.436619+00:00",
+ "built_at": "2026-09-12T18:41:41.560826+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -51,7 +51,7 @@
   },
   {
    "id": "f3",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Borrowing the suede toe box and oval overlays from the Yeezy 500, 2019's Yeezy Desert Boot 'Oil' takes Kanye West's signature line into boot territory.",
    "source": {
     "kind": "goat_snapshot",

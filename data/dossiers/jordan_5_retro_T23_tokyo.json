@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_5_retro_T23_tokyo",
- "built_at": "2026-09-12T18:39:10.476193+00:00",
+ "built_at": "2026-09-12T18:41:41.656228+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -63,7 +63,7 @@
   },
   {
    "id": "f4",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Like the original, this reissue sports a bright yellow nubuck upper with translucent quarter panel netting and grey molded eyelets.",
    "source": {
     "kind": "goat_snapshot",

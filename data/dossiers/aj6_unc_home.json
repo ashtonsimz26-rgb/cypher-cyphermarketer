@@ -1,6 +1,6 @@
 {
  "image_name": "aj6_unc_home",
- "built_at": "2026-09-12T18:39:10.449242+00:00",
+ "built_at": "2026-09-12T18:41:41.590156+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -89,7 +89,7 @@
   },
   {
    "id": "f6",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "Reflective perforations provide added visibility in low-light conditions, while a woven jock tag at the heel nods to the shoe’s varsity athletics theme.",
    "source": {
     "kind": "goat_snapshot",

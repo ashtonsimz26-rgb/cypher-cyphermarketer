@@ -1,6 +1,6 @@
 {
  "image_name": "sb_dunk_low_staple_panda_pigeon",
- "built_at": "2026-09-12T18:39:10.517526+00:00",
+ "built_at": "2026-09-12T18:41:41.744234+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -79,7 +79,7 @@
   },
   {
    "id": "f5",
-   "tag": "spec",
+   "tag": "narrative_detail",
    "text": "A translucent outsole reveals a collage made up of newspaper headlines alluding to the infamous Pigeon Dunk launch from 2005.",
    "source": {
     "kind": "goat_snapshot",
