@@ -23,7 +23,7 @@ def ok(c, m):
 # deliberate edit here as well as in the curated file, so no flag appears
 # without someone changing the suite that asserts it.
 FLAGGED = ("aj8_doernbecher", "aj13_doernbecher",
-           "nike_kobe_6_protro_mambacita_sweet_sixteen")
+           "nike_kobe_6_protro_mambacita_sweet_sixteen", "jordan_3_retro_rio")
 
 print("\n=== 1. the filter is POSITIVE, same position as PROPOSABLE_SENSITIVITIES ===")
 from research import moments as MOM
