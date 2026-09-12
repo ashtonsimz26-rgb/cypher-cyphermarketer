@@ -3,7 +3,7 @@
 contracts.py — the pipeline input contract. Fails at IMPORT, never silently.
 
 ★★ THE PATTERN THIS EXISTS TO STOP
-Five times a mechanism was built correctly and the information never reached
+Six times a mechanism was built correctly and the information never reached
 it. Each time the code was LOCALLY CORRECT, so no file's review found it — the
 defect lived in the GAP BETWEEN components, which is exactly where reading one
 file at a time does not look:
@@ -16,8 +16,17 @@ file at a time does not look:
   G4            — detect_hook read row["description"] and never the dossier,
                   so the verified fact that justified a post was invisible to
                   the component choosing its hook
-Four of the five were caught by a strict test or by reading output. NONE was
-caught by reading code.
+  R2 (09-12)    — a CHILD-SAFETY rail placed in selector.eligibility() would
+                  have gated nothing: daily_digest.candidates() builds its pool
+                  straight from Supabase and never calls it, and the dossiers
+                  needing the gate cleared the pool filter ON MERIT, so there
+                  was nothing anomalous to notice. See dossier.py's "A RAIL
+                  GOES ON EVERY DOOR": one rail per entry point, one test per
+                  path
+Four of the six were caught by a strict test or by reading output. NONE was
+caught by reading code; the sixth was caught only by asking which code path
+actually runs at 09:00 — a different question from whether the code is
+correct.
 
 THE RULE: a field this pipeline PRODUCES and no decision-maker READS is an
 ImportError. That is the inert-rule signature — a value exists, and nothing

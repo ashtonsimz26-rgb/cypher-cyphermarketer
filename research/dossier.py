@@ -72,6 +72,30 @@ Price claims belong to PK and rails.py alone.
     false positives — "given a treatment of white paint", three "low-light
     conditions", "post-game recovery". A pattern would have flagged all five.
 
+★★ A RAIL GOES ON EVERY DOOR (R4, banked 2026-09-12)
+    THE RULE: a new rail must be placed at EVERY ENTRY POINT to the candidate
+    pool, and its test must prove EACH PATH SEPARATELY. The digest and the
+    selector are two doors. A lock on one is not a lock.
+
+    Concretely, today that means all four of selector.eligibility(),
+    selector._anniversary_pass(), selector._moment_lane() AND
+    daily_digest.build_one(). daily_digest.candidates() builds its pool
+    DIRECTLY from Supabase and never calls eligibility(), so a rail written
+    into the selector alone gates nothing on the path that actually runs at
+    09:00 every morning.
+
+    ★ AND IT WOULD HAVE BEEN INVISIBLE. The dossiers that needed gating clear
+    the pool's `estimated_resale >= 400` filter, so they were in the pool ON
+    MERIT — no error, no skipped row, no log line, nothing to notice. A green
+    suite asserting "the selector refuses it" would have been TRUE AND
+    IRRELEVANT. So assert the refusal on each path BY ITS OWN MECHANISM: by AST
+    that the gate is the first statement of build_one, and by sampled select()
+    calls that no flagged dossier is ever returned.
+
+    This is the sixth instance of a mechanism built correctly whose information
+    never reached it — see contracts.py for the first five. It is by far the
+    most serious of them, because the mechanism was a child-safety rail.
+
 ★★ WHAT `spec` IS — AND WHY THAT IS THE ROOT DEFECT (R3, banked 2026-09-12)
     `spec` IS THE ELSE BRANCH. IT CLASSIFIES NOTHING BY EVIDENCE. A sentence is
     tagged spec because no story pattern matched it — never because anything
