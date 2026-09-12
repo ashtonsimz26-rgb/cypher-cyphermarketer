@@ -126,11 +126,34 @@ def avoid_guidance(window: int = 10) -> list[str]:
     return out
 
 
+# Dossier tags that are narrative hooks, in preference order. These are
+# VERIFIED facts that passed the name-consistency gate, so they outrank a regex
+# over catalog prose as well as outranking arithmetic.
+DOSSIER_HOOK_TAGS = ("cultural_moment", "release_drama", "collab_origin")
+
+
 def detect_hook(row: dict, *, source: str, price_verified: bool,
-                headline: str = "") -> tuple[str | None, str]:
+                headline: str = "",
+                hook_facts: list[dict] | None = None) -> tuple[str | None, str]:
     """Return (hook_type, human-readable hook) or (None, reason-to-skip).
 
-    Order matters: the most specific, most time-relevant hook wins."""
+    Order matters: the most specific, most time-relevant hook wins.
+
+    ★★ NARRATIVE OUTRANKS ARITHMETIC (ruled 2026-09-11).
+    A 3x multiple is a FILTER, not a hook — it tells you a shoe is interesting,
+    not what to say about it. Nineteen of 28 early drafts hooked on price
+    precisely because arithmetic is ALWAYS available and a story never is.
+    price_journey therefore sits below EVERY story signal, not just the strong
+    ones.
+
+    ★★ AND THIS FUNCTION NOW READS THE DOSSIER.
+    It previously read only row["description"], so the verified fact that
+    justified a post was invisible to the component choosing its hook. On
+    2026-09-11 that shipped format=story_spotlight on HOOK[price_journey] for a
+    card whose dossier held "Travis Scott's first sneaker collab in women's
+    sizing". Fifth instance of a rule going inert because the information never
+    reached the decision-maker.
+    """
     desc = row.get("description") or ""
     year = row.get("year")
     retail, resale = row.get("retail_price"), row.get("estimated_resale")
@@ -144,19 +167,31 @@ def detect_hook(row: dict, *, source: str, price_verified: bool,
     # A HUMAN story outranks a number. Leading with "3.4x retail" on a shoe a
     # sick kid designed for a children's hospital is tone-deaf, and no rails
     # check would have caught it — so the priority itself has to be right.
+    # 1. DOSSIER narrative facts — verified, gated, about THIS card.
+    by_tag = {}
+    for f in (hook_facts or []):
+        by_tag.setdefault(f.get("tag"), f)
+    for tag in DOSSIER_HOOK_TAGS:
+        f = by_tag.get(tag)
+        if f:
+            return tag, "dossier %s [%s]: %s" % (tag, f.get("id"), f.get("text", "")[:70])
+
+    # 2. STRONG story markers in catalog prose (the STRONG/weak split stays).
     for pat, label in STRONG_STORY_MARKERS:
         m = re.search(pat, desc)
         if m:
             return "story", "%s — %r" % (label, m.group(0)[:48])
 
-    if price_verified and retail and resale and resale >= retail * 3:
-        return "price_journey", "PK-verified $%d retail -> $%d resale (%.1fx)" % (
-            retail, resale, resale / retail)
-
+    # 3. weak story markers — still ABOVE price.
     for pat, label in STORY_MARKERS:
         m = re.search(pat, desc)
         if m:
             return "story", "%s — %r" % (label, m.group(0)[:48])
+
+    # 4. price LAST among content hooks. A multiple is a filter, not a hook.
+    if price_verified and retail and resale and resale >= retail * 3:
+        return "price_journey", "PK-verified $%d retail -> $%d resale (%.1fx)" % (
+            retail, resale, resale / retail)
 
     if (row.get("rarity") or "") in ("GRAIL", "HOLY GRAIL"):
         return "grail_lore", "top-tier card with catalog lore"
@@ -189,6 +224,10 @@ ALLOWED_FORMATS = {
     # the answer is a new price-capable skeleton, not a silent substitution.
     "price_journey": ["price_journey"],
     "grail_lore":    ["grail_lore", "story_spotlight"],
+    # dossier-borne narrative hooks — story-shaped, so story skeletons voice them
+    "cultural_moment": ["story_spotlight", "grail_lore"],
+    "release_drama":   ["story_spotlight", "grail_lore"],
+    "collab_origin":   ["story_spotlight", "grail_lore"],
 }
 
 

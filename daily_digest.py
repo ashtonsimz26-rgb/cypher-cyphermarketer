@@ -265,9 +265,16 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     price_ok, price_why = rails.price_claim_allowed(sc, row.get("estimated_resale"))
 
     # (a) HOOK GATE — before spending a cent on a render or a backdrop.
+    # the dossier's verified hook facts now reach the hook selector (R1/R2)
+    _dp = HERE / "data" / "dossiers" / ("%s.json" % cand["image_name"])
+    try:
+        _dj = json.loads(_dp.read_text())
+        _hooks = [f for f in _dj["facts"] if f["id"] in _dj["hook_candidates"]]
+    except Exception:
+        _hooks = []
     hook_type, hook = editorial.detect_hook(
         row, source=cand.get("source", ""), price_verified=price_ok,
-        headline=cand.get("hook", ""))
+        headline=cand.get("hook", ""), hook_facts=_hooks)
     if hook_type is None:
         run_log(event="skipped_no_hook", image_name=cand["image_name"], reason=hook)
         return None
