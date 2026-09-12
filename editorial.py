@@ -166,13 +166,37 @@ def detect_hook(row: dict, *, source: str, price_verified: bool,
 
 # Which skeletons are SEMANTICALLY VALID for each hook. Rotation may only pick
 # inside this set. Variety is a nice-to-have; appropriateness is not.
+# ★★ A FORMAT THAT CANNOT VOICE THE HOOK MAY NOT BE SELECTED FOR IT.
+# Enforced by construction: the format simply is not in the hook's list, so
+# there is no check to pass and no exception branch to take.
+#
+# The 2026-09-11 proposal shipped format=story_spotlight on HOOK[price_journey]
+# with NO PRICE ANYWHERE IN THE COPY — the identical defect as p_63d2666163 in
+# the original diagnosis. The hook that justified the post was invisible in it.
+# story_spotlight has no price slot; it could never voice that hook. It was
+# listed here anyway as a general-purpose fallback, and a fallback that cannot
+# say the thing is not a fallback, it is a silent topic change.
+#
+# RULE: a format belongs in a hook's list only if the format can SAY the hook.
+VOICES_PRICE = frozenset({"price_journey"})
+
 ALLOWED_FORMATS = {
     "story":         ["story_spotlight", "grail_lore"],
     "drop_moment":   ["story_spotlight", "grail_lore"],
     "on_this_day":   ["on_this_day", "story_spotlight"],
-    "price_journey": ["price_journey", "story_spotlight"],
+    # story_spotlight REMOVED: it cannot voice a price. A price hook has exactly
+    # one format that can express it; if rotation wants variety on this hook,
+    # the answer is a new price-capable skeleton, not a silent substitution.
+    "price_journey": ["price_journey"],
     "grail_lore":    ["grail_lore", "story_spotlight"],
 }
+
+
+def format_can_voice(hook_type: str, fmt: str) -> bool:
+    """Structural guard. A price hook demands a price-capable format."""
+    if hook_type == "price_journey":
+        return fmt in VOICES_PRICE
+    return fmt in ALLOWED_FORMATS.get(hook_type, [])
 
 
 def choose_format(hook_type: str) -> str:
