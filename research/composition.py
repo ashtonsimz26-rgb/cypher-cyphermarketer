@@ -167,6 +167,91 @@ def two_card(card, backdrop, size, card_b=None):
     return canvas
 
 
+ANGLED_SCALE = 1.32
+POSTER_SCALE = 0.82
+SHOE_WINDOW = (0.315, 0.615)       # the card's shoe panel, measured on the render
+# 0.08 sheared the TOP of the title ("NIKE AIR FORCE 1 SUPREME TZ" lost its
+# caps); 0.045 clears it. Measured by looking at the render, not computed.
+TITLE_SHOE_WINDOW = (0.045, 0.615)  # header + title + colorway + shoe, no stats
+
+
+def _card_region(card, y0f, y1f):
+    """Crop the card to a vertical band. Pixel-true — a crop, never a redraw."""
+    h = card.height
+    return card.crop((0, int(h * y0f), card.width, int(h * y1f)))
+
+
+def angled(card, backdrop, size):
+    """Card rotated slightly, shoe dominant, cut above the stats panel.
+    Same crop discipline as shoe_crop, different attitude."""
+    canvas = _fit(backdrop, size) if backdrop else _gradient(size)
+    c = _scaled(card, int(size[1] * ANGLED_SCALE))
+    c = c.rotate(-6, resample=Image.BICUBIC, expand=True)
+    top = round(size[1] - STATS_CUT * int(size[1] * ANGLED_SCALE))
+    pos = ((size[0] - c.width) // 2, top)
+    canvas = _shadow_glow(canvas, c, pos, size, glow=False)
+    canvas.paste(c, pos, c)
+    return canvas
+
+
+def shoe_only(card, backdrop, size):
+    """The SHOE alone on a scene — the card's shoe panel, cropped out of the
+    chrome entirely.
+
+    ★ card_shows_value is False here for a STRONGER reason than framing: no
+    part of the card's stats panel is drawn at all. The crop is taken from the
+    shoe window (0.315-0.615), which ends a full 0.003 above STATS_PANEL_TOP,
+    so the figure cannot appear even at the edge. placements() returns [] for
+    this composition, so stats_in_frame() is False by construction rather than
+    by arithmetic.
+    """
+    canvas = _fit(backdrop, size) if backdrop else _gradient(size)
+    win = _card_region(card, *SHOE_WINDOW)
+    s = min((size[0] * 0.92) / win.width, (size[1] * 0.62) / win.height)
+    win = win.resize((max(1, round(win.width * s)), max(1, round(win.height * s))),
+                     Image.LANCZOS)
+    pos = ((size[0] - win.width) // 2, int(size[1] * 0.54) - win.height // 2)
+    canvas = _shadow_glow(canvas, win, pos, size, glow=False)
+    canvas.paste(win, pos, win)
+    return canvas
+
+
+def two_card_crop(card, backdrop, size, card_b=None):
+    """which_would_you_pull WITHOUT the disclaimer.
+
+    Each card is CROPPED to its title+shoe region (0.08-0.615) and the two sit
+    side by side, so both names stay legible and neither contributes a value
+    figure. The first attempt scaled whole cards to 0.95H and overlapped them —
+    titles were clipped on both sides and the stats panel was only just out of
+    frame. Cropping the region first is both safer and more legible.
+    """
+    canvas = _fit(backdrop, size) if backdrop else _gradient(size)
+    W, H = size
+    for i, src in enumerate((card_b or card, card)):
+        win = _card_region(src, TITLE_SHOE_WINDOW[0], TITLE_SHOE_WINDOW[1])
+        tw = int(W * 0.46)
+        s_ = tw / win.width
+        win = win.resize((tw, max(1, round(win.height * s_))), Image.LANCZOS)
+        x = int(W * (0.265 if i == 0 else 0.735)) - win.width // 2
+        y = int(H * (0.40 if i == 0 else 0.58)) - win.height // 2
+        canvas = _shadow_glow(canvas, win, (x, y), size, glow=False)
+        canvas.paste(win, (x, y), win)
+    return canvas
+
+
+def poster(card, backdrop, size):
+    """Editorial-poster: the BACKDROP is the subject, the card is placed small
+    and low, still cut above the stats panel."""
+    canvas = _fit(backdrop, size) if backdrop else _gradient(size)
+    ch = int(size[1] * POSTER_SCALE)
+    c = _scaled(card, ch)
+    top = round(size[1] * 0.52 - STATS_CUT * ch)
+    pos = (int(size[0] * 0.50) - c.width // 2, top)
+    canvas = _shadow_glow(canvas, c, pos, size, glow=False)
+    canvas.paste(c, pos, c)
+    return canvas
+
+
 def shoe_crop(card, backdrop, size):
     """THE WORKHORSE. The SHOE is the subject, not a thumbnail inside a card.
 
@@ -187,10 +272,12 @@ def shoe_crop(card, backdrop, size):
 
 
 COMPOSITIONS = {
-    "shoe_crop": shoe_crop, "hero": hero, "close_crop": close_crop,
-    "off_centre": off_centre, "no_backdrop": no_backdrop, "two_card": two_card,
+    "shoe_crop": shoe_crop, "angled": angled, "shoe_only": shoe_only,
+    "two_card_crop": two_card_crop, "poster": poster,
+    "hero": hero, "close_crop": close_crop, "off_centre": off_centre,
+    "no_backdrop": no_backdrop, "two_card": two_card,
 }
-NEEDS_BACKDROP = frozenset({"shoe_crop", "hero", "close_crop", "off_centre", "two_card"})
+NEEDS_BACKDROP = frozenset(set(COMPOSITIONS) - {"no_backdrop"})
 
 # ── card_shows_value, COMPUTED not hardcoded (G2) ────────────────────────────
 # rails.check_draft demands an attribution marker only when the card's EST.
@@ -218,19 +305,63 @@ STATS_CUT = 0.615         # bottom edge, above the whole panel
 # scaling past the edges.
 CROP_SCALE = 1.25
 
-SHOWS_VALUE = {
-    "shoe_crop":  False,   # cut at 0.63 — stats row out of frame
-    "hero":       True,
-    "close_crop": True,
-    "off_centre": True,
-    "no_backdrop": True,
-    "two_card":   True,
-}
+# ★★ card_shows_value IS DERIVED FROM GEOMETRY, NOT A HAND-MAINTAINED DICT.
+# A wrongly-computed False is a RAILS VIOLATION, not a cosmetic error: the post
+# would ship with no attribution sentence while the EST. VALUE figure sat in
+# frame. A dict is exactly the kind of thing that goes stale when a composition
+# is retuned — shoe_crop's scale and cut changed twice on the day it was built.
+# So PLACEMENTS is the single source of truth: every composition declares where
+# it puts each card, render() uses it to draw, and card_shows_value() uses the
+# same numbers to decide. They cannot disagree.
+#
+# A card CONTRIBUTES the figure only if the stats band, mapped through that
+# card's own placement, intersects the canvas.
+
+def placements(name: str, size: tuple[int, int]) -> list[tuple[int, int]]:
+    """[(top_y, card_height)] for every card this composition draws."""
+    W, H = size
+    if name == "hero":
+        ch = int(H * 0.76); return [((H - ch) // 2, ch)]
+    if name == "close_crop":
+        ch = int(H * 1.45); return [(int(-ch * 0.20), ch)]
+    if name == "off_centre":
+        ch = int(H * 0.66); return [(int(H * 0.56) - ch // 2, ch)]
+    if name == "no_backdrop":
+        ch = int(H * 0.80); return [((H - ch) // 2, ch)]
+    if name == "two_card":
+        b = int(H * 0.52); a_ = int(H * 0.56)
+        return [(int(H * 0.34) - b // 2, b), (int(H * 0.66) - a_ // 2, a_)]
+    if name == "shoe_crop":
+        ch = int(H * CROP_SCALE); return [(round(H - STATS_CUT * ch), ch)]
+    if name == "angled":
+        ch = int(H * ANGLED_SCALE); return [(round(H - STATS_CUT * ch), ch)]
+    if name == "shoe_only":
+        return []                      # no card chrome at all — see shoe_only()
+    if name == "two_card_crop":
+        return []                      # cropped regions only — no stats panel drawn
+    if name == "poster":
+        ch = int(H * POSTER_SCALE); return [(round(H * 0.52 - STATS_CUT * ch), ch)]
+    raise KeyError("no placement declared for composition %r" % name)
 
 
-def card_shows_value(composition: str) -> bool:
-    """Fail CLOSED: an unknown composition is assumed to show the figure."""
-    return SHOWS_VALUE.get(composition, True)
+def stats_in_frame(name: str, size: tuple[int, int]) -> bool:
+    """Does the EST. VALUE band land inside the canvas for ANY card drawn?"""
+    H = size[1]
+    for top, ch in placements(name, size):
+        y0 = top + ch * STATS_PANEL_TOP
+        y1 = top + ch * STATS_BAND[1]
+        if y1 > 0 and y0 < H:          # any overlap at all
+            return True
+    return False
+
+
+def card_shows_value(composition: str, size: tuple[int, int] | None = None) -> bool:
+    """Fail CLOSED. An undeclared composition raises rather than guessing —
+    a silent False here is a rails violation."""
+    size = size or TARGETS["4:5"]
+    if composition not in COMPOSITIONS:
+        return True                    # unknown -> assume the figure is shown
+    return stats_in_frame(composition, size)
 
 
 def render(name: str, card_path: Path, backdrop_path: Path | None, out: Path,

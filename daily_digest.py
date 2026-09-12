@@ -162,9 +162,19 @@ def pick_composition(fmt: str, hook_type: str, brand: str, scene: str,
     is the only composition that crops the EST. VALUE row out of frame, so it
     is also the one that needs no attribution sentence (G2).
     """
-    order = (["shoe_crop", "off_centre", "two_card", "close_crop", "hero"]
+    # No-attribution compositions lead both orders (they need no disclaimer),
+    # but the order is only a PREFERENCE — the no-repeat rule below is what
+    # actually produces variety.
+    order = (["shoe_only", "angled", "two_card_crop", "shoe_crop", "off_centre",
+              "poster", "close_crop", "hero"]
              if tentpole else
-             ["shoe_crop", "no_backdrop", "close_crop", "off_centre", "hero"])
+             ["shoe_crop", "angled", "shoe_only", "two_card_crop", "no_backdrop",
+              "poster", "close_crop", "off_centre", "hero"])
+    hist = ROT.recent()
+    # PASS 1: first candidate that has not been used in the last 3 proposals.
+    for name in order:
+        if not ROT.composition_used_recently(name, hist):
+            return name
     hist = ROT.recent()
     for name in order:
         cand = {"format": fmt, "hook_type": hook_type, "brand": brand,

@@ -48,6 +48,20 @@ def differs_enough(cand: dict, prior: dict, min_axes: int = MIN_AXES) -> tuple[b
     return n >= min_axes, n
 
 
+def composition_used_recently(name: str, history: list[dict] | None = None,
+                              depth: int = DEPTH) -> bool:
+    """★ NO COMPOSITION MAY REPEAT WITHIN THE LAST `depth` PROPOSALS.
+
+    Enforced from the LEDGER, not from a preference-order list. Making
+    shoe_crop the workhorse on both tentpole and ordinary days meant every post
+    was the same card in the same frame — "the same as the other proposals just
+    with the sneaker card zoomed in". A preference order alone always returns
+    its first eligible entry, so it cannot produce variety; only history can.
+    """
+    hist = recent(depth) if history is None else history[:depth]
+    return any((h or {}).get("composition") == name for h in hist)
+
+
 def is_varied(cand: dict, history: list[dict] | None = None,
               min_axes: int = MIN_AXES) -> tuple[bool, str]:
     """True when `cand` differs from EVERY one of the last three on >= min_axes."""
