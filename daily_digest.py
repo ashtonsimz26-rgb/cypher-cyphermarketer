@@ -140,13 +140,24 @@ def occasion_for(image_name: str, day) -> tuple[dict | None, dict | None]:
     return None, None
 
 
-def pick_composition(fmt: str, hook_type: str, brand: str, scene: str) -> str:
-    """First composition that clears depth-3 rotation; no_backdrop breaks ties.
+def pick_composition(fmt: str, hook_type: str, brand: str, scene: str,
+                     tentpole: bool = False) -> str:
+    """First composition that clears depth-3 rotation, in a PREFERENCE ORDER
+    that depends on the occasion — rotation is not uniform (G3).
 
-    no_backdrop is preferred on a tie because it uses NO generated imagery —
-    it is the only composition Phase 2 could ever auto-post, and it is free.
+    A moment-lane or round-anniversary post is a TENTPOLE and gets the strong
+    compositions. no_backdrop is a dark card on a dark gradient with a small
+    shoe inside a window; it is the weakest of the set and it is what the
+    2026-09-11 post got. It belongs on ordinary days, not on the day the story
+    is worth telling.
+
+    shoe_crop leads both orders because the SHOE is the subject there — and it
+    is the only composition that crops the EST. VALUE row out of frame, so it
+    is also the one that needs no attribution sentence (G2).
     """
-    order = ["no_backdrop", "off_centre", "close_crop", "hero"]
+    order = (["shoe_crop", "off_centre", "two_card", "close_crop", "hero"]
+             if tentpole else
+             ["shoe_crop", "no_backdrop", "close_crop", "off_centre", "hero"])
     hist = ROT.recent()
     for name in order:
         cand = {"format": fmt, "hook_type": hook_type, "brand": brand,
@@ -157,14 +168,18 @@ def pick_composition(fmt: str, hook_type: str, brand: str, scene: str) -> str:
     return order[0]
 
 
-def gate8(text: str, price_ok: bool) -> tuple[bool, list[str]]:
+def gate8(text: str, price_ok: bool, composition: str | None = None
+          ) -> tuple[bool, list[str]]:
     """rails.check_draft on the ASSEMBLED text, plus the 280 ceiling.
 
     card_shows_value / pool_reachable are passed exactly as they always have
     been, so this call site treats the rail identically — gate 8 is the SAME
     rail moved EARLIER, never a different one.
     """
-    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
+    # card_shows_value is COMPUTED from the composition (G2), never hardcoded.
+    # An unknown composition falls back to True — fail closed.
+    shows = COMP.card_shows_value(composition) if composition else True
+    checks = rails.check_draft(text, card_shows_value=shows, pool_reachable=True,
                                price_verified=price_ok)
     failed = [c[0] for c in checks if not c[1]]
     if X.weighted_len(text) > 280:
@@ -186,7 +201,8 @@ def skeleton_draft_fn(ctx: dict, attempt: int, failed_rails: list[str]) -> dict 
 
 
 def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
-                     draft_fn, max_retries: int = 2, moment: dict | None = None):
+                     draft_fn, max_retries: int = 2, moment: dict | None = None,
+                     composition: str | None = None):
     """Draft -> compose -> gate 8, retrying with the failed rail labels fed back.
 
     Returns (text|None, failed_rails, attempts). Bounded at 1 + max_retries:
@@ -195,6 +211,7 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
     """
     ctx = {"cand": cand, "row": row, "fmt": fmt, "hook_type": hook_type,
            "display": display, "price_ok": price_ok}
+    attr = COMP.card_shows_value(composition) if composition else True
     failed: list[str] = []
     attempt = 0
     for attempt in range(1, max_retries + 2):
@@ -207,11 +224,12 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
             # the verified moment and leave a dangling reference ("that day"
             # with no antecedent) — caught in the 2026-02-22 dry run.
             text = CT.compose(moment_text=moment["post_text"], moment_id=moment["id"],
-                              linking_line=parts["lead"], include_link=False)
+                              linking_line=parts["lead"], include_link=False,
+                              include_attribution=attr)
         else:
             text = CT.compose(lead=parts["lead"], body=parts.get("body"),
-                              include_link=False)
-        ok, failed = gate8(text, price_ok)
+                              include_link=False, include_attribution=attr)
+        ok, failed = gate8(text, price_ok, composition)
         if ok:
             return text, [], attempt
         run_log(event="writer_gate_failed", proposal_id=None,
@@ -222,8 +240,9 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
         # lose the day (ruled). Reached when the writer declines or its line
         # fails gate 8 twice.
         bare = CT.compose(moment_text=moment["post_text"], moment_id=moment["id"],
-                          linking_line=None, include_link=False)
-        ok, bare_failed = gate8(bare, price_ok)
+                          linking_line=None, include_link=False,
+                          include_attribution=attr)
+        ok, bare_failed = gate8(bare, price_ok, composition)
         if ok:
             run_log(event="moment_shipped_without_linking_line",
                     image_name=cand["image_name"], attempts=attempt)
@@ -260,6 +279,14 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     # The draft is produced, gated, and retried BEFORE render_card or
     # BD.generate. A gate-8 failure therefore costs $0.00: the $0.04 backdrop
     # is only reached by a draft that has already passed.
+    # ── composition FIRST (G2): card_shows_value decides whether the draft
+    # needs an attribution sentence, so the frame must be known before the text.
+    brand = (row.get("brand") or "").strip() or None
+    scene = row.get("category") or "Lifestyle"
+    tentpole = bool(occasion_for(cand["image_name"], datetime.now().date())[0])
+    composition = pick_composition(fmt, hook_type, brand, scene, tentpole=tentpole)
+    shows_value = COMP.card_shows_value(composition)
+
     if draft_fn is None:
         # SKELETONS ARE RETIRED (ruled). The writer is the only drafter; a
         # fallback would fire precisely when the material is weakest.
@@ -278,7 +305,8 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             display_name=display, env=X.load_env(Path(X.DEFAULT_ENV)))
     text, gate_failed, attempts = draft_with_gate8(
         cand, row, fmt, hook_type, display, price_ok,
-        draft_fn=draft_fn, max_retries=max_retries, moment=moment)
+        draft_fn=draft_fn, max_retries=max_retries, moment=moment,
+        composition=composition)
     if text is None:
         # Abandoned. The candidate does NOT consume the daily proposal budget —
         # the caller advances through the existing POOL_FACTOR x pool. Skeletons
@@ -299,9 +327,8 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
     card = OUT / f"{stem}_card.png"
     CR.render_card(cand["image_name"], cand["rarity"], card)
-    brand = (row.get("brand") or "").strip() or None
-    scene = row.get("category") or "Lifestyle"
-    composition = pick_composition(fmt, hook_type, brand, scene)
+    # composition is already chosen above — it decides whether the text needs
+    # the attribution sentence, so it MUST precede drafting.
     visual, insp = card, "N/A (card only)"
     if not card_only:
         env = X.load_env(Path(X.DEFAULT_ENV))

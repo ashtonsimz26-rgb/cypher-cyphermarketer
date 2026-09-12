@@ -107,6 +107,7 @@ def compose(*, lead: str | None = None, body: str | None = None,
             moment_text: str | None = None, moment_id: str | None = None,
             linking_line: str | None = None,
             attribution_index: int = DEFAULT_ATTRIBUTION,
+            include_attribution: bool = True,
             include_link: bool = False, moments_path: Path | None = None) -> str:
     """Assemble the post.
 
@@ -127,7 +128,13 @@ def compose(*, lead: str | None = None, body: str | None = None,
         parts.append(lead.strip())
         if body and body.strip():
             parts.append(body.strip())
-    parts.append(attribution(attribution_index))
+    # G2: the attribution scopes the card's EST. VALUE figure. A composition
+    # that crops that figure out of frame has nothing to scope, so the sentence
+    # is omitted — the rail is satisfied because the figure is ABSENT, never
+    # because the rail was softened. The caller proves it via
+    # composition.card_shows_value(); gate 8 re-checks independently.
+    if include_attribution:
+        parts.append(attribution(attribution_index))
     if include_link:
         parts.append("Free: %s" % LINK)
     out = "\n\n".join(parts)

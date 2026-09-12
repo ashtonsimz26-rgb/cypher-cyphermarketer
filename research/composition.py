@@ -52,7 +52,13 @@ SCENES_V2 = {
     "Studio":        "a clean seamless photographic studio backdrop in warm off-white, soft "
                      "even light, subtle floor gradient, no props, no people",
 }
-NON_NIGHT_SCENES = frozenset({"Retro", "Daylight", "Studio"})
+SCENES_V2["Morning"] = ("an empty sunlit city sidewalk early on a clear morning, long "
+                        "soft shadows, warm low light on pale concrete, shopfront "
+                        "shutters still down, no people")
+SCENES_V2["Court"] = ("a well-lit indoor sports hall in the afternoon, pale wood floor, "
+                      "high clerestory windows, clean bright daylight, painted lines, "
+                      "no people, no equipment")
+NON_NIGHT_SCENES = frozenset({"Retro", "Daylight", "Studio", "Morning", "Court"})
 
 
 def _fit(bd: Image.Image, size: tuple[int, int]) -> Image.Image:
@@ -161,11 +167,70 @@ def two_card(card, backdrop, size, card_b=None):
     return canvas
 
 
+def shoe_crop(card, backdrop, size):
+    """THE WORKHORSE. The SHOE is the subject, not a thumbnail inside a card.
+
+    ★ AND THE ONLY COMPOSITION WITH card_shows_value=False.
+    The EST. VALUE figure renders at card y 0.661-0.679 (measured on the live
+    render, not assumed). This frame cuts the card at 0.63, so the stats row is
+    genuinely OUT OF FRAME — which is what makes the attribution sentence
+    unnecessary here rather than merely unwanted. Scale 1.45 puts the side crop
+    at 82px against ~100px of title padding, so the title and colorway survive.
+    """
+    canvas = _fit(backdrop, size) if backdrop else _gradient(size)
+    c = _scaled(card, int(size[1] * CROP_SCALE))
+    top = round(size[1] - STATS_CUT * c.height)
+    pos = ((size[0] - c.width) // 2, top)
+    canvas = _shadow_glow(canvas, c, pos, size, glow=False)
+    canvas.paste(c, pos, c)
+    return canvas
+
+
 COMPOSITIONS = {
-    "hero": hero, "close_crop": close_crop, "off_centre": off_centre,
-    "no_backdrop": no_backdrop, "two_card": two_card,
+    "shoe_crop": shoe_crop, "hero": hero, "close_crop": close_crop,
+    "off_centre": off_centre, "no_backdrop": no_backdrop, "two_card": two_card,
 }
-NEEDS_BACKDROP = frozenset({"hero", "close_crop", "off_centre", "two_card"})
+NEEDS_BACKDROP = frozenset({"shoe_crop", "hero", "close_crop", "off_centre", "two_card"})
+
+# ── card_shows_value, COMPUTED not hardcoded (G2) ────────────────────────────
+# rails.check_draft demands an attribution marker only when the card's EST.
+# VALUE figure is in frame. That was passed as a hardcoded True everywhere, so
+# every post carried the sentence. It is a RAIL, so the answer is to stop
+# SHOWING the figure, never to stop attributing it: a composition that crops the
+# stats row out is genuinely card_shows_value=False and needs no marker. A
+# composition that shows it keeps the attribution, with no exception.
+#
+# Measured on the live 840x1320 render: the green EST. VALUE figure occupies
+# card y 0.661-0.679. Every composition below is evaluated against that band.
+# The green FIGURE sits at 0.661-0.679; the whole stats PANEL, labels included,
+# starts higher. The cut clears the PANEL, not just the number — a visible
+# "EST. VALUE" label with the figure sheared off looks like a rendering fault,
+# and the honest claim is that the stats row is absent, not half-absent.
+STATS_BAND = (0.661, 0.679)
+STATS_PANEL_TOP = 0.618
+STATS_CUT = 0.615         # bottom edge, above the whole panel
+# ★ 1.27 is the LARGEST scale at which the card does not overflow the canvas
+# horizontally. 1.45 was tried first and clipped the title at both edges —
+# "CYPHER" read "YPHER", the colorway read "ravis Scott Olive", and the rarity
+# chip was cut. My side-crop estimate assumed ~100px of title padding; the real
+# padding is smaller. The card must stay fully within the frame width, so the
+# vertical fill comes from a backdrop band above the card rather than from
+# scaling past the edges.
+CROP_SCALE = 1.25
+
+SHOWS_VALUE = {
+    "shoe_crop":  False,   # cut at 0.63 — stats row out of frame
+    "hero":       True,
+    "close_crop": True,
+    "off_centre": True,
+    "no_backdrop": True,
+    "two_card":   True,
+}
+
+
+def card_shows_value(composition: str) -> bool:
+    """Fail CLOSED: an unknown composition is assumed to show the figure."""
+    return SHOWS_VALUE.get(composition, True)
 
 
 def render(name: str, card_path: Path, backdrop_path: Path | None, out: Path,
