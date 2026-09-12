@@ -85,6 +85,10 @@ ROUND_ANNIVERSARIES = frozenset({5, 10, 15, 20, 25, 30})
 SELECTOR_OUTPUT_FIELDS = frozenset({
     "lane", "day", "image_name", "moment", "moment_text", "hook_facts",
     "supporting_facts", "eligibility", "dossier_usable",
+    # DECLARED, not left a local computation (ruling R2a). anniversary_age was
+    # computed here and read nowhere for a full commit; the contract can only
+    # catch that if the field is declared. Err toward declaring.
+    "anniversary_age",
 })
 
 # Positive filter: a hook tag that can carry a post on its own. `designer` is

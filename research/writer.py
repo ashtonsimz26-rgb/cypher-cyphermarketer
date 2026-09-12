@@ -70,6 +70,11 @@ SELECTOR_WITHHELD = {
     "dossier_usable":  "a gate result already applied upstream, not content",
     "supporting_facts": "reaches the writer as `release` after field selection",
     "eligibility":     "reaches the writer as `occasion` — the hook, not the bookkeeping",
+    # Declared as a pipeline field on 2026-09-11 (R2a). The moment it was
+    # declared, THIS GUARD FIRED — which is the guard working: the value had
+    # been computed and passed to nobody for a full commit. It reaches the
+    # writer inside `occasion`, which carries both the age and the reason.
+    "anniversary_age": "reaches the writer inside `occasion`, with the years and the reason",
 }
 
 
@@ -147,6 +152,24 @@ HARD CONSTRAINTS
   appended for you. Do not mention the app, a link, or a price unless
   price_permitted is true and the figure was given to you.
 - No hashtags. No emoji unless the fact itself is playful. No "check this out".
+
+REGISTER — WRITE LIKE A SNEAKERHEAD, NOT LIKE A PRODUCT DATABASE
+Literal-but-unnatural phrasing FAILS this bar even when it passes every rail.
+"Travis Scott's first sneaker collaboration in female sizing" is accurate, and
+no person in this culture has ever said "female sizing".
+
+  say                      not
+  ----------------------   ------------------------------
+  women's sizing / (Wmns)  female sizing, women-oriented
+  colorway                 color scheme, colour variant
+  dropped / released       arrived, became available, launched onto the market
+  pair / pairs             item, unit, product
+  collab                   collaboration piece, co-branded release
+  on foot                  when worn, in wear
+
+Contractions are fine. Fragments are fine. Say "the 3" or "AJ1" the way people
+do. Do not explain the culture to itself — a reader who needs "the Swoosh (the
+Nike logo)" explained is not the reader.
 
 THE ONE TEST THAT MATTERS — THE SWAP TEST
 If your line still reads fine with a different shoe's name swapped in, it has

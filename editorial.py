@@ -131,6 +131,14 @@ def avoid_guidance(window: int = 10) -> list[str]:
 # over catalog prose as well as outranking arithmetic.
 DOSSIER_HOOK_TAGS = ("cultural_moment", "release_drama", "collab_origin")
 
+# PIPELINE FIELDS this decision-maker consults (contracts.py). Not its Python
+# parameters — the fields other components produce.
+DETECT_HOOK_READS = frozenset({
+    "hook_facts", "description", "year", "retail_price", "estimated_resale",
+    "price_verified", "source", "headline",
+})
+CHOOSE_FORMAT_READS = frozenset({"hook_type", "last_format", "avoid_codes"})
+
 
 def detect_hook(row: dict, *, source: str, price_verified: bool,
                 headline: str = "",

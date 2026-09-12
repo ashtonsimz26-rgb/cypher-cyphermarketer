@@ -123,6 +123,13 @@ def candidates(limit: int) -> list[dict]:
     return out[:limit]
 
 
+PICK_COMPOSITION_READS = frozenset({"format", "hook_type", "brand", "scene",
+                                    "tentpole", "rotation_history"})
+GATE8_READS = frozenset({"text", "price_verified", "composition"})
+OCCASION_READS = frozenset({"image_name", "day", "moment", "anniversary_age",
+                            "release_date"})
+
+
 def occasion_for(image_name: str, day) -> tuple[dict | None, dict | None]:
     """(occasion, moment). WHY this post exists today — the writer's real hook.
 

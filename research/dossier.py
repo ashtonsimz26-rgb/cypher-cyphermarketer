@@ -69,6 +69,12 @@ HOOKABLE_TAGS = frozenset({
 })
 ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec", "silhouette_lineage"}
 
+# What a dossier EMITS into the pipeline (contracts.py).
+DOSSIER_OUTPUT_FIELDS = frozenset({
+    "hook_facts", "lineage_facts", "spec_facts", "release_date_fact",
+    "dossier_usable", "name_match",
+})
+
 # ★★ "designer" IS GONE FROM HOOKABLE_TAGS, AND FROM THE TAG SET ENTIRELY.
 # GOAT's `designer` field describes the SILHOUETTE, not the colorway, collab or
 # SP built on it. It is correct on an original release and MISLEADING on

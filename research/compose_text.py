@@ -56,6 +56,12 @@ ATTRIBUTION_LINES: tuple[str, ...] = (
 DEFAULT_ATTRIBUTION = 0
 
 
+COMPOSE_READS = frozenset({
+    "lead", "body", "moment_post_text", "moment_id", "linking_line",
+    "card_shows_value",
+})
+
+
 class MomentTextMismatch(AssertionError):
     """Composed moment text differs from data/moments.json. HALT."""
 
