@@ -124,6 +124,7 @@ def candidates(limit: int) -> list[dict]:
     return out[:limit]
 
 
+BUILD_ONE_READS = frozenset({"dossier_sensitivity"})
 PICK_COMPOSITION_READS = frozenset({"format", "hook_type", "brand", "scene",
                                     "tentpole", "rotation_history"})
 GATE8_READS = frozenset({"text", "price_verified", "composition"})
@@ -275,6 +276,16 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
 
     Returning None is a normal, healthy outcome (gate d: zero is a valid day).
     Every rejection is ledgered with its reason so the bar is auditable."""
+    # ★★ R2 GATE — FIRST, BEFORE THE CATALOG ROW IS EVEN FETCHED.
+    # candidates() builds the pool DIRECTLY from Supabase and never calls
+    # selector.eligibility(), so the selector-side gate does NOT cover this
+    # path. Both Doernbecher cards clear the pool's estimated_resale >= 400
+    # filter, so a selector-only rail would have been completely inert here —
+    # the sixth instance of that shape if it had shipped.
+    if not DOS.dossier_proposable(cand["image_name"]):
+        run_log(event="skipped_human_copy_required", image_name=cand["image_name"],
+                reason="dossier sensitivity is not proposable by the generated-text path")
+        return None
     row = CR.fetch_card(cand["image_name"], cand["rarity"])
     if row.get("is_set_reward"):
         return None                                   # ceremony-exclusive, never showcased

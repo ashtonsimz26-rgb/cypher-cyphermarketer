@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_1_low_og_better_with_time",
- "built_at": "2026-09-12T18:36:51.060619+00:00",
+ "built_at": "2026-09-12T18:39:10.458987+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -117,5 +117,6 @@
  "hook_candidates": [
   "f3"
  ],
+ "sensitivity": "none",
  "usable": true
 }

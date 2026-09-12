@@ -1,6 +1,6 @@
 {
  "image_name": "aj3_fear_pack",
- "built_at": "2026-09-12T18:36:51.050362+00:00",
+ "built_at": "2026-09-12T18:39:10.447799+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -112,5 +112,6 @@
   }
  ],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

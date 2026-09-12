@@ -1,6 +1,6 @@
 {
  "image_name": "sb_dunk_low_staple_panda_pigeon",
- "built_at": "2026-09-12T18:36:51.116644+00:00",
+ "built_at": "2026-09-12T18:39:10.517526+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -93,5 +93,6 @@
  "hook_candidates": [
   "f3"
  ],
+ "sensitivity": "none",
  "usable": true
 }

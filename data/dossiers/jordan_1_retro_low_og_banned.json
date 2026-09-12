@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_1_retro_low_og_banned",
- "built_at": "2026-09-12T18:36:51.065622+00:00",
+ "built_at": "2026-09-12T18:39:10.464202+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -114,5 +114,6 @@
   "f3",
   "f5"
  ],
+ "sensitivity": "none",
  "usable": true
 }

@@ -1,6 +1,6 @@
 {
  "image_name": "nike_reactx_Rejuven8_slide_triple_black",
- "built_at": "2026-09-12T18:36:51.108642+00:00",
+ "built_at": "2026-09-12T18:39:10.509114+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -89,5 +89,6 @@
  "hook_candidates": [
   "f4"
  ],
+ "sensitivity": "none",
  "usable": true
 }

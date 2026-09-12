@@ -1,6 +1,6 @@
 {
  "image_name": "nike_sb_zoom_dunk_low_pro_sports_car",
- "built_at": "2026-09-12T18:36:51.110910+00:00",
+ "built_at": "2026-09-12T18:39:10.511278+00:00",
  "name_match": "silhouette_only",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -50,5 +50,6 @@
   }
  ],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

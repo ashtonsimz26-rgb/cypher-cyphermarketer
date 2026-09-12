@@ -1,6 +1,6 @@
 {
  "image_name": "adidas_yeezy_foam_runner_mx_cinder",
- "built_at": "2026-09-12T18:36:51.041023+00:00",
+ "built_at": "2026-09-12T18:39:10.437651+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -111,5 +111,6 @@
   }
  ],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

@@ -1,6 +1,6 @@
 {
  "image_name": "nike_dunk_low_premium_sb_qs_de_la_soul",
- "built_at": "2026-09-12T18:36:51.097926+00:00",
+ "built_at": "2026-09-12T18:39:10.498080+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -90,5 +90,6 @@
   "f3",
   "f4"
  ],
+ "sensitivity": "none",
  "usable": true
 }

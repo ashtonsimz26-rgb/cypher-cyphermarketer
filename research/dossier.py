@@ -83,6 +83,7 @@ SNAPS = HERE / "data" / "goat_snapshots"
 OUT = HERE / "data" / "dossiers"
 RELEASE_DATES = HERE / "data" / "release_dates.json"
 FACT_SENSITIVITY = HERE / "data" / "fact_sensitivity.json"
+DOSSIER_SENSITIVITY = HERE / "data" / "dossier_sensitivity.json"
 
 # ── tags ─────────────────────────────────────────────────────────────────────
 # POSITIVE FILTER, same discipline as editorial.ALLOWED_FEEDBACK_CODES and
@@ -98,6 +99,7 @@ ALL_TAGS = HOOKABLE_TAGS | {"release_date", "spec", "silhouette_lineage"}
 DOSSIER_OUTPUT_FIELDS = frozenset({
     "hook_facts", "lineage_facts", "spec_facts", "support_facts",
     "release_date_fact", "dossier_usable", "name_match", "fact_sensitivity",
+    "dossier_sensitivity",
 })
 
 # ── support_facts: the THIRD BUCKET (ruled 2026-09-12) ───────────────────────
@@ -181,6 +183,58 @@ def fact_sensitivity(image_name: str | None = None) -> dict:
             out.setdefault(e["image_name"], {})[_norm_text(e["text"])] = e["sensitivity"]
         _FACT_SENS = out
     return _FACT_SENS if image_name is None else _FACT_SENS.get(image_name, {})
+
+
+# ── dossier-level sensitivity (R2, ruled 2026-09-12) ─────────────────────────
+# POSITIVE FILTER, in the same position as moments.PROPOSABLE_SENSITIVITIES: a
+# dossier is proposable by MEMBERSHIP, so a dossier inheriting a value nobody
+# anticipated cannot slip through a missing branch. DO NOT WIDEN.
+PROPOSABLE_DOSSIER_SENSITIVITIES = frozenset({"none"})
+_DOSSIER_SENS: dict | None = None
+
+
+def dossier_sensitivity(image_name: str | None = None) -> dict:
+    """Curated per-dossier flags. LOUD on a missing file or unapproved entry."""
+    global _DOSSIER_SENS
+    if _DOSSIER_SENS is None:
+        blob = json.loads(DOSSIER_SENSITIVITY.read_text())
+        out: dict[str, dict] = {}
+        for name, e in (blob.get("dossiers") or {}).items():
+            if name.startswith("_"):
+                continue
+            if not e.get("sensitivity"):
+                raise ValueError("dossier_sensitivity.json: %s has no sensitivity" % name)
+            if e.get("approved_by") != SENSITIVITY_APPROVER:
+                raise ValueError("dossier_sensitivity.json: %s is not approved by %s "
+                                 "(found %r). The agent may never approve one."
+                                 % (name, SENSITIVITY_APPROVER, e.get("approved_by")))
+            out[name] = e
+        _DOSSIER_SENS = out
+    return _DOSSIER_SENS if image_name is None else _DOSSIER_SENS.get(image_name, {})
+
+
+def dossier_proposable(image_name: str) -> bool:
+    """May the GENERATED-TEXT path propose this shoe at all?
+
+    ★ READ FROM THE CURATED FILE, NOT FROM THE DOSSIER JSON. The stamped value
+    is a record; a stale dossier on disk must never be able to GRANT
+    proposability that the curated file withholds.
+
+    ★ AND IT RAISES RATHER THAN FALLING THROUGH. When approved human copy
+    exists, the correct behaviour is to ship that copy verbatim — and that lane
+    is not built. Returning True here would hand the shoe to the writer, which
+    is the exact outcome the flag exists to prevent, so it stops loudly instead.
+    """
+    e = dossier_sensitivity(image_name)
+    if e.get("sensitivity", "none") in PROPOSABLE_DOSSIER_SENSITIVITIES:
+        return True
+    if e.get("human_copy") and e.get("human_copy_approved_by") == SENSITIVITY_APPROVER:
+        raise NotImplementedError(
+            "%s carries approved human copy but the VERBATIM SHIPPING LANE IS NOT BUILT "
+            "(R2). Refusing to fall through to the generated-text path. Build the lane — "
+            "compose_text already ships moment post_text byte-for-byte — before this "
+            "dossier can post." % image_name)
+    return False
 
 
 def writer_reachable(fact: dict) -> bool:
@@ -482,6 +536,10 @@ def build(image_name: str, cat: dict, snap: dict, release_dates: dict) -> dict:
             **gate,
             "facts": facts,
             "hook_candidates": hooks,
+            # STAMPED AS A RECORD ONLY. Every consumer asks
+            # dossier_proposable(), which reads the curated file — a stale
+            # dossier must never be able to grant itself proposability.
+            "sensitivity": (dossier_sensitivity(image_name).get("sensitivity") or "none"),
             "usable": bool(hooks)}
 
 

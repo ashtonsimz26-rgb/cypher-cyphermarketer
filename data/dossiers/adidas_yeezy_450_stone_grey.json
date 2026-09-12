@@ -1,6 +1,6 @@
 {
  "image_name": "adidas_yeezy_450_stone_grey",
- "built_at": "2026-09-12T18:36:51.032402+00:00",
+ "built_at": "2026-09-12T18:39:10.428624+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -87,5 +87,6 @@
   }
  ],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

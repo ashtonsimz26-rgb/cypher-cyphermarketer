@@ -1,6 +1,6 @@
 {
  "image_name": "yeezy700_hi-res_red",
- "built_at": "2026-09-12T18:36:51.121412+00:00",
+ "built_at": "2026-09-12T18:39:10.522892+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -101,5 +101,6 @@
   }
  ],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

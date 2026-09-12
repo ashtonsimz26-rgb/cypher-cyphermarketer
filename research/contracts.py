@@ -96,6 +96,7 @@ PRODUCED: dict[str, frozenset] = {
 READS: dict[str, frozenset] = {
     "editorial.detect_hook": editorial.DETECT_HOOK_READS,
     "editorial.choose_format": editorial.CHOOSE_FORMAT_READS,
+    "daily_digest.build_one": DD.BUILD_ONE_READS,
     "daily_digest.pick_composition": DD.PICK_COMPOSITION_READS,
     "daily_digest.gate8": DD.GATE8_READS,
     "daily_digest.occasion_for": DD.OCCASION_READS,

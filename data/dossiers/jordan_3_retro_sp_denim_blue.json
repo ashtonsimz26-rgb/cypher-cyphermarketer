@@ -1,6 +1,6 @@
 {
  "image_name": "jordan_3_retro_sp_denim_blue",
- "built_at": "2026-09-12T18:36:51.071276+00:00",
+ "built_at": "2026-09-12T18:39:10.470188+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -103,5 +103,6 @@
  "hook_candidates": [
   "f2"
  ],
+ "sensitivity": "none",
  "usable": true
 }

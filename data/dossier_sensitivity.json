@@ -1,0 +1,25 @@
+{
+ "_note": "Dossier-level sensitivity. A dossier flagged here is NOT PROPOSABLE by the generated-text path, at all. It may post ONLY with post text Ashton has written and approved — exactly like a moments.json entry, and shipped verbatim the same way. If no approved copy exists, the shoe does not post; silence is the correct outcome.",
+ "_agent_may_never": "THE AGENT MAY NEVER ADD, EDIT, OR APPROVE AN ENTRY, AND MAY NEVER WRITE human_copy. approved_by is set by Ashton, by hand.",
+ "_positive_filter": "dossier.PROPOSABLE_DOSSIER_SENSITIVITIES is a positive filter: a dossier is proposable by MEMBERSHIP ('none'), so a new dossier inheriting an unanticipated value cannot slip through a missing branch.",
+ "_copy_rule": "When Ashton writes the copy the rule is: lead with the person's name and what they made, never with the condition, and no medical specifics at all.",
+ "_lane_not_built": "human_copy is null on every entry and the verbatim shipping lane for it is NOT BUILT. dossier.dossier_proposable() RAISES if an entry ever carries approved copy, rather than falling through to the generated path.",
+ "dossiers": {
+  "aj8_doernbecher": {
+   "sensitivity": "human_copy_required",
+   "approved_by": "ashton",
+   "approved_at": "2026-09-12T18:39:10.365694+00:00",
+   "human_copy": null,
+   "human_copy_approved_by": null,
+   "_why": "Names Caden Lampert, a minor, and his life-threatening illness. The generated lead was good on all four sampled drafts; that is not the point. A nondeterministic writer will eventually produce the version that reduces a child to a diagnosis."
+  },
+  "aj13_doernbecher": {
+   "sensitivity": "human_copy_required",
+   "approved_by": "ashton",
+   "approved_at": "2026-09-12T18:39:10.365694+00:00",
+   "human_copy": null,
+   "human_copy_approved_by": null,
+   "_why": "Names John Charles, an 11-year-old, and his illness. Three of four sampled drafts led with 'An 11-year-old Crohn's patient designed this' — the diagnosis as identity, with the child's name dropped even though the fact contains it. One came back all-lowercase."
+  }
+ }
+}

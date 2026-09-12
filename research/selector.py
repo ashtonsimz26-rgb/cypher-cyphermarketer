@@ -72,6 +72,8 @@ import json
 from datetime import date
 from pathlib import Path
 
+from research import dossier as DOS
+
 HERE = Path(__file__).resolve().parent.parent
 DOSSIERS = HERE / "data" / "dossiers"
 RELEASE_DATES = HERE / "data" / "release_dates.json"
@@ -143,6 +145,11 @@ def eligibility(image_name: str, day: date, *, dossier: dict,
     """The positive rule. Returns the reason it qualifies, or None."""
     if not dossier or not dossier.get("usable"):
         return None
+    # ★ R2 — human_copy_required. Checked FIRST and by membership, before any
+    # lane can qualify this shoe, so a flagged dossier cannot reach a generator
+    # through any branch below.
+    if not DOS.dossier_proposable(image_name):
+        return None
     age = anniversary_age(image_name, day, release_dates)
     if has_narrative_hook(dossier):
         return {"reason": "narrative_hook", "anniversary_age": age}
@@ -170,6 +177,11 @@ def _moment_lane(day: date, moments_mod, moments_path, reachable,
         return None
     m = entries[0]                               # one day, one proposal
     image_name = (m.get("linked_image_names") or [None])[0]
+    # R2 — the moment's own text is human-approved, but the WRITER still supplies
+    # a card-linking line about the shoe. A flagged card is therefore dropped as
+    # illustration; moments.load already tolerates an entry whose links all drop.
+    if image_name and not DOS.dossier_proposable(image_name):
+        image_name = None
     dossier = load_dossier(image_name) if image_name else None
     supporting = []
     if image_name:
@@ -211,6 +223,8 @@ def _anniversary_pass(day: date, pool: list[str], release_dates: dict) -> dict |
         age = anniversary_age(image_name, day, release_dates)
         if age is None:
             continue
+        if not DOS.dossier_proposable(image_name):
+            continue                             # R2 — same filter, every lane
         d = load_dossier(image_name)
         if not d or not d.get("usable"):
             continue

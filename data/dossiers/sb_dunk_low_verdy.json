@@ -1,6 +1,6 @@
 {
  "image_name": "sb_dunk_low_verdy",
- "built_at": "2026-09-12T18:36:51.117073+00:00",
+ "built_at": "2026-09-12T18:39:10.517967+00:00",
  "name_match": "failed",
  "decided_by": "signal_1_silhouette",
  "signal_1_silhouette": {
@@ -25,5 +25,6 @@
  },
  "facts": [],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

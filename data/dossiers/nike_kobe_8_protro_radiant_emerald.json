@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_8_protro_radiant_emerald",
- "built_at": "2026-09-12T18:36:51.107022+00:00",
+ "built_at": "2026-09-12T18:39:10.507407+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -113,5 +113,6 @@
   }
  ],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

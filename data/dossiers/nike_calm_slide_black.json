@@ -1,6 +1,6 @@
 {
  "image_name": "nike_calm_slide_black",
- "built_at": "2026-09-12T18:36:51.097393+00:00",
+ "built_at": "2026-09-12T18:39:10.497529+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -83,5 +83,6 @@
   }
  ],
  "hook_candidates": [],
+ "sensitivity": "none",
  "usable": false
 }

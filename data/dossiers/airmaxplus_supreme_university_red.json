@@ -1,6 +1,6 @@
 {
  "image_name": "airmaxplus_supreme_university_red",
- "built_at": "2026-09-12T18:36:51.047069+00:00",
+ "built_at": "2026-09-12T18:39:10.443758+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_2_colorway",
  "signal_1_silhouette": {
@@ -91,5 +91,6 @@
  "hook_candidates": [
   "f3"
  ],
+ "sensitivity": "none",
  "usable": true
 }

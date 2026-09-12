@@ -1,6 +1,6 @@
 {
  "image_name": "nike_kobe_5_protro_ny_vs_ny",
- "built_at": "2026-09-12T18:36:51.105115+00:00",
+ "built_at": "2026-09-12T18:39:10.505470+00:00",
  "name_match": "confirmed",
  "decided_by": "signal_3_year",
  "signal_1_silhouette": {
@@ -111,5 +111,6 @@
   "f3",
   "f4"
  ],
+ "sensitivity": "none",
  "usable": true
 }
