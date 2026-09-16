@@ -13,6 +13,7 @@ import ast, json, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import daily_digest as DD, backdrop as BD
+from research import story as ST
 from research import selector as SEL, dossier as DOS
 
 FAILS = []
@@ -62,7 +63,7 @@ for n in REWARDS:
         continue
     d = json.loads(p.read_text())
     hooks = [f for f in d.get("facts", []) if f.get("tag") in SEL.NARRATIVE_HOOK_TAGS]
-    key, _ = BD.story_key(d)
+    key = ST.brief(d, None)["scene_key"]
     ok(SEL.has_narrative_hook(d) and DOS.dossier_proposable(n) and key is not None,
        "%-34s %d hook(s), story key %s" % (n, len(hooks), key))
 
@@ -70,7 +71,8 @@ print("\n=== 4. THE SCENE NO LONGER FALLS BACK FOR THEM ===")
 for n, expect in (("sb_dunk_low_gratefuldead_orange", "story:psychedelic_venue"),
                   ("sb_dunk_low_staple_nyc_pigeon", "story:downtown_ny_2000s")):
     d = json.loads((REPO / "data" / "dossiers" / ("%s.json" % n)).read_text())
-    _, source, _ = BD.scene_for({"category": "Skateboarding", "year": 2005}, d)
+    _, source, _ = BD.scene_for({"category": "Skateboarding", "year": 2005},
+                                ST.brief(d, None)["scene_key"])
     ok(source == expect, "%-34s -> %s" % (n, source))
 
 print("\n=== 5. DISK HEALTH SPEAKS TO TELEGRAM, NOT ONLY THE LOG ===")

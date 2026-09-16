@@ -12,6 +12,14 @@ import ast, json, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import backdrop as BD, editorial, rails
+from research import story as ST
+
+def scene_of(row, dossier, fact_text=None):
+    """E5: the caller resolves a KEY, then backdrop renders it. backdrop
+    no longer has a parameter fact text could arrive in — see section 8."""
+    key = ST.key_for_text(fact_text) if fact_text else \
+        ST.brief(dossier, None)["scene_key"]
+    return BD.scene_for(row, key)
 
 FAILS = []
 def ok(c, m):
@@ -27,21 +35,21 @@ print("\n=== 1. THE STORY DECIDES; CATEGORY IS THE FALLBACK ===")
 doss = {"facts": [{"tag": "cultural_moment",
                    "text": "Nike teams up with CLOT to celebrate the Chinese New Year"}]}
 row = {"category": "Lifestyle", "year": 2009}
-scene, source, why = BD.scene_for(row, doss)
+scene, source, why = scene_of(row, doss)
 ok(source == "story:lunar_new_year", "a Chinese New Year fact picks the lunar scene: %s" % source)
 ok(scene != BD.SCENES["Lifestyle"] + BD._era(row), "…and it is NOT the category scene")
-ok("CLOT" in why, "the deciding fact is returned for the ledger")
+ok(why == "", "backdrop returns NO fact text any more — it never saw one")
 
-scene, source, _ = BD.scene_for({"category": "Skateboarding", "year": 2015}, {"facts": []})
+scene, source, _ = scene_of({"category": "Skateboarding", "year": 2015}, {"facts": []})
 ok(source == "category:Skateboarding", "no story signal falls back to category: %s" % source)
-scene, source, _ = BD.scene_for({"category": "Nonsense", "year": 2015}, None)
+scene, source, _ = scene_of({"category": "Nonsense", "year": 2015}, None)
 ok(source == "default", "an unknown category falls back to the default: %s" % source)
 
 print("\n=== 2. ONLY HOOK FACTS CHOOSE THE SCENE ===")
 support = {"facts": [{"tag": "narrative_detail",
                       "text": "The box was a Chinese Candy Box packaging set"},
                      {"tag": "spec", "text": "Red and black leather upper, Tokyo-made"}]}
-_, source, _ = BD.scene_for({"category": "Lifestyle", "year": 2009}, support)
+_, source, _ = scene_of({"category": "Lifestyle", "year": 2009}, support)
 ok(source == "category:Lifestyle",
    "support and spec facts are IGNORED — they describe materials, not the story")
 
@@ -64,8 +72,8 @@ nasty = [
 ]
 for text, expect in nasty:
     d = {"facts": [{"tag": "collab_origin", "text": text}]}
-    _, source, _ = BD.scene_for({"category": "Lifestyle", "year": 2018}, d)
-    p = BD.build_prompt({"category": "Lifestyle", "year": 2018}, d)
+    _, source, _ = BD.scene_for({"category": "Lifestyle", "year": 2018}, ST.key_for_text(text))
+    p = BD.build_prompt({"category": "Lifestyle", "year": 2018}, ST.key_for_text(text))
     scene_part = p.lower().split("absolute constraints:")[0]
     leaked = [t for t in BD.BRAND_TOKENS if t in scene_part]
     ok(source == "story:%s" % expect and not leaked,
@@ -87,8 +95,23 @@ bp = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name
 ok("NEGATIVE_CONSTRAINTS" in ast.dump(bp),
    "build_prompt concatenates NEGATIVE_CONSTRAINTS itself, not the caller")
 for d in (None, {"facts": []}, {"facts": [{"tag": "collab_origin", "text": "Supreme"}]}):
-    p = BD.build_prompt({"category": "Lifestyle", "year": 2015}, d)
+    p = BD.build_prompt({"category": "Lifestyle", "year": 2015}, ST.brief(d, None)["scene_key"])
     ok(p.endswith(BD.NEGATIVE_CONSTRAINTS), "every path ends in the constraints block")
+
+print("\n=== 6b. backdrop HAS NO PARAMETER A FACT COULD ARRIVE IN (E5) ===")
+# ★ The property that outlives the coherence fix. Asserted by AST, the same way
+# the set_completion branch is asserted never to touch `frag`.
+btree = ast.parse((REPO / "backdrop.py").read_text())
+for fname in ("scene_for", "build_prompt", "prompt_source"):
+    fn = next(n for n in ast.walk(btree) if isinstance(n, ast.FunctionDef) and n.name == fname)
+    args = [a.arg for a in fn.args.args] + [a.arg for a in fn.args.kwonlyargs]
+    bad = [a for a in args if a in ("hook_text", "fact", "fact_text", "dossier", "text")]
+    ok(not bad, "backdrop.%-13s takes %s — no fact/text/dossier parameter" % (fname, args))
+ok(not any(isinstance(n, ast.FunctionDef) and n.name == "story_key" for n in ast.walk(btree)),
+   "backdrop no longer defines story_key — it moved to research/story.py")
+ok(not any(isinstance(n, ast.Subscript) and isinstance(n.slice, ast.Constant)
+           and n.slice.value == "facts" for n in ast.walk(btree)),
+   "no code in backdrop reads a dossier's `facts` list")
 
 print("\n=== 7. set_completion IS SELECTABLE, NOT MERELY DECLARED ===")
 ok("set_completion" in editorial.FORMATS, "it is in FORMATS")

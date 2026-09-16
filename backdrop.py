@@ -214,32 +214,12 @@ def assert_no_brand(prompt: str) -> None:
         raise BrandLeak("brand token(s) reached the prompt: %s" % ", ".join(hit))
 
 
-def story_key(dossier: dict | None, hook_text: str | None = None) -> tuple[str | None, str]:
-    """(story key, the fact that chose it) — or (None, "") when no story signal.
-
-    Reads the hook fact ONLY. Support facts describe materials and packaging and
-    would pick scenes for the wrong reason; spec facts are worse. The returned
-    fact text is for the LEDGER and the report, never for the prompt.
-    """
-    texts = []
-    if hook_text:
-        texts.append(hook_text)
-    if dossier:
-        for f in dossier.get("facts") or []:
-            if f.get("tag") in HOOKABLE_FOR_SCENE:
-                texts.append(f.get("text") or "")
-    for t in texts:
-        if not t:
-            continue
-        for pat, key in _STORY_RX:
-            if pat.search(t):
-                return key, t
-    return None, ""
-
-
+# ★ story_key() MOVED to research/story.py (E5). It is the one function that had
+# to read fact text, so it does not live in the module that builds prompts. What
+# stays here is the VOCABULARY it matches against and the hand-written stems —
+# data, not a door.
 HOOKABLE_FOR_SCENE = frozenset({"collab_origin", "cultural_moment", "release_drama",
                                 "price_reason", "designer"})
-_STORY_RX = tuple((re.compile(p, re.I), k) for p, k in STORY_VOCAB)
 
 
 def now() -> str:
@@ -263,9 +243,19 @@ def _era(row: dict) -> str:
     return ""
 
 
-def scene_for(row: dict, dossier: dict | None = None,
-              hook_text: str | None = None) -> tuple[str, str, str]:
-    """(scene text, source, the fact that chose it).
+def scene_for(row: dict, scene_key: str | None = None) -> tuple[str, str, str]:
+    """(scene text, source, "").
+
+    ★★ E5, 2026-09-16: THIS TAKES A KEY, NOT A FACT. Previously it accepted the
+    hook TEXT and re-derived the key here. The fact never reached the prompt
+    even then — but it reached this MODULE, and "we are careful with it" is a
+    weaker guarantee than "there is no parameter it can arrive in". There is now
+    no parameter it can arrive in. A test asserts that by AST, the same way the
+    set_completion branch is asserted never to touch `frag`.
+
+    The key is chosen by research/story.py from the fact the WRITER says it used,
+    so the image and the lead are composed from one fact by construction rather
+    than by two selectors happening to agree.
 
     ★ E2, 2026-09-16: THE STORY DECIDES, and the category is the FALLBACK.
     Before this, the scene came from row["category"] and row["year"] and nothing
@@ -276,21 +266,19 @@ def scene_for(row: dict, dossier: dict | None = None,
     source is one of: "story" (a hook fact matched the curated vocabulary),
     "category" (no story signal — the old behaviour, unchanged), "default".
     """
-    key, why = story_key(dossier, hook_text)
-    if key and key in STORY_SCENES:
-        return STORY_SCENES[key] + _era(row), "story:%s" % key, why
+    if scene_key and scene_key in STORY_SCENES:
+        return STORY_SCENES[scene_key] + _era(row), "story:%s" % scene_key, ""
     cat = (row.get("category") or "").strip()
     if cat in SCENES:
         return SCENES[cat] + _era(row), "category:%s" % cat, ""
     return DEFAULT_SCENE + _era(row), "default", ""
 
 
-def build_prompt(row: dict, dossier: dict | None = None,
-                 hook_text: str | None = None) -> str:
+def build_prompt(row: dict, scene_key: str | None = None) -> str:
     """NEGATIVE_CONSTRAINTS is concatenated HERE, structurally — never left to a
     caller to remember. assert_no_brand then re-reads the finished string and
     falls back to the category scene rather than shipping a suspect prompt."""
-    scene, source, _why = scene_for(row, dossier, hook_text)
+    scene, source, _why = scene_for(row, scene_key)
     prompt = "%s. %s %s" % (scene, BRAND_LOOK, NEGATIVE_CONSTRAINTS)
     try:
         assert_no_brand(prompt)
@@ -304,10 +292,9 @@ def build_prompt(row: dict, dossier: dict | None = None,
     return prompt
 
 
-def prompt_source(row: dict, dossier: dict | None = None,
-                  hook_text: str | None = None) -> str:
+def prompt_source(row: dict, scene_key: str | None = None) -> str:
     """The source label, for the ledger and the digest note."""
-    return scene_for(row, dossier, hook_text)[1]
+    return scene_for(row, scene_key)[1]
 
 
 def _openai_cost(usage: dict | None) -> tuple[float, str | None]:

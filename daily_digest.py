@@ -28,6 +28,7 @@ import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, b
 from research import compose_text as CT  # noqa: E402  (assembly; owns attribution + link)
 from research import writer as WR, composition as COMP, rotation as ROT  # noqa: E402
 from research import selector as SEL, moments as MOM  # noqa: E402
+from research import story as ST  # noqa: E402  (fact -> scene KEY; E5)
 from research import dossier as DOS  # noqa: E402  (hook/lineage/support rails)
 
 # ⚠ EDITING THIS FILE PROGRAMMATICALLY: assert the match count before every
@@ -489,12 +490,19 @@ def skeleton_draft_fn(ctx: dict, attempt: int, failed_rails: list[str]) -> dict 
 
 def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
                      draft_fn, max_retries: int = 2, moment: dict | None = None,
-                     composition: str | None = None):
+                     composition: str | None = None,
+                     parts_out: dict | None = None):
     """Draft -> compose -> gate 8, retrying with the failed rail labels fed back.
 
     Returns (text|None, failed_rails, attempts). Bounded at 1 + max_retries:
     repeated failure on the same facts means the FACTS are the problem, not the
     phrasing, so re-prompting further is waste.
+
+    ★ E5: the WINNING draft's parts are published into `parts_out` rather than
+    added to the return tuple. Three call sites unpack this into three names and
+    a fourth element would break each of them for one optional field. Passing a
+    dict in keeps the signature additive and the default (None) behaves exactly
+    as before.
     """
     ctx = {"cand": cand, "row": row, "fmt": fmt, "hook_type": hook_type,
            "display": display, "price_ok": price_ok}
@@ -519,6 +527,8 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
         ok, failed = gate8(text, price_ok, composition,
                            cand.get("image_name"), cand.get("rarity"))
         if ok:
+            if parts_out is not None:
+                parts_out.update(parts)
             return text, [], attempt
         run_log(event="writer_gate_failed", proposal_id=None,
                 image_name=cand["image_name"], failed_rails=failed, attempt=attempt)
@@ -535,6 +545,8 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
         if ok:
             run_log(event="moment_shipped_without_linking_line",
                     image_name=cand["image_name"], attempts=attempt)
+            if parts_out is not None:
+                parts_out.update(parts)
             return bare, [], attempt
         failed = bare_failed
     return None, failed, attempt
@@ -628,11 +640,12 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     # ── composition FIRST (G2): card_shows_value decides whether the draft
     # needs an attribution sentence, so the frame must be known before the text.
     brand = (row.get("brand") or "").strip() or None
-    # ★ E2: the scene comes from the hook FACT. `hook` is detect_hook's chosen
-    # fact text, so the scene and the lead are driven by the SAME fact — that is
-    # the point, not a coincidence. row["category"] is the fallback only.
-    _scene_text, scene_source, _scene_why = BD.scene_for(row, _dj, hook)
-    scene = scene_source
+    # ★ E5: the scene is RESOLVED AFTER the draft, from the fact the writer says
+    # it wrote on — see the brief block below. Only a provisional label is needed
+    # here, because pick_composition reads `scene` as a rotation axis and runs
+    # before drafting (card_shows_value decides whether the copy needs an
+    # attribution sentence, so the frame must precede the text).
+    scene = "pending"
     tentpole = bool(occasion_for(cand["image_name"], datetime.now().date())[0])
     # ★ E4: FORCED, not rotated into. two_card_crop is the only composition that
     # crops the EST. VALUE row out of BOTH cards, which is what lets this format
@@ -662,10 +675,11 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             moment=moment_ctx, occasion=occ, price_permitted=price_ok, lineage=lineage,
             support_facts=support,
             display_name=display, env=X.load_env(Path(X.DEFAULT_ENV)))
+    _draft_ctx: dict = {}
     text, gate_failed, attempts = draft_with_gate8(
         cand, row, fmt, hook_type, display, price_ok,
         draft_fn=draft_fn, max_retries=max_retries, moment=moment,
-        composition=composition)
+        composition=composition, parts_out=_draft_ctx)
     if text is None:
         # Abandoned. The candidate does NOT consume the daily proposal budget —
         # the caller advances through the existing POOL_FACTOR x pool. Skeletons
@@ -681,6 +695,30 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
         run_log(event="skipped_generic_lead", image_name=cand["image_name"],
                 format=fmt, reason=lead_why)
         return None
+
+    # ── THE BRIEF (E5) ───────────────────────────────────────────────────────
+    # One fact, two outputs. The writer named the fact it built the lead on; the
+    # scene is composed from that same fact, so the image and the text are about
+    # one thing by construction rather than by two selectors agreeing.
+    #
+    # ★ THE FALLBACK IS LOUD ON PURPOSE (R3). If the model names no usable fact
+    # we still ship — detect_hook's fact picks the scene — but a divergence row
+    # is written every time. A fallback that fires constantly means the contract
+    # addition is not working, and that must be visible in the ledger rather
+    # than absorbed by a working-looking digest.
+    _brief = ST.brief(_dj, _draft_ctx.get("fact_id"), lead=lead_why)
+    _scene_text, scene_source, _ = BD.scene_for(row, _brief["scene_key"])
+    scene = scene_source
+    if _brief["fallback_fired"] or _brief["shared_tokens"] == 0:
+        run_log(event="brief_divergence", image_name=cand["image_name"],
+                format=fmt, source=_brief["source"],
+                fallback_fired=_brief["fallback_fired"],
+                fact_id=_brief["fact_id"],
+                fact_id_claimed=_draft_ctx.get("fact_id_claimed"),
+                shared_tokens=_brief["shared_tokens"],
+                scene_key=_brief["scene_key"],
+                reason=("writer named no usable fact" if _brief["fallback_fired"]
+                        else "lead shares no distinctive token with its claimed fact"))
 
     # Only now is it worth rendering and generating.
     stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
@@ -701,7 +739,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
         bd = None
         if composition in COMP.NEEDS_BACKDROP:
             bd = OUT / f"{stem}_bd.png"
-            BD.generate(BD.build_prompt(row, _dj, hook), "3:4", bd, env)
+            BD.generate(BD.build_prompt(row, _brief["scene_key"]), "3:4", bd, env)
             BD.record_verdict(str(bd), "UNINSPECTED_AUTOMATED",
                               "unattended launchd run — no Claude in the loop; Ashton is "
                               "the first human eye on this image")
@@ -717,7 +755,8 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     editorial.record_format(fmt)
     run_log(event="draft_built", image_name=cand["image_name"], hook_type=hook_type,
             brand=brand, composition=composition, scene=scene,
-            scene_why=(_scene_why or "")[:160],
+            scene_key=_brief["scene_key"], brief_source=_brief["source"],
+            fact_id=_brief["fact_id"], shared_tokens=_brief["shared_tokens"],
             format=fmt, weighted=wl, tier=cand.get("rarity"),
             pair_group=cand.get("pair_group"),
             pair_b=(cand.get("pair_b") or {}).get("image_name"))

@@ -65,15 +65,12 @@ numbered list.
        this" and "this is invalid" are different answers and must not share a
        code path.
 
-  A DELIBERATE SWEEP of state/ on 2026-09-16 found one more of the same family:
-  dossier.load_catalog() re-fetched its snapshot ONLY WHEN ABSENT, which means
-  never, and dossier.main() does `if not cat: continue` — so a card the snapshot
-  predated would get no dossier and nothing would say why. It was harmless only
-  because the catalog happened not to have changed. Both now age out at 7 days.
-  Everything else under state/ is read and written by one module (drop_queue,
-  seen_headlines, telegram_offset, health_streaks, last_format), is a scratch
-  file for the SQL CLI (_dq, _q, _card_input), or already had a TTL and a named
-  writer (url_cache, _set_routes).
+  A DELIBERATE SWEEP of state/ on 2026-09-16 found one more, and it is a
+  DIFFERENT failure — see the next entry. Everything else under state/ is read
+  and written by one module (drop_queue, seen_headlines, telegram_offset,
+  health_streaks, last_format), is a scratch file for the SQL CLI (_dq, _q,
+  _card_input), or already had a TTL and a named writer (url_cache,
+  _set_routes).
 
   THIRD OCCURRENCE OF THE DOCSTRING TRAP, same session: the test written to
   prove this cache has exactly one literal path FAILED, on the comment inside
@@ -85,6 +82,34 @@ numbered list.
   It was found BY ACCIDENT, while checking whether a moment's links resolved.
   Nobody was looking for it. That is the expected way to find this class, which
   is the argument for the rule rather than for vigilance.
+
+★★ "REFRESHES ONLY WHEN ABSENT" IS NOT THE SAME BUG AS "HAS NO WRITER"
+dossier.load_catalog() is the second half of the state/ sweep and deserves
+separating, because it fails in a way the first does not LOOK like.
+
+  A file nothing writes is visibly orphaned: grep for the writer, find nothing,
+  and the problem announces itself to anyone who asks. load_catalog() is the
+  opposite. It has a writer, in the same function, four lines below the read.
+  It is self-healing on a fresh checkout. It LOOKS maintained. And it refreshed
+  only `if not CATALOG_CACHE.exists()`, so after the first run it never
+  refreshed again — stale by construction, for the life of the machine.
+
+  What it feeds DENIES: dossier.main() does `if not cat: continue`, so a card
+  the snapshot predated gets no dossier, no error and no log line.
+
+  ★ IT WAS HARMLESS BY COINCIDENCE, AND THE NEXT SESSION SHOULD KNOW THAT. When
+  it was checked on 2026-09-16 the cache held 1,485 image_names and the live
+  catalog held 1,485 — identical, no drift. Not because anything kept them in
+  step. Because the server catalog happened not to have changed in the seven
+  days since the file was written. CPA adds cards continuously; the additions
+  had gone to the Swift side rather than to catalog_cards. One ordinary CPA
+  batch would have produced silently dossier-less cards, and the first symptom
+  would have been "why does that shoe never post". It worked by luck, not by
+  design, and the luck was one commit wide.
+
+  THE RULE: a cache with a TTL of "forever" is a snapshot, and a snapshot read
+  by a check is stale the moment its source moves. `if not exists()` is not a
+  refresh policy. Give it an age, or re-fetch every run, or do not cache it.
 
 ★★ A TEST FIXTURE CAN HIDE THE BUG IT WAS WRITTEN TO CATCH (2026-09-16)
 The cypher:// resolver was built and tested against a GRAIL and shipped green.
@@ -218,11 +243,19 @@ GRAIL cards stay out. The code was correct; the test was reading the wrong
 bytes, and the wrong bytes were its own explanation. A more careful wording
 would have hidden the bug rather than fixing it.
 
-  THE RULE: extract the LITERAL you mean to check, via AST. Never scan a
-  function's full source text for a token. Prose about a constraint and the
-  constraint itself are indistinguishable to `in`, and comments are where the
-  constraint gets DESCRIBED — so full-text scanning is biased toward exactly the
-  false positive it will hit.
+  ★★ THE PROHIBITION — not a caution, and not "be careful with":
+
+      NEVER SCAN A FUNCTION'S SOURCE TEXT FOR A LITERAL. Extract it via AST.
+      ALWAYS. Including in a test you expect to be trivial, including when the
+      token is obviously unique, including when you have just finished writing
+      this rule.
+
+  Prose about a constraint and the constraint itself are the same bytes to `in`,
+  and comments are where a constraint gets DESCRIBED — so full-text scanning is
+  biased toward precisely the false positive it will hit. Three occurrences in
+  one session, two of them by the author of the rule, is enough evidence that
+  intention does not hold. The habit is faster to reach for than the correct
+  tool, and knowing better does not slow the hand down. Remove the option.
 
 ★ IT HAPPENED TWICE IN ONE SESSION, THE SECOND TIME TO THE PERSON WHO HAD JUST
 WRITTEN THE RULE. About an hour after banking the paragraph above, the E2.5

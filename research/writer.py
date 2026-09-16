@@ -161,9 +161,13 @@ def build_payload(*, hook_facts: list[dict], release: dict | None,
 
 
 FORMAT_CONTRACT = """\
-You return JSON: {"lead": "<one line>", "body": null}
+You return JSON: {"lead": "<one line>", "body": null, "fact_id": "<id>"}
 
 HARD CONSTRAINTS
+- `fact_id` is the id of the ONE fact in hook_facts your lead is built on. The
+  image is composed from that same fact, so naming a fact you did not use
+  produces a picture about one thing and a sentence about another. If you write
+  no lead, return "fact_id": null.
 - `lead` must be at most %d characters. This is not a target, it is a ceiling.
 - Use ONLY the facts given to you. Every date, name and number must appear in
   hook_facts, release, or moment. Inventing one detail is worse than writing
@@ -200,8 +204,9 @@ shoe has a year and a retail price. Only one shoe has the story. Write the line
 only this shoe could carry.
 
 If the facts you were given cannot support such a line, return
-{"lead": null, "body": null}. Silence is a valid and expected output. A missed
-day costs nothing; a filler post costs attention we cannot buy back.
+{"lead": null, "body": null, "fact_id": null}. Silence is a valid and expected
+output. A missed day costs nothing; a filler post costs attention we cannot buy
+back.
 """ % LEAD_BUDGET
 
 TASK_GENERAL = """\
@@ -307,14 +312,22 @@ def make_draft_fn(*, hook_facts, release, moment, price_permitted, display_name,
                             display_name=display_name, task=task,
                             format_contract=FORMAT_CONTRACT)
 
+    valid_ids = {f["id"] for f in payload.get("hook_facts") or []}
+
     def draft_fn(ctx, attempt, failed_rails):
         out, meta = _call(payload, env, failed_rails)
         if meter is not None:
             meter.append(meta)
+        # ★ E5: the fact the model says it wrote from. The SCENE is composed from
+        # this same fact, which is what makes the image and the text about one
+        # thing. An id outside the payload is not trusted — see fact_id_or_none.
+        claimed = (out or {}).get("fact_id")
+        fid = claimed if claimed in valid_ids else None
         lead = (out or {}).get("lead")
         if not lead or not str(lead).strip():
             return None                     # the model declined — silence is valid
-        return {"lead": str(lead).strip(), "body": None}
+        return {"lead": str(lead).strip(), "body": None, "fact_id": fid,
+                "fact_id_claimed": claimed}
     return draft_fn
 
 
