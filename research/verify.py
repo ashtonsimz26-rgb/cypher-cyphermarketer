@@ -195,6 +195,29 @@ def _polite(url: str) -> None:
 CYPHER_SCHEME = "cypher://"
 _PRIVATE_COLUMNS = ("owner_id", "user_id", "id", "email")   # never rendered
 
+# ★★ TWO VOCABULARIES FOR ONE CONCEPT. catalog_cards.rarity is the
+# `sneaker_rarity` ENUM and is MIXED CASE — Common, Uncommon, Rare, Legendary,
+# GRAIL, HOLY GRAIL. owned_cards.rarity is TEXT under a CHECK constraint and is
+# UPPERCASE — COMMON, UNCOMMON, RARE, LEGENDARY, GRAIL, HOLY GRAIL. They agree
+# on the two top tiers and differ on the other four, which is exactly why this
+# was not caught by testing a GRAIL.
+#
+# The first version of this resolver passed catalog casing straight to
+# owned_cards and reported "NOT MINTED" for cards that ARE minted — and NOT
+# MINTED is a rendered document, so a TRUE claim came back "contradicted" rather
+# than "unverified". That is the single worst outcome this module can produce;
+# see the header on what a contradicted result licenses a caller to do.
+_OWNED_CASE = {"Common": "COMMON", "Uncommon": "UNCOMMON", "Rare": "RARE",
+               "Legendary": "LEGENDARY", "GRAIL": "GRAIL", "HOLY GRAIL": "HOLY GRAIL"}
+_CATALOG_CASE = {v: k for k, v in _OWNED_CASE.items()}
+
+
+def _rarity_for(table: str, value: str) -> str:
+    """Accept either vocabulary, emit the one that TABLE actually stores."""
+    if table == "owned_cards":
+        return _OWNED_CASE.get(value, value.upper())
+    return _CATALOG_CASE.get(value, value)          # catalog_cards, serial_caps
+
 
 def _cypher_sql(q: str) -> list[dict]:
     """Read-only passthrough to daily_digest._sql. Raises on any failure so the
@@ -282,16 +305,19 @@ def resolve_cypher(uri: str) -> str:
             # "operator does not exist: sneaker_rarity = text". The cast is not
             # cosmetic — without it this resolver silently returned NOT MINTED
             # for a card that was minted twice.
+            owned_rarity = _rarity_for("owned_cards", rarity)
+            cat_rarity = _rarity_for("catalog_cards", rarity)
             rows = _cypher_sql(
                 "select o.image_name, o.rarity as rarity, o.serial_int, "
                 "o.set_name, o.acquisition_method, o.minted_at, "
                 "(select s.cap from public.serial_caps s "
-                "  where s.image_name=o.image_name and s.rarity::text=o.rarity) as serial_cap "
+                "  where s.image_name=o.image_name and s.rarity=%s) as serial_cap "
                 "from public.owned_cards o where o.image_name=%s and o.rarity=%s "
-                "and o.serial_int=%s;" % (_lit(image_name), _lit(rarity), int(n)))
+                "and o.serial_int=%s;"
+                % (_lit(cat_rarity), _lit(image_name), _lit(owned_rarity), int(n)))
             if not rows:
                 return _render("CYPHER SERIAL — NOT MINTED",
-                               [("image_name", image_name), ("rarity", rarity),
+                               [("image_name", image_name), ("rarity", owned_rarity),
                                 ("serial_int", n)])
             r = rows[0]
             return _render("CYPHER SERIAL",

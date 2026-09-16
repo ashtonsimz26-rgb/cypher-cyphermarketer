@@ -34,6 +34,33 @@ caught by reading code; the sixth was caught only by asking which code path
 actually runs at 09:00 — a different question from whether the code is
 correct.
 
+★★ THE EIGHTH: A FILTER THAT REMOVED WHAT THREE COMMITS WERE BUILT TO ENABLE
+The first seven are all "a value existed and nothing read it". The eighth is the
+mirror image and it is worse, because the work looked finished:
+
+  daily_digest.candidates() built its standout pool with
+  `where c.is_set_reward = false`. Three commits had just gone in to make the
+  three set rewards postable — SOUL amended, the rail widened and made to
+  actually run, build_one's guard made conditional, dossiers imported, scenes
+  resolved, a copy skeleton written. Every one of them worked. And the cards
+  could still never appear, because a where clause four layers away removed them
+  from the pool before any of it was consulted. drop_correspondent carried the
+  same clause, byte for byte.
+
+  THE RULE: PERMISSION AND PRESENCE ARE DIFFERENT CLAIMS. When a rail is widened
+  to admit something new, do not test that the rail permits it — test that it
+  REACHES THE POOL. Ask "what would actually select this card at 09:00", follow
+  that path all the way to the query, and read every where clause on it.
+
+The 2026-09-16 audit of that path found FOUR more, all removing cards the rails
+now permit: the drop-queue drain and the on-this-day seed both gated on
+is_reachable() (pool route only, so a set reward matched to a headline or a date
+was dropped before rails saw it); drop_correspondent's twin is_set_reward
+clause; and moments.py validating linked_image_names against
+state/_reachable_cache.json — a file WRITTEN BY NOTHING, last touched a week
+earlier, so a moment linking a newly-obtainable card had that link silently
+dropped. Four filters, one rail, and the rail was never wrong.
+
 ★★ THE SEVENTH IS A NEW SHAPE, AND THE FIRST CAUGHT BY AST SCAN
 The first six are all "the information never arrived". The seventh is different:
 the information arrived on the MAIN path and not on the RETRY path. "A rail goes

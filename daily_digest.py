@@ -73,6 +73,42 @@ with reachable as (
 )"""
 
 
+# ★ THE OBTAINABLE SET, ONCE. Written out four times in three files by
+# 2026-09-16, which is three chances for one of them to drift. Everything that
+# asks "may we post this card" appends this to REACHABLE_CTE.
+EARNABLE_CTE = """,
+  earnable as (
+    select sr.reward_image_name as image_name, sr.reward_rarity as rarity
+    from public.set_rewards sr
+    where exists (select 1 from public.set_requirements q
+                  where q.set_name = sr.set_name)
+      and not exists (
+        select 1 from public.set_requirements q
+        where q.set_name = sr.set_name
+          and not exists (select 1 from reachable r
+                          where r.image_name = q.required_image_name))
+  ),
+  obtainable as (
+    select image_name, rarity from reachable
+    union select image_name, rarity from earnable
+  )"""
+OBTAINABLE_CTE = REACHABLE_CTE + EARNABLE_CTE
+
+
+def is_obtainable(image_name: str, rarity: str) -> bool:
+    """May we post this (image_name, rarity) at all — EITHER route.
+
+    ★ Was is_reachable(), pool-route only, and that was a hole: the drop queue
+    and the on-this-day seed both gated on it, so a set reward matched to a
+    headline or a calendar date was dropped before rails ever saw it. Permission
+    and presence are different claims (contracts.py, instance 8).
+    """
+    q = (OBTAINABLE_CTE + " select count(*) as n from obtainable where image_name=%s and rarity=%s;"
+         % ("'" + image_name.replace("'", "''") + "'", "'" + rarity.replace("'", "''") + "'"))
+    r = _sql(q)
+    return bool(r and int(r[0].get("n", 0)) > 0)
+
+
 def is_reachable(image_name: str, rarity: str) -> bool:
     q = (REACHABLE_CTE + " select count(*) as n from reachable where image_name=%s and rarity=%s;"
          % ("'" + image_name.replace("'", "''") + "'", "'" + rarity.replace("'", "''") + "'"))
@@ -170,6 +206,14 @@ def refresh_set_routes() -> dict:
     SET_ROUTES.parent.mkdir(parents=True, exist_ok=True)
     SET_ROUTES.write_text(json.dumps(blob, indent=1, ensure_ascii=False) + "\n",
                           encoding="utf-8")
+    # ★ state/_reachable_cache.json was written by NOTHING. moments.py reads it to
+    # validate linked_image_names, so a moment linking a newly-obtainable card had
+    # that link silently dropped against a file last touched 2026-09-09. It is
+    # regenerated here, from the same query, so one refresh keeps both honest.
+    names = sorted({k.split("|", 1)[0] for k in blob["reachable_pairs"]}
+                   | {k.split("|", 1)[0] for k in routes})
+    (HERE / "state" / "_reachable_cache.json").write_text(
+        json.dumps(names, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     run_log(event="set_routes_refreshed", pairs=len(blob["reachable_pairs"]),
             routes=len(routes),
             earnable=sum(1 for v in routes.values()
@@ -293,13 +337,13 @@ def candidates(limit: int) -> list[dict]:
     """Overnight drop queue first, then the on-this-day seed, then standouts."""
     out, seen = [], set()
     for e in drain_drop_queue():
-        if len(out) < limit and is_reachable(e["image_name"], e["rarity"]):
+        if len(out) < limit and is_obtainable(e["image_name"], e["rarity"]):
             out.append(e); seen.add(e["image_name"])
     try:
         seed = json.loads(SEED.read_text())
         key = datetime.now().strftime("%m-%d")
         for e in seed.get(key, []):
-            if is_reachable(e["image_name"], e["rarity"]):
+            if is_obtainable(e["image_name"], e["rarity"]):
                 out.append({**e, "source": "on_this_day"}); seen.add(e["image_name"])
     except Exception:
         pass
@@ -311,22 +355,7 @@ def candidates(limit: int) -> list[dict]:
         # declared and never built. The flag is also not authoritative (it marks
         # four pairs where set_rewards names three), so the earn route is proved
         # by the same CTE rails uses rather than by the flag.
-        rows = _sql(REACHABLE_CTE + """,
-          earnable as (
-            select sr.reward_image_name as image_name, sr.reward_rarity as rarity
-            from public.set_rewards sr
-            where exists (select 1 from public.set_requirements q
-                          where q.set_name = sr.set_name)
-              and not exists (
-                select 1 from public.set_requirements q
-                where q.set_name = sr.set_name
-                  and not exists (select 1 from reachable r
-                                  where r.image_name = q.required_image_name))
-          ),
-          obtainable as (
-            select image_name, rarity from reachable
-            union select image_name, rarity from earnable
-          )
+        rows = _sql(OBTAINABLE_CTE + """
           select c.image_name, c.rarity::text as rarity
           from public.catalog_cards c
           join obtainable o on o.image_name=c.image_name and o.rarity=c.rarity

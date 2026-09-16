@@ -21,8 +21,8 @@
     "linked_image_names": [],
     "sensitivity": "none",
     "_confidence": "MEDIUM",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://sneakerbardetroit.com/adidas-yeezy-boost-750-og-b35309-release-date/",
@@ -51,8 +51,8 @@
     "linked_image_names": [],
     "sensitivity": "none",
     "_confidence": "HIGH",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://blackpast.org/african-american-history/jordan-michael-j-1963/",
@@ -85,8 +85,8 @@
     ],
     "sensitivity": "none",
     "_confidence": "HIGH",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://www.highsnobiety.com/p/jeff-staple-nike-sb-dunk-pigeon-riot-interview/",
@@ -117,8 +117,8 @@
     "sensitivity": "none",
     "_confidence": "CONTESTED",
     "_contest_note": "The letter's date is cited variously as Feb 25 1985 and later. The Air Ship vs Jordan 1 distinction is well documented and is the interesting part; the date is the weak link. Do not approve until a source pins it.",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://www.complex.com/sneakers/a/marvin-barias/the-true-story-behind-the-banned-air-jordan",
@@ -148,8 +148,8 @@
     "linked_image_names": [],
     "sensitivity": "none",
     "_confidence": "HIGH",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://www.highsnobiety.com/p/nike-air-max-1-history/",
@@ -178,8 +178,8 @@
     "linked_image_names": [],
     "sensitivity": "none",
     "_confidence": "HIGH",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://www.basketball-reference.com/boxscores/199706110UTA.html",
@@ -209,8 +209,8 @@
     "sensitivity": "tragedy_adjacent",
     "_sensitivity_note": "Birthday, not the death date — but the association is immediate and the audience reaction is unpredictable. Flagged tragedy_adjacent so the loader records it and never proposes it. Rail 4: silence is always acceptable. Included so a future session does not 'discover' it and add it unflagged.",
     "_confidence": "HIGH",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://www.britannica.com/biography/Kobe-Bryant",
@@ -240,8 +240,8 @@
     "sensitivity": "none",
     "_confidence": "MEDIUM",
     "_contest_note": "The substance is well documented; the exact preseason date is not. If verification cannot pin a day, delete rather than approximate.",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://www.sneakerfreaker.com/features/setting-straight-the-story-of-the-nike-air-ship",
@@ -291,8 +291,8 @@
     "sensitivity": "none",
     "_confidence": "MEDIUM",
     "_contest_note": "The announcement date and the signing date differ across sources. Pin one and record which.",
-    "approved_by": null,
-    "approved_at": null,
+    "approved_by": "ashton",
+    "approved_at": "2026-09-10T18:10:38.133090+00:00",
     "_verified": {
      "outcome": "verified",
      "url": "https://www.spin.com/2013/12/kanye-west-adidas-deal-10-million-nike-air-yeezy/",
@@ -301,6 +301,38 @@
      "checked": "2026-09-10"
     },
     "post_text": "Kanye left Nike for adidas over royalties and creative control. Nike had the biggest name in sneaker culture and let him walk. adidas built its entire decade on what followed."
+   }
+  ],
+  "06-23": [
+   {
+    "id": "m_aj4_sb_varsity_red",
+    "title": "A player earned serial 1 of the Varsity Red",
+    "year": 2026,
+    "kind": "milestone",
+    "text": "On 23 June 2026 a player completed the Nike x Jordan 4 SB set in CYPHER and was awarded serial 1 of the Jordan 4 Retro SB 'Varsity Red', a GRAIL card capped at 10000. The set requires two cards, the SB Navy and the SB Pine Green, both of which can be pulled from packs. The reward has been claimed 2 times; the second went to the house a month later.",
+    "post_text": "Serial 1 of 10000. A player finished the Nike x Jordan 4 SB set and the GRAIL was theirs. Two cards in, one out — that is the whole trade.",
+    "sources": [
+     "cypher://serial/aj4_sb_varsity_red/GRAIL/1",
+     "cypher://set/Nike%20x%20Jordan%204%20SB",
+     "cypher://card/aj4_sb_varsity_red/GRAIL"
+    ],
+    "_source_note": "FIRST-PARTY sources. Every term traces to our own database via the cypher:// resolver, which returns the same shape as the HTTP path. Verified 2026-09-16: all five claims VERIFIED, including both mint dates. No URL exists for this and none is needed.",
+    "_verify_terms": [
+     "set_reward",
+     "Nike x Jordan 4 SB",
+     "GRAIL",
+     "10000",
+     "1"
+    ],
+    "linked_image_names": [
+     "aj4_sb_varsity_red",
+     "aj4_sb_navy",
+     "aj4_sb_pine_green"
+    ],
+    "sensitivity": "none",
+    "_confidence": "EXACT",
+    "_note": "The subject is 'a player' and must stay that way — the owner of serial 1 is a private individual and is never named, identified or hinted at. The real-world F&F sneaker's story is deliberately ABSENT: it cannot be sourced, and the rule was not widened to tell it (ruled 2026-09-16).",
+    "approved_by": null
    }
   ]
  },

@@ -96,6 +96,24 @@ r = V.verify_fact("cypher://serial/aj4_sb_varsity_red/GRAIL/9999", ["set_reward"
 ok(r["outcome"] == "contradicted",
    "…so a claim about it is CONTRADICTED (the db answered), not unverified")
 
+print("\n=== 6b. BOTH RARITY VOCABULARIES RESOLVE ===")
+# catalog_cards is the sneaker_rarity ENUM (mixed case); owned_cards is TEXT
+# under a CHECK constraint (UPPER). They agree on GRAIL and HOLY GRAIL and
+# differ on the other four — so testing a GRAIL proves nothing about the rest.
+import daily_digest as _DD
+row = _DD._sql("select image_name, rarity, serial_int from public.owned_cards "
+               "where rarity='LEGENDARY' and serial_int is not null limit 1;")
+if row:
+    r0 = row[0]
+    for spelling in ("Legendary", "LEGENDARY"):
+        t = V.fetch_text("cypher://serial/%s/%s/%s" % (r0["image_name"], spelling, r0["serial_int"]))
+        ok("CYPHER SERIAL" in t and "NOT MINTED" not in t,
+           "a minted LEGENDARY resolves as %-10s (not a false NOT MINTED)" % spelling)
+        ok("serial_cap" in t, "…and its serial_cap joins (catalog casing on serial_caps)")
+ok(V._rarity_for("owned_cards", "Rare") == "RARE", "Rare -> RARE for owned_cards")
+ok(V._rarity_for("catalog_cards", "RARE") == "Rare", "RARE -> Rare for catalog_cards")
+ok(V._rarity_for("owned_cards", "HOLY GRAIL") == "HOLY GRAIL", "the two top tiers are unchanged")
+
 print("\n=== 7. ONE DISPATCH POINT ===")
 ft = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == "fetch_text")
 ok(any(isinstance(n, ast.Call) and getattr(n.func, "id", "") == "resolve_cypher"

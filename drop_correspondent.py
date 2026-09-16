@@ -119,11 +119,14 @@ def main():
     if not ok:
         DD.run_log(event="run_blocked", job="drop_correspondent", reason=why)
         print("  BLOCKED: %s" % why); return
-    rows = DD._sql(DD.REACHABLE_CTE + """
+    # ★ This carried `where c.is_set_reward = false` — a byte-for-byte twin of the
+    # filter that kept the three set rewards out of the digest's standout pool.
+    # Removing one and leaving the other would have fixed the tentpole on one
+    # path and left it broken on the other. Both routes, proved from the tables.
+    rows = DD._sql(DD.OBTAINABLE_CTE + """
       select c.image_name, c.rarity::text as rarity, c.name, c.colorway, c.silhouette
       from public.catalog_cards c
-      join reachable r on r.image_name=c.image_name and r.rarity=c.rarity
-      where c.is_set_reward = false;""")
+      join obtainable o on o.image_name=c.image_name and o.rarity=c.rarity;""")
     seen, hits = load_seen(), 0
     for feed in FEEDS:
         for title in fetch(feed):

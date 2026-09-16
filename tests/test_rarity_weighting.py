@@ -86,10 +86,15 @@ sql = " ".join(n.value for n in ast.walk(fn)
 ok("is_set_reward" not in sql,
    "the standout query no longer filters on is_set_reward — that flag kept the "
    "three tentpoles out of every digest")
-ok("set_rewards" in sql and "set_requirements" in sql,
-   "it proves the earn route from the tables instead")
-ok("exists (select 1 from public.set_requirements" in sql,
+ok("OBTAINABLE_CTE" in ast.dump(fn),
+   "candidates() builds its pool from the shared OBTAINABLE_CTE")
+# The earn route lives in that shared constant now, not inline here — assert
+# against the constant, or this check silently stops testing anything.
+ok("set_rewards" in DD.OBTAINABLE_CTE and "set_requirements" in DD.OBTAINABLE_CTE,
+   "the shared CTE proves the earn route from the tables")
+ok("exists (select 1 from public.set_requirements" in DD.OBTAINABLE_CTE,
    "including the empty-set guard, same as rails and goat_import")
+ok("join obtainable" in sql, "and the pool joins `obtainable`, not `reachable`")
 
 print("\n=== 7. EVERY CANDIDATE'S TIER IS LOGGED ===")
 logs = []
