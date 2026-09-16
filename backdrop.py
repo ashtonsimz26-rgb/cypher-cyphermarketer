@@ -225,10 +225,11 @@ STORY_SCENES = {
         "source directly above with fast falloff and a hard shadow line. Severe, "
         "airless, disciplinary.",
     "vault_room":
-        "a small climate-controlled strongroom, brushed steel walls floor to "
-        "ceiling. Palette cool neutral grey, no colour cast at all. Light is even "
-        "and shadowless from a recessed perimeter strip. Clinical, precise, "
-        "expensive, absolutely still.",
+        "a low-ceilinged private strongroom, wider than it is deep, seen square "
+        "from one side — a shallow room, not a corridor. Brushed steel drawer "
+        "banks fill the wall behind, the ceiling close overhead. Palette cool "
+        "neutral grey, no colour cast at all. Light is even and shadowless from a "
+        "recessed perimeter strip. Clinical, precise, expensive, airless.",
     "skate_basement":
         "a raw concrete basement with a plywood quarter-pipe pushed against one "
         "wall. Palette grey concrete, tan plywood, black scuff. Light is harsh "
@@ -259,6 +260,62 @@ STORY_SCENES = {
         "background. Palette bleached tan asphalt and hot amber light. Sun is low "
         "and harsh, shadows long and hard-edged. Dry, still, baked.",
 }
+
+# ══ R4 — STEMS THAT MUST BE INSPECTED AT FULL RESOLUTION ═════════════════════
+#
+# NEGATIVE_CONSTRAINTS forbids logos, lettering and readable marks, and a
+# generated image obeys it at a RATE, not absolutely. Some scenes are far more
+# likely to produce a mark than others: anywhere the scene implies printed
+# surfaces — packaging on a shelf, signage on a storefront, apparel, a screen —
+# is a place a mark can form, and at thumbnail size a resolving label and an
+# abstract colour block look identical.
+#
+# ★ THE FAILURE THIS PREVENTS IS A REVIEWER SAYING "looks clean" FROM A CONTACT
+# SHEET. tokyo_backstreet's vending machines were checked at full resolution on
+# 2026-09-16 and the bottle labels were non-resolving colour — but that is a
+# statement about ONE render, not about the stem. A different seed can resolve
+# one, so the stem carries the warning, not the image.
+#
+# Add a stem here whenever its text implies printed surfaces. The test in
+# tests/test_story_scenes.py fails if a stem mentions one of the risk nouns and
+# is NOT listed, so this cannot quietly fall behind the stems.
+INSPECT_CLOSELY = {
+    "tokyo_backstreet": "vending-machine bottles and cans — product labels can "
+                        "resolve into readable marks; zoom the machine banks",
+    "downtown_ny_2000s": "storefront shutters and awnings — signage can resolve; "
+                         "zoom the shopfronts and the scaffolding banners",
+    "psychedelic_venue": "stage backline — amp cabinets and drum heads are where "
+                         "an instrument brand appears; zoom the stage",
+    "skate_basement": "plywood ramp and wall — stickers and graffiti tags can "
+                      "resolve into lettering; zoom the ramp face",
+}
+# Nouns that mean a stem needs a listing. Kept beside the list so the test can
+# hold them together as the stems change.
+#
+# ★ MATCHED WORD-BOUNDED, and that is not pedantry: the first version used plain
+# substrings and flagged atelier_night and snowlit_street, because "amp" is
+# inside "lamp" and "streetlamp". A watch list that cries wolf on two safe stems
+# is one a reviewer learns to ignore, which is worse than not having it.
+PRINTED_SURFACE_NOUNS = ("vending", "shutter", "shutters", "awning", "awnings",
+                         "signage", "sign", "signs", "amp", "amps", "drum",
+                         "drums", "packaging", "label", "labels", "poster",
+                         "posters", "billboard", "screen", "screens", "sticker",
+                         "stickers", "jersey", "banner", "banners",
+                         "storefront", "storefronts", "shopfront", "graffiti")
+
+
+def printed_surface_nouns_in(text: str) -> list[str]:
+    """Which risk nouns a stem names, matched as WHOLE WORDS."""
+    low = (text or "").lower()
+    return [w for w in PRINTED_SURFACE_NOUNS
+            if re.search(r"(?<![a-z])%s(?![a-z])" % re.escape(w), low)]
+
+
+def inspection_note(scene_key: str | None) -> str:
+    """The extra warning a reviewer needs, or "" — appended to the digest note."""
+    r = INSPECT_CLOSELY.get(scene_key or "")
+    return (" ⚠️ ZOOM BEFORE APPROVING: %s" % r) if r else ""
+
 
 # Belt and braces on top of the structural guarantee. Matched against the
 # FINISHED prompt; a hit means something reached it that never should have.

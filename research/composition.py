@@ -347,6 +347,58 @@ def placements(name: str, size: tuple[int, int]) -> list[tuple[int, int]]:
     raise KeyError("no placement declared for composition %r" % name)
 
 
+# ── R3: the scene promises a band; this checks the composition uses it ───────
+# backdrop.STAGE_RULE tells every generated scene to keep the CENTRAL THIRD open
+# and evenly lit, because placements() showed 38%-60% of frame height is covered
+# by every composition. That number is a measurement of today's compositions, so
+# it can go stale the moment one is added or retuned — and the symptom would be
+# a card landing on a lamppost, in a frame that was never asked to be clear
+# there.
+#
+# ★ OWNERSHIP: the scene GUARANTEES the band, the composition USES it, and this
+# VERIFIES they agree. It does not reposition anything. Letting the scene drive
+# placement would invert the ownership — framing belongs to the composition —
+# and silently re-centring a card would hide exactly the drift worth seeing.
+CLEAR_ZONE = (0.38, 0.60)          # fraction of frame height, from STAGE_RULE
+
+
+def clear_zone_ok(name: str, size: tuple[int, int]) -> tuple[bool, str]:
+    """(ok, why). True when every card this composition draws overlaps the band
+    the scenes are told to keep clear.
+
+    A composition drawing NO card chrome (shoe_only, two_card_crop) trivially
+    passes: there is no card band to fall outside.
+    """
+    W, H = size
+    lo, hi = CLEAR_ZONE
+    pl = placements(name, size)
+    if not pl:
+        return True, "%s draws no card chrome" % name
+    bad = []
+    for top, ch in pl:
+        a, b = top / H, (top + ch) / H
+        if b <= lo or a >= hi:                     # no overlap with the band
+            bad.append("card at %.0f%%-%.0f%%" % (100 * a, 100 * b))
+    if bad:
+        return False, ("%s places %s, outside the %.0f%%-%.0f%% band the scenes "
+                       "are told to keep clear" % (name, "; ".join(bad),
+                                                   100 * lo, 100 * hi))
+    return True, "%s overlaps the clear band" % name
+
+
+def assert_clear_zone(name: str, size: tuple[int, int]) -> None:
+    """★ LOUD, never silent. A composition that has drifted outside what the
+    stems promise is reported — the caller does not get a quietly re-centred
+    card and no way to know."""
+    ok, why = clear_zone_ok(name, size)
+    if not ok:
+        raise ClearZoneDrift(why)
+
+
+class ClearZoneDrift(AssertionError):
+    """A composition places its card where no scene was asked to stay clear."""
+
+
 def stats_in_frame(name: str, size: tuple[int, int]) -> bool:
     """Does the EST. VALUE band land inside the canvas for ANY card drawn?"""
     H = size[1]

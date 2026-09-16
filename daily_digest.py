@@ -743,7 +743,12 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             BD.record_verdict(str(bd), "UNINSPECTED_AUTOMATED",
                               "unattended launchd run — no Claude in the loop; Ashton is "
                               "the first human eye on this image")
-            insp = "NOT pre-inspected (automated run)"
+            # ★ R4: some scenes imply printed surfaces, and a resolving label
+            # looks exactly like an abstract colour block at thumbnail size. The
+            # warning rides the PROPOSAL note so the reviewer knows to zoom
+            # rather than judging from the Telegram preview.
+            insp = "NOT pre-inspected (automated run)" + BD.inspection_note(
+                _brief["scene_key"])
         else:
             # no generated imagery at all — nothing to inspect, and no spend
             insp = "N/A (no generated imagery)"

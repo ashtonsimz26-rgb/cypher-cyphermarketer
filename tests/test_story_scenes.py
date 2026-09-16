@@ -140,6 +140,62 @@ ok("STORY_SCENES[scene_key], \"story:%s\"" % "%s" in src_sf.replace("'", '"') or
    "_era(row), \"story:" not in src_sf,
    "…but no longer appends to a STORY stem, which owns its own time of day")
 
+print("\n=== 6a3. THE CLEAR-ZONE CONTRACT (R3) ===")
+from research import composition as COMPZ
+ok(COMPZ.CLEAR_ZONE == (0.38, 0.60), "the band matches what STAGE_RULE promises")
+ok("central third" in BD.STAGE_RULE, "…and STAGE_RULE says so in the prompt")
+for nm in sorted(COMPZ.COMPOSITIONS):
+    good, why = COMPZ.clear_zone_ok(nm, (1088, 1360))
+    ok(good, "%-14s %s" % (nm, why))
+# it must FAIL when a composition drifts — proved against a fake placement
+_orig = COMPZ.placements
+try:
+    COMPZ.placements = lambda n, sz: [(0, int(sz[1] * 0.20))]     # card in the top 20%
+    good, why = COMPZ.clear_zone_ok("hero", (1088, 1360))
+    ok(not good, "a card outside the band FAILS: %s" % why[:70])
+    try:
+        COMPZ.assert_clear_zone("hero", (1088, 1360))
+        ok(False, "assert_clear_zone should have raised")
+    except COMPZ.ClearZoneDrift:
+        ok(True, "assert_clear_zone RAISES — loud, never a silent re-centre")
+finally:
+    COMPZ.placements = _orig
+csrc = (REPO / "research" / "composition.py").read_text()
+ctree2 = ast.parse(csrc)
+czfn = next(n for n in ast.walk(ctree2)
+            if isinstance(n, ast.FunctionDef) and n.name == "clear_zone_ok")
+assigns = [n for n in ast.walk(czfn) if isinstance(n, ast.Assign)]
+ok(not any("top" in ast.dump(a) and "=" in ast.dump(a) and "canvas" in ast.dump(a)
+           for a in assigns), "it computes, it does not reposition")
+
+print("\n=== 6a4. THE ZOOM WATCH LIST (R4) ===")
+risky = {k: BD.printed_surface_nouns_in(v) for k, v in BD.STORY_SCENES.items()}
+risky = {k: v for k, v in risky.items() if v}
+missing = sorted(set(risky) - set(BD.INSPECT_CLOSELY))
+ok(not missing, "every stem naming a printed surface is on the list: %s"
+   % (missing or "none missing"))
+ok(all(BD.INSPECT_CLOSELY.values()), "every entry gives the reviewer a REASON")
+ok(BD.printed_surface_nouns_in("a single tungsten work lamp") == [],
+   "'lamp' does not match 'amp' — the list must not cry wolf")
+ok(BD.printed_surface_nouns_in("one streetlamp and the snow") == [],
+   "nor does 'streetlamp'")
+ok("amp" in BD.printed_surface_nouns_in("stage amp and a drum head"),
+   "…but a real amp still matches")
+ok(BD.inspection_note("tokyo_backstreet").startswith(" ⚠️ ZOOM"),
+   "a listed stem produces a warning")
+ok(BD.inspection_note("vault_room") == "", "an unlisted stem produces nothing")
+ok(BD.inspection_note(None) == "", "no scene key produces nothing")
+dsrc2 = (REPO / "daily_digest.py").read_text()
+ok("BD.inspection_note(" in dsrc2, "the digest actually appends it to the note")
+
+print("\n=== 6a5. vault_room IS NO LONGER A SECOND CORRIDOR ===")
+v = BD.STORY_SCENES["vault_room"].lower()
+ok("not a corridor" in v or "wider than it is deep" in v,
+   "its geometry is declared, not just its palette")
+ok("corridor" in BD.STORY_SCENES["locker_tunnel"].lower(),
+   "…while locker_tunnel remains the corridor")
+ok(v.count("steel") >= 1 and "green-white" not in v, "the palettes stay distinct too")
+
 print("\n=== 6b. backdrop HAS NO PARAMETER A FACT COULD ARRIVE IN (E5) ===")
 # ★ The property that outlives the coherence fix. Asserted by AST, the same way
 # the set_completion branch is asserted never to touch `frag`.

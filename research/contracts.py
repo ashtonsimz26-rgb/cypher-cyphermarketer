@@ -34,6 +34,51 @@ caught by reading code; the sixth was caught only by asking which code path
 actually runs at 09:00 — a different question from whether the code is
 correct.
 
+★★★ AN EQUALITY TEST THAT SHOULD HAVE BEEN A MEMBERSHIP TEST (2026-09-16)
+★★★ AND THE FIRST BUG HERE THAT WOULD HAVE SHIPPED AS A COHERENT POST
+
+Every other entry in this file fails visibly: a crash, an empty morning, a
+missing dossier, a rail that lets something through. This one would have
+PUBLISHED, and the output would have looked like a decision somebody made.
+
+    composition.render():   fn(card, bd, size, card_b) if name == "two_card"
+                            else fn(card, bd, size)
+
+    two_card_crop also accepts card_b, and E4 FORCES two_card_crop for
+    which_would_you_pull. So the second card was dropped and the composite drew
+    `(card_b or card, card)` — THE SAME CARD, TWICE, side by side, under the
+    caption "Which one are you pulling for?"
+
+  ★ THE SHAPE: A MEMBERSHIP TEST WRITTEN AS AN EQUALITY TEST, CORRECT WHEN
+  WRITTEN AND SILENTLY WRONG ONCE A SECOND MEMBER EXISTED. When render() was
+  written, `two_card` was the only composition taking a second card, so
+  `== "two_card"` and "is a two-card composition" were the same predicate. They
+  stopped being the same predicate the moment two_card_crop was added, and
+  nothing announced it, because the equality was still TRUE of everything it had
+  ever been true of. The code did not change. Its meaning did.
+
+  THE RULE: when a branch tests one name, ask what the branch actually MEANS. If
+  the answer is a category ("compositions that draw two cards", "formats that
+  can voice a price", "tiers that are serial-numbered") then name the category
+  as a frozenset and test membership, at the moment you write it — not when the
+  second member arrives, because nobody is watching then. An equality against a
+  literal is only safe when the literal is genuinely the whole category and
+  always will be.
+
+  ★ WHY IT IS BANKED HARDEST: the failure mode is a COHERENT-LOOKING ARTIFACT.
+  Two identical cards under "which would you pull" reads as a person's mistake —
+  a bad copy-paste, a sloppy afternoon — not as a system fault. Nothing would
+  have errored, no rail would have fired, the ledger would have recorded a
+  normal post, and the weekly report would have counted it as a
+  which_would_you_pull that shipped. The only detector was a human noticing the
+  two pictures were the same. Every OTHER entry in this file at least fails.
+
+  It was found by READING render() for an unrelated reason (the clear-zone
+  ownership question), three commits after E4 shipped, and E4's own suite was
+  green before and after — it tested pair SELECTION thoroughly and never
+  followed the pair into the compositor. A suite that proves the right pair is
+  chosen proves nothing about whether both cards are drawn.
+
 ★★★ A STALE VALIDATOR DENIES, AND DENIAL LOOKS LIKE CORRECTNESS (2026-09-16)
 This is its own lesson and not a variant of the inert rail. Read it before the
 numbered list.
