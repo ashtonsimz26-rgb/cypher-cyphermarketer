@@ -23,9 +23,126 @@ import re
 import json
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from typing import NamedTuple
 
+HERE = Path(__file__).resolve().parent
 PK_DATA = Path.home() / "Documents/openclaw/CYPHER/sneaker_market_agent/data"
 FRESHNESS_DAYS = 7
+
+# ── the rails, by STABLE NAME ────────────────────────────────────────────────
+# ★ Named, never numbered (ruled 2026-09-16). "Rail 7" was never a real name: it
+# came from a session report counting seven checks, and it pointed at the FIFTH
+# of them. research/moments.py used "Rail 4" under a different scheme entirely.
+# Ordinals drift the moment a check is added and there is no way to notice.
+# A name maps to a SOUL clause and survives reordering.
+#
+#   name                     SOUL clause
+#   ──────────────────────── ─────────────────────────────────────────────────
+#   NO_GAMBLING              HARD RULES — never use gambling language
+#   NO_INVESTMENT_FRAMING    HARD RULES — never imply investments
+#   NO_CARD_VALUE_CLAIM      HARD RULES — never imply real-world monetary value
+#   NO_COMPETITOR_NAMED      HARD RULES — never trash competitors by name
+#   OBTAINABLE               HARD RULES — never show a card as obtainable when
+#                            it is not (pull vs earn)
+#   SET_ROUTE_STATED         same rule, route clause — "complete the set" is the
+#                            claim
+#   NO_PULL_IMPLICATION      same rule, route clause — "pull this" is forbidden
+#   VALUE_FIGURE_ATTRIBUTED  HARD RULES — monetary value, via the card face
+#   NO_UNVERIFIED_PRICE      OPERATING NOTES — PK data, <=7 days, real sneaker
+
+
+class Rail(NamedTuple):
+    name: str          # stable, maps to SOUL. Never an ordinal.
+    label: str         # human text. Fed to the writer as retry feedback.
+    passed: bool
+    note: str          # remediation, shown only on failure
+
+
+# ── OBTAINABILITY (the rail formerly miscalled "Rail 7") ─────────────────────
+# ★ AMENDED 2026-09-16. Two routes, and the card must prove one of them:
+#   PULLABLE  — the (image_name, rarity) pair is pool-reachable.
+#   EARNABLE  — the pair is a live set_rewards reward AND every card its set
+#               requires is itself pool-reachable. Both halves, every time.
+#
+# ★★ AND IT NOW ACTUALLY RUNS. Until this change both call sites passed the
+# literal `pool_reachable=True`, so the check could not fail. Reachability was
+# real, but guaranteed UPSTREAM by candidates() and by drop_correspondent's SQL
+# join — the rail itself was inert, which is the shape banked on 2026-09-10 and
+# again in d6e900d. An inert rail is worse than no rail because it is trusted.
+#
+# rails.py does NOT grow DB access. The verdict is read from a cache that
+# daily_digest regenerates at the start of every run; a cache older than
+# FRESHNESS_DAYS FAILS CLOSED and says so in its reason.
+SET_ROUTES = HERE / "state" / "_set_routes.json"
+
+# Positive filter, same shape as moments.PROPOSABLE_SENSITIVITIES: a post on the
+# EARN route must say so. Membership, never the absence of a blocklist hit.
+ROUTE_MARKERS = ("complete the set", "completing the set", "complete this set",
+                 "completes the set", "finish the set", "finishing the set",
+                 "set reward", "complete the", "completing all")
+# ...and must not let the reward read as a pack outcome.
+PULL_MARKERS = ("pull it", "pull this", "pull one", "pull the", "pulled it",
+                "in packs", "in a pack", "from a pack", "open a pack",
+                "pack odds", "rip a pack")
+
+
+def _pair(image_name: str | None, rarity: str | None) -> str:
+    return "%s|%s" % (image_name or "", rarity or "")
+
+
+def load_set_routes() -> tuple[dict | None, str]:
+    """The obtainability cache, or None plus the reason it cannot be trusted.
+
+    FAIL CLOSED on every failure mode — missing, malformed, undated, stale. A
+    card cannot be shown as obtainable on the strength of a file we cannot
+    vouch for, and the reason is returned so the digest can SAY why rather than
+    simply producing nothing (ruled 2026-09-16)."""
+    if not SET_ROUTES.exists():
+        return None, "obtainability cache missing (%s) — run the digest to build it" % SET_ROUTES.name
+    try:
+        blob = json.loads(SET_ROUTES.read_text(encoding="utf-8"))
+    except Exception as e:
+        return None, "obtainability cache unreadable: %s" % type(e).__name__
+    try:
+        gen = datetime.fromisoformat(blob["generated_at"])
+    except Exception:
+        return None, "obtainability cache carries no usable generated_at"
+    age = datetime.now(timezone.utc) - gen
+    if age > timedelta(days=FRESHNESS_DAYS):
+        return None, ("obtainability cache is %d days old (max %d) — pools may have "
+                      "drifted; refusing to vouch for it" % (age.days, FRESHNESS_DAYS))
+    return blob, "cache %s (%dd old)" % (gen.strftime("%Y-%m-%d"), age.days)
+
+
+def obtainability(image_name: str | None, rarity: str | None,
+                  routes: dict | None = None) -> tuple[bool, str, str]:
+    """(ok, route, why) where route is 'pull', 'earn' or ''.
+
+    The set path is PROVEN, never assumed. Note the empty-requirements guard:
+    all([]) is True, so a set carrying zero requirement rows would otherwise
+    qualify silently — the exact vacuous-truth trap this rail exists to avoid."""
+    if not image_name or not rarity:
+        return False, "", "no (image_name, rarity) supplied — cannot prove obtainability"
+    if routes is None:
+        routes, why = load_set_routes()
+        if routes is None:
+            return False, "", why
+    key = _pair(image_name, rarity)
+    if key in set(routes.get("reachable_pairs") or ()):
+        return True, "pull", "pool-reachable"
+    r = (routes.get("routes") or {}).get(key)
+    if r is None:
+        return False, "", "neither pool-reachable nor a live set reward"
+    reqs = r.get("requirements") or []
+    if not reqs:
+        return False, "", ("set %r carries zero requirement rows — refusing "
+                           "(an empty requirement list must never qualify)" % r.get("set_name"))
+    missing = [q.get("image_name") for q in reqs if not q.get("reachable")]
+    if missing:
+        return False, "", ("set %r: %d of %d requirement cards are not pool-reachable (%s)"
+                           % (r.get("set_name"), len(missing), len(reqs), ", ".join(missing[:3])))
+    return True, "earn", ("set %r: all %d requirement cards pool-reachable"
+                          % (r.get("set_name"), len(reqs)))
 
 GAMBLING = ("bet", "betting", "jackpot", "wager", "gamble", "gambling", "lottery",
             "odds of winning", "casino", "spin to win")
@@ -151,31 +268,59 @@ def price_claim_allowed(style_code: str | None,
     return False, "catalog $%d is %s the live range %s" % (catalog_resale, side, span)
 
 
-def check_draft(text: str, *, card_shows_value: bool, pool_reachable: bool,
-                price_verified: bool) -> list[tuple[str, bool, str]]:
+def check_draft(text: str, *, card_shows_value: bool, price_verified: bool,
+                image_name: str | None = None, rarity: str | None = None,
+                routes: dict | None = None) -> list[Rail]:
+    """The machine-checkable subset of SOUL. Returns named Rails, never ordinals.
+
+    ★ image_name + rarity REPLACE the old `pool_reachable` boolean. A caller can
+    no longer assert obtainability — it is derived here, from the pair, so there
+    is no argument a call site can get wrong. That is the whole point: the
+    literal `pool_reachable=True` at both call sites made this rail inert.
+    """
     low = text.lower()
     has_attr = any(m in low for m in ATTRIBUTION_MARKERS)
+    ok_obtain, route, why_obtain = obtainability(image_name, rarity, routes)
     checks = [
-        ("no gambling language", not any(w in low for w in GAMBLING), ""),
-        ("no investment framing", not any(w in low for w in INVESTMENT), ""),
-        ("no card-value claim", not any(w in low for w in CARD_VALUE_CLAIMS), ""),
-        ("no competitor named", not any(w in low for w in COMPETITORS), ""),
-        ("shoe is pool-reachable (R1/R2)", pool_reachable,
-         "never show a reserve shoe as pullable"),
-        ("card image w/ value figure carries real-sneaker attribution",
-         (not card_shows_value) or has_attr,
-         "card renders EST. VALUE; text must scope it to the real pair"),
-        ("no unverified price asserted in agent voice",
-         price_verified or not re.search(r"(trades?|sells?|going|worth|sits?)\s+(for\s+|at\s+|around\s+)?\$", low),
-         "PK freshness unverified -> omit the number from our own voice"),
+        Rail("NO_GAMBLING", "no gambling language",
+             not any(w in low for w in GAMBLING), ""),
+        Rail("NO_INVESTMENT_FRAMING", "no investment framing",
+             not any(w in low for w in INVESTMENT), ""),
+        Rail("NO_CARD_VALUE_CLAIM", "no card-value claim",
+             not any(w in low for w in CARD_VALUE_CLAIMS), ""),
+        Rail("NO_COMPETITOR_NAMED", "no competitor named",
+             not any(w in low for w in COMPETITORS), ""),
+        Rail("OBTAINABLE",
+             "card is obtainable (pool-reachable, or set-earnable with every "
+             "requirement reachable)", ok_obtain, why_obtain),
+        Rail("VALUE_FIGURE_ATTRIBUTED",
+             "card image w/ value figure carries real-sneaker attribution",
+             (not card_shows_value) or has_attr,
+             "card renders EST. VALUE; text must scope it to the real pair"),
+        Rail("NO_UNVERIFIED_PRICE", "no unverified price asserted in agent voice",
+             price_verified or not re.search(r"(trades?|sells?|going|worth|sits?)\s+(for\s+|at\s+|around\s+)?\$", low),
+             "PK freshness unverified -> omit the number from our own voice"),
     ]
+    # ── the EARN route carries two obligations the PULL route does not ───────
+    # They attach ONLY on the set path. A pool-reachable card is not required to
+    # talk about sets, and a post that never claims the earn route is not asked
+    # to prove it. This is a widening of OBTAINABLE, not a bypass around it.
+    if ok_obtain and route == "earn":
+        checks.append(Rail(
+            "SET_ROUTE_STATED", "set-route post states the route explicitly",
+            any(m in low for m in ROUTE_MARKERS),
+            "the route IS the claim — say 'complete the set', not 'it's in CYPHER'"))
+        checks.append(Rail(
+            "NO_PULL_IMPLICATION", "set-route post does not imply a pack pull",
+            not any(m in low for m in PULL_MARKERS),
+            "a set reward cannot be pulled; phrasing that implies a pack is false"))
     return checks
 
 
 def report(checks) -> bool:
     ok = True
-    for label, passed, note in checks:
-        ok &= passed
-        print("  %-4s %s%s" % ("PASS" if passed else "FAIL", label,
-                               ("  — " + note) if (note and not passed) else ""))
+    for c in checks:
+        ok &= c.passed
+        print("  %-4s %-22s %s%s" % ("PASS" if c.passed else "FAIL", c.name, c.label,
+                                     ("  — " + c.note) if (c.note and not c.passed) else ""))
     return ok

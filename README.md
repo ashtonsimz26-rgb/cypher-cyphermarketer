@@ -16,7 +16,7 @@ them — it points at them. If you read only the repo, you have read half the sy
 | # | where | owns | in repo? |
 |---|---|---|---|
 | 1 | `~/.hermes/profiles/cyphermarketer/SOUL.md` | canonical voice, editorial bar, hard rails, autonomy phase | no |
-| 2 | `rails.py` | the machine-checkable subset — 7 checks, incl. Rail 7 | yes |
+| 2 | `rails.py` | the machine-checkable subset — 9 named rails, each mapped to a SOUL clause in the file header | yes |
 | 3 | `~/.hermes/profiles/cyphermarketer/instructions.md` | the post-construction playbook: sequence, formats, craft rules, tier treatment, image brief | no |
 | 4 | `~/.hermes/profiles/cyphermarketer/context.md` | stable facts: what CYPHER is, what the tiers mean, what is postable, who the audience is | no |
 | 5 | `~/.hermes/profiles/cyphermarketer/memory.md` | evidence: what shipped, what was rejected, what the numbers say | no |

@@ -11,11 +11,17 @@ def ok(c, m):
     print(("  PASS  " if c else "  FAIL  ") + m)
     if not c: FAILS.append(m)
 
-ATTR_LABEL = "card image w/ value figure carries real-sneaker attribution"
+# ★ Keyed on the STABLE NAME, not the label (2026-09-16). The label is display
+# text and writer feedback; it is allowed to be reworded. The name is the
+# contract. `routes` is injected so this suite stays offline — it tests the
+# attribution rail, not obtainability.
+ATTR_RAIL = "VALUE_FIGURE_ATTRIBUTED"
+_ROUTES = {"generated_at": "2999-01-01T00:00:00+00:00",
+           "reachable_pairs": ["x|Rare"], "routes": {}}
 def attr_passes(text: str) -> bool:
-    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
-                               price_verified=True)
-    return dict((c[0], c[1]) for c in checks)[ATTR_LABEL]
+    checks = rails.check_draft(text, card_shows_value=True, price_verified=True,
+                               image_name="x", rarity="Rare", routes=_ROUTES)
+    return dict((c.name, c.passed) for c in checks)[ATTR_RAIL]
 
 print("\n=== 1. EVERY member of the constant set satisfies has_attr ===")
 for i, line in enumerate(C.ATTRIBUTION_LINES):

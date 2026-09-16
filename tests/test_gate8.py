@@ -18,6 +18,12 @@ CR.render_card = lambda *a, **k: (_ for _ in ()).throw(SpendAttempted("render_ca
 BD.generate    = lambda *a, **k: (_ for _ in ()).throw(SpendAttempted("BD.generate CALLED — $0.04"))
 
 CAND={"image_name":"aj3_mocha_og","rarity":"Rare"}
+# ★ 2026-09-16: gate8 now DERIVES obtainability from (image_name, rarity) — the
+# hardcoded pool_reachable=True is gone. A direct gate8 call that omits the pair
+# fails the OBTAINABLE rail, correctly. These suites are about the attribution
+# and length rails, so they pass CAND's own pair, which is pool-reachable.
+def gate8(text, price_ok, composition=None):
+    return DD.gate8(text, price_ok, composition, CAND["image_name"], CAND["rarity"])
 ROW={"name":"Jordan 3 Retro","brand":"Jordan","colorway":"Mocha","year":2001,
      "retail_price":125,"estimated_resale":300,"description":"A story sentence about it."}
 def mk(lead_fn):
@@ -34,9 +40,9 @@ print("\n=== 1. TRAP 1 is PREVENTED by the composer, not caught by gate 8 ===")
 from research import compose_text as CT
 from x_client import weighted_len
 TRAP="The card tracks its resale, not the card."
-ok(DD.gate8(TRAP, True)[0] is False, "the raw trap lead WOULD fail the attribution rail")
-ok("attribution" in DD.gate8(TRAP, True)[1][0], f"…on that rail: {DD.gate8(TRAP,True)[1]}")
-ok(DD.gate8(CT.compose(lead=TRAP, include_link=False), True)[0] is True,
+ok(gate8(TRAP, True)[0] is False, "the raw trap lead WOULD fail the attribution rail")
+ok(any("attribution" in f for f in gate8(TRAP, True)[1]), f"…on that rail: {gate8(TRAP,True)[1]}")
+ok(gate8(CT.compose(lead=TRAP, include_link=False), True)[0] is True,
    "…but COMPOSED it passes — the writer cannot reach the rail")
 LOGS.clear()
 text,failed,att = DD.draft_with_gate8(CAND,ROW,"story_spotlight","story","Jordan 3",True,
@@ -51,7 +57,7 @@ DANGERS=[("Every pack is a jackpot — place your bet.","no gambling language",T
          ("The Jordan 3 trades for $300 now.","no unverified price asserted in agent voice",False),
          ("x"*400,"over 280 weighted characters",True)]
 for lead,rail,pv in DANGERS:
-    passed,failed = DD.gate8(CT.compose(lead=lead, include_link=False), pv)
+    passed,failed = gate8(CT.compose(lead=lead, include_link=False), pv)
     ok((not passed) and rail in failed, f"BLOCKED: {rail}")
 
 print("\n=== 2b. NO IMAGE SPEND on a genuine gate-8 failure ===")

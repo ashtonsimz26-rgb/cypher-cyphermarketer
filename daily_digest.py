@@ -80,6 +80,61 @@ def is_reachable(image_name: str, rarity: str) -> bool:
     return bool(r and int(r[0].get("n", 0)) > 0)
 
 
+# ── the obtainability cache rails reads ──────────────────────────────────────
+# ★ rails.py must not grow DB access, so the verdict it needs is written here,
+# where _sql already lives. REGENERATED AT THE START OF EVERY DIGEST RUN. That
+# is the answer to "what happens if nothing regenerates it for 8 days": the
+# digest has not run for 8 days, so nothing is posting anyway — and rails then
+# fails every card closed and says why, rather than producing a silent empty
+# morning. refresh_set_routes() failing is logged and NOT swallowed.
+SET_ROUTES = HERE / "state" / "_set_routes.json"
+
+
+def refresh_set_routes() -> dict:
+    """Write state/_set_routes.json: every reachable (image_name, rarity) pair,
+    plus every set_rewards route with its requirements PROVEN reachable.
+
+    The requirement reachability is resolved HERE, in SQL, so rails never has to
+    assume it. Reads set_rewards, the TABLE — never catalog_cards.is_set_reward,
+    which disagrees with it (aj4_sb_varsity_red is flagged at two tiers while
+    set_rewards names one)."""
+    pairs = _sql(REACHABLE_CTE + """
+      select distinct r.image_name, r.rarity::text as rarity from reachable r
+      where r.rarity is not null;""")
+    rows = _sql(REACHABLE_CTE + """
+      select sr.set_name, sr.reward_image_name, sr.reward_rarity::text as reward_rarity,
+             q.required_image_name,
+             (select count(*) from reachable r where r.image_name = q.required_image_name) as req_reachable
+      from public.set_rewards sr
+      join public.set_requirements q on q.set_name = sr.set_name
+      order by sr.set_name, q.required_image_name;""")
+    routes: dict = {}
+    for r in rows:
+        key = "%s|%s" % (r["reward_image_name"], r["reward_rarity"])
+        e = routes.setdefault(key, {"set_name": r["set_name"], "requirements": []})
+        e["requirements"].append({"image_name": r["required_image_name"],
+                                  "reachable": int(r["req_reachable"] or 0) > 0})
+    # AUDIT ONLY, never consulted for a verdict: the pairs catalog_cards FLAGS as
+    # set rewards. It disagrees with set_rewards and that disagreement is the
+    # reason this code reads the table. Recorded so a test can assert the drift
+    # offline instead of needing the DB.
+    flagged = _sql("""select image_name, rarity::text as rarity
+      from public.catalog_cards where is_set_reward order by 1, 2;""")
+    blob = {"generated_at": datetime.now(timezone.utc).isoformat(),
+            "reachable_pairs": sorted("%s|%s" % (p["image_name"], p["rarity"]) for p in pairs),
+            "routes": routes,
+            "flagged_is_set_reward": sorted("%s|%s" % (f["image_name"], f["rarity"])
+                                            for f in flagged)}
+    SET_ROUTES.parent.mkdir(parents=True, exist_ok=True)
+    SET_ROUTES.write_text(json.dumps(blob, indent=1, ensure_ascii=False) + "\n",
+                          encoding="utf-8")
+    run_log(event="set_routes_refreshed", pairs=len(blob["reachable_pairs"]),
+            routes=len(routes),
+            earnable=sum(1 for v in routes.values()
+                         if v["requirements"] and all(q["reachable"] for q in v["requirements"])))
+    return blob
+
+
 def drain_drop_queue() -> list[dict]:
     """Overnight drop matches deferred by quiet hours (FIX 2). They are first in
     line at the digest — they were newsworthy enough to match a headline."""
@@ -187,20 +242,26 @@ def pick_composition(fmt: str, hook_type: str, brand: str, scene: str,
     return order[0]
 
 
-def gate8(text: str, price_ok: bool, composition: str | None = None
+def gate8(text: str, price_ok: bool, composition: str | None = None,
+          image_name: str | None = None, rarity: str | None = None
           ) -> tuple[bool, list[str]]:
     """rails.check_draft on the ASSEMBLED text, plus the 280 ceiling.
 
-    card_shows_value / pool_reachable are passed exactly as they always have
-    been, so this call site treats the rail identically — gate 8 is the SAME
-    rail moved EARLIER, never a different one.
+    card_shows_value is passed exactly as it always has been, so this call site
+    treats the rail identically — gate 8 is the SAME rail moved EARLIER, never a
+    different one.
+
+    ★ pool_reachable=True is GONE (2026-09-16). It was a hardcoded literal, so
+    the obtainability rail could not fail here however wrong the card was. The
+    pair is passed instead and rails derives the verdict itself.
     """
     # card_shows_value is COMPUTED from the composition (G2), never hardcoded.
     # An unknown composition falls back to True — fail closed.
     shows = COMP.card_shows_value(composition) if composition else True
-    checks = rails.check_draft(text, card_shows_value=shows, pool_reachable=True,
-                               price_verified=price_ok)
-    failed = [c[0] for c in checks if not c[1]]
+    checks = rails.check_draft(text, card_shows_value=shows,
+                               price_verified=price_ok,
+                               image_name=image_name, rarity=rarity)
+    failed = [c.label for c in checks if not c.passed]
     if X.weighted_len(text) > 280:
         failed = failed + ["over 280 weighted characters"]
     return (not failed), failed
@@ -248,7 +309,8 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
         else:
             text = CT.compose(lead=parts["lead"], body=parts.get("body"),
                               include_link=False, include_attribution=attr)
-        ok, failed = gate8(text, price_ok, composition)
+        ok, failed = gate8(text, price_ok, composition,
+                           cand.get("image_name"), cand.get("rarity"))
         if ok:
             return text, [], attempt
         run_log(event="writer_gate_failed", proposal_id=None,
@@ -261,7 +323,8 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
         bare = CT.compose(moment_text=moment["post_text"], moment_id=moment["id"],
                           linking_line=None, include_link=False,
                           include_attribution=attr)
-        ok, bare_failed = gate8(bare, price_ok, composition)
+        ok, bare_failed = gate8(bare, price_ok, composition,
+                                cand.get("image_name"), cand.get("rarity"))
         if ok:
             run_log(event="moment_shipped_without_linking_line",
                     image_name=cand["image_name"], attempts=attempt)
@@ -287,8 +350,26 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
                 reason="dossier sensitivity is not proposable by the generated-text path")
         return None
     row = CR.fetch_card(cand["image_name"], cand["rarity"])
-    if row.get("is_set_reward"):
-        return None                                   # ceremony-exclusive, never showcased
+    # ★ AMENDED 2026-09-16. This guard used to be absolute, and it — not the
+    # rail — was what actually kept the three set rewards off the feed. The
+    # amendment unlocks nothing without it.
+    #
+    # It now defers to rails.obtainability, which reads set_rewards THE TABLE.
+    # catalog_cards.is_set_reward is NOT authoritative and must never be used
+    # for this: it is flagged on four rows while set_rewards names three
+    # (aj4_sb_varsity_red carries the flag at Legendary AND GRAIL, but only the
+    # GRAIL row is a reward). A flag-driven guard would let the Legendary row
+    # through as "earnable" when nothing can earn it.
+    _ok, _route, _why = rails.obtainability(cand["image_name"], cand["rarity"])
+    if not _ok:
+        run_log(event="skipped_not_obtainable", image_name=cand["image_name"],
+                rarity=cand.get("rarity"), reason=_why)
+        return None
+    if row.get("is_set_reward") and _route != "earn":
+        run_log(event="skipped_set_reward_not_earnable",
+                image_name=cand["image_name"], rarity=cand.get("rarity"),
+                reason=_why)
+        return None                                   # flagged, but nothing can earn it
 
     sc = row.get("style_code")
     price_ok, price_why = rails.price_claim_allowed(sc, row.get("estimated_resale"))
@@ -403,7 +484,13 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             # from local PK history against the clock, never cached here.
             "rails_ctx": {"style_code": sc,
                           "estimated_resale": row.get("estimated_resale"),
-                          "image_name": cand["image_name"]}}
+                          "image_name": cand["image_name"],
+                          # ★ rarity joined image_name 2026-09-16: identity in
+                          # this catalog is the PAIR. The same image is GRAIL,
+                          # Legendary and Rare at once, and only one of those is
+                          # reachable — an image-only check answers the wrong
+                          # question.
+                          "rarity": cand.get("rarity")}}
 
 
 def main():
@@ -424,6 +511,22 @@ def main():
         except Exception:
             pass
         return
+    # ── obtainability cache, rebuilt before anything is selected ─────────────
+    # R5: if this ever stops running, set posts do not silently stop — rails
+    # fails every card closed and the reason is PRINTED here, not merely absent.
+    try:
+        _sr = refresh_set_routes()
+        print("  obtainability: %d reachable pairs, %d set routes."
+              % (len(_sr["reachable_pairs"]), len(_sr["routes"])))
+    except Exception as ex:
+        run_log(event="set_routes_refresh_failed", error=type(ex).__name__)
+        print("  ⚠️  OBTAINABILITY CACHE NOT REFRESHED (%s)." % type(ex).__name__)
+    _routes, _why = rails.load_set_routes()
+    if _routes is None:
+        print("  ⚠️  RAILS CANNOT VOUCH FOR OBTAINABILITY: %s" % _why)
+        print("      Every candidate will fail the OBTAINABLE rail until this is fixed.")
+        run_log(event="obtainability_unavailable", reason=_why)
+
     n = 0
     # ★ The digest evaluated exactly --max candidates, so ONE hookless candidate
     # produced ZERO proposals (2026-08-21 09:00: a single skipped_no_hook and an

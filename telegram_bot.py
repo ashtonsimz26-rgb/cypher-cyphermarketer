@@ -319,27 +319,37 @@ def rails_gate(text: str, ctx: dict | None) -> tuple[bool, list[tuple[str, bool,
     CLI-driven propose, or one made before F1.5) gets price_verified=False,
     which forces any price claim out of our own voice. Never permissive.
 
-    card_shows_value / pool_reachable are passed exactly as daily_digest passes
-    them, so this call site treats the rail identically — no rail is weakened,
-    strengthened, or made conditional here.
+    card_shows_value is passed exactly as daily_digest passes it, so this call
+    site treats the rail identically — no rail is weakened, strengthened, or
+    made conditional here.
+
+    ★ pool_reachable=True is GONE (2026-09-16). This door had the same hardcoded
+    literal as the digest, so the obtainability rail was inert at BOTH of them.
+    The (image_name, rarity) pair now comes off rails_ctx and rails derives the
+    verdict. A proposal stored before this change carries no rarity, so it fails
+    OBTAINABLE closed and has to be re-proposed — which is correct: we cannot
+    prove a card is obtainable from a context that never recorded which card it
+    was at which tier.
     """
     price_verified = False
     if ctx and ctx.get("style_code"):
         price_verified, _why = rails.price_claim_allowed(
             ctx["style_code"], ctx.get("estimated_resale"))
-    checks = rails.check_draft(text, card_shows_value=True, pool_reachable=True,
-                              price_verified=price_verified)
-    failed = [c for c in checks if not c[1]]
+    checks = rails.check_draft(text, card_shows_value=True,
+                               price_verified=price_verified,
+                               image_name=(ctx or {}).get("image_name"),
+                               rarity=(ctx or {}).get("rarity"))
+    failed = [c for c in checks if not c.passed]
     return (not failed), failed
 
 
 def render_rails_block(pid: str, failed: list[tuple[str, bool, str]]) -> str:
     """Labels PLUS remediation notes — this has to be actionable from a phone."""
     lines = ["⛔ %s NOT posted — rails failed at approval:" % pid]
-    for label, _passed, note in failed:
-        lines.append("  • %s" % label)
-        if note:
-            lines.append("    ↳ %s" % note)
+    for c in failed:
+        lines.append("  • %s" % c.label)
+        if c.note:
+            lines.append("    ↳ %s" % c.note)
     lines.append("")
     lines.append("Still pending. Send `edit: <fixed text>` to correct it, or leave "
                  "it to expire.")

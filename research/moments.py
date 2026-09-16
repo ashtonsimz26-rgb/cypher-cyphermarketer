@@ -11,7 +11,7 @@ release itself.
    without approved_by == "ashton" is REJECTED and logged. There is no code path
    in this module that writes to moments.json, and there must never be one.
 
-RAIL 4 — sensitivity is a POSITIVE FILTER, not a skip.
+MOMENT_SENSITIVITY — a POSITIVE FILTER, not a skip.
    proposable() returns only entries whose sensitivity is in
    PROPOSABLE_SENSITIVITIES. An entry marked "tragedy_adjacent" is never
    returned to a caller that can propose; neither is one carrying a sensitivity
@@ -34,7 +34,7 @@ MOMENTS = HERE / "data" / "moments.json"
 REACHABLE_CACHE = HERE / "state" / "_reachable_cache.json"
 
 # ── the positive filters ─────────────────────────────────────────────────────
-PROPOSABLE_SENSITIVITIES = frozenset({"none"})     # Rail 4. Do not widen.
+PROPOSABLE_SENSITIVITIES = frozenset({"none"})     # MOMENT_SENSITIVITY. Do not widen.
 APPROVER = "ashton"                                # the only valid approver
 VALID_KINDS = frozenset({"riot", "launch", "milestone", "culture", "brand_history"})
 
@@ -171,7 +171,7 @@ def load(path: Path | None = None, reachable: set[str] | None = None
 
 def proposable(date: str, path: Path | None = None,
                reachable: set[str] | None = None) -> list[dict]:
-    """Entries a caller MAY propose on this date. Rail 4 enforced here."""
+    """Entries a caller MAY propose on this date. MOMENT_SENSITIVITY here."""
     entries, _ = load(path, reachable)
     return [e for e in entries.get(date, [])
             if e.get("sensitivity") in PROPOSABLE_SENSITIVITIES]
