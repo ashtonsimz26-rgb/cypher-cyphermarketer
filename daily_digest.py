@@ -600,6 +600,18 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
         return None
 
     fmt = editorial.choose_format(hook_type)
+    # ★ E4: a pair candidate carries its partner. two_card_crop is FORCED rather
+    # than rotated into: it is the only composition that crops the EST. VALUE row
+    # out of both cards, which is what lets this format carry no attribution
+    # sentence and no price. Rotating here could hand the format a frame that
+    # shows a figure, and the skeleton would then be asserting against a claim
+    # the IMAGE was making.
+    if fmt == "which_would_you_pull":
+        pb = cand.get("pair_b") or {}
+        row = dict(row)
+        row["pair_title"] = CR.normalize_display_name(pb.get("brand", ""), pb.get("name", ""))
+        if pb.get("colorway"):
+            row["pair_title"] = '%s “%s”' % (row["pair_title"], pb["colorway"])
     display = CR.normalize_display_name(row.get("brand", ""), row.get("name", ""))
 
     # ── GATE 8 (F4.3) — rails at GENERATION time, inside the PRE-SPEND block ──
@@ -615,7 +627,13 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     _scene_text, scene_source, _scene_why = BD.scene_for(row, _dj, hook)
     scene = scene_source
     tentpole = bool(occasion_for(cand["image_name"], datetime.now().date())[0])
-    composition = pick_composition(fmt, hook_type, brand, scene, tentpole=tentpole)
+    # ★ E4: FORCED, not rotated into. two_card_crop is the only composition that
+    # crops the EST. VALUE row out of BOTH cards, which is what lets this format
+    # carry no attribution sentence and no price. Rotation could otherwise hand
+    # it a frame showing a figure, and the skeleton would be asserting "no
+    # prices" against a claim the IMAGE was making.
+    composition = ("two_card_crop" if fmt == "which_would_you_pull"
+                   else pick_composition(fmt, hook_type, brand, scene, tentpole=tentpole))
     shows_value = COMP.card_shows_value(composition)
 
     if draft_fn is None:
@@ -661,6 +679,13 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
     card = OUT / f"{stem}_card.png"
     CR.render_card(cand["image_name"], cand["rarity"], card)
+    # ★ E4: the second card. Rendered only for the two-card format, and only
+    # AFTER the draft has cleared gate 8 above — a failed draft still costs $0.
+    card_b = None
+    if fmt == "which_would_you_pull" and cand.get("pair_b"):
+        pb = cand["pair_b"]
+        card_b = OUT / f"{stem}_card_b.png"
+        CR.render_card(pb["image_name"], pb["rarity"], card_b)
     # composition is already chosen above — it decides whether the text needs
     # the attribution sentence, so it MUST precede drafting.
     visual, insp = card, "N/A (card only)"
@@ -678,7 +703,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             # no generated imagery at all — nothing to inspect, and no spend
             insp = "N/A (no generated imagery)"
         visual = OUT / f"{stem}_45.png"
-        COMP.render(composition, card, bd, visual, ratio="4:5")
+        COMP.render(composition, card, bd, visual, ratio="4:5", card_b_path=card_b)
 
     wl = X.weighted_len(text)
     tf = OUT / f"{stem}.txt"; tf.write_text(text, encoding="utf-8")
@@ -686,7 +711,9 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     run_log(event="draft_built", image_name=cand["image_name"], hook_type=hook_type,
             brand=brand, composition=composition, scene=scene,
             scene_why=(_scene_why or "")[:160],
-            format=fmt, weighted=wl, tier=cand.get("rarity"))
+            format=fmt, weighted=wl, tier=cand.get("rarity"),
+            pair_group=cand.get("pair_group"),
+            pair_b=(cand.get("pair_b") or {}).get("image_name"))
     return {"text_file": tf, "image": visual, "cand": cand, "insp": insp,
             "price_ok": price_ok, "price_why": price_why, "weighted": wl,
             "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why,

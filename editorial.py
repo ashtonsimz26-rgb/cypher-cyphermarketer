@@ -61,8 +61,27 @@ LINK = "https://apps.apple.com/app/cypher-unlock-the-vault/id6761334111"
 # it needs a two-card composite the compositor does not build yet. Listing it
 # without implementing it would silently reduce the rotation to a lie.
 FORMATS = ["story_spotlight", "price_journey", "on_this_day", "grail_lore",
-           "set_completion"]
-DECLARED_NOT_READY = {"which_would_you_pull": "needs a two-card composite (compose.py is single-card)"}
+           "set_completion", "which_would_you_pull"]
+DECLARED_NOT_READY: dict[str, str] = {}      # emptied 2026-09-16 — see below
+
+# ── which_would_you_pull (E4, 2026-09-16) ────────────────────────────────────
+# Named in SOUL since the beginning, declared not-ready for a month, never once
+# produced. It is the only format that asks the reader for a response, and the
+# account's reply/quote/bookmark count is zero.
+#
+# ★★ STRUCTURALLY PRICE-FREE, the same way set_completion is pull-free. SOUL
+# says two cards, one question, NO PRICES, both names legible. "The skeleton
+# doesn't mention a price" is not a guarantee, so:
+#   1. The branch interpolates ONLY two display titles. No year, no retail, no
+#      resale, no `frag` — none of the fields a price could arrive in are read.
+#   2. assemble() ASSERTS the output carries no currency figure before returning.
+#   3. The composition is two_card_crop, which crops the EST. VALUE row out of
+#      frame — so the IMAGE cannot carry a figure either, which is why this
+#      format needs no attribution sentence.
+# Both cards are PULL-route only; that is enforced in pairing.py and by the
+# OBTAINABLE rail per card, not here.
+PULL_QUESTION = "Which one are you pulling for?"
+_MONEY_RX = re.compile(r"[$£€]\s?\d|\bUSD\b|\bretail\b|\bresale\b|\bworth\b", re.I)
 
 # ── set_completion (Ashton's ruling, 2026-09-16) ─────────────────────────────
 # The only tentpole the catalog can actually support: three cards, all live, all
@@ -283,6 +302,10 @@ ALLOWED_FORMATS = {
     # which is the failure SET_ROUTE_STATED exists to catch. Same reasoning as
     # price_journey's single entry.
     "set_completion":  ["set_completion"],
+    # A pair hook has exactly one skeleton, for the same reason price_journey
+    # does: no other skeleton has two title slots, so any substitution would
+    # silently drop a card the post is about.
+    "which_would_you_pull": ["which_would_you_pull"],
 }
 
 
@@ -363,6 +386,11 @@ def build_draft(row: dict, hook_type: str, fmt: str, *, price_verified: bool,
         elif fmt == "price_journey" and price_verified:
             lead = "The %s retailed at $%s. Real pairs now trade around $%s." % (
                 title, retail, row.get("estimated_resale"))
+        elif fmt == "which_would_you_pull":
+            # NOTE what is absent: year, retail, resale, frag. Two titles and a
+            # question. There is no field here a price could travel in.
+            other = row.get("pair_title") or ""
+            lead = "%s or %s. %s" % (title, other, PULL_QUESTION)
         elif fmt == "set_completion":
             # NOTE the absence of `frag`. That is deliberate and load-bearing —
             # see the block comment on SET_LEAD_TEMPLATE.
@@ -375,6 +403,18 @@ def build_draft(row: dict, hook_type: str, fmt: str, *, price_verified: bool,
         else:
             lead = "%s. $%s retail. %s." % (year, retail, frag) if frag \
                 else "%s. $%s retail. %s." % (year, retail, title)
+        # two_card_crop carries no value figure, so this format needs no
+        # attribution sentence — and adding one would spend characters saying
+        # something the image does not claim.
+        if fmt == "which_would_you_pull":
+            out = "%s\n\nFree: %s" % (lead, LINK)
+            leaked = _MONEY_RX.findall(out)
+            assert not leaked, \
+                "which_would_you_pull produced a price reference %s — SOUL says two " \
+                "cards, one question, NO PRICES, and this skeleton must be incapable " \
+                "of saying otherwise" % leaked
+            assert PULL_QUESTION in out, "the question IS the format"
+            return out
         out = "%s\n\n%s\n\nFree: %s" % (lead, attr, LINK)
         if fmt == "set_completion":
             low = out.lower()
