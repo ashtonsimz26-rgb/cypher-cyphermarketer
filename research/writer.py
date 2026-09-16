@@ -33,6 +33,7 @@ import x_client as X                                    # noqa: E402
 
 # EXACT path. .env and state.db live in this directory — never glob it.
 SOUL = Path.home() / ".hermes/profiles/cyphermarketer/SOUL.md"
+from research import memory as MEM  # noqa: E402  (approved entries only)
 
 ENDPOINT = "https://api.x.ai/v1/chat/completions"
 MODEL = "grok-4.3"
@@ -101,6 +102,21 @@ class _ServerError(WriterError):
 
 def _soul() -> str:
     return SOUL.read_text(encoding="utf-8")
+
+
+def system_prompt(format_contract: str) -> str:
+    """Everything the model is told before it sees a fact.
+
+    ★ E2.5: memory is appended HERE and nowhere else, so there is exactly one
+    place a memory entry can enter a draft — which is what makes "a pending
+    entry never reaches a draft" a provable statement rather than a hope.
+    memory.for_prompt() returns approved entries only, and "" when none are.
+    """
+    out = _soul() + "\n\n" + format_contract
+    mem = MEM.for_prompt()
+    if mem:
+        out += "\n\n" + mem
+    return out
 
 
 def build_payload(*, hook_facts: list[dict], release: dict | None,
@@ -251,7 +267,7 @@ def _call(payload: dict, env: dict, failed_rails: list[str] | None = None) -> tu
                  + "\nRewrite so none of them trip. Do not argue with them.")
     body = {"model": MODEL, "temperature": 0.9,
             "messages": [{"role": "system",
-                          "content": _soul() + "\n\n" + payload["format_contract"]},
+                          "content": system_prompt(payload["format_contract"])},
                          {"role": "user", "content": user}],
             "response_format": {"type": "json_object"}}
     req = urllib.request.Request(ENDPOINT, data=json.dumps(body).encode(),
