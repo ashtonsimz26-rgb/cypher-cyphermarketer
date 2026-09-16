@@ -1,0 +1,87 @@
+{
+ "image_name": "sb_dunk_low_gratefuldead_orange",
+ "built_at": "2026-09-16T21:02:58.292097+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
+ "signal_1_silhouette": {
+  "tested": "SB Dunk Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "grateful",
+   "dead",
+   "bears",
+   "orange"
+  ],
+  "found": [
+   "grateful",
+   "dead",
+   "orange"
+  ],
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2020,
+   "goat_release_year": 2020
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "silhouette_lineage",
+   "text": "Built on the SB Dunk Low silhouette, designed by Peter Moore.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2020-06-21.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_low_gratefuldead_orange"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "Launching in collaboration with the legendary jam band, the Grateful Dead x Nike Dunk Low SB ‘Orange Bear’ features an ursine design theme inspired by the back cover of the 1973 live album, ‘History of the Grateful Dead, Volume One (Bear’s Choice).’ The low-top makes use of a furry orange upper, overlaid with tonal suede paneling and accented with a bright green Swoosh outlined in bold jagged lines.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "A bear graphic adorns the tongue, equipped with a hidden stash pocket.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f3"
+ ],
+ "sensitivity": "none",
+ "usable": true
+}

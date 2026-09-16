@@ -674,6 +674,15 @@
   "style_code": "N/A",
   "year": 2023
  },
+ "aj4_sb_varsity_red": {
+  "confidence": null,
+  "fetched_at": "2026-09-16T21:02:46.961738+00:00",
+  "reason": "no_style_code",
+  "release_date": null,
+  "source": "goat:product_variants_v2",
+  "style_code": "N/A",
+  "year": 2025
+ },
  "aj6_unc_home": {
   "confidence": "exact",
   "fetched_at": "2026-09-09T19:49:17.511349+00:00",
@@ -2564,6 +2573,15 @@
   "style_code": "CJ5378-300",
   "year": 2020
  },
+ "sb_dunk_low_gratefuldead_orange": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-16T21:02:44.770784+00:00",
+  "reason": null,
+  "release_date": "2020-06-21",
+  "source": "goat:product_variants_v2",
+  "style_code": "CJ5378-800",
+  "year": 2020
+ },
  "sb_dunk_low_gratefuldead_yellow": {
   "confidence": "exact",
   "fetched_at": "2026-09-09T19:51:28.669071+00:00",
@@ -2680,6 +2698,15 @@
   "source": "goat:product_variants_v2",
   "style_code": "313170-016",
   "year": 2008
+ },
+ "sb_dunk_low_staple_nyc_pigeon": {
+  "confidence": "exact",
+  "fetched_at": "2026-09-16T21:02:51.712933+00:00",
+  "reason": null,
+  "release_date": "2005-02-22",
+  "source": "goat:product_variants_v2",
+  "style_code": "304292-011",
+  "year": 2005
  },
  "sb_dunk_low_staple_panda_pigeon": {
   "confidence": "exact",

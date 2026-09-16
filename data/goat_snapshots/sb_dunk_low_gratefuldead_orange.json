@@ -1,0 +1,35 @@
+{
+ "name": "Grateful Dead x Nike Dunk Low SB 'Orange Bear'",
+ "nickname": "Orange Bear",
+ "designer": "Peter Moore",
+ "story_html": "Launching in collaboration with the legendary jam band, the Grateful Dead x Nike Dunk Low SB ‘Orange Bear’ features an ursine design theme inspired by the back cover of the 1973 live album, ‘History of the Grateful Dead, Volume One (Bear’s Choice).’ The low-top makes use of a furry orange upper, overlaid with tonal suede paneling and accented with a bright green Swoosh outlined in bold jagged lines. A bear graphic adorns the tongue, equipped with a hidden stash pocket.",
+ "details": "Bright Ceramic/Green Spark",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "nike-sb",
+  "nike-dunk",
+  "musicinfluence",
+  "festival-classics",
+  "nike-dunk-sb-collabs",
+  "made-by-musicians",
+  "skate-exhibit",
+  "skate-exhibit-sneakers",
+  "plush-materials-footwear",
+  "investment-sneakers",
+  "level-5f",
+  "level-3f",
+  "used-dunks"
+ ],
+ "season": " 2020",
+ "release_date": "2020-06-21T23:59:59.999Z",
+ "release_year": 2020,
+ "sku": "CJ5378 800",
+ "retail_price_cents": 11000,
+ "_meta": {
+  "fetched_at": "2026-09-16T21:02:45.221218+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=CJ5378 800&hitsPerPage=20"
+ }
+}

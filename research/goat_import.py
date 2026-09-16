@@ -290,12 +290,46 @@ def lookup(shoe: dict, dry_run: bool = False) -> dict:
 
 # ── catalogue access (read-only) ────────────────────────────────────────────
 def reachable_shoes() -> list[dict]:
+    """Every shoe the agent may post about — BOTH routes (widened 2026-09-16).
+
+    ★ This is the OBTAINABLE set, not the pool-reachable set. A shoe qualifies by
+    the PULL route (its (image_name, rarity) pair is pool-reachable) or by the
+    EARN route (it is a live set_rewards reward AND every card its set requires
+    is itself pool-reachable). Same definition as rails.obtainability; if these
+    two ever disagree, the rail is right and this is the bug.
+
+    It had to widen because the earn route unlocked three cards that had no
+    dossiers — they were unreachable when the import last ran — so the three
+    best cards in the catalog would have fallen back to a category scene, which
+    is the exact failure E2 exists to fix.
+
+    ★★ EARN MEANS EARN, NOT TOP TIER. The other 63 unobtainable GRAIL/HOLY GRAIL
+    cards are NOT admitted by this and must never be: they are not set rewards.
+    Note the `exists (...)` clause — a set carrying ZERO requirement rows is
+    excluded, because `not exists (unreachable requirement)` is vacuously true
+    over an empty set and would otherwise let an empty set through. Same
+    vacuous-truth guard as rails.obtainability, expressed in SQL."""
     sys.path.insert(0, str(HERE))
     import daily_digest as DD
-    return DD._sql(DD.REACHABLE_CTE + """
+    return DD._sql(DD.REACHABLE_CTE + """,
+      earnable as (
+        select sr.reward_image_name as image_name, sr.reward_rarity as rarity
+        from public.set_rewards sr
+        where exists (select 1 from public.set_requirements q
+                      where q.set_name = sr.set_name)
+          and not exists (
+            select 1 from public.set_requirements q
+            where q.set_name = sr.set_name
+              and not exists (select 1 from reachable r
+                              where r.image_name = q.required_image_name))
+      ),
+      obtainable as (
+        select image_name, rarity from reachable
+        union select image_name, rarity from earnable
+      )
       select distinct c.image_name, c.style_code, c.year, c.name, c.brand, c.colorway
       from public.catalog_cards c
-      join reachable r on r.image_name=c.image_name and r.rarity=c.rarity
+      join obtainable o on o.image_name=c.image_name and o.rarity=c.rarity
       order by c.image_name;""")
 
 

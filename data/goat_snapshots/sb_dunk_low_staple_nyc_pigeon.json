@@ -1,0 +1,36 @@
+{
+ "name": "Jeff Staple x Nike Dunk Low Pro SB 'Pigeon'",
+ "nickname": "Pigeon",
+ "designer": "Peter Moore",
+ "story_html": "The shoe that sparked riots on the streets of New York City—and received a subsequent mention on the front page of the New York Post—the Jeff Staple x Dunk Low Pro SB ‘Pigeon’ released in January 2005 as part of Nike SB’s White Dunk City Series. The low-top features two shades of grey on the upper, accented with a white Swoosh and pops of red on the lining and outsole. The all-important embroidered pigeon adorns the lateral heel",
+ "details": "Medium Grey/White-Dark Grey",
+ "keywords": [],
+ "silhouette": "Dunk SB",
+ "collection_slugs": [
+  "new-york",
+  "sneakers-from-the-archives",
+  "timeline-2005",
+  "top-sneaker-collabs",
+  "best-collabs-sneakers",
+  "sneaker-icons",
+  "00s-nostalgia",
+  "nike-dunk-sb-collabs",
+  "goat-selects-crm-2024",
+  "hype-historians",
+  "luxury-gift-guide",
+  "investment-sneakers",
+  "sneaker-icons-alias",
+  "level-5f"
+ ],
+ "season": " 2005",
+ "release_date": "2005-02-22T23:59:59.999Z",
+ "release_year": 2005,
+ "sku": "304292 011",
+ "retail_price_cents": 20000,
+ "_meta": {
+  "fetched_at": "2026-09-16T21:02:52.036985+00:00",
+  "matched": true,
+  "match_reason": null,
+  "query": "https://2FWOTDVM2O-dsn.algolia.net/1/indexes/product_variants_v2/query?query=304292 011&hitsPerPage=20"
+ }
+}

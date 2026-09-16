@@ -1,0 +1,97 @@
+{
+ "image_name": "sb_dunk_low_staple_nyc_pigeon",
+ "built_at": "2026-09-16T21:02:58.295881+00:00",
+ "name_match": "confirmed",
+ "decided_by": "signal_2_colorway",
+ "signal_1_silhouette": {
+  "tested": "SB Dunk Low",
+  "found": true
+ },
+ "signal_2_colorway": {
+  "tested": [
+   "staple",
+   "nyc",
+   "pigeon"
+  ],
+  "found": [
+   "staple",
+   "pigeon"
+  ],
+  "result": "pass"
+ },
+ "signal_3_year": {
+  "tested": {
+   "catalog_year": 2005,
+   "goat_release_year": 2005
+  },
+  "match": true,
+  "applied": false
+ },
+ "facts": [
+  {
+   "id": "f1",
+   "tag": "silhouette_lineage",
+   "text": "Built on the SB Dunk Low silhouette, designed by Peter Moore.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "designer"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f2",
+   "tag": "release_date",
+   "text": "Released 2005-02-22.",
+   "source": {
+    "kind": "release_dates",
+    "ref": "sb_dunk_low_staple_nyc_pigeon"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f3",
+   "tag": "collab_origin",
+   "text": "The shoe that sparked riots on the streets of New York City—and received a subsequent mention on the front page of the New York Post—the Jeff Staple x Dunk Low Pro SB ‘Pigeon’ released in January 2005 as part of Nike SB’s White Dunk City Series.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f4",
+   "tag": "spec",
+   "text": "The low-top features two shades of grey on the upper, accented with a white Swoosh and pops of red on the lining and outsole.",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  },
+  {
+   "id": "f5",
+   "tag": "spec",
+   "text": "The all-important embroidered pigeon adorns the lateral heel",
+   "source": {
+    "kind": "goat_snapshot",
+    "ref": "story_html"
+   },
+   "sensitivity": "none",
+   "verified": "self_evident",
+   "checked_at": null
+  }
+ ],
+ "hook_candidates": [
+  "f3"
+ ],
+ "sensitivity": "none",
+ "usable": true
+}

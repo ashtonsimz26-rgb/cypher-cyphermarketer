@@ -80,6 +80,39 @@ def is_reachable(image_name: str, rarity: str) -> bool:
     return bool(r and int(r[0].get("n", 0)) > 0)
 
 
+# ── disk headroom ────────────────────────────────────────────────────────────
+# One backdrop is ~300 KB and PK's daily refresh wants ~431 MB, so the digest is
+# not what fills the disk — but it is the thing that runs every morning and can
+# SAY so. Below the floor this goes to Telegram, not only to the log: the point
+# is to see it on a phone rather than find out from a failure (ruled 2026-09-16).
+DISK_FLOOR_GB = 1.0
+
+
+def disk_free_gb() -> float:
+    import shutil
+    return shutil.disk_usage(str(HERE)).free / (1024 ** 3)
+
+
+def disk_health(source: str) -> str | None:
+    """Print always, ledger always, Telegram only below the floor."""
+    free = disk_free_gb()
+    run_log(event="disk_free", job=source, free_gb=round(free, 2))
+    print("  disk     : %.2f GB free" % free)
+    if free >= DISK_FLOOR_GB:
+        return None
+    msg = ("⚠️ cyphermarketer: only %.2f GB free on the mini (floor %.1f GB). "
+           "A backdrop needs ~300 KB and PRICEKEEPER's daily refresh wants "
+           "~431 MB — posting still works, but there is no headroom."
+           % (free, DISK_FLOOR_GB))
+    print("  ⚠️  LOW DISK — %.2f GB free, below the %.1f GB floor" % (free, DISK_FLOOR_GB))
+    try:
+        import telegram_bot as TB
+        TB.send_text(TB.env(), msg)
+    except Exception as ex:                  # never let a warning kill the run
+        run_log(event="disk_alert_failed", error=type(ex).__name__)
+    return msg
+
+
 # ── the obtainability cache rails reads ──────────────────────────────────────
 # ★ rails.py must not grow DB access, so the verdict it needs is written here,
 # where _sql already lives. REGENERATED AT THE START OF EVERY DIGEST RUN. That
@@ -576,6 +609,8 @@ def main():
         except Exception:
             pass
         return
+    disk_health(a.source)
+
     # ── obtainability cache, rebuilt before anything is selected ─────────────
     # R5: if this ever stops running, set posts do not silently stop — rails
     # fails every card closed and the reason is PRINTED here, not merely absent.
