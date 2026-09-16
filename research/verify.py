@@ -159,8 +159,162 @@ def _polite(url: str) -> None:
     _last_hit[host] = time.monotonic()
 
 
+# ══ cypher:// — a FIRST-PARTY SOURCE (2026-09-16) ════════════════════════════
+#
+# Some claims have no URL and are still checkable. "A player earned serial #1 of
+# a 10,000-cap GRAIL by completing a two-card set" is not on any blog; it is in
+# our own database, and the database is a better source for it than a blog would
+# be. So the sources rule is UNCHANGED — a moment still needs a non-empty
+# sources[] and every term is still checked against a fetched document. What
+# widened is the set of things a source may BE.
+#
+# THE GRAMMAR. Three kinds, deliberately. This is not a query language and must
+# not become one; a fourth kind needs a ruling, not a patch.
+#
+#   cypher://card/<image_name>/<rarity>
+#   cypher://set/<set_name>
+#   cypher://serial/<image_name>/<rarity>/<n>
+#
+# Path segments are percent-encoded, so "HOLY%20GRAIL" and
+# "Nike%20x%20Jordan%204%20SB" are how spaces travel.
+#
+# ★★ IT RESOLVES TO TEXT, AND THEN NOTHING IS SPECIAL. Each URI renders a small
+# deterministic document which the EXISTING term matcher reads. That is the
+# whole design: outcome, found/missing, numeric matching, the cache and the
+# unverified-vs-contradicted distinction are inherited from the HTTP path rather
+# than reimplemented beside it, so the two cannot drift.
+#
+# ★ A RESOLVER THAT CANNOT REACH THE DB RETURNS "" -> "unverified", NEVER
+# "contradicted" — identical to an unreachable URL, and for the identical
+# reason: silence is not evidence against a fact.
+#
+# ★★ NO USER IS EVER IDENTIFIED. A serial's OWNER is a private individual and
+# owner_id never appears in a rendered document — not even hashed. The serial,
+# the cap, the method and the timestamp are facts about the CARD; who holds it
+# is not ours to publish. Enforced below and asserted in the suite.
+CYPHER_SCHEME = "cypher://"
+_PRIVATE_COLUMNS = ("owner_id", "user_id", "id", "email")   # never rendered
+
+
+def _cypher_sql(q: str) -> list[dict]:
+    """Read-only passthrough to daily_digest._sql. Raises on any failure so the
+    caller can turn it into "" -> unverified."""
+    assert q.lstrip().lower().startswith("select"), "cypher:// resolver is READ-ONLY"
+    sys.path.insert(0, str(HERE))
+    import daily_digest as DD
+    return DD._sql(q)
+
+
+def _lit(v: str) -> str:
+    return "'" + str(v).replace("'", "''") + "'"
+
+
+def _render(title: str, rows: list[tuple[str, object]]) -> str:
+    body = "\n".join("%s: %s" % (k, v) for k, v in rows if v is not None)
+    return "%s\n%s\n" % (title, body)
+
+
+def resolve_cypher(uri: str) -> str:
+    """A cypher:// URI as a text document, or "" when it cannot be resolved.
+
+    "" covers BOTH a malformed URI and an unreachable database. Both are
+    unverified rather than contradicted — a source we cannot read says nothing
+    about the claim. A malformed URI is additionally ledgered, because it is an
+    authoring mistake rather than an outage and should be visible as one.
+    """
+    rest = uri[len(CYPHER_SCHEME):]
+    parts = [urllib.parse.unquote(x) for x in rest.split("/") if x != ""]
+    if not parts:
+        ledger({"event": "cypher_uri_malformed", "uri": uri, "reason": "empty"})
+        return ""
+    kind, args = parts[0], parts[1:]
+    try:
+        if kind == "card" and len(args) == 2:
+            image_name, rarity = args
+            rows = _cypher_sql(
+                "select c.image_name, c.rarity::text as rarity, c.name, c.brand, "
+                "c.colorway, c.year, c.retail_price, c.estimated_resale, c.style_code, "
+                "c.category, (select s.cap from public.serial_caps s "
+                "  where s.image_name=c.image_name and s.rarity=c.rarity) as serial_cap "
+                "from public.catalog_cards c "
+                "where c.image_name=%s and c.rarity=%s;" % (_lit(image_name), _lit(rarity)))
+            if not rows:
+                return _render("CYPHER CATALOG CARD — NO SUCH CARD",
+                               [("image_name", image_name), ("rarity", rarity)])
+            r = rows[0]
+            return _render("CYPHER CATALOG CARD",
+                           [(k, r.get(k)) for k in
+                            ("image_name", "rarity", "name", "brand", "colorway", "year",
+                             "retail_price", "estimated_resale", "style_code", "category",
+                             "serial_cap")])
+
+        if kind == "set" and len(args) == 1:
+            set_name = args[0]
+            rw = _cypher_sql(
+                "select set_name, reward_image_name, reward_rarity::text as reward_rarity "
+                "from public.set_rewards where set_name=%s;" % _lit(set_name))
+            rq = _cypher_sql(
+                "select required_image_name from public.set_requirements "
+                "where set_name=%s order by 1;" % _lit(set_name))
+            cl = _cypher_sql(
+                "select count(*) as n from public.claimed_set_rewards "
+                "where set_name=%s;" % _lit(set_name))
+            if not rw:
+                return _render("CYPHER SET — NO SUCH SET", [("set_name", set_name)])
+            rows = [("set_name", rw[0]["set_name"]),
+                    ("reward_image_name", rw[0]["reward_image_name"]),
+                    ("reward_rarity", rw[0]["reward_rarity"]),
+                    ("requirement_count", len(rq))]
+            rows += [("requires", q["required_image_name"]) for q in rq]
+            rows += [("times_claimed", (cl[0]["n"] if cl else 0))]
+            return _render("CYPHER SET", rows)
+
+        if kind == "serial" and len(args) == 3:
+            image_name, rarity, n = args
+            if not n.isdigit():
+                ledger({"event": "cypher_uri_malformed", "uri": uri,
+                        "reason": "serial is not a number"})
+                return ""
+            # ★ owner_id is NOT selected. See _PRIVATE_COLUMNS.
+            # ★ owned_cards.rarity is TEXT while every other table uses the
+            # sneaker_rarity ENUM (catalog_cards, serial_caps, all three pools,
+            # pack_rarity_weights). `s.rarity = o.rarity` therefore raises
+            # "operator does not exist: sneaker_rarity = text". The cast is not
+            # cosmetic — without it this resolver silently returned NOT MINTED
+            # for a card that was minted twice.
+            rows = _cypher_sql(
+                "select o.image_name, o.rarity as rarity, o.serial_int, "
+                "o.set_name, o.acquisition_method, o.minted_at, "
+                "(select s.cap from public.serial_caps s "
+                "  where s.image_name=o.image_name and s.rarity::text=o.rarity) as serial_cap "
+                "from public.owned_cards o where o.image_name=%s and o.rarity=%s "
+                "and o.serial_int=%s;" % (_lit(image_name), _lit(rarity), int(n)))
+            if not rows:
+                return _render("CYPHER SERIAL — NOT MINTED",
+                               [("image_name", image_name), ("rarity", rarity),
+                                ("serial_int", n)])
+            r = rows[0]
+            return _render("CYPHER SERIAL",
+                           [(k, r.get(k)) for k in
+                            ("image_name", "rarity", "serial_int", "serial_cap",
+                             "set_name", "acquisition_method", "minted_at")])
+    except Exception as e:
+        # Unreachable DB, timeout, auth — all of it. NOT contradicted.
+        ledger({"event": "cypher_resolve_failed", "uri": uri,
+                "reason": "%s: %s" % (type(e).__name__, e)[:200]})
+        return ""
+
+    ledger({"event": "cypher_uri_malformed", "uri": uri,
+            "reason": "unknown kind %r or wrong arity (%d)" % (kind, len(args))})
+    return ""
+
+
 def fetch_text(url: str) -> str:
     """Page text, or "" on ANY failure. Never raises.
+
+    ★ Dispatches on scheme: cypher:// resolves against our own database and
+    returns a rendered document; everything else is HTTP. The caching, term
+    matching and outcome logic below are shared by both, which is the point.
 
     Cache hit costs no network call and no politeness sleep — nothing was
     requested, so no courtesy is owed. A stale entry whose re-fetch fails is
@@ -169,6 +323,11 @@ def fetch_text(url: str) -> str:
     cached = _cache_read(url)
     if cached is not None:
         return cached
+    if url.startswith(CYPHER_SCHEME):
+        text = resolve_cypher(url)
+        if text:
+            _cache_write(url, text)          # same cache, same TTL, same key shape
+        return text                          # "" -> unverified, never contradicted
     _polite(url)
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     try:
