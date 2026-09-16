@@ -57,9 +57,10 @@ ALLOWED_FEEDBACK_CODES = frozenset({
 TOO_WORDY_LIMIT = 240
 LINK = "https://apps.apple.com/app/cypher-unlock-the-vault/id6761334111"
 
-# Copy skeletons. `which_would_you_pull` is DECLARED but not yet selectable —
-# it needs a two-card composite the compositor does not build yet. Listing it
-# without implementing it would silently reduce the rotation to a lie.
+# Copy skeletons. All six are selectable as of 2026-09-16 (E4 built the last of
+# them). DECLARED_NOT_READY is the escape hatch for a format that is named but
+# unbuilt; it is empty, and listing a format without implementing it would
+# silently reduce the rotation to a lie.
 FORMATS = ["story_spotlight", "price_journey", "on_this_day", "grail_lore",
            "set_completion", "which_would_you_pull"]
 DECLARED_NOT_READY: dict[str, str] = {}      # emptied 2026-09-16 — see below

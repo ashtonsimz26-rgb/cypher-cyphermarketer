@@ -44,6 +44,34 @@ GROUP_DIMENSIONS = frozenset({"format"})
 MIN_N_FOR_RANKING = 5
 
 
+# ══ PIPELINE SIGNALS (E6, 2026-09-16) ════════════════════════════════════════
+#
+# ★★ THESE NEVER READ metrics.jsonl, AND THAT IS THE WHOLE DESIGN.
+#
+# They describe what the agent DID — which tiers it drew, which frames it used,
+# how often the brief fell back to its fallback fact, what Ashton rejected and
+# why. None of it is joined to engagement. Reporting "GRAIL posts get more
+# impressions" would be subject-selection-by-performance wearing a different
+# column name, which is precisely what GROUP_DIMENSIONS exists to prevent, and
+# a positive filter on the engagement key would not stop it because the join
+# would happen in a different function.
+#
+# So the separation is structural rather than conventional: pipeline_signals()
+# and everything it calls read the RUN and PROPOSAL ledgers only. The suite
+# asserts that no signal function references METRICS.
+#
+# EVERY SECTION CARRIES ITS OWN n AND ITS OWN FLOOR. Below the floor it says
+# "insufficient data" and the number it would need. A distribution over 3
+# observations is not a distribution; printing its percentages would be the
+# report inventing a finding, which is the failure R4 names.
+MIN_N = {
+    "tier": 10,          # a share claim needs enough draws to have a shape
+    "composition": 10,
+    "divergence": 10,    # a rate over <10 briefs is anecdote
+    "reject": 5,         # matches MIN_N_FOR_RANKING — a judgement about taste
+}
+
+
 def _read(p: Path) -> list[dict]:
     if not p.exists():
         return []
@@ -154,6 +182,9 @@ def render(agg: dict) -> str:
         order = sorted(ranked, key=lambda kv: -_stat(kv[1], "impressions")[0])
         L.append("RANKING by mean impressions (all formats at or above n=%d):"
                  % MIN_N_FOR_RANKING)
+        if not order:
+            L.append("  none — no format has reached n=%d. Nothing is ranked, and "
+                     "that is the finding." % MIN_N_FOR_RANKING)
         for f, v in order:
             L.append("  %-18s n=%d  mean impressions %5.1f"
                      % (f, len(v), _stat(v, "impressions")[0]))
@@ -177,9 +208,165 @@ def render(agg: dict) -> str:
     return "\n".join(L)
 
 
+# ── the signals themselves ───────────────────────────────────────────────────
+def _window(rows: list[dict], days: int | None) -> list[dict]:
+    if not days:
+        return rows
+    cut = datetime.now(timezone.utc) - timedelta(days=days)
+    out = []
+    for r in rows:
+        try:
+            if datetime.fromisoformat(r["ts"]) >= cut:
+                out.append(r)
+        except Exception:
+            pass
+    return out
+
+
+def _share(counts: dict) -> list[tuple[str, int, float]]:
+    tot = sum(counts.values()) or 1
+    return sorted(((k, v, v / tot) for k, v in counts.items()), key=lambda x: -x[1])
+
+
+def _floor(name: str, n: int) -> str | None:
+    """The refusal line, or None when there is enough to speak."""
+    need = MIN_N[name]
+    if n >= need:
+        return None
+    return ("insufficient data — n=%d, need %d before this says anything"
+            % (n, need))
+
+
+def pipeline_signals(days: int | None = 7) -> dict:
+    """What the agent DID. Never what it earned — see the module header."""
+    runs = _window(_read(RUNS), days)
+    props = _window(_read(PROPOSALS), days)
+
+    drafts = [r for r in runs if r.get("event") == "draft_built"]
+    selected = [r for r in runs if r.get("event") == "candidates_selected"]
+    div = [r for r in runs if r.get("event") == "brief_divergence"]
+    rejects = [r for r in props if r.get("event") == "rejected"]
+
+    cand_tiers: dict[str, int] = defaultdict(int)
+    for r in selected:
+        for k, v in (r.get("tiers") or {}).items():
+            cand_tiers[k] += v
+    prop_tiers = defaultdict(int)
+    for r in drafts:
+        if r.get("tier"):
+            prop_tiers[r["tier"]] += 1
+    comps = defaultdict(int)
+    for r in drafts:
+        if r.get("composition"):
+            comps[r["composition"]] += 1
+    codes = defaultdict(int)
+    for r in rejects:
+        codes[r.get("reason_code") or "(no code given)"] += 1
+
+    # ★ ONLY drafts that actually went through the brief. Every draft before
+    # 2026-09-16 predates E5 and carries no brief_source, so counting them would
+    # report "0% fallback over n=36" — which reads as a mechanism working
+    # perfectly when in fact it did not exist. A denominator that includes rows
+    # the measurement could not have touched is how a report invents a finding.
+    briefed = [r for r in drafts if r.get("brief_source")]
+    n_div = len(briefed)
+    pre_e5 = len(drafts) - n_div
+    fallback = sum(1 for d in div if d.get("fallback_fired"))
+    zero_overlap = sum(1 for d in div if not d.get("fallback_fired")
+                       and d.get("shared_tokens") == 0)
+    return {
+        "days": days,
+        "candidate_tiers": dict(cand_tiers), "n_candidates": sum(cand_tiers.values()),
+        "proposal_tiers": dict(prop_tiers), "n_proposals": sum(prop_tiers.values()),
+        "compositions": dict(comps), "n_compositions": sum(comps.values()),
+        "n_briefs": n_div, "pre_e5_drafts": pre_e5,
+        "fallback": fallback, "zero_overlap": zero_overlap,
+        "reject_codes": dict(codes), "n_rejects": len(rejects),
+        "n_runs": len([r for r in runs if r.get("event") == "run_start"]),
+    }
+
+
+def render_signals(sig: dict) -> list[str]:
+    L: list[str] = []
+
+    def section(title, name, n, body_fn):
+        L.append("")
+        L.append("%s  (n=%d)" % (title, n))
+        msg = _floor(name, n)
+        if msg:
+            L.append("  " + msg)
+        else:
+            L.extend(body_fn())
+
+    def tiers_body():
+        out = []
+        import daily_digest as DD
+        for k, c, sh in _share(sig["proposal_tiers"]):
+            grp = DD.TIER_GROUP.get(k, "body")
+            tgt = DD.GROUP_TARGET_SHARE.get(grp, 0)
+            out.append("  %-11s %3d  %5.1f%%   (group %s, target %.0f%%)"
+                       % (k, c, 100 * sh, grp, 100 * tgt))
+        return out
+
+    def comp_body():
+        return ["  %-14s %3d  %5.1f%%" % (k, c, 100 * sh)
+                for k, c, sh in _share(sig["compositions"])]
+
+    def div_body():
+        fb = sig["fallback"] / sig["n_briefs"]
+        zo = sig["zero_overlap"] / sig["n_briefs"]
+        out = ["  fallback fired      %3d  %5.1f%%   (writer named no usable fact)"
+               % (sig["fallback"], 100 * fb),
+               "  zero token overlap  %3d  %5.1f%%   (lead shares nothing with its claimed fact)"
+               % (sig["zero_overlap"], 100 * zo)]
+        if fb > 0.5:
+            out.append("  ⚠️  the fallback is carrying most briefs — the fact_id contract")
+            out.append("      is not landing, and tuning around it would hide that.")
+        return out
+
+    def reject_body():
+        return ["  %-22s %3d" % (k, c) for k, c, _ in _share(sig["reject_codes"])]
+
+    section("TIER DISTRIBUTION of drafts (E3 weighting, measured)", "tier",
+            sig["n_proposals"], tiers_body)
+    section("COMPOSITION DISTRIBUTION", "composition", sig["n_compositions"], comp_body)
+    section("BRIEF DIVERGENCE (E5)", "divergence", sig["n_briefs"], div_body)
+    if sig["pre_e5_drafts"]:
+        L.append("  (%d earlier draft(s) excluded — they predate the fact_id "
+                 "contract and could not have diverged)" % sig["pre_e5_drafts"])
+    section("REJECT REASONS", "reject", sig["n_rejects"], reject_body)
+    return L
+
+
+def nothing_to_report(agg: dict, sig: dict) -> bool:
+    """★ R4: a weekly report that always produces a page will eventually invent
+    one. If nothing was posted, nothing was drafted, nothing was rejected and no
+    signal clears its floor, the honest output is one line."""
+    if agg["buckets"] or agg["announcements"] or agg["unresolved"]:
+        return False
+    if sig["n_proposals"] or sig["n_rejects"] or sig["n_briefs"]:
+        return False
+    return True
+
+
+def weekly(days: int | None = 7) -> str:
+    """The whole report: engagement by FORMAT, then what the pipeline did.
+
+    The two halves never meet. See the pipeline-signals header for why.
+    """
+    agg = aggregate(days)
+    sig = pipeline_signals(days)
+    if nothing_to_report(agg, sig):
+        return ("CYPHERMARKETER — WEEKLY (last %s)\n"
+                "Nothing worth reporting this week: no agent posts, no drafts, no "
+                "rejections.\n%d run(s) executed." % (
+                    ("%d days" % days) if days else "all time", sig["n_runs"]))
+    return "\n".join([render(agg)] + render_signals(sig))
+
+
 if __name__ == "__main__":
     import argparse
-    ap = argparse.ArgumentParser(description="Weekly format performance report")
+    ap = argparse.ArgumentParser(description="Weekly report — format, then pipeline")
     ap.add_argument("--days", type=int, default=7, help="window; 0 = all time")
     a = ap.parse_args()
-    print(render(aggregate(a.days or None)))
+    print(weekly(a.days or None))
