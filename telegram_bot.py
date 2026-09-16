@@ -199,7 +199,8 @@ def proposal_state() -> dict:
             cur.update(status="pending", text=r.get("text"), image=r.get("image"),
                        message_id=r.get("message_id"), proposed_ts=r.get("ts"),
                        rails_ctx=r.get("rails_ctx"), format=r.get("format"),
-                       hook_type=r.get("hook_type"))
+                       hook_type=r.get("hook_type"),
+                       composition=r.get("composition"), tier=r.get("tier"))
         # ⚠️ "rails_blocked" and "edit_too_long" are DELIBERATELY ABSENT from this
         # tuple. A validation failure is information, not a verdict: the proposal
         # stays pending so it can be fixed with `edit:` and re-approved. Logging
@@ -280,7 +281,14 @@ def cmd_propose(a, e):
             "note": a.note, "message_id": res.get("message_id"), "weighted_len": wl,
             "rails_ctx": getattr(a, "rails_ctx", None),
             "format": getattr(a, "format", None),
-            "hook_type": getattr(a, "hook_type", None)})
+            "hook_type": getattr(a, "hook_type", None),
+            # R6 — composition and tier ride the proposal so the POSTED row can
+            # carry them without a join. Everything downstream of here is
+            # append-only, so a field absent at propose time is unrecoverable
+            # later: see the five Aug posts, whose composition is gone for good
+            # because nothing logged it.
+            "composition": getattr(a, "composition", None),
+            "tier": getattr(a, "tier", None)})
     print("  proposed %s  (telegram message_id %s)" % (pid, res.get("message_id")))
     print("  awaiting decision in Telegram…")
     return pid                       # so callers can emit an EXACT linking row
@@ -415,9 +423,12 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     X.ledger_append({"event": "posted", "text": text, "tweet_id": tid, "url": url,
                      "media_ids": [mid], "note": "telegram approval %s" % pid,
                      "proposal_id": pid, "format": st.get("format"),
-                     "hook_type": st.get("hook_type")})
+                     "hook_type": st.get("hook_type"),
+                     "composition": st.get("composition"), "tier": st.get("tier")})
     ledger({"event": "posted", "proposal_id": pid, "tweet_id": tid, "url": url,
-            "final_text": text, "edited": edited})
+            "final_text": text, "edited": edited, "format": st.get("format"),
+            "hook_type": st.get("hook_type"),
+            "composition": st.get("composition"), "tier": st.get("tier")})
     send_text(e, "✅ POSTED%s\n%s\n\n(%d/%d posts used in the last 24h)"
               % (" (your edit, verbatim)" if edited else "", url,
                  X.posts_last_24h(), X.MAX_POSTS_24H), reply_to)

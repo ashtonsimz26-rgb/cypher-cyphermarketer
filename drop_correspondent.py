@@ -166,10 +166,17 @@ def main():
                     # the half-wired state F1.5 exists to avoid.
                     rails_ctx = built["rails_ctx"]
                     format = built["format"]; hook_type = built["hook_type"]
+                    # R6 — same four fields as the digest path. Omitting them here
+                    # would leave drop posts unmeasurable while digest posts were
+                    # measurable, which is the half-wired state F1.5 exists to avoid.
+                    composition = built.get("composition")
+                    tier = (built.get("cand") or {}).get("rarity")
                 pid = TB.cmd_propose(_A, TB.env())
                 DD.run_log(event="draft_proposed", proposal_id=pid,
                            image_name=m["image_name"], format=built["format"],
-                           hook_type=built["hook_type"], weighted=built["weighted"])
+                           hook_type=built["hook_type"], weighted=built["weighted"],
+                           composition=built.get("composition"),
+                           tier=m.get("rarity"))
                 hits += 1
             break                                     # at most one extra draft per run
         if hits:

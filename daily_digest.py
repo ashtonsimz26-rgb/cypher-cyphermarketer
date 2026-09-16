@@ -390,7 +390,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     editorial.record_format(fmt)
     run_log(event="draft_built", image_name=cand["image_name"], hook_type=hook_type,
             brand=brand, composition=composition, scene=scene,
-            format=fmt, weighted=wl)
+            format=fmt, weighted=wl, tier=cand.get("rarity"))
     return {"text_file": tf, "image": visual, "cand": cand, "insp": insp,
             "price_ok": price_ok, "price_why": price_why, "weighted": wl,
             "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why,
@@ -455,7 +455,9 @@ def main():
         argv = SimpleNamespace(text_file=str(built["text_file"]),
                                image=str(built["image"]), note=note,
                                rails_ctx=built["rails_ctx"],
-                               format=built["format"], hook_type=built["hook_type"])
+                               format=built["format"], hook_type=built["hook_type"],
+                               composition=built.get("composition"),
+                               tier=(built.get("cand") or {}).get("rarity"))
         pid = TB.cmd_propose(argv, e)
         # EXACT linking row. draft_built alone could not be joined to a post:
         # it carries no proposal_id, and matching on (image_name, nearest ts)
@@ -464,7 +466,7 @@ def main():
                 image_name=cand["image_name"], format=built["format"],
                 hook_type=built["hook_type"], weighted=built["weighted"],
                 brand=built.get("brand"), composition=built.get("composition"),
-                scene=built.get("scene"))
+                scene=built.get("scene"), tier=cand.get("rarity"))
         n += 1
     run_log(event="run_end", job=a.source, proposed=n)
     # Gate (d): zero is a valid outcome, and says so rather than looking broken.
