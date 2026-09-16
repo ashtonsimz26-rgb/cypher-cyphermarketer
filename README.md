@@ -8,6 +8,41 @@ Anything not ruled in the contract is a HALT-and-ask, not a judgement call.
 
 ---
 
+## WHERE BEHAVIOUR IS SPECIFIED
+
+The agent's behaviour is specified in **five** places. This repo does not duplicate
+them — it points at them. If you read only the repo, you have read half the system.
+
+| # | where | owns | in repo? |
+|---|---|---|---|
+| 1 | `~/.hermes/profiles/cyphermarketer/SOUL.md` | canonical voice, editorial bar, hard rails, autonomy phase | no |
+| 2 | `rails.py` | the machine-checkable subset — 7 checks, incl. Rail 7 | yes |
+| 3 | `~/.hermes/profiles/cyphermarketer/instructions.md` | the post-construction playbook: sequence, formats, craft rules, tier treatment, image brief | no |
+| 4 | `~/.hermes/profiles/cyphermarketer/context.md` | stable facts: what CYPHER is, what the tiers mean, what is postable, who the audience is | no |
+| 5 | `~/.hermes/profiles/cyphermarketer/memory.md` | evidence: what shipped, what was rejected, what the numbers say | no |
+
+**Precedence, highest first:**
+
+    SOUL.md  >  rails.py  >  instructions.md  >  context.md  >  memory.md
+
+Two rules ride on that chain and neither is negotiable:
+
+1. **`rails.py` can only ever be a SUBSET of SOUL.** If the code and SOUL disagree,
+   that is a bug in rails — never a new rule, and never evidence that SOUL has changed.
+2. **`memory.md` is evidence, never instruction.** An entry may motivate a change to
+   `instructions.md`. It may never override one. Entries carry `pending: true` until
+   Ashton flips the flag; the agent may write one freely, may never flip it, and may
+   never read a pending entry as guidance.
+
+**The enforced text stays in code.** `research/writer.py:147` holds `FORMAT_CONTRACT`
+— the string actually sent to the model. `REGISTER` is not a separate constant: it is a
+section *inside* that string (line 161), alongside the JSON contract, the character
+ceiling and the swap test. `instructions.md` references it; it does not restate it.
+Copying that text into a document would create a fourth source of truth that drifts
+without anyone noticing.
+
+---
+
 ## WORKING CONVENTIONS
 
 **Every string mutation asserts its match count.** When editing source
