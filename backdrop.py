@@ -288,6 +288,10 @@ INSPECT_CLOSELY = {
                          "an instrument brand appears; zoom the stage",
     "skate_basement": "plywood ramp and wall — stickers and graffiti tags can "
                       "resolve into lettering; zoom the ramp face",
+    "vault_room": "safe-deposit drawer fronts carry recessed card-holder plates, "
+                  "which is where box NUMBERING sits on a real one; zoom the side "
+                  "walls. Checked 2026-09-16: abstract, no digits — but that is "
+                  "one render, and the plates are a standing invitation",
 }
 # Nouns that mean a stem needs a listing. Kept beside the list so the test can
 # hold them together as the stems change.
@@ -301,7 +305,8 @@ PRINTED_SURFACE_NOUNS = ("vending", "shutter", "shutters", "awning", "awnings",
                          "drums", "packaging", "label", "labels", "poster",
                          "posters", "billboard", "screen", "screens", "sticker",
                          "stickers", "jersey", "banner", "banners",
-                         "storefront", "storefronts", "shopfront", "graffiti")
+                         "storefront", "storefronts", "shopfront", "graffiti",
+                         "drawer", "drawers", "plate", "plates", "plaque")
 
 
 def printed_surface_nouns_in(text: str) -> list[str]:

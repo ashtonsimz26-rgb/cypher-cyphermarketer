@@ -183,7 +183,13 @@ ok("amp" in BD.printed_surface_nouns_in("stage amp and a drum head"),
    "…but a real amp still matches")
 ok(BD.inspection_note("tokyo_backstreet").startswith(" ⚠️ ZOOM"),
    "a listed stem produces a warning")
-ok(BD.inspection_note("vault_room") == "", "an unlisted stem produces nothing")
+# Pick an unlisted stem DYNAMICALLY. Hard-coding one broke the moment
+# vault_room was added to the list — the test named an example that stopped
+# being an example, which is the stale-fixture shape again.
+_unlisted = sorted(set(BD.STORY_SCENES) - set(BD.INSPECT_CLOSELY))
+ok(_unlisted, "some stem is still unlisted (else this assertion is vacuous)")
+ok(BD.inspection_note(_unlisted[0]) == "",
+   "an unlisted stem (%s) produces nothing" % _unlisted[0])
 ok(BD.inspection_note(None) == "", "no scene key produces nothing")
 dsrc2 = (REPO / "daily_digest.py").read_text()
 ok("BD.inspection_note(" in dsrc2, "the digest actually appends it to the note")
