@@ -34,6 +34,96 @@ caught by reading code; the sixth was caught only by asking which code path
 actually runs at 09:00 — a different question from whether the code is
 correct.
 
+★★★ A STALE VALIDATOR DENIES, AND DENIAL LOOKS LIKE CORRECTNESS (2026-09-16)
+This is its own lesson and not a variant of the inert rail. Read it before the
+numbered list.
+
+  research/moments.py validated every moment's linked_image_names against
+  state/_reachable_cache.json. NOTHING WROTE THAT FILE. Not one line in the
+  repo. It had been sitting there since 2026-09-09 while the obtainable set
+  grew, so links to newly obtainable cards were being dropped — correctly, by
+  the rule, against a snapshot that had stopped being true.
+
+  AN INERT RAIL PERMITS. A STALE VALIDATOR DENIES. That asymmetry is the whole
+  point. When a rail goes inert, bad things get through and eventually somebody
+  sees one. When a validator's reference data goes stale, good things are
+  refused — and a refusal produces no artifact, no error, and no symptom. The
+  system looks conservative. It looks like it is working. There is nothing to
+  notice.
+
+  load_reachable() made it worse by returning set() on ANY exception. An empty
+  reference set does not permit everything; it REFUSES everything, one link at
+  a time, quietly.
+
+  THE RULE, two halves:
+    1. Any cache a check reads NAMES ITS WRITER IN ITS OWN HEADER — in the file
+       it writes, and in the module that reads it. A literal path is invisible
+       to whoever greps for the writer, which is precisely how this one came to
+       have none.
+    2. A check whose reference data is missing, undated or stale FAILS CLOSED
+       AND SAYS SO. Never an empty set, never a silent skip. "I cannot validate
+       this" and "this is invalid" are different answers and must not share a
+       code path.
+
+  A DELIBERATE SWEEP of state/ on 2026-09-16 found one more of the same family:
+  dossier.load_catalog() re-fetched its snapshot ONLY WHEN ABSENT, which means
+  never, and dossier.main() does `if not cat: continue` — so a card the snapshot
+  predated would get no dossier and nothing would say why. It was harmless only
+  because the catalog happened not to have changed. Both now age out at 7 days.
+  Everything else under state/ is read and written by one module (drop_queue,
+  seen_headlines, telegram_offset, health_streaks, last_format), is a scratch
+  file for the SQL CLI (_dq, _q, _card_input), or already had a TTL and a named
+  writer (url_cache, _set_routes).
+
+  THIRD OCCURRENCE OF THE DOCSTRING TRAP, same session: the test written to
+  prove this cache has exactly one literal path FAILED, on the comment inside
+  refresh_set_routes explaining that the file used to have no writer. Three
+  times in one session — twice against the rule's own author, once against a
+  comment describing the very bug the test covers. Treat "grep the source for a
+  token" as a habit to be interrupted, not a technique to be used carefully.
+
+  It was found BY ACCIDENT, while checking whether a moment's links resolved.
+  Nobody was looking for it. That is the expected way to find this class, which
+  is the argument for the rule rather than for vigilance.
+
+★★ A TEST FIXTURE CAN HIDE THE BUG IT WAS WRITTEN TO CATCH (2026-09-16)
+The cypher:// resolver was built and tested against a GRAIL and shipped green.
+It was wrong for four of the six tiers.
+
+  catalog_cards.rarity is the sneaker_rarity ENUM, mixed case — Common,
+  Uncommon, Rare, Legendary, GRAIL, HOLY GRAIL. owned_cards.rarity is TEXT under
+  a CHECK constraint, UPPERCASE. THEY AGREE ON EXACTLY TWO VALUES: GRAIL and
+  HOLY GRAIL. The fixture was one of the two.
+
+  So the test passed for a reason that had nothing to do with the code being
+  right, and the passing test was evidence of nothing. Asked for a minted
+  Legendary the resolver returned a rendered "NOT MINTED" document — and because
+  that is an ANSWER rather than a failure, verify_fact reported a TRUE claim as
+  "contradicted" rather than "unverified". That is the sharpest instance of that
+  distinction in this repo: the module's own header warns that a caller may act
+  against a fact on a contradicted result, and this would have handed it one.
+
+  THE RULE: when two systems use different vocabularies for the same concept,
+  choose a fixture where they DISAGREE. A value the two happen to share tests
+  the code against itself. Where no disagreeing value exists yet, write the
+  normaliser anyway and test it directly.
+
+  It was found only because an unrelated question was asked — a schema audit
+  about write-path validation, on the same column, for a different reason. The
+  resolver's own suite was green before and after.
+
+★ AND THE FIRST REPORT OF THAT SCHEMA ISSUE WAS WRONG, WHICH IS PART OF THE
+RECORD. It was first reported as an integrity hole: "owned_cards.rarity is not
+constrained by the enum at all, so a malformed rarity string can be written
+today." Checking rather than asserting produced owned_cards_rarity_check, a
+second constraint coupling rarity to serial numbering, no Postgres function
+writing the table, and RLS enabled with a single SELECT-own policy and no write
+policy — so a client cannot write it at all. It was downgraded to a consistency
+problem in the same session. The first version was a plausible inference from
+one true fact (the column is `text`) and it was wrong about the consequence.
+Keep both in the record: the correction is the useful part, because the
+inference was reasonable and still wrong.
+
 ★★ THE EIGHTH: A FILTER THAT REMOVED WHAT THREE COMMITS WERE BUILT TO ENABLE
 The first seven are all "a value existed and nothing read it". The eighth is the
 mirror image and it is worse, because the work looked finished:

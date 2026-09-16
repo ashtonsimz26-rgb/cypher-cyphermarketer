@@ -157,6 +157,10 @@ def disk_health(source: str) -> str | None:
 # fails every card closed and says why, rather than producing a silent empty
 # morning. refresh_set_routes() failing is logged and NOT swallowed.
 SET_ROUTES = HERE / "state" / "_set_routes.json"
+# ★ NAMED, not a literal path. research/moments.py reads this to validate
+# linked_image_names; a literal would be invisible to anyone grepping for the
+# writer, which is exactly how it came to have none for seven days.
+REACHABLE_CACHE = HERE / "state" / "_reachable_cache.json"
 
 
 def refresh_set_routes() -> dict:
@@ -212,8 +216,11 @@ def refresh_set_routes() -> dict:
     # regenerated here, from the same query, so one refresh keeps both honest.
     names = sorted({k.split("|", 1)[0] for k in blob["reachable_pairs"]}
                    | {k.split("|", 1)[0] for k in routes})
-    (HERE / "state" / "_reachable_cache.json").write_text(
-        json.dumps(names, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    REACHABLE_CACHE.write_text(
+        json.dumps({"_written_by": "daily_digest.refresh_set_routes(), every run",
+                    "_read_by": "research/moments.py — linked_image_names validation",
+                    "generated_at": blob["generated_at"], "image_names": names},
+                   indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
     run_log(event="set_routes_refreshed", pairs=len(blob["reachable_pairs"]),
             routes=len(routes),
             earnable=sum(1 for v in routes.values()

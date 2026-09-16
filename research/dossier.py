@@ -776,12 +776,30 @@ def build(image_name: str, cat: dict, snap: dict, release_dates: dict) -> dict:
 CATALOG_CACHE = HERE / "state" / "_catalog_cache.json"   # machine-local, gitignored
 
 
+CATALOG_CACHE_MAX_AGE_DAYS = 7
+
+
 def load_catalog() -> dict:
     """Catalog rows for the name-consistency gate. Cached locally because
     state/ is gitignored; re-fetched read-only when the cache is absent, so the
-    script is self-contained on a fresh checkout."""
+    script is self-contained on a fresh checkout.
+
+    ★ IT USED TO REFRESH ONLY WHEN ABSENT, which means never. The gate this
+    feeds DENIES — dossier.main() does `if not cat: continue`, so a card the
+    snapshot predates gets no dossier and nothing says why. A validator reading
+    a snapshot that is never refreshed is the same shape as one reading a file
+    nothing writes (see contracts.py, 2026-09-16); it was merely luckier,
+    because the catalog happened not to change. It now ages out and re-fetches,
+    and says so.
+    """
     if CATALOG_CACHE.exists():
-        return {r["image_name"]: r for r in json.loads(CATALOG_CACHE.read_text())}
+        import time as _t
+        age_d = (_t.time() - CATALOG_CACHE.stat().st_mtime) / 86400.0
+        if age_d <= CATALOG_CACHE_MAX_AGE_DAYS:
+            return {r["image_name"]: r for r in json.loads(CATALOG_CACHE.read_text())}
+        sys.stderr.write(
+            "  catalog cache is %.1f days old (max %d) — re-fetching rather than "
+            "validating names against a stale snapshot\n" % (age_d, CATALOG_CACHE_MAX_AGE_DAYS))
     import subprocess
     q = HERE / "state" / "_dossier_cat.sql"
     q.parent.mkdir(parents=True, exist_ok=True)

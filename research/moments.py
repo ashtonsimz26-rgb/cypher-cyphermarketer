@@ -27,6 +27,7 @@ underscore is ignored by the loader.
 """
 from __future__ import annotations
 import json, re, sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent.parent
@@ -93,11 +94,59 @@ def _public(entry: dict) -> dict:
     return {k: v for k, v in entry.items() if not k.startswith("_")}
 
 
+class ReachableCacheUnusable(RuntimeError):
+    """The link validator has no set to validate against. NEVER swallowed."""
+
+
+REACHABLE_CACHE_WRITER = "daily_digest.refresh_set_routes(), at the start of every run"
+REACHABLE_CACHE_MAX_AGE_DAYS = 7
+
+
 def load_reachable() -> set[str]:
+    """The obtainable image_names, for validating linked_image_names.
+
+    ★★ THIS USED TO RETURN set() ON ANY FAILURE, AND THAT IS THE WORST SHAPE A
+    VALIDATOR CAN HAVE. An empty set does not permit everything — it DENIES
+    everything: every linked_image_name is dropped as unreachable, every moment
+    quietly loses its cards, and the digest looks like it is working. An inert
+    rail permits and is at least loud downstream; a stale or empty validator
+    denies, and denial wears the face of correctness.
+
+    Worse, for seven days NOTHING WROTE THIS FILE. It was last touched
+    2026-09-09 while the obtainable set had grown, so links to newly obtainable
+    cards were being silently dropped against an orphaned snapshot.
+
+    So it now fails CLOSED AND LOUD: missing, unreadable, undated or older than
+    REACHABLE_CACHE_MAX_AGE_DAYS raises, naming the writer. A caller that would
+    rather degrade than stop can catch it; none may ignore it by accident.
+    """
     try:
-        return set(json.loads(REACHABLE_CACHE.read_text()))
+        blob = json.loads(REACHABLE_CACHE.read_text())
+    except Exception as ex:
+        raise ReachableCacheUnusable(
+            "%s is unreadable (%s). It is written by %s."
+            % (REACHABLE_CACHE.name, type(ex).__name__, REACHABLE_CACHE_WRITER)) from ex
+    # Accept the historical bare-list form so an old file is a stale-file error
+    # rather than a shape error — the operator needs the useful message.
+    if isinstance(blob, list):
+        raise ReachableCacheUnusable(
+            "%s is in the pre-2026-09-16 bare-list form and carries no timestamp, "
+            "so its age cannot be checked. Regenerate it: %s"
+            % (REACHABLE_CACHE.name, REACHABLE_CACHE_WRITER))
+    try:
+        gen = datetime.fromisoformat(blob["generated_at"])
     except Exception:
-        return set()
+        raise ReachableCacheUnusable(
+            "%s carries no usable generated_at. It is written by %s."
+            % (REACHABLE_CACHE.name, REACHABLE_CACHE_WRITER)) from None
+    age = datetime.now(timezone.utc) - gen
+    if age > timedelta(days=REACHABLE_CACHE_MAX_AGE_DAYS):
+        raise ReachableCacheUnusable(
+            "%s is %d days old (max %d) — links would be validated against a stale "
+            "obtainable set and silently dropped. It is written by %s."
+            % (REACHABLE_CACHE.name, age.days, REACHABLE_CACHE_MAX_AGE_DAYS,
+               REACHABLE_CACHE_WRITER))
+    return set(blob.get("image_names") or ())
 
 
 def load(path: Path | None = None, reachable: set[str] | None = None
