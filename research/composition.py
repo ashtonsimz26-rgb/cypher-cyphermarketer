@@ -278,6 +278,9 @@ COMPOSITIONS = {
     "no_backdrop": no_backdrop, "two_card": two_card,
 }
 NEEDS_BACKDROP = frozenset(set(COMPOSITIONS) - {"no_backdrop"})
+# Compositions that draw a SECOND card. render() forwards card_b by membership
+# here rather than by an equality test on one name.
+TWO_CARD_COMPOSITIONS = frozenset({"two_card", "two_card_crop"})
 
 # ── card_shows_value, COMPUTED not hardcoded (G2) ────────────────────────────
 # rails.check_draft demands an attribution marker only when the card's EST.
@@ -370,8 +373,16 @@ def render(name: str, card_path: Path, backdrop_path: Path | None, out: Path,
     card = Image.open(card_path).convert("RGBA")
     bd = Image.open(backdrop_path) if backdrop_path else None
     fn = COMPOSITIONS[name]
-    canvas = fn(card, bd, size, Image.open(card_b_path).convert("RGBA")) \
-        if name == "two_card" else fn(card, bd, size)
+    # ★ FIXED 2026-09-16. This read `if name == "two_card"`, so two_card_crop —
+    # the composition E4 FORCES for which_would_you_pull — never received the
+    # second card and drew `(card_b or card, card)`: the same card twice, in a
+    # post whose entire point is a choice between two. Named by MEMBERSHIP now,
+    # so a third two-card composition cannot silently miss the same way.
+    if name in TWO_CARD_COMPOSITIONS:
+        b = Image.open(card_b_path).convert("RGBA") if card_b_path else None
+        canvas = fn(card, bd, size, b)
+    else:
+        canvas = fn(card, bd, size)
     out.parent.mkdir(parents=True, exist_ok=True)
     canvas.convert("RGB").save(out, "PNG", optimize=True)
     return {"composition": name, "ratio": ratio, "output": str(out),

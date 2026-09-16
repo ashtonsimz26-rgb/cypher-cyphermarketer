@@ -98,6 +98,48 @@ for d in (None, {"facts": []}, {"facts": [{"tag": "collab_origin", "text": "Supr
     p = BD.build_prompt({"category": "Lifestyle", "year": 2015}, ST.brief(d, None)["scene_key"])
     ok(p.endswith(BD.NEGATIVE_CONSTRAINTS), "every path ends in the constraints block")
 
+print("\n=== 6a. THE GLOBAL SAYS NOTHING ABOUT COLOUR ===")
+# BRAND_LOOK forced "deep near-black base, cyan and violet" onto all 14 stems,
+# so a month of different stories rendered as the same purple alley — and it
+# contradicted the four stems that specify daylight outright.
+COLOUR = ("black", "cyan", "violet", "purple", "neon", "amber", "red", "gold",
+          "blue", "warm", "cool", "dark", "moody")
+ok(BD.BRAND_LOOK == "", "BRAND_LOOK is retired to an empty string")
+hits = [w for w in COLOUR if w in BD.STAGE_RULE.lower()]
+ok(not hits, "STAGE_RULE names no colour and no mood: %s" % (hits or "clean"))
+ok("central third" in BD.STAGE_RULE,
+   "…it names the CLEAR ZONE, which is the one thing every scene shares")
+for k in BD.STORY_SCENES:
+    pr = BD.build_prompt({"category": "Lifestyle", "year": 2005}, k)
+    ok("deep near-black base" not in pr, "%-18s carries no global colour" % k)
+    break                                   # one is enough; the constant is gone
+
+print("\n=== 6a2. THE STEMS ARE ACTUALLY DIFFERENT ===")
+ok(len(BD.STORY_SCENES) == 14, "14 stems: %d" % len(BD.STORY_SCENES))
+ok(all("Palette" in v for v in BD.STORY_SCENES.values()),
+   "every stem declares its own palette")
+ok(all("Light" in v or "Sun is" in v for v in BD.STORY_SCENES.values()),
+   "every stem declares its own light")
+import re as _re
+day = _re.compile(r"daylight|morning|first light|golden hour|overcast|midday|sun", _re.I)
+night = _re.compile(r"night|lantern|neon|streetlamp|tungsten|fluorescent", _re.I)
+d = [k for k, v in BD.STORY_SCENES.items() if day.search(v)]
+n_ = [k for k, v in BD.STORY_SCENES.items() if night.search(v) and k not in d]
+ok(len(d) >= 4 and len(n_) >= 6,
+   "the set spreads across time of day: %d daylight, %d night/interior" % (len(d), len(n_)))
+# no two stems may share their first eight words — a cheap sibling detector
+heads = {}
+for k, v in BD.STORY_SCENES.items():
+    h = " ".join(v.split()[:8]).lower()
+    heads.setdefault(h, []).append(k)
+dupes = {h: ks for h, ks in heads.items() if len(ks) > 1}
+ok(not dupes, "no two stems open identically: %s" % (dupes or "all distinct"))
+ok(BD._era({"year": 1998}) != "", "the era modifier still exists for the CATEGORY fallback")
+src_sf = (REPO / "backdrop.py").read_text()
+ok("STORY_SCENES[scene_key], \"story:%s\"" % "%s" in src_sf.replace("'", '"') or
+   "_era(row), \"story:" not in src_sf,
+   "…but no longer appends to a STORY stem, which owns its own time of day")
+
 print("\n=== 6b. backdrop HAS NO PARAMETER A FACT COULD ARRIVE IN (E5) ===")
 # ★ The property that outlives the coherence fix. Asserted by AST, the same way
 # the set_completion branch is asserted never to touch `frag`.

@@ -134,5 +134,32 @@ from research import composition as COMP
 ok(COMP.card_shows_value("two_card_crop") is False,
    "…and that frame crops the EST. VALUE row out of both cards")
 
+print("\n=== 8. THE SECOND CARD ACTUALLY REACHES THE COMPOSITE ===")
+# ★ render() tested `name == "two_card"`, so two_card_crop — the composition E4
+# FORCES — never got card_b and drew (card_b or card, card): the SAME CARD
+# TWICE, in a post whose entire point is a choice between two. Membership now.
+import inspect
+from research import composition as COMP2
+ok(COMP2.TWO_CARD_COMPOSITIONS == frozenset({"two_card", "two_card_crop"}),
+   "TWO_CARD_COMPOSITIONS is declared: %s" % sorted(COMP2.TWO_CARD_COMPOSITIONS))
+for nm, f in COMP2.COMPOSITIONS.items():
+    takes = "card_b" in inspect.signature(f).parameters
+    ok(takes == (nm in COMP2.TWO_CARD_COMPOSITIONS),
+       "%-14s takes card_b=%-5s and is listed=%-5s" % (nm, takes, nm in COMP2.TWO_CARD_COMPOSITIONS))
+# ★ BY AST. The first version asserted `'== "two_card"' not in source` and failed
+# on the COMMENT above explaining the bug. Fifth occurrence this session of the
+# trap contracts.py now prohibits — written minutes after fixing the code.
+ctree = ast.parse((REPO / "research" / "composition.py").read_text())
+rfn = next(n for n in ast.walk(ctree)
+           if isinstance(n, ast.FunctionDef) and n.name == "render")
+eq_to_name = [n for n in ast.walk(rfn) if isinstance(n, ast.Compare)
+              and any(isinstance(o, ast.Eq) for o in n.ops)
+              and any(isinstance(c, ast.Constant) and c.value == "two_card"
+                      for c in n.comparators)]
+ok(not eq_to_name, "render() contains no `name == \"two_card\"` comparison in CODE")
+member = [n for n in ast.walk(rfn) if isinstance(n, ast.Compare)
+          and any(isinstance(o, ast.In) for o in n.ops)]
+ok(member, "…it branches by membership instead")
+
 print("\n" + ("ALL PASS" if not FAILS else "%d FAILURE(S): %s" % (len(FAILS), FAILS)))
 sys.exit(1 if FAILS else 0)

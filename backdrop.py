@@ -88,11 +88,11 @@ NEGATIVE_CONSTRAINTS = (
     "Empty scene only — leave the central area uncluttered and unobstructed."
 )
 
-BRAND_LOOK = (
-    "CYPHER brand aesthetic: deep near-black base, cyan and violet accent lighting, "
-    "cinematic volumetric haze, glossy reflective floor, subtle film grain, "
-    "high production value, moody, premium."
-)
+# ★ BRAND_LOOK IS RETIRED (2026-09-16). It was a global colour instruction and it
+# made fourteen different stories look like one. Its replacement is STAGE_RULE,
+# which says nothing about colour. Kept bound and EMPTY so any caller that still
+# concatenates it is harmless rather than broken — and so this note is findable.
+BRAND_LOOK = ""
 
 # scene stems keyed by catalog category, refined by tags/silhouette
 SCENES = {
@@ -158,36 +158,106 @@ STORY_VOCAB = (
     (r"winter|snow|\bcold\b|storm", "snowlit_street"),
 )
 
-# story key -> PLACE, ERA/LIGHT, MOOD. Hand-written. No proper nouns, ever.
+# ══ THE STAGE RULE — the ONLY thing every scene shares ═══════════════════════
+#
+# BRAND_LOOK used to append "deep near-black base, cyan and violet accent
+# lighting" to all fourteen stems, so every story came out the same purple-black
+# wet alley — a month of them. It also contradicted the four stems that specify
+# daylight outright, and on a provider that follows instructions closely
+# (gpt-image) the brand line won and a "winter morning" rendered as neon night.
+#
+# So colour is gone from the global. What survives is the one thing that is true
+# of every scene regardless of look: THE CARD IS THE SUBJECT AND THE SCENE IS A
+# STAGE. The card needs somewhere to sit.
+#
+# ★ THE CLEAR ZONE IS MEASURED, NOT GUESSED. research/composition.placements()
+# was evaluated for every composition at 4:5: the vertical band from 38% to 60%
+# of frame height is covered by EVERY one of them. That centre band — not the
+# lower third — is what must stay open.
+STAGE_RULE = (
+    "Composition: the middle of the frame is the stage. Keep the central third "
+    "open, unobstructed and evenly lit, with no object crossing it and no bright "
+    "highlight competing there — a product will be placed in that space. Shoot it "
+    "as a real photograph: physically plausible light, natural materials, no "
+    "illustration, no 3D-render look, no vignette burned into the corners."
+)
+
+# story key -> ONE COMPLETE LOOK. Place, time of day, palette, light quality,
+# atmosphere. Hand-written, no proper nouns, and deliberately spread: if two of
+# these read the same at a glance, one of them is wrong.
 STORY_SCENES = {
-    "lunar_new_year":    "an empty narrow courtyard strung with red paper lanterns at night, "
-                         "warm red and gold light pooling on wet stone, drifting incense haze",
-    "olympic_podium":    "an empty stadium podium area at night, polished floor, banks of "
-                         "dormant floodlights, long shadows, cold clean light, vast and quiet",
-    "psychedelic_venue": "an empty small concert venue after the show, scuffed wooden floor, "
-                         "swirling warm projection light in reds and ambers, thick haze",
-    "downtown_ny_2000s": "an empty downtown side street on a winter morning, roll-down shutters, "
-                         "scaffolding, steam from a grate, flat overcast early light, wet pavement",
-    "locker_tunnel":     "an empty concrete players' tunnel, single row of caged lights overhead, "
-                         "painted cinderblock, deep shadow at both ends, cold and severe",
-    "quiet_atrium":      "an empty bright atrium at dawn, pale terrazzo floor, tall windows, soft "
-                         "diffused daylight, potted plants far back, calm and generous",
-    "vault_room":        "an empty climate-controlled vault room, brushed steel walls, low cool "
-                         "strip lighting, polished floor, absolute stillness",
-    "atelier_night":     "an empty high-ceilinged atelier at night, worn parquet, dress forms far "
-                         "in the background, single warm work lamp, dust in the air",
-    "tokyo_backstreet":  "an empty narrow backstreet at night, vending-machine glow, tangled "
-                         "overhead cables, wet asphalt, cool cyan and magenta light",
-    "dawn_track":        "an empty outdoor running track at first light, mist on the lanes, long "
-                         "low sun, cool blue shadows",
-    "skate_basement":    "an empty concrete basement skate spot, plywood ramp, bare bulb light, "
-                         "scuffed floor, grit and dust",
-    "arena_tunnel":      "an empty arena tunnel opening onto dark hardwood, spill of overhead "
-                         "light on the floor, tiered seating lost in blackness, drifting haze",
-    "sunbleached_lot":   "an empty sun-bleached parking lot at golden hour, cracked asphalt, long "
-                         "shadows, dry palms far in the background, warm hazy light",
-    "snowlit_street":    "an empty street under fresh snow at night, sodium streetlight glow, "
-                         "untouched drifts, cold blue shadow, silence",
+    # ── night, warm, saturated ──────────────────────────────────────────────
+    "lunar_new_year":
+        "a narrow temple courtyard at night, strung with paper lanterns. Palette "
+        "deep red and gold on wet grey stone. Light comes only from the lanterns — "
+        "warm, low, pooling. Incense smoke drifts at knee height. Dense, festive, "
+        "intimate.",
+    "psychedelic_venue":
+        "the empty floor of a small music hall an hour after the show, scuffed "
+        "warm wood underfoot. Palette saturated orange, magenta and amber. Light "
+        "is a hot stage wash from high above, thick in the haze. Loud, warm, "
+        "spent.",
+    "atelier_night":
+        "a high-ceilinged workroom at night, worn parquet and long empty tables. "
+        "Palette amber, ivory and dust. Light is one tungsten work lamp and "
+        "nothing else, falling off fast into brown shadow, dust hanging in the "
+        "beam. "
+        "Quiet, close, hand-made.",
+    # ── night, cool ─────────────────────────────────────────────────────────
+    "tokyo_backstreet":
+        "a very narrow back alley at night, tangled cables overhead, wet asphalt "
+        "underfoot. Palette electric cyan and magenta against black. Light is "
+        "mixed neon and vending-machine glow from both walls at once. Tight, "
+        "buzzing, close.",
+    "snowlit_street":
+        "an empty residential street under fresh deep snow at night. Palette "
+        "sodium orange pooling on blue-white snow. Light is one streetlamp and the "
+        "snow's own glow; everything beyond is dark. Silent, cold, still.",
+    "arena_tunnel":
+        "a wide concrete players' tunnel at night, opening at the far end onto a "
+        "lit hardwood floor. Palette near-black green concrete with a single warm "
+        "amber rectangle of spill at the mouth. Light is entirely at the far end. "
+        "Held breath, anticipation.",
+    # ── interior, no weather ────────────────────────────────────────────────
+    "locker_tunnel":
+        "a narrow corridor of painted cinderblock, one caged fluorescent overhead. "
+        "Palette institutional green-white and chalky grey. Light is a single hard "
+        "source directly above with fast falloff and a hard shadow line. Severe, "
+        "airless, disciplinary.",
+    "vault_room":
+        "a small climate-controlled strongroom, brushed steel walls floor to "
+        "ceiling. Palette cool neutral grey, no colour cast at all. Light is even "
+        "and shadowless from a recessed perimeter strip. Clinical, precise, "
+        "expensive, absolutely still.",
+    "skate_basement":
+        "a raw concrete basement with a plywood quarter-pipe pushed against one "
+        "wall. Palette grey concrete, tan plywood, black scuff. Light is harsh "
+        "midday daylight falling through a single street hatch, everything else in "
+        "shadow. Dusty, plain, unglamorous.",
+    # ── daylight ────────────────────────────────────────────────────────────
+    "quiet_atrium":
+        "a broad empty atrium in mid-morning, pale terrazzo underfoot and tall "
+        "glass on one side. Palette white, pale oak and deep planting green. Light "
+        "is soft diffused daylight, generous and shadow-free. Calm, airy, "
+        "unhurried.",
+    "olympic_podium":
+        "an empty stadium infield under heavy overcast, banks of dark unlit "
+        "floodlights above. Palette bleached white, wet concrete grey and cold "
+        "steel. Light is flat, broad and sourceless. Vast, ceremonial, waiting.",
+    "downtown_ny_2000s":
+        "a working city side street on a winter morning, roll-down shutters and "
+        "scaffolding, steam from a grate. Palette drab brown brick, grey slush and "
+        "dull sodium. Light is flat overcast daylight, no sun, no neon whatsoever. "
+        "Plain, documentary, unstyled.",
+    "dawn_track":
+        "an outdoor running track at first light, mist lying flat across the "
+        "lanes. Palette deep oxblood-red rubber under pale lavender-blue sky. "
+        "Light is a low cold sun raking from one side, long shadows. Crisp, empty, "
+        "early.",
+    "sunbleached_lot":
+        "a cracked empty parking lot at golden hour, dry palms far in the "
+        "background. Palette bleached tan asphalt and hot amber light. Sun is low "
+        "and harsh, shadows long and hard-edged. Dry, still, baked.",
 }
 
 # Belt and braces on top of the structural guarantee. Matched against the
@@ -267,7 +337,12 @@ def scene_for(row: dict, scene_key: str | None = None) -> tuple[str, str, str]:
     "category" (no story signal — the old behaviour, unchanged), "default".
     """
     if scene_key and scene_key in STORY_SCENES:
-        return STORY_SCENES[scene_key] + _era(row), "story:%s" % scene_key, ""
+        # ★ NO _era() HERE. Each stem now declares its own time of day and
+        # palette; appending "Late-90s period feel, warm tungsten light" on top
+        # would reintroduce exactly the global-override problem BRAND_LOOK had,
+        # one layer down. The era still shapes the CATEGORY fallback below,
+        # which carries no time of day of its own.
+        return STORY_SCENES[scene_key], "story:%s" % scene_key, ""
     cat = (row.get("category") or "").strip()
     if cat in SCENES:
         return SCENES[cat] + _era(row), "category:%s" % cat, ""
@@ -279,14 +354,14 @@ def build_prompt(row: dict, scene_key: str | None = None) -> str:
     caller to remember. assert_no_brand then re-reads the finished string and
     falls back to the category scene rather than shipping a suspect prompt."""
     scene, source, _why = scene_for(row, scene_key)
-    prompt = "%s. %s %s" % (scene, BRAND_LOOK, NEGATIVE_CONSTRAINTS)
+    prompt = "%s %s %s" % (scene, STAGE_RULE, NEGATIVE_CONSTRAINTS)
     try:
         assert_no_brand(prompt)
     except BrandLeak as e:
         ledger({"event": "brand_leak_blocked", "source": source, "error": str(e)})
         scene, source, _why = (SCENES.get((row.get("category") or "").strip(),
                                           DEFAULT_SCENE) + _era(row), "category_fallback", "")
-        prompt = "%s. %s %s" % (scene, BRAND_LOOK, NEGATIVE_CONSTRAINTS)
+        prompt = "%s %s %s" % (scene, STAGE_RULE, NEGATIVE_CONSTRAINTS)
         assert_no_brand(prompt)          # the fallback is curated too; if THIS
                                          # leaks, something is very wrong — raise
     return prompt
