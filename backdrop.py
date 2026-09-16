@@ -20,10 +20,18 @@ RAILS (ratified 2026-08-19)
     Anything ambiguous is flagged in the proposal note rather than silently used.
   * Every generation is ledgered with prompt, model, aspect, cost.
 
-MODEL: grok-imagine-image-2.0 @ $0.04/image (ratified). Flat per-image pricing.
+PROVIDER (v1.2 ruling, 2026-09-09)
+  * PRIMARY: OpenAI Images, gpt-image-2.5-flare, quality medium. Cost is
+    COMPUTED PER IMAGE from the response's `usage` tokens x the published
+    per-1M rates and written to the ledger, so the $1/day breaker counts real
+    dollars instead of a guessed constant.
+  * FALLBACK: xAI grok-imagine-image-2.0 @ a flat $0.04, kept for one cycle.
+    Selected when OPENAI_API_KEY is absent, or after an OpenAI 5xx/network
+    failure. A 4xx is NOT retried on xAI -- that means OUR request is wrong,
+    and silently succeeding elsewhere would hide the bug.
 """
 from __future__ import annotations
-import argparse, json, sys, urllib.request, urllib.error
+import argparse, json, re, sys, urllib.request, urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -32,12 +40,41 @@ sys.path.insert(0, str(HERE))
 import x_client as X  # noqa: E402
 import card_render as CR  # noqa: E402
 
+# ── xAI (FALLBACK) ──────────────────────────────────────────────────────────
 ENDPOINT = "https://api.x.ai/v1/images/generations"
 MODEL = "grok-imagine-image-2.0"
-COST_PER_IMAGE = 0.04
-# API-supported aspect ratios (422s on anything else — 4:5 is NOT supported, so the
-# feed-optimal 4:5 is produced by generating 3:4 and cropping height in compose.py):
+COST_PER_IMAGE = 0.04                    # flat; xAI path only
+# xAI-supported aspect ratios (422s on anything else — 4:5 is NOT among them):
 SUPPORTED_ASPECTS = ("1:1","3:4","4:3","9:16","16:9","2:3","3:2","1:2","2:1","auto")
+
+# ── OpenAI Images (PRIMARY) ─────────────────────────────────────────────────
+# Request/response contract: https://developers.openai.com/api/docs/api-reference/images/create
+# Rates + quality set:       https://developers.openai.com/api/docs/models/gpt-image-2.5-flare
+# Both retrieved 2026-09-08.
+OPENAI_ENDPOINT = "https://api.openai.com/v1/images/generations"
+# PINNED DELIBERATELY. A floating alias can shift output style under an
+# unattended cron job with no code change and no ledger signal — the drift
+# would first surface as Ashton rejecting proposals for reasons nobody can
+# trace. Unpinning is a ruling, not a maintenance edit.
+OPENAI_MODEL = "gpt-image-2.5-flare-2026-09-08"
+OPENAI_QUALITY = "medium"                # low|medium|high|xhigh|max|auto
+
+# Published per-1M-token rates, gpt-image-2.5-flare, 2026-09-08. Snapshotted
+# into every ledger record so a historical cost can be re-derived even after
+# the published rates move.
+RATE_IMAGE_OUT_PER_M = 30.00
+RATE_TEXT_IN_PER_M = 5.00
+RATE_IMAGE_IN_PER_M = 8.00
+
+# OpenAI takes an explicit WIDTHxHEIGHT, not a ratio. Every value below is
+# divisible by 16 and inside the documented 1:3–3:1 / 3840px bounds. 4:5 and
+# 16:9 are generated NATIVELY here — the crop-a-3:4 workaround is retired.
+SIZE_FOR_ASPECT = {"3:4": "1152x1536", "4:5": "1088x1360", "16:9": "1536x864"}
+
+# Used ONLY when a 200 carries no usage object. Deliberately pessimistic: a
+# generated image must never be ledgered at $0, or the daily breaker goes blind
+# to real spend.
+COST_FALLBACK_USD = 0.25
 LEDGER = HERE / "ledger" / "backdrops.jsonl"
 
 # Structural. Appended to EVERY prompt — the single most important rail here.
@@ -77,6 +114,134 @@ SCENES = {
 DEFAULT_SCENE = SCENES["Lifestyle"]
 
 
+# ══ STORY-DRIVEN SCENES (E2, 2026-09-16) ═══════════════════════════════════════
+#
+# ★★ THE PROMPT IS ASSEMBLED ONLY FROM STRINGS IN THIS FILE.
+#
+# That sentence is the whole answer to "how do you stop a story smuggling a brand
+# mark into the prompt". No code path copies dossier fact text, a colorway, a
+# collab partner or a catalog name into a prompt. A hook fact is read to CHOOSE a
+# key; the key selects a stem that was written here, by hand, in advance. A
+# Supreme shoe cannot produce a box logo on a wall because the word "Supreme"
+# never reaches the model — only the stem `downtown_ny_2000s` does, and that stem
+# describes a street, not a storefront.
+#
+# The alternative — asking a model to turn the fact into a scene brief — would be
+# richer and would put brand names in the prompt by construction. Rejected.
+#
+# Two further guarantees, because one mechanism is not a rail:
+#   * NEGATIVE_CONSTRAINTS is still concatenated structurally in build_prompt().
+#   * assert_no_brand() re-scans the FINISHED prompt against a denylist and falls
+#     back to the category scene rather than shipping a suspect prompt.
+#
+# Adding a STORY_VOCAB entry is a content decision with the same discipline as
+# moments.json: the PATTERN may name a brand (it is matched against a fact, never
+# emitted); the STEM may never contain a proper noun of any kind.
+
+# (compiled pattern key, story key) — matched against the HOOK FACT's text only.
+# Order matters: first match wins, so the specific precedes the general.
+STORY_VOCAB = (
+    (r"chinese new year|lunar new year|year of the", "lunar_new_year"),
+    (r"\bolympic|team usa|\bgold medal", "olympic_podium"),
+    (r"grateful dead|dead\b.{0,12}\btour|psychedelic", "psychedelic_venue"),
+    (r"\bpigeon\b|lower east side|\bL\.?E\.?S\.?\b|riot", "downtown_ny_2000s"),
+    (r"supreme|skate shop|downtown manhattan|\bnyc\b|new york", "downtown_ny_2000s"),
+    (r"\bbanned\b|fined|league.{0,15}(ban|rule)", "locker_tunnel"),
+    (r"hospital|charit|foundation|proceeds|doernbecher", "quiet_atrium"),
+    (r"friends and family|player exclusive|\bPE\b|never released|unreleased", "vault_room"),
+    (r"\bparis\b|\bmilan\b|\brunway\b|fashion week|luxury", "atelier_night"),
+    (r"\btokyo\b|\bjapan|harajuku|shibuya", "tokyo_backstreet"),
+    (r"\bmarathon\b|\btrack\b|\brunner|\bracing\b", "dawn_track"),
+    (r"\bskate\b|skateboard|\bSB\b", "skate_basement"),
+    (r"\bcourt\b|\bNBA\b|playoff|finals|dunk contest", "arena_tunnel"),
+    (r"summer|beach|surf|\bmiami\b|\bLA\b|los angeles", "sunbleached_lot"),
+    (r"winter|snow|\bcold\b|storm", "snowlit_street"),
+)
+
+# story key -> PLACE, ERA/LIGHT, MOOD. Hand-written. No proper nouns, ever.
+STORY_SCENES = {
+    "lunar_new_year":    "an empty narrow courtyard strung with red paper lanterns at night, "
+                         "warm red and gold light pooling on wet stone, drifting incense haze",
+    "olympic_podium":    "an empty stadium podium area at night, polished floor, banks of "
+                         "dormant floodlights, long shadows, cold clean light, vast and quiet",
+    "psychedelic_venue": "an empty small concert venue after the show, scuffed wooden floor, "
+                         "swirling warm projection light in reds and ambers, thick haze",
+    "downtown_ny_2000s": "an empty downtown side street on a winter morning, roll-down shutters, "
+                         "scaffolding, steam from a grate, flat overcast early light, wet pavement",
+    "locker_tunnel":     "an empty concrete players' tunnel, single row of caged lights overhead, "
+                         "painted cinderblock, deep shadow at both ends, cold and severe",
+    "quiet_atrium":      "an empty bright atrium at dawn, pale terrazzo floor, tall windows, soft "
+                         "diffused daylight, potted plants far back, calm and generous",
+    "vault_room":        "an empty climate-controlled vault room, brushed steel walls, low cool "
+                         "strip lighting, polished floor, absolute stillness",
+    "atelier_night":     "an empty high-ceilinged atelier at night, worn parquet, dress forms far "
+                         "in the background, single warm work lamp, dust in the air",
+    "tokyo_backstreet":  "an empty narrow backstreet at night, vending-machine glow, tangled "
+                         "overhead cables, wet asphalt, cool cyan and magenta light",
+    "dawn_track":        "an empty outdoor running track at first light, mist on the lanes, long "
+                         "low sun, cool blue shadows",
+    "skate_basement":    "an empty concrete basement skate spot, plywood ramp, bare bulb light, "
+                         "scuffed floor, grit and dust",
+    "arena_tunnel":      "an empty arena tunnel opening onto dark hardwood, spill of overhead "
+                         "light on the floor, tiered seating lost in blackness, drifting haze",
+    "sunbleached_lot":   "an empty sun-bleached parking lot at golden hour, cracked asphalt, long "
+                         "shadows, dry palms far in the background, warm hazy light",
+    "snowlit_street":    "an empty street under fresh snow at night, sodium streetlight glow, "
+                         "untouched drifts, cold blue shadow, silence",
+}
+
+# Belt and braces on top of the structural guarantee. Matched against the
+# FINISHED prompt; a hit means something reached it that never should have.
+BRAND_TOKENS = (
+    "nike", "jordan", "adidas", "yeezy", "puma", "reebok", "asics", "converse",
+    "vans", "balenciaga", "supreme", "off-white", "travis scott", "cactus jack",
+    "clot", "stussy", "staple", "swoosh", "jumpman", "three stripes", "new balance",
+    "louis vuitton", "dior", "fragment", "sacai", "union", "kith", "bape",
+)
+
+
+class BrandLeak(AssertionError):
+    """A brand token reached a finished prompt. Never suppressed silently."""
+
+
+def assert_no_brand(prompt: str) -> None:
+    low = prompt.lower()
+    # NEGATIVE_CONSTRAINTS legitimately says "no swooshes" etc., so scan only the
+    # part of the prompt the story can influence.
+    scene_part = low.split("absolute constraints:")[0]
+    hit = [t for t in BRAND_TOKENS if t in scene_part]
+    if hit:
+        raise BrandLeak("brand token(s) reached the prompt: %s" % ", ".join(hit))
+
+
+def story_key(dossier: dict | None, hook_text: str | None = None) -> tuple[str | None, str]:
+    """(story key, the fact that chose it) — or (None, "") when no story signal.
+
+    Reads the hook fact ONLY. Support facts describe materials and packaging and
+    would pick scenes for the wrong reason; spec facts are worse. The returned
+    fact text is for the LEDGER and the report, never for the prompt.
+    """
+    texts = []
+    if hook_text:
+        texts.append(hook_text)
+    if dossier:
+        for f in dossier.get("facts") or []:
+            if f.get("tag") in HOOKABLE_FOR_SCENE:
+                texts.append(f.get("text") or "")
+    for t in texts:
+        if not t:
+            continue
+        for pat, key in _STORY_RX:
+            if pat.search(t):
+                return key, t
+    return None, ""
+
+
+HOOKABLE_FOR_SCENE = frozenset({"collab_origin", "cultural_moment", "release_drama",
+                                "price_reason", "designer"})
+_STORY_RX = tuple((re.compile(p, re.I), k) for p, k in STORY_VOCAB)
+
+
 def now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
@@ -88,27 +253,173 @@ def ledger(rec: dict):
         fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
 
-def scene_for(row: dict) -> str:
-    """Derive the scene from the shoe's own story — category first, then era/tags."""
-    cat = (row.get("category") or "").strip()
-    base = SCENES.get(cat, DEFAULT_SCENE)
+def _era(row: dict) -> str:
     year = row.get("year")
-    era = ""
     if isinstance(year, int):
         if year < 2000:
-            era = " Late-90s period feel, warm tungsten light, slight haze."
-        elif year < 2010:
-            era = " Mid-2000s period feel, cooler fluorescent tones."
-    return base + era
+            return " Late-90s period feel, warm tungsten light, slight haze."
+        if year < 2010:
+            return " Mid-2000s period feel, cooler fluorescent tones."
+    return ""
 
 
-def build_prompt(row: dict) -> str:
-    return "%s. %s %s" % (scene_for(row), BRAND_LOOK, NEGATIVE_CONSTRAINTS)
+def scene_for(row: dict, dossier: dict | None = None,
+              hook_text: str | None = None) -> tuple[str, str, str]:
+    """(scene text, source, the fact that chose it).
+
+    ★ E2, 2026-09-16: THE STORY DECIDES, and the category is the FALLBACK.
+    Before this, the scene came from row["category"] and row["year"] and nothing
+    else — six stems of which two were byte-identical, so a CLOT Chinese New Year
+    shoe and a Supreme SB got the same purple night street, every day. The
+    dossier held the story and this module had never read it.
+
+    source is one of: "story" (a hook fact matched the curated vocabulary),
+    "category" (no story signal — the old behaviour, unchanged), "default".
+    """
+    key, why = story_key(dossier, hook_text)
+    if key and key in STORY_SCENES:
+        return STORY_SCENES[key] + _era(row), "story:%s" % key, why
+    cat = (row.get("category") or "").strip()
+    if cat in SCENES:
+        return SCENES[cat] + _era(row), "category:%s" % cat, ""
+    return DEFAULT_SCENE + _era(row), "default", ""
+
+
+def build_prompt(row: dict, dossier: dict | None = None,
+                 hook_text: str | None = None) -> str:
+    """NEGATIVE_CONSTRAINTS is concatenated HERE, structurally — never left to a
+    caller to remember. assert_no_brand then re-reads the finished string and
+    falls back to the category scene rather than shipping a suspect prompt."""
+    scene, source, _why = scene_for(row, dossier, hook_text)
+    prompt = "%s. %s %s" % (scene, BRAND_LOOK, NEGATIVE_CONSTRAINTS)
+    try:
+        assert_no_brand(prompt)
+    except BrandLeak as e:
+        ledger({"event": "brand_leak_blocked", "source": source, "error": str(e)})
+        scene, source, _why = (SCENES.get((row.get("category") or "").strip(),
+                                          DEFAULT_SCENE) + _era(row), "category_fallback", "")
+        prompt = "%s. %s %s" % (scene, BRAND_LOOK, NEGATIVE_CONSTRAINTS)
+        assert_no_brand(prompt)          # the fallback is curated too; if THIS
+                                         # leaks, something is very wrong — raise
+    return prompt
+
+
+def prompt_source(row: dict, dossier: dict | None = None,
+                  hook_text: str | None = None) -> str:
+    """The source label, for the ledger and the digest note."""
+    return scene_for(row, dossier, hook_text)[1]
+
+
+def _openai_cost(usage: dict | None) -> tuple[float, str | None]:
+    """Real dollars from the response's own token counts.
+
+    A 200 with no usage object must NOT be ledgered at $0 — that would make the
+    daily breaker blind to spend that actually happened. Fall back high instead.
+    """
+    if not usage:
+        return COST_FALLBACK_USD, "usage_missing"
+    d = usage.get("input_tokens_details") or {}
+    cost = (float(usage.get("output_tokens") or 0) * RATE_IMAGE_OUT_PER_M
+            + float(d.get("text_tokens") or 0) * RATE_TEXT_IN_PER_M
+            + float(d.get("image_tokens") or 0) * RATE_IMAGE_IN_PER_M) / 1e6
+    return round(cost, 6), None
+
+
+def _generate_openai(prompt: str, aspect: str, out: Path, env: dict) -> dict:
+    """OpenAI Images path. Raises _OpenAIServerError on 5xx/network so the
+    caller can fall back; die()s on 4xx, which means our request is wrong."""
+    if aspect not in SIZE_FOR_ASPECT:
+        X.die("aspect %r unsupported by provider openai; use one of %s"
+              % (aspect, ", ".join(sorted(SIZE_FOR_ASPECT))))
+    size = SIZE_FOR_ASPECT[aspect]
+    body = {"model": OPENAI_MODEL, "prompt": prompt, "n": 1, "size": size,
+            "quality": OPENAI_QUALITY, "output_format": "png",
+            # The backdrop is ALWAYS composited under a card. A transparent
+            # background would produce a broken composite that nothing
+            # downstream inspects before it reaches Telegram.
+            "background": "opaque"}
+    req = urllib.request.Request(OPENAI_ENDPOINT, data=json.dumps(body).encode(),
+        headers={"Authorization": "Bearer %s" % env["OPENAI_API_KEY"],
+                 "Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=300) as r:
+            status, raw = r.status, r.read().decode()
+    except urllib.error.HTTPError as e:
+        status, raw = e.code, e.read().decode()
+    except Exception as e:
+        raise _OpenAIServerError("transport:%s" % type(e).__name__)
+
+    if status >= 500:
+        raise _OpenAIServerError("http_%d:%s" % (status, raw[:200]))
+    if status != 200:
+        ledger({"event": "generation_failed", "provider": "openai",
+                "model": OPENAI_MODEL, "aspect": aspect, "size": size,
+                "http": status, "error": raw[:300], "cost_usd": 0.0})
+        X.die("OpenAI generation failed (HTTP %s): %s" % (status, raw[:300]))
+
+    j = json.loads(raw)
+    item = j["data"][0]
+    usage = j.get("usage")
+    cost, detail = _openai_cost(usage)
+    rec = {"event": "generated", "provider": "openai", "model": OPENAI_MODEL,
+           "quality": OPENAI_QUALITY, "size": size, "aspect": aspect,
+           "cost_usd": cost, "output": str(out), "prompt": prompt,
+           "revised_prompt": item.get("revised_prompt"),
+           "usage": usage, "rate_snapshot": {
+               "image_out_per_m": RATE_IMAGE_OUT_PER_M,
+               "text_in_per_m": RATE_TEXT_IN_PER_M,
+               "image_in_per_m": RATE_IMAGE_IN_PER_M},
+           "inspection": "PENDING"}
+    if detail:
+        rec["detail"] = detail
+    # Charged at the 200 — ledger HERE, before the decode can fail.
+    ledger(rec)
+
+    if item.get("b64_json"):
+        import base64
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_bytes(base64.b64decode(item["b64_json"]))
+    elif item.get("url"):
+        out.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            with urllib.request.urlopen(item["url"], timeout=300) as r:
+                out.write_bytes(r.read())
+        except Exception as ex:
+            ledger({"event": "download_failed", "provider": "openai",
+                    "output": str(out), "error": type(ex).__name__,
+                    "note": "spend already ledgered above"})
+            X.die("image generated (charged) but download failed: %s" % type(ex).__name__)
+    else:
+        X.die("no image payload in response: %s" % str(item)[:200])
+    return dict(rec)
+
+
+class _OpenAIServerError(RuntimeError):
+    """OpenAI failed in a way that is plausibly transient — fall back to xAI."""
 
 
 def generate(prompt: str, aspect: str, out: Path, env: dict) -> dict:
+    """Provider dispatcher. Signature and return contract unchanged.
+
+    Key ABSENT is a configuration choice, not a failure: it selects xAI
+    directly and writes NO provider_fallback record. Only a real OpenAI
+    5xx/network failure is a fallback event worth alerting on.
+    """
+    if env.get("OPENAI_API_KEY"):
+        try:
+            return _generate_openai(prompt, aspect, out, env)
+        except _OpenAIServerError as e:
+            ledger({"event": "provider_fallback", "from": "openai", "to": "xai",
+                    "reason": str(e)[:300], "aspect": aspect})
     if aspect not in SUPPORTED_ASPECTS:
-        X.die("aspect %r unsupported by the API; use one of %s" % (aspect, ", ".join(SUPPORTED_ASPECTS)))
+        X.die("aspect %r unsupported by provider xai; use one of %s"
+              % (aspect, ", ".join(SUPPORTED_ASPECTS)))
+    return _generate_xai(prompt, aspect, out, env)
+
+
+def _generate_xai(prompt: str, aspect: str, out: Path, env: dict) -> dict:
+    """Unchanged xAI path. Flat $0.04. Reached when OPENAI_API_KEY is absent,
+    or as the fallback after an OpenAI 5xx/network failure."""
     body = {"model": MODEL, "prompt": prompt, "n": 1,
             "aspect_ratio": aspect, "response_format": "b64_json"}
     req = urllib.request.Request(ENDPOINT, data=json.dumps(body).encode(),

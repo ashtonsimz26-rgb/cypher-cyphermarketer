@@ -26,6 +26,7 @@ from pathlib import Path
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from x_client import weighted_len  # noqa: E402  (pure function, no side effects)
+import rails  # noqa: E402  (PULL_MARKERS — the set skeleton asserts against them)
 
 HERE = Path(__file__).resolve().parent
 FORMAT_STATE = HERE / "state" / "last_format.json"
@@ -59,8 +60,36 @@ LINK = "https://apps.apple.com/app/cypher-unlock-the-vault/id6761334111"
 # Copy skeletons. `which_would_you_pull` is DECLARED but not yet selectable —
 # it needs a two-card composite the compositor does not build yet. Listing it
 # without implementing it would silently reduce the rotation to a lie.
-FORMATS = ["story_spotlight", "price_journey", "on_this_day", "grail_lore"]
+FORMATS = ["story_spotlight", "price_journey", "on_this_day", "grail_lore",
+           "set_completion"]
 DECLARED_NOT_READY = {"which_would_you_pull": "needs a two-card composite (compose.py is single-card)"}
+
+# ── set_completion (Ashton's ruling, 2026-09-16) ─────────────────────────────
+# The only tentpole the catalog can actually support: three cards, all live, all
+# with claimed rewards on the server. SOUL admits them on the EARN route only,
+# and the route IS the claim.
+#
+# ★★ STRUCTURALLY INCAPABLE OF PULL LANGUAGE, not merely discouraged from it.
+# Three mechanisms, because "the template doesn't say pull" is not a guarantee:
+#   1. The skeleton has NO free-text slot. Every variable it interpolates is a
+#      catalog field — display name, colorway, set name, requirement names. The
+#      story fragment, which is the one slot that carries arbitrary prose, is
+#      not used by this format at all.
+#   2. SET_LEAD_TEMPLATE literally contains the route phrase, so
+#      SET_ROUTE_STATED cannot fail for a draft this skeleton produced.
+#   3. assemble() ASSERTS the output against rails.PULL_MARKERS before
+#      returning. A future edit that reintroduces a free slot fails loudly here
+#      rather than shipping a false claim.
+SET_LEAD_TEMPLATE = "Complete the %s set and the %s is yours."
+SET_ROUTE_PHRASE = "complete the"       # lowercase; the assertion is case-folded
+
+
+def _join_names(names: list[str]) -> str:
+    """'a and b' / 'a, b and c'. Catalog display names only — never free text."""
+    names = [n for n in names if n]
+    if len(names) <= 1:
+        return names[0] if names else ""
+    return "%s and %s" % (", ".join(names[:-1]), names[-1])
 
 # Signals that a catalog description actually carries a STORY rather than specs.
 # Human-interest markers. These outrank the price hook — see detect_hook().
@@ -142,10 +171,17 @@ CHOOSE_FORMAT_READS = frozenset({"hook_type", "last_format", "avoid_codes"})
 
 def detect_hook(row: dict, *, source: str, price_verified: bool,
                 headline: str = "",
-                hook_facts: list[dict] | None = None) -> tuple[str | None, str]:
+                hook_facts: list[dict] | None = None,
+                earn_route: bool = False) -> tuple[str | None, str]:
     """Return (hook_type, human-readable hook) or (None, reason-to-skip).
 
     Order matters: the most specific, most time-relevant hook wins.
+
+    ★ THE EARN ROUTE OUTRANKS EVERYTHING (2026-09-16). Three cards in the whole
+    catalog can be earned and not pulled. When one comes up, that IS the story —
+    a top-tier card with a route to it is rarer than any collab origin — and it
+    is also the only hook whose format can state the route. Placed first for
+    both reasons.
 
     ★★ NARRATIVE OUTRANKS ARITHMETIC (ruled 2026-09-11).
     A 3x multiple is a FILTER, not a hook — it tells you a shoe is interesting,
@@ -165,6 +201,11 @@ def detect_hook(row: dict, *, source: str, price_verified: bool,
     desc = row.get("description") or ""
     year = row.get("year")
     retail, resale = row.get("retail_price"), row.get("estimated_resale")
+
+    # FIRST — see the docstring. Only three cards in the catalog can reach here.
+    if earn_route:
+        return "set_completion", ("earnable by completing the %s set"
+                                  % (row.get("set_name") or "?"))
 
     if source in ("drop_correspondent", "drop_overnight") and headline:
         return "drop_moment", "matched today's headline: %s" % headline[:70]
@@ -236,6 +277,12 @@ ALLOWED_FORMATS = {
     "cultural_moment": ["story_spotlight", "grail_lore"],
     "release_drama":   ["story_spotlight", "grail_lore"],
     "collab_origin":   ["story_spotlight", "grail_lore"],
+    # The EARN route has exactly one skeleton, by design. No story format may
+    # voice it: story_spotlight and grail_lore have no route slot, so either
+    # would produce a true-looking post that never says how the card is got —
+    # which is the failure SET_ROUTE_STATED exists to catch. Same reasoning as
+    # price_journey's single entry.
+    "set_completion":  ["set_completion"],
 }
 
 
@@ -316,12 +363,28 @@ def build_draft(row: dict, hook_type: str, fmt: str, *, price_verified: bool,
         elif fmt == "price_journey" and price_verified:
             lead = "The %s retailed at $%s. Real pairs now trade around $%s." % (
                 title, retail, row.get("estimated_resale"))
+        elif fmt == "set_completion":
+            # NOTE the absence of `frag`. That is deliberate and load-bearing —
+            # see the block comment on SET_LEAD_TEMPLATE.
+            reqs = row.get("set_requirements") or []
+            lead = SET_LEAD_TEMPLATE % (row.get("set_name") or "", title)
+            if reqs:
+                lead += " You need the %s." % _join_names(reqs)
         elif fmt == "grail_lore":
             lead = "%s. %s." % (title, frag) if frag else "%s." % title
         else:
             lead = "%s. $%s retail. %s." % (year, retail, frag) if frag \
                 else "%s. $%s retail. %s." % (year, retail, title)
-        return "%s\n\n%s\n\nFree: %s" % (lead, attr, LINK)
+        out = "%s\n\n%s\n\nFree: %s" % (lead, attr, LINK)
+        if fmt == "set_completion":
+            low = out.lower()
+            assert SET_ROUTE_PHRASE in low, \
+                "set_completion lost its route phrase — the route IS the claim"
+            leaked = [m for m in rails.PULL_MARKERS if m in low]
+            assert not leaked, \
+                "set_completion produced pull language %s — a set reward cannot be " \
+                "pulled, and this skeleton must be incapable of saying otherwise" % leaked
+        return out
 
     text = assemble(frag_full)
     if weighted_len(text) <= limit:

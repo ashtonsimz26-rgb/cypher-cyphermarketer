@@ -23,10 +23,36 @@ file at a time does not look:
                   was nothing anomalous to notice. See dossier.py's "A RAIL
                   GOES ON EVERY DOOR": one rail per entry point, one test per
                   path
-Four of the six were caught by a strict test or by reading output. NONE was
+  RAIL RETRY      — gate8 was called TWICE inside draft_with_gate8: once on the
+  (09-16)           composed text and once on the bare retry. The pair that
+                    proves obtainability was threaded into the first call and
+                    not the second, so the primary path enforced the rail and
+                    the RETRY path walked around it — on the same rail, in the
+                    same function, four lines apart
+Four of the first six were caught by a strict test or by reading output. NONE was
 caught by reading code; the sixth was caught only by asking which code path
 actually runs at 09:00 — a different question from whether the code is
 correct.
+
+★★ THE SEVENTH IS A NEW SHAPE, AND THE FIRST CAUGHT BY AST SCAN
+The first six are all "the information never arrived". The seventh is different:
+the information arrived on the MAIN path and not on the RETRY path. "A rail goes
+on every door" (dossier.py) was already the rule, and it was not enough, because
+a retry is not a door anyone thinks of as a door — it is the same door, taken
+twice, and the second time with different arguments.
+
+  THE RULE: every gate must have its RETRY path checked, not just its primary
+  call site. Wherever a check is invoked more than once in one function — a
+  retry, a fallback, a bare-text second pass, a catch-block re-run — each
+  invocation is a separate enforcement point and needs its own assertion.
+
+It is also the first instance in this list found by SCANNING THE AST rather than
+by a symptom. `tests/test_obtainability_rail.py` asserts `draft_with_gate8` calls
+gate8 exactly twice and that BOTH calls pass the pair. No output was wrong yet;
+the bypass had simply never been exercised on a card that would fail. That is
+worth noticing: reading the code would not have found it either, because both
+call sites look correct in isolation — only COUNTING them and comparing their
+arguments does.
 
 THE RULE: a field this pipeline PRODUCES and no decision-maker READS is an
 ImportError. That is the inert-rule signature — a value exists, and nothing

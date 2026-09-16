@@ -120,7 +120,16 @@ def refresh_set_routes() -> dict:
     # offline instead of needing the DB.
     flagged = _sql("""select image_name, rarity::text as rarity
       from public.catalog_cards where is_set_reward order by 1, 2;""")
-    blob = {"generated_at": datetime.now(timezone.utc).isoformat(),
+    blob = {"_note": ("Despite the name this file carries BOTH halves of the "
+                      "obtainability verdict: `reachable_pairs` (the PULL route) and "
+                      "`routes` (the EARN route). They live together because proving a "
+                      "set route REQUIRES requirement reachability — splitting them "
+                      "would mean two caches with two staleness windows answering one "
+                      "question. rails.py reads this and grows no DB access. "
+                      "`flagged_is_set_reward` is AUDIT ONLY and is never consulted for "
+                      "a verdict. Regenerated at the start of every digest run; older "
+                      "than rails.FRESHNESS_DAYS and every card fails closed."),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
             "reachable_pairs": sorted("%s|%s" % (p["image_name"], p["rarity"]) for p in pairs),
             "routes": routes,
             "flagged_is_set_reward": sorted("%s|%s" % (f["image_name"], f["rarity"])
@@ -133,6 +142,47 @@ def refresh_set_routes() -> dict:
             earnable=sum(1 for v in routes.values()
                          if v["requirements"] and all(q["reachable"] for q in v["requirements"])))
     return blob
+
+
+def _route_entry(image_name: str, rarity: str) -> dict | None:
+    routes, _why = rails.load_set_routes()
+    if not routes:
+        return None
+    return (routes.get("routes") or {}).get("%s|%s" % (image_name, rarity))
+
+
+def _set_name(image_name: str, rarity: str) -> str:
+    e = _route_entry(image_name, rarity)
+    return (e or {}).get("set_name") or ""
+
+
+def _set_requirement_names(image_name: str, rarity: str) -> list[str]:
+    """Colorway names of the cards the set needs, for the copy skeleton.
+
+    Catalog fields only — the skeleton has no free-text slot and this must not
+    become one. A name that cannot be resolved is DROPPED rather than guessed.
+
+    NOT CR.fetch_card: that needs an exact (image_name, rarity) and die()s when
+    it misses, which would take the whole run down for a cosmetic name. One
+    query, keyed on image_name, tolerant of a miss."""
+    e = _route_entry(image_name, rarity)
+    reqs = [q.get("image_name") for q in (e or {}).get("requirements") or [] if q.get("image_name")]
+    if not reqs:
+        return []
+    lits = ", ".join("'" + r.replace("'", "''") + "'" for r in reqs)
+    try:
+        rows = _sql("select distinct image_name, colorway, name from public.catalog_cards "
+                    "where image_name in (%s);" % lits)
+    except Exception:
+        return []
+    by = {r["image_name"]: r for r in rows}
+    out = []
+    for r in reqs:                          # preserve the set's own order
+        row = by.get(r) or {}
+        nm = (row.get("colorway") or "").strip() or (row.get("name") or "").strip()
+        if nm:
+            out.append(nm)
+    return out
 
 
 def drain_drop_queue() -> list[dict]:
@@ -377,14 +427,24 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     # (a) HOOK GATE — before spending a cent on a render or a backdrop.
     # the dossier's verified hook facts now reach the hook selector (R1/R2)
     _dp = HERE / "data" / "dossiers" / ("%s.json" % cand["image_name"])
+    _dj = None
     try:
         _dj = json.loads(_dp.read_text())
         _hooks = DOS.hook_facts(_dj)          # sensitivity-filtered at the source
     except Exception:
         _hooks = []
+    # ★ the EARN route reaches the hook selector. _route was already proved above
+    # by rails.obtainability; passing it here is what lets set_completion be
+    # SELECTED rather than merely declared — the failure mode that kept
+    # which_would_you_pull unbuilt for a month.
+    if _route == "earn":
+        row = dict(row)
+        row["set_name"] = _set_name(cand["image_name"], cand["rarity"])
+        row["set_requirements"] = _set_requirement_names(cand["image_name"], cand["rarity"])
     hook_type, hook = editorial.detect_hook(
         row, source=cand.get("source", ""), price_verified=price_ok,
-        headline=cand.get("hook", ""), hook_facts=_hooks)
+        headline=cand.get("hook", ""), hook_facts=_hooks,
+        earn_route=(_route == "earn"))
     if hook_type is None:
         run_log(event="skipped_no_hook", image_name=cand["image_name"], reason=hook)
         return None
@@ -399,7 +459,11 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     # ── composition FIRST (G2): card_shows_value decides whether the draft
     # needs an attribution sentence, so the frame must be known before the text.
     brand = (row.get("brand") or "").strip() or None
-    scene = row.get("category") or "Lifestyle"
+    # ★ E2: the scene comes from the hook FACT. `hook` is detect_hook's chosen
+    # fact text, so the scene and the lead are driven by the SAME fact — that is
+    # the point, not a coincidence. row["category"] is the fallback only.
+    _scene_text, scene_source, _scene_why = BD.scene_for(row, _dj, hook)
+    scene = scene_source
     tentpole = bool(occasion_for(cand["image_name"], datetime.now().date())[0])
     composition = pick_composition(fmt, hook_type, brand, scene, tentpole=tentpole)
     shows_value = COMP.card_shows_value(composition)
@@ -455,7 +519,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
         bd = None
         if composition in COMP.NEEDS_BACKDROP:
             bd = OUT / f"{stem}_bd.png"
-            BD.generate(BD.build_prompt(row), "3:4", bd, env)
+            BD.generate(BD.build_prompt(row, _dj, hook), "3:4", bd, env)
             BD.record_verdict(str(bd), "UNINSPECTED_AUTOMATED",
                               "unattended launchd run — no Claude in the loop; Ashton is "
                               "the first human eye on this image")
@@ -471,6 +535,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     editorial.record_format(fmt)
     run_log(event="draft_built", image_name=cand["image_name"], hook_type=hook_type,
             brand=brand, composition=composition, scene=scene,
+            scene_why=(_scene_why or "")[:160],
             format=fmt, weighted=wl, tier=cand.get("rarity"))
     return {"text_file": tf, "image": visual, "cand": cand, "insp": insp,
             "price_ok": price_ok, "price_why": price_why, "weighted": wl,
