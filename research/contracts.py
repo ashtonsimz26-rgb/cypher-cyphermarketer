@@ -107,31 +107,72 @@ would have hidden the bug rather than fixing it.
   constraint gets DESCRIBED — so full-text scanning is biased toward exactly the
   false positive it will hit.
 
+★ IT HAPPENED TWICE IN ONE SESSION, THE SECOND TIME TO THE PERSON WHO HAD JUST
+WRITTEN THE RULE. About an hour after banking the paragraph above, the E2.5
+memory-loader suite asserted:
+
+    ok(not any(w in src for w in ('!= "true"', "!= \'true\'")),
+       "and no `!= true` shortcut")
+
+and failed — on memory.py's own comment, which reads
+
+    # `!= "true"` would admit "no", "0", "False", "" and anything a future
+    # editor invents.
+
+That is: a test checking that a shortcut was not used, defeated by the comment
+explaining why the shortcut was not used. Written by the same session, against
+its own newly-written rule, in the next file it touched.
+
+Record the recurrence rather than the possibility. "This can happen" invites a
+future session to believe care is sufficient. It is not: the first instance
+survived review, and the second was written by someone who had the rule in
+working memory. The habit — grep the source for a token — is faster to reach for
+than the correct tool, and knowing better does not slow the hand down. Only the
+AST does.
+
 Same family as the entries above: the check looked right and measured the wrong
 thing. It differs in being cheap to catch — it fails immediately, rather than
 passing for a year. The dangerous version is the inverse: a full-text scan that
-PASSES because a comment happens to contain the token it was looking for.
+PASSES because a comment happens to contain the token it was looking for. Both
+instances here were the loud kind. The quiet kind has not been caught yet, which
+is not evidence it has not happened.
 
 ★★ A CHECK OVER AN EMPTY COLLECTION PASSES (four instances, 2026-09-16)
-`all([])` is True. So is `any()`-of-nothing being False, `not exists (...)` over
-an empty set, and — the nastiest — `re.compile("")`, which matches EVERY string
-rather than none. Every "all of X must hold" becomes "nothing was checked" when
-X is empty, and it does so silently, wearing the shape of a pass.
 
-  THE RULE: before writing any all / any / not exists / join-an-alternation,
-  ask what the empty case returns, and guard it EXPLICITLY. A non-empty
-  assertion next to the quantifier, never a comment promising the collection is
-  never empty.
+THE PATTERN IS NOT A KEYWORD. Start with the instance that proves it, because a
+session grepping for `all(` / `any(` / `not exists` will not find this one:
+
+    _phrase_rx(terms) builds a word-bounded alternation by joining `terms` with
+    "|". Given an EMPTY list it compiles the empty pattern — and
+
+        re.compile("").search("literally anything")  ->  True
+
+    An empty vocabulary does not match nothing. It matches EVERYTHING. A curated
+    entity list that failed to load would silently promote every sentence in
+    every dossier to "names a person". There is no `all` in sight.
+
+`all([])` is the same failure wearing a recognisable face; `not exists (...)`
+over an empty set is the SQL face; `re.compile("")` is the face nobody
+recognises. State it as the behaviour, never as the syntax:
+
+  A CHECK OVER AN EMPTY COLLECTION PASSES. Every "all of X must hold" becomes
+  "nothing was checked" when X is empty, and it does so silently, wearing the
+  shape of a pass.
+
+  THE RULE: before writing any quantifier — all, any, not exists, a joined
+  alternation, a regex built from data, a loop that sets a flag — ask what the
+  EMPTY case returns, and guard it EXPLICITLY. A non-empty assertion next to the
+  quantifier, never a comment promising the collection is never empty.
 
 Where this repo already guards it, so the shape is recognisable:
 
+  dossier._phrase_rx       guarded upstream by _load_list's `not v` — the
+                           empty-regex case above, and the reason that guard is
+                           load-bearing rather than defensive
   dossier.has_all_tokens   `if not h or not ph: return False` before
                            `all(t in h for t in ph)` — without it, a shoe with
                            no distinctive tokens MATCHES EVERY name. D1's
                            signal 2 lives here
-  dossier._load_list       `not v or not all(...)` — and downstream _phrase_rx
-                           builds an alternation by joining the list, so an
-                           empty list compiles to "" and matches everything
   rails.obtainability      a set carrying zero requirement rows is refused
                            before `all(q["reachable"] ...)` is reached
   goat_import              `exists (select 1 from set_requirements ...)` beside

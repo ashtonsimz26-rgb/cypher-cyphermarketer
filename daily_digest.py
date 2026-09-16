@@ -231,6 +231,64 @@ def drain_drop_queue() -> list[dict]:
              "source": "drop_overnight", "hook": r.get("headline", "")} for r in q]
 
 
+# ── E3: rarity weighting (ruled 2026-09-16) ─────────────────────────────────
+# ★ A POSITIVE WEIGHTING ON THE POOL, NOT A FILTER WITH EXCEPTIONS. Every
+# obtainable candidate stays eligible; what changes is how often each TIER is
+# drawn. A filter would have to carry an exception branch for every case the
+# filter got wrong, and the exceptions are where rails go to die.
+#
+# THE SHARES, and why they are not higher at the top. Six postable Legendary
+# shoes collapse to FOUR STORIES (two Grateful Dead colorways, two Travis Scott
+# pairs). At a 40% top-tier bias each returns every ~2.5 days and the account
+# becomes the Grateful Dead account inside a month. At 15% each surfaces about
+# every six weeks, which is roughly one tentpole a week across the group — and
+# the scarcity is carried by TREATMENT (grail_lore, the strongest composition,
+# the most ambitious scene, the longest research) rather than by frequency.
+#
+# Rare is the premium bucket and carries the week: 48 postable shoes is the only
+# bucket deep enough to run a cadence without repeating itself. That is not a
+# demotion — the ordinary treatment is the editorial bar in SOUL, which is high.
+TIER_GROUP = {"Common": "body", "Uncommon": "body", "Rare": "premium",
+              "Legendary": "top", "GRAIL": "top", "HOLY GRAIL": "top"}
+GROUP_TARGET_SHARE = {"top": 0.15, "premium": 0.50, "body": 0.35}
+
+
+def _weighted_order(rows: list[dict]) -> list[dict]:
+    """Efraimidis-Spirakis weighted sampling without replacement.
+
+    key = U^(1/w), sorted descending. Per-row weight is the GROUP's target share
+    divided by how many rows of that group are in the pool, so the share that
+    comes out matches the target whatever the pool's composition happens to be.
+    A tier absent from the pool simply never draws; nothing is redistributed by
+    hand and nothing needs to be.
+
+    Replaces random.shuffle(), which was uniform — and uniform over a pool
+    sorted by estimated_resale is not neutral, it is whatever the price
+    distribution happens to be.
+    """
+    import math
+    counts: dict[str, int] = {}
+    for r in rows:
+        g = TIER_GROUP.get(r.get("rarity"), "body")
+        counts[g] = counts.get(g, 0) + 1
+    keyed = []
+    for r in rows:
+        g = TIER_GROUP.get(r.get("rarity"), "body")
+        w = GROUP_TARGET_SHARE.get(g, 0.0) / max(counts.get(g, 1), 1)
+        # w <= 0 would divide by zero below; it means "never draw this group".
+        key = -math.inf if w <= 0 else random.random() ** (1.0 / w)
+        keyed.append((key, r))
+    keyed.sort(key=lambda x: x[0], reverse=True)
+    return [r for _, r in keyed]
+
+
+def _tier_histogram(rows: list[dict]) -> dict:
+    h: dict[str, int] = {}
+    for r in rows:
+        h[r.get("rarity") or "?"] = h.get(r.get("rarity") or "?", 0) + 1
+    return h
+
+
 def candidates(limit: int) -> list[dict]:
     """Overnight drop queue first, then the on-this-day seed, then standouts."""
     out, seen = [], set()
@@ -246,19 +304,49 @@ def candidates(limit: int) -> list[dict]:
     except Exception:
         pass
     if len(out) < limit:
-        rows = _sql(REACHABLE_CTE + """
+        # ★ The pool is the OBTAINABLE set, both routes. It used to carry
+        # `is_set_reward = false`, which is what actually kept the three set
+        # rewards out of the digest — so set_completion could be selected in
+        # theory and never in practice, the same way which_would_you_pull was
+        # declared and never built. The flag is also not authoritative (it marks
+        # four pairs where set_rewards names three), so the earn route is proved
+        # by the same CTE rails uses rather than by the flag.
+        rows = _sql(REACHABLE_CTE + """,
+          earnable as (
+            select sr.reward_image_name as image_name, sr.reward_rarity as rarity
+            from public.set_rewards sr
+            where exists (select 1 from public.set_requirements q
+                          where q.set_name = sr.set_name)
+              and not exists (
+                select 1 from public.set_requirements q
+                where q.set_name = sr.set_name
+                  and not exists (select 1 from reachable r
+                                  where r.image_name = q.required_image_name))
+          ),
+          obtainable as (
+            select image_name, rarity from reachable
+            union select image_name, rarity from earnable
+          )
           select c.image_name, c.rarity::text as rarity
           from public.catalog_cards c
-          join reachable r on r.image_name=c.image_name and r.rarity=c.rarity
-          where c.is_set_reward = false and c.estimated_resale >= 400
-          order by c.estimated_resale desc limit 40;""")
-        random.shuffle(rows)
-        for r in rows:
+          join obtainable o on o.image_name=c.image_name and o.rarity=c.rarity
+          where c.estimated_resale >= 400
+          order by c.estimated_resale desc limit 60;""")
+        ordered = _weighted_order(rows)
+        run_log(event="candidate_tiers", pool=len(rows),
+                pool_tiers=_tier_histogram(rows),
+                drawn_order=[r["rarity"] for r in ordered[:12]],
+                shares=GROUP_TARGET_SHARE)
+        for r in ordered:
             if len(out) >= limit:
                 break
             if r["image_name"] in seen:
                 continue
             out.append({**r, "source": "catalog_standout", "hook": ""}); seen.add(r["image_name"])
+    run_log(event="candidates_selected", n=len(out[:limit]),
+            tiers=_tier_histogram(out[:limit]),
+            picked=[{"image_name": r.get("image_name"), "tier": r.get("rarity"),
+                     "source": r.get("source")} for r in out[:limit]])
     return out[:limit]
 
 
