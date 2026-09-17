@@ -3,23 +3,28 @@
 X marketing agent for CYPHER, posting as **@appCYPHERR**.
 
 **Scope contract:** `~/Documents/openclaw/CYPHER/CYPHER/CYPHER_MARKETING_AGENT_STRATEGY.md`
-(locked 2026-08-19). **Voice + rails:** `~/.hermes/profiles/cyphermarketer/SOUL.md` (canonical).
+(locked 2026-08-19). **Voice + rails:** `profile/SOUL.md` (canonical; read at
+`~/.hermes/profiles/cyphermarketer/SOUL.md` via symlink).
 Anything not ruled in the contract is a HALT-and-ask, not a judgement call.
 
 ---
 
 ## WHERE BEHAVIOUR IS SPECIFIED
 
-The agent's behaviour is specified in **five** places. This repo does not duplicate
-them — it points at them. If you read only the repo, you have read half the system.
+The agent's behaviour is specified in **five** places. As of 2026-09-17 all five
+live in this repo: the four `.md` files moved under `profile/` and are reachable at
+the Hermes profile path by symlink. Reading the repo is now reading the whole system.
 
 | # | where | owns | in repo? |
 |---|---|---|---|
-| 1 | `~/.hermes/profiles/cyphermarketer/SOUL.md` | canonical voice, editorial bar, hard rails, autonomy phase | no |
+| 1 | `profile/SOUL.md` | canonical voice, editorial bar, **THE GOAL**, hard rails, autonomy phase | **yes** |
 | 2 | `rails.py` | the machine-checkable subset — 9 named rails, each mapped to a SOUL clause in the file header | yes |
-| 3 | `~/.hermes/profiles/cyphermarketer/instructions.md` | the post-construction playbook: sequence, formats, craft rules, tier treatment, image brief | no |
-| 4 | `~/.hermes/profiles/cyphermarketer/context.md` | stable facts: what CYPHER is, what the tiers mean, what is postable, who the audience is | no |
-| 5 | `~/.hermes/profiles/cyphermarketer/memory.md` | evidence: what shipped, what was rejected, what the numbers say | no |
+| 3 | `profile/instructions.md` | the post-construction playbook: sequence, formats, craft rules, tier treatment, image brief | **yes** |
+| 4 | `profile/context.md` | stable facts: what CYPHER is, what the tiers mean, what is postable, who the audience is | **yes** |
+| 5 | `profile/memory.md` | evidence: what shipped, what was rejected, what the numbers say | **yes** |
+
+All four are read at `~/.hermes/profiles/cyphermarketer/`, where they exist as
+**symlinks into `profile/`**. See PROFILE FILES below before editing either path.
 
 **Precedence, highest first:**
 
@@ -42,6 +47,51 @@ Copying that text into a document would create a fourth source of truth that dri
 without anyone noticing.
 
 ---
+
+## PROFILE FILES — ONE FILE, TWO NAMES
+
+The four behaviour files live **here, in git**, under `profile/`. Hermes and the
+runtime read them from `~/.hermes/profiles/cyphermarketer/`, where each is a
+**symlink** into this repo.
+
+**Why symlinks and not a mirror.** A mirror is two files under one name, agreeing
+only where you happened to look — which is the precise defect `memory.md` M001 and
+M004 were written about, applied to the files that hold the rules. A symlink is one
+file with two names, so drift is not unlikely, it is impossible. There is no
+precedence rule to remember because there is nothing to choose between.
+
+**After a fresh clone, run this once.** It is a script and not a paragraph so it
+cannot be done half-right:
+
+```bash
+./profile/link_profile.sh          # create or repair the links
+./profile/link_profile.sh --check  # verify only; exit 1 if wrong
+```
+
+It never touches `.env` or anything else in the profile directory. Credentials
+stay machine-local and out of git; only the four `.md` files moved.
+
+**The one real failure mode is a SEVERED link** — something replacing a symlink
+with a regular file, after which edits go where git cannot see them and nothing
+says so. `tests/test_profile_links.py` is the detector, it runs in `tests/run_all.py`
+with everything else, and it proves the checker itself fails rather than trusting
+that it would.
+
+Hermes is safe here and this was checked rather than assumed: both of its SOUL.md
+write paths use `Path.write_text()`, which follows a symlink and writes *through*
+to the target, and `hermes/utils.py:atomic_replace()` resolves symlinks deliberately
+— its docstring names git-tracked profile packages as the case it exists to protect.
+A SOUL edit made in the Hermes web UI therefore lands in the tracked file and shows
+up as an ordinary `git diff`.
+
+### `memory.md` will show as an uncommitted change. That is correct.
+
+`memory.md` is an evidence log the agent appends to, so a new `pending: true` entry
+makes the working tree dirty until someone commits it. **This is the feature, not a
+problem to fix.** It puts the approval queue in `git status`, where an entry waiting
+on Ashton is visible, rather than sitting invisibly in a file nobody diffs. Do not
+gitignore it and do not auto-commit it — review the entry, then commit it like
+anything else.
 
 ## WORKING CONVENTIONS
 
