@@ -34,6 +34,71 @@ caught by reading code; the sixth was caught only by asking which code path
 actually runs at 09:00 — a different question from whether the code is
 correct.
 
+★★★ A SUMMARY THAT CANNOT REPORT FAILURE LAUNDERS EVERY CHECK BENEATH IT
+For a day the suite was run as:
+
+    for t in tests/test_*.py; do python3.12 "$t" >/dev/null 2>&1 || echo "FAIL $t"; done
+    echo "18 suites clean"
+
+The last line is unconditional. It printed "18 suites clean" DIRECTLY BENEATH
+"FAIL tests/test_story_scenes.py", and a commit went out on the strength of it.
+
+  This is the reporting-layer form of a rail that cannot fail, AND IT IS WORSE.
+  A rail that cannot fail launders one check. A summary that cannot fail
+  launders EVERY check beneath it: eighteen honest suites reported by a
+  dishonest line are eighteen results nobody can use, and the dishonesty is
+  invisible precisely when everything is fine — which is almost always.
+
+  THE RULE: a summary is DERIVED from results or it is not a summary. Count the
+  outcomes, exit non-zero on any failure, and never write a literal that asserts
+  the thing the run was supposed to determine. If the sentence would be printed
+  whether or not the work succeeded, it is decoration.
+
+  tests/run_all.py now derives the count from exit codes and returns 1 on any
+  failure. It was verified in BOTH directions — a deliberate failing canary
+  produced "18 of 19 suites passed", named the file, printed its tail and exited
+  1; removing it returned exit 0. A runner only proved in the passing direction
+  is the same bug one level up.
+
+  THE HONEST RE-RUN, ordered because the old line invalidated every earlier
+  claim: 18 of 18 passed, exit 0. Nothing had been hiding under it. That is the
+  good outcome and it is not the point — the claim had been unfalsifiable for a
+  day, and a true unfalsifiable claim is worth no more than a false one.
+
+  SIXTH OCCURRENCE OF THE DOCSTRING TRAP, in the test written to police this:
+  the assertion "no literal asserts a pass count" fired on run_all.py's OWN
+  DOCSTRING, which quotes the bad `echo "18 suites clean"` line it exists to
+  replace. Fixed by collecting docstring node ids (first Expr of every Module,
+  FunctionDef and ClassDef) and excluding them. Six times in one session; the
+  prohibition is not overcautious.
+
+★★ THE STALE FIXTURE, TWICE IN ONE DAY, TWO FILES, ONE SHAPE (2026-09-16)
+Recorded as a recurrence because one instance reads as bad luck.
+
+  MORNING — the cypher:// resolver was tested against a GRAIL, one of only TWO
+  rarity values where the enum and the CHECK vocabulary agree. The fixture was
+  chosen as an example of "a rarity", and it was the example that could not
+  exhibit the bug.
+
+  EVENING — the watch-list suite asserted `inspection_note("vault_room") == ""`
+  as its example of an UNLISTED stem. Adding vault_room to the list made the
+  example stop being an example. The assertion still passed... until it did not,
+  and it only did not because the value flipped rather than because anything
+  noticed the category had changed.
+
+  THE SHAPE: a fixture chosen as an example OF A CATEGORY silently stops being
+  in that category, and the test keeps running against it. Nothing changes in
+  the test. The world moves underneath it.
+
+  THE GENERAL FIX, and it has two halves that are both load-bearing:
+    1. PICK THE FIXTURE DYNAMICALLY from the category, at test time —
+       `sorted(set(ALL) - set(LISTED))[0]` rather than a literal.
+    2. ASSERT THE CATEGORY IS NON-EMPTY FIRST. Without this the test goes
+       VACUOUS instead of stale: an empty difference set makes every assertion
+       over it trivially true, which is the "check over an empty collection
+       passes" entry meeting this one. Staleness at least fails eventually;
+       vacuity never does.
+
 ★★★ AN EQUALITY TEST THAT SHOULD HAVE BEEN A MEMBERSHIP TEST (2026-09-16)
 ★★★ AND THE FIRST BUG HERE THAT WOULD HAVE SHIPPED AS A COHERENT POST
 

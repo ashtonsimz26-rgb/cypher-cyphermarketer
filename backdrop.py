@@ -300,6 +300,21 @@ INSPECT_CLOSELY = {
 # substrings and flagged atelier_night and snowlit_street, because "amp" is
 # inside "lamp" and "streetlamp". A watch list that cries wolf on two safe stems
 # is one a reviewer learns to ignore, which is worse than not having it.
+#
+# ★★ THE LIMIT, STATED SO NOBODY MISTAKES THIS FOR COMPLETENESS. This catches
+# stems that ANNOUNCE a printed surface. It cannot catch a stem that implies one
+# without naming it, because that requires knowing what a thing looks like in
+# the world rather than what a word is.
+#
+#   vault_room named "drawer banks" and passed clean. Safe-deposit drawer fronts
+#   carry recessed card-holder plates, which is exactly where box NUMBERING
+#   sits — so the scene invites lettering while naming nothing that sounds like
+#   lettering. It reached the list because a human looked at a render, not
+#   because this function fired. `drawer` was added AFTER the fact.
+#
+# So: the guard is a floor, not a ceiling. It stops the list silently falling
+# behind stems that say the quiet part; it does not make the list complete, and
+# a new stem still deserves one full-resolution look before anyone trusts it.
 PRINTED_SURFACE_NOUNS = ("vending", "shutter", "shutters", "awning", "awnings",
                          "signage", "sign", "signs", "amp", "amps", "drum",
                          "drums", "packaging", "label", "labels", "poster",

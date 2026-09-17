@@ -6,7 +6,7 @@ symptom — the system just looks conservative. These tests exist because
 moments.load_reachable() spent seven days validating against a file nothing
 wrote, and returned set() on failure, which refuses every link one at a time.
 """
-import ast, json, sys, tempfile
+import ast, json, re, sys, tempfile
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -116,6 +116,67 @@ for f in (REPO / "state").glob("*.json"):
     if referenced and not written:
         orphans.append(name)
 ok(not orphans, "every referenced state/*.json has a writer in the repo: %s" % (orphans or "none orphaned"))
+
+
+
+# ── appended 2026-09-16: the runner must be able to report failure ───────────
+print("\n=== 6. THE SUITE RUNNER CANNOT LAUNDER A FAILURE ===")
+import subprocess as _sp, tempfile as _tf, shutil as _sh, os as _os
+RUNNER = REPO / "tests" / "run_all.py"
+ok(RUNNER.exists(), "tests/run_all.py exists")
+rsrc = RUNNER.read_text()
+rtree = ast.parse(rsrc)
+# the count must be derived, never a literal
+# ★ DOCSTRINGS EXCLUDED. The first version flagged the runner's own docstring,
+# which QUOTES the bad `echo "18 suites clean"` line it exists to replace —
+# sixth occurrence of the trap contracts.py prohibits, in a test written to
+# police honesty. A docstring is the first Expr of a module/def/class; collect
+# those ids and skip them.
+_docstrings = set()
+for _n in ast.walk(rtree):
+    if isinstance(_n, (ast.Module, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+        _b = getattr(_n, "body", None)
+        if _b and isinstance(_b[0], ast.Expr) and isinstance(_b[0].value, ast.Constant) \
+                and isinstance(_b[0].value.value, str):
+            _docstrings.add(id(_b[0].value))
+lits = [n.value for n in ast.walk(rtree)
+        if isinstance(n, ast.Constant) and isinstance(n.value, str)
+        and id(n) not in _docstrings
+        and re.search(r"\d+\s*(suites?|tests?)\s*(green|clean|passed)", n.value, re.I)]
+ok(not lits, "no executable literal asserts a pass count: %s" % (lits or "none"))
+ok("len(passed)" in rsrc, "the count is derived from results")
+mainfn = next(n for n in ast.walk(rtree) if isinstance(n, ast.FunctionDef) and n.name == "main")
+returns = [n for n in ast.walk(mainfn) if isinstance(n, ast.Return)]
+ok(any("failed" in ast.dump(r) for r in returns), "main() returns based on `failed`")
+
+# ★ PROVED IN BOTH DIRECTIONS. A runner verified only on a passing set is the
+# same bug one level up: it demonstrates nothing about the failing case.
+# An isolated directory with the runner and exactly ONE suite, so the expected
+# counts are unambiguous. Copying the whole tests/ dir would drag in suites that
+# need the repo on sys.path and report "0 of 19" for reasons unrelated to the
+# canary — a proof that proves the wrong thing.
+def _isolated(body: str) -> tuple[int, str]:
+    d = Path(_tf.mkdtemp()) / "tests"
+    d.mkdir(parents=True)
+    _sh.copy2(RUNNER, d / "run_all.py")
+    (d / "test_zz_canary.py").write_text(body, encoding="utf-8")
+    r = _sp.run([sys.executable, str(d / "run_all.py")], capture_output=True,
+                text=True, timeout=120, cwd=str(REPO))
+    _sh.rmtree(d.parent, ignore_errors=True)
+    return r.returncode, r.stdout + r.stderr
+
+code, out = _isolated("import sys\nprint('deliberate')\nsys.exit(1)\n")
+ok(code == 1, "ONE failing suite -> runner exits 1 (got %d)" % code)
+ok("test_zz_canary.py" in out, "…and it NAMES the failing file")
+ok("0 of 1 suites passed" in out, "…and the derived count is 0 of 1: %r"
+   % (re.search(r"\d+ of \d+ suites passed", out) or "no match"))
+
+code, out = _isolated("import sys\nprint('fine')\nsys.exit(0)\n")
+ok(code == 0, "ONE passing suite -> runner exits 0 (got %d)" % code)
+ok("1 of 1 suites passed" in out, "…and the derived count is 1 of 1")
+
+code, out = _isolated("")            # an empty file is a passing file
+ok("1 of 1 suites passed" in out, "an empty suite still counts as one suite")
 
 print("\n" + ("ALL PASS" if not FAILS else "%d FAILURE(S): %s" % (len(FAILS), FAILS)))
 sys.exit(1 if FAILS else 0)
