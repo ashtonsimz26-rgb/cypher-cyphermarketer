@@ -97,6 +97,7 @@ HELP = ("🧢 Not a verdict I recognise — nothing was posted.\n"
         "  approve\n"
         "  reject <reason>      e.g.  reject weak hook\n"
         "  edit: <new text>     replaces the copy, posted verbatim\n"
+        "                       (the \"edit:\" is part of what you send)\n"
         "  tweak                sends the text back, ready to edit and return\n"
         "Proposals expire after %dh." % PROPOSAL_TTL_HOURS)
 
@@ -231,6 +232,17 @@ def proposal_state() -> dict:
             # than one proposal is pending. Not a status change.
             if r.get("message_id"):
                 cur.setdefault("alias_message_ids", []).append(r["message_id"])
+        elif ev == "contrast_blocked":
+            # The EXACT text the contrast block showed Ashton. `override` posts this
+            # and nothing else. Rows written before 2026-09-18 carry no text: an
+            # un-edited block showed the draft; an edited one showed the edit folded
+            # just before it (edit_received precedes contrast_blocked in the same
+            # decide() call). Anything unrecoverable is AMBIGUOUS, and override refuses.
+            t = r.get("text")
+            if t is None:
+                t = cur.get("last_edit_text") if r.get("edited") else cur.get("text")
+            cur["contrast_blocked_text"] = t
+            cur["contrast_blocked_ambiguous"] = t is None
         elif ev == "edit_received":
             # The operator's most recent wording, kept even if rails or the 280
             # ceiling refused it — `tweak` hands this back, not the stale draft.
@@ -344,7 +356,8 @@ def send_tweak(e: dict, target: dict, reply_to: int | None) -> dict:
     text = last or target.get("text") or ""
     line = "%s %s" % (EDIT_PREFIX, text)
     src = "your last edit" if last else "the draft"
-    head = "✏️ %s — %s. Tap to copy, change it, reply here with it." % (pid, src)
+    head = ("✏️ %s — %s. Copy the whole line below, `edit:` included, change the "
+            "words, and reply here." % (pid, src))
     res = {}
     try:
         res = send_text(e, md2_escape(head) + "\n`" + md2_code_escape(line) + "`",
@@ -493,13 +506,17 @@ def contrast_gate(st: dict, overridden: bool) -> tuple[bool, dict]:
     return True, rec
 
 
-def render_contrast_block(pid: str, rec: dict) -> str:
-    """NON-TERMINAL refusal — same shape as render_rails_block (ruled)."""
+def render_contrast_block(pid: str, rec: dict, text: str | None = None) -> str:
+    """NON-TERMINAL refusal — same shape as render_rails_block (ruled).
+
+    Quotes the exact text held, because `override` posts THAT text and nothing
+    else: the message has to show what the word will publish."""
+    held = ("\n  Text held for override:\n  %s\n" % text) if text else ""
     return ("⚠️ %s NOT posted — the card is contrast-flagged at %.2f:1.\n"
-            "  • The shoe may not read against its panel. Zoom the card.\n"
-            "  • Reply `override` to post it anyway, or `reject`.\n"
+            "  • The shoe may not read against its panel. Zoom the card.\n%s"
+            "  • Reply `override` to post exactly that text anyway, or `reject`.\n"
             "  Still pending — nothing has been decided."
-            % (pid, rec["ratio"] if rec["ratio"] is not None else float("nan")))
+            % (pid, rec["ratio"] if rec["ratio"] is not None else float("nan"), held))
 
 
 def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | None,
@@ -536,16 +553,49 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
             pid, " — noted: %s" % reason if reason else " (no reason given)"), reply_to)
         return
 
-    text = final_text if final_text is not None else st["text"]
+    # ── WHICH TEXT THIS VERDICT ACTS ON (2026-09-18) ─────────────────────────
+    # `override` used to post st["text"] — the ORIGINAL DRAFT — because an edit
+    # that hit the contrast gate was never stored as the proposal's text. On
+    # p_34f18679da that would have published the machine's words in place of
+    # Ashton's, with no error, on a surface where posts cannot be retracted.
+    # Rule: a verdict acts on text it can NAME. An `edit:` names its own. An
+    # `override` names the text the contrast block showed. A bare verdict after
+    # a refused edit names nothing — falling back to the draft is substitution —
+    # so it is refused and pointed at `tweak`.
+    draft = st["text"]
+    if final_text is not None:
+        text = final_text
+    elif overridden and st.get("contrast_blocked_text") is not None:
+        text = st["contrast_blocked_text"]
+    elif overridden and st.get("contrast_blocked_ambiguous"):
+        ledger({"event": "bare_verdict_refused", "proposal_id": pid,
+                "verdict": "override", "why": "contrast_blocked_text_unrecoverable"})
+        _alias(pid, send_text(e, "⚠️ %s NOT posted — I can't tell which text the contrast "
+                                 "flag was on, so `override` has nothing exact to post. Reply "
+                                 "`tweak`, then send the text you want as `edit:`. Nothing "
+                                 "posted." % pid, reply_to))
+        return
+    elif st.get("last_edit_text") is not None and st["last_edit_text"] != draft:
+        ledger({"event": "bare_verdict_refused", "proposal_id": pid,
+                "verdict": "override" if overridden else "approve",
+                "why": "edit_refused_earlier_bare_verdict_would_post_draft"})
+        _alias(pid, send_text(e, "⚠️ %s NOT posted — you edited this and the edit was refused, "
+                                 "so a bare `%s` would post the ORIGINAL draft, not your words. "
+                                 "Reply `tweak` for your edit back, fix it, and send it. "
+                                 "Nothing posted." % (pid, "override" if overridden else "approve"),
+                              reply_to))
+        return
+    else:
+        text = draft
     wl = X.weighted_len(text)
     if wl > 280:
         # NON-TERMINAL (fix #1): the message promises a retry, so the retry must
         # work. This used to log "failed", which is terminal — every "shorter
         # version" was then answered with "already failed — ignoring".
         ledger({"event": "edit_too_long", "proposal_id": pid, "weighted": wl})
-        res = send_text(e, "❌ %s: your edit is %d/280 chars — too long. Reply `tweak` "
-                           "for your text back, or send a shorter version." % (pid, wl), reply_to)
-        _alias(pid, res)
+        _alias(pid, send_text(e, "❌ %s: your edit is %d/280 chars — too long. Reply `tweak` "
+                                 "for your text back, or send a shorter version." % (pid, wl),
+                              reply_to))
         return
 
     # ── RAILS AT APPROVE TIME (F1.5) ─────────────────────────────────────────
@@ -566,8 +616,8 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     may_post, contrast = contrast_gate(st, overridden)
     if not may_post:
         ledger({"event": "contrast_blocked", "proposal_id": pid,   # NON-terminal
-                "contrast": contrast, "edited": final_text is not None})
-        send_text(e, render_contrast_block(pid, contrast), reply_to)
+                "contrast": contrast, "edited": text != draft, "text": text})
+        _alias(pid, send_text(e, render_contrast_block(pid, contrast, text), reply_to))
         return
 
     used = X.posts_last_24h()
@@ -576,11 +626,14 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
         # capped proposal stays decidable once the cap clears. Previously
         # "approved" was ledgered first, terminally, and the retry was refused.
         ledger({"event": "cap_deferred", "proposal_id": pid, "posts_last_24h": used})
-        send_text(e, "🚫 %s not posted — the 4-post/24h cap is reached (%d). Still "
-                     "pending: approve again once it clears." % (pid, used), reply_to)
+        _alias(pid, send_text(e, "🚫 %s not posted — the 4-post/24h cap is reached (%d). "
+                                 "Still pending: approve again once it clears." % (pid, used),
+                              reply_to))
         return
 
-    edited = final_text is not None
+    # Edited = the words differ from the draft — true for an overridden edit too,
+    # which arrives here with final_text None.
+    edited = text != draft
     ledger({"event": "approved", "proposal_id": pid, "final_text": text,
             "edited": edited, "contrast": contrast})
 
@@ -612,6 +665,31 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     send_text(e, "✅ POSTED%s\n%s\n\n(%d/%d posts used in the last 24h)"
               % (" (your edit, verbatim)" if edited else "", url,
                  X.posts_last_24h(), X.MAX_POSTS_24H), reply_to)
+
+
+DID_YOU_MEAN = ("🧢 That looks like an edit to %s. Put `edit: ` in front of it and send "
+                "it again. Nothing was posted.")
+EDIT_LIKE_MIN_WORDS = 4
+EDIT_LIKE_RATIO = 0.6
+
+
+def looks_like_edit(body: str, target: dict) -> tuple[bool, float]:
+    """Does an unrecognised reply look like a changed copy of this proposal's text?
+
+    DIAGNOSIS ONLY. The answer chooses which help message to send; it NEVER turns
+    the reply into an edit. Nothing without a command word becomes a post —
+    parse_verdict is the only door, and this function is not wired to it."""
+    import difflib
+    words = body.lower().split()
+    if len(words) < EDIT_LIKE_MIN_WORDS:
+        return False, 0.0
+    best = 0.0
+    for cand in (target.get("text"), target.get("last_edit_text"),
+                 target.get("contrast_blocked_text")):
+        if cand:
+            best = max(best, difflib.SequenceMatcher(
+                a=cand.lower().split(), b=words, autojunk=False).ratio())
+    return best >= EDIT_LIKE_RATIO, round(best, 3)
 
 
 def resolve_target(state: dict, reply_mid: int | None) -> dict | None:
@@ -670,9 +748,18 @@ def cmd_poll(a, e):
                 continue
             verdict, payload, reason_code = parse_verdict(body)
             if verdict == "unknown":
-                # NO-OP + discoverable grammar. Never a publish. The help text is
-                # the whole remedy: the correct usage is learnable from a mistake.
-                send_text(e, HELP, m.get("message_id"))
+                # NO-OP + discoverable grammar. Never a publish. If the reply looks
+                # like a changed copy of the text (the 2026-09-18 mistake: the lead
+                # pasted back without `edit:`), say exactly that; otherwise the
+                # generic help. Either way it is RECORDED — an unrecognised reply is
+                # the best evidence there is about whether the wording works — and
+                # the help is an address, so the corrected reply routes back.
+                looks, sim = looks_like_edit(body, target)
+                ledger({"event": "unrecognised_reply", "proposal_id": target["proposal_id"],
+                        "text": body, "looked_like_edit": looks, "similarity": sim})
+                _alias(target["proposal_id"], send_text(
+                    e, DID_YOU_MEAN % target["proposal_id"] if looks else HELP,
+                    m.get("message_id")))
                 continue
             if verdict == "tweak":
                 # A request, not a verdict: text out, nothing else. Does NOT end a
