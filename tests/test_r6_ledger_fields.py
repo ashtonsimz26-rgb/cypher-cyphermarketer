@@ -81,10 +81,22 @@ print("\n=== 6. the backfill never rewrites a posted row ===")
 posts = [json.loads(l) for l in (REPO / "ledger/posts.jsonl").read_text().splitlines() if l.strip()]
 bf = [r for r in posts if r.get("event") == "posted_meta_backfill"]
 pd = [r for r in posts if r.get("event") == "posted"]
-ok(len(pd) == 5, "the five original posted rows are still present, unmodified")
-ok(len(bf) == 5, "five backfill rows enrich them")
-ok(all("composition" not in r for r in pd),
-   "no posted row was rewritten — enrichment lives in its own event")
+# The claim is about the FIVE PRE-R6 rows, identified by the backfill that
+# enriches them. It used to check `len(pd) == 5` and "no posted row carries
+# composition" over the WHOLE ledger — true only until the first post after R6.
+# p_34f18679da (2026-09-18) was that post, its row correctly carries composition,
+# and the suite failed on R6 working. memory.md M004 predicted this exact event.
+orig_ids = {r["tweet_id"] for r in bf}
+orig = [r for r in pd if r["tweet_id"] in orig_ids]
+ok(len(bf) == 5 and len(orig) == 5,
+   "the five original posted rows are still present (%d), each with a backfill row (%d)"
+   % (len(orig), len(bf)))
+ok(all("composition" not in r for r in orig),
+   "no ORIGINAL posted row was rewritten — enrichment lives in its own event")
+new_rows = [r for r in pd if r["tweet_id"] not in orig_ids]
+ok(all(all(k in r for k in ("format", "composition", "tier")) for r in new_rows),
+   "every post AFTER R6 carries format/composition/tier on its own row (%d such post(s))"
+   % len(new_rows))
 ok(all(r["recoverable"]["composition"] is False for r in bf),
    "every backfill row marks composition UNRECOVERABLE rather than guessing")
 ok(all(r["methods"].get("tier") for r in bf),
