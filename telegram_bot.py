@@ -55,6 +55,10 @@ REJECT = {"reject", "rejected", "no", "n", "nope", "kill", "skip", "👎", "❌"
 # bare words. Replacement copy is now OPT-IN behind `edit:`; anything
 # unrecognised is a NO-OP plus help. Unrecognised input must never publish.
 EDIT_PREFIX = "edit:"
+# `tweak` is a REQUEST, not a verdict: it sends the current text back as a
+# ready-to-send `edit:` line and does nothing else. It has no path to a post —
+# tests/test_tweak.py asserts that structurally and behaviourally.
+TWEAK = {"tweak"}
 
 # ★ OVERRIDE — the distinct token for a contrast-flagged proposal (ruled
 # 2026-09-17). A flagged card refuses a bare `approve` and requires this word.
@@ -93,6 +97,7 @@ HELP = ("🧢 Not a verdict I recognise — nothing was posted.\n"
         "  approve\n"
         "  reject <reason>      e.g.  reject weak hook\n"
         "  edit: <new text>     replaces the copy, posted verbatim\n"
+        "  tweak                sends the text back, ready to edit and return\n"
         "Proposals expire after %dh." % PROPOSAL_TTL_HOURS)
 
 
@@ -107,13 +112,15 @@ def infer_reason_code(reason: str | None) -> str | None:
 
 
 def parse_verdict(body: str) -> tuple[str, str | None, str | None]:
-    """(verdict, payload, reason_code) — verdict in approve|override|reject|edit|unknown.
+    """(verdict, payload, reason_code) — verdict in approve|override|reject|edit|tweak|unknown.
 
     `payload` is the replacement copy for edit, or the reason for reject.
     NOTHING falls through to publishing: an unparsed reply returns "unknown".
     """
     s = (body or "").strip()
     low = s.lower()
+    if low in TWEAK:                                  # a request, never a verdict
+        return "tweak", None, None
     if low in OVERRIDE:
         return "override", None, None
     if low in APPROVE:
@@ -218,6 +225,17 @@ def proposal_state() -> dict:
                        rails_ctx=r.get("rails_ctx"), format=r.get("format"),
                        hook_type=r.get("hook_type"),
                        composition=r.get("composition"), tier=r.get("tier"))
+        elif ev in ("tweak_sent", "reply_alias"):
+            # The tweak message becomes a second address for its proposal, so an
+            # `edit:` sent as a REPLY TO THE TWEAK routes back here even when more
+            # than one proposal is pending. Not a status change.
+            if r.get("message_id"):
+                cur.setdefault("alias_message_ids", []).append(r["message_id"])
+        elif ev == "edit_received":
+            # The operator's most recent wording, kept even if rails or the 280
+            # ceiling refused it — `tweak` hands this back, not the stale draft.
+            # Not a status change: a refused edit leaves the proposal pending.
+            cur["last_edit_text"] = r.get("edited_text")
         # ⚠️ "rails_blocked" and "edit_too_long" are DELIBERATELY ABSENT from this
         # tuple. A validation failure is information, not a verdict: the proposal
         # stays pending so it can be fixed with `edit:` and re-approved. Logging
@@ -261,13 +279,85 @@ def send_photo(e: dict, image: Path, caption: str) -> dict:
     return j["result"]
 
 
-def send_text(e: dict, text: str, reply_to: int | None = None) -> dict:
+def send_text(e: dict, text: str, reply_to: int | None = None,
+              parse_mode: str | None = None) -> dict:
     p = {"chat_id": e["CYPHERMARKETER_TELEGRAM_CHAT_ID"], "text": text,
          "disable_web_page_preview": False}
+    if parse_mode:
+        p["parse_mode"] = parse_mode
     if reply_to:
         p["reply_to_message_id"] = reply_to
     st, j = _call(api(e) + "/sendMessage", json.dumps(p).encode(), "application/json")
     return j.get("result", {})
+
+
+def word_diff(before: str, after: str) -> list[dict]:
+    """Word-level changes only — what the operator actually altered, readable
+    from the ledger row without re-diffing two 280-char strings by eye."""
+    import difflib
+    a, b = before.split(), after.split()
+    out = []
+    for op, i1, i2, j1, j2 in difflib.SequenceMatcher(a=a, b=b, autojunk=False).get_opcodes():
+        if op != "equal":
+            out.append({"op": op, "from": " ".join(a[i1:i2]), "to": " ".join(b[j1:j2])})
+    return out
+
+
+_MD2_SPECIAL = r"_*[]()~`>#+-=|{}.!"
+
+
+def md2_escape(t: str) -> str:
+    """Escape for Telegram MarkdownV2 OUTSIDE code spans."""
+    return "".join("\\" + c if c in _MD2_SPECIAL or c == "\\" else c for c in t)
+
+
+def md2_code_escape(t: str) -> str:
+    """Escape INSIDE a MarkdownV2 code span: only backslash and backtick."""
+    return t.replace("\\", "\\\\").replace("`", "\\`")
+
+
+def _alias(pid: str, res: dict):
+    """Make a bot message that asks for a fix an ADDRESS for its proposal, so a
+    reply to it (`tweak`, `edit:`) routes back even with several pending."""
+    if res and res.get("message_id"):
+        ledger({"event": "reply_alias", "proposal_id": pid, "message_id": res["message_id"]})
+
+
+def send_tweak(e: dict, target: dict, reply_to: int | None) -> dict:
+    """Send the proposal's current text back as a ready-to-send `edit:` line.
+
+    ★ A REQUEST, NOT A VERDICT. This produces TEXT and nothing else: it never
+    calls decide(), never touches x_client, never writes approved/posted. The
+    only way from here to a post is Ashton sending the edited line back, which
+    re-enters through parse_verdict -> decide -> rails_gate like any `edit:`.
+    tests/test_tweak.py asserts that.
+
+    Current text = his most recent edit attempt if one exists (even a refused
+    one — that is the wording he was working on), else the draft.
+
+    Primary form: MarkdownV2 inline code, which most Telegram clients copy in
+    one tap. If Telegram rejects the markup, fall back to a plain message whose
+    ENTIRE body is the `edit:` line, so a long-press copy still gets exactly it.
+    """
+    pid = target["proposal_id"]
+    last = target.get("last_edit_text")
+    text = last or target.get("text") or ""
+    line = "%s %s" % (EDIT_PREFIX, text)
+    src = "your last edit" if last else "the draft"
+    head = "✏️ %s — %s. Tap to copy, change it, reply here with it." % (pid, src)
+    res = {}
+    try:
+        res = send_text(e, md2_escape(head) + "\n`" + md2_code_escape(line) + "`",
+                        reply_to, parse_mode="MarkdownV2")
+    except Exception:
+        res = {}
+    mode = "markdownv2"
+    if not res.get("message_id"):
+        res = send_text(e, line, reply_to)
+        mode = "plain_fallback"
+    ledger({"event": "tweak_sent", "proposal_id": pid, "message_id": res.get("message_id"),
+            "source": "last_edit" if last else "draft", "mode": mode})
+    return res
 
 
 def cmd_propose(a, e):
@@ -381,8 +471,8 @@ def render_rails_block(pid: str, failed: list[tuple[str, bool, str]]) -> str:
         if c.note:
             lines.append("    ↳ %s" % c.note)
     lines.append("")
-    lines.append("Still pending. Send `edit: <fixed text>` to correct it, or leave "
-                 "it to expire.")
+    lines.append("Still pending. Reply `tweak` to get the text back ready to edit, "
+                 "or send `edit: <fixed text>`, or leave it to expire.")
     return "\n".join(lines)
 
 
@@ -418,6 +508,17 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     st = proposal_state().get(pid)
     if not st:
         return
+    # ★ EDIT RECEIVED — recorded FIRST, before the status checks, the 280 ceiling
+    # and the rails. Until 2026-09-18 a refused edit left no trace of its text:
+    # rails_blocked stored only `edited: true`, edit_too_long only a length. That
+    # discarded the operator's own words. Now every `edit:` is on the ledger with
+    # the original preserved beside it and the word diff between them, whatever
+    # happens next. A write, never a status change — see proposal_state.
+    if final_text is not None:
+        ledger({"event": "edit_received", "proposal_id": pid,
+                "status_at_receipt": st.get("status"),
+                "original_text": st.get("text"), "edited_text": final_text,
+                "diff": word_diff(st.get("text") or "", final_text)})
     if st["status"] == "expired":                    # specific before generic
         send_text(e, "⏳ %s expired after %dh — the digest will re-propose it if it is "
                      "still right. Nothing posted." % (pid, PROPOSAL_TTL_HOURS), reply_to)
@@ -442,8 +543,9 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
         # work. This used to log "failed", which is terminal — every "shorter
         # version" was then answered with "already failed — ignoring".
         ledger({"event": "edit_too_long", "proposal_id": pid, "weighted": wl})
-        send_text(e, "❌ %s: your edit is %d/280 chars — too long. Send a shorter version."
-                  % (pid, wl), reply_to)
+        res = send_text(e, "❌ %s: your edit is %d/280 chars — too long. Reply `tweak` "
+                           "for your text back, or send a shorter version." % (pid, wl), reply_to)
+        _alias(pid, res)
         return
 
     # ── RAILS AT APPROVE TIME (F1.5) ─────────────────────────────────────────
@@ -455,7 +557,7 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     if not ok_rails:
         ledger({"event": "rails_blocked", "proposal_id": pid,      # NON-terminal
                 "failed": [f[0] for f in failed], "edited": final_text is not None})
-        send_text(e, render_rails_block(pid, failed), reply_to)
+        _alias(pid, send_text(e, render_rails_block(pid, failed), reply_to))
         return
 
     # ── CONTRAST GATE ────────────────────────────────────────────────────────
@@ -512,6 +614,19 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
                  X.posts_last_24h(), X.MAX_POSTS_24H), reply_to)
 
 
+def resolve_target(state: dict, reply_mid: int | None) -> dict | None:
+    """Which proposal a reply is about: the one whose proposal message — or whose
+    `tweak` message — it replies to; else the only pending one; else None."""
+    if reply_mid:
+        hit = next((v for v in state.values()
+                    if v.get("message_id") == reply_mid
+                    or reply_mid in v.get("alias_message_ids", ())), None)
+        if hit is not None:
+            return hit
+    pending = [v for v in state.values() if v["status"] == "pending"]
+    return pending[0] if len(pending) == 1 else None
+
+
 def cmd_poll(a, e):
     chat_id = str(e["CYPHERMARKETER_TELEGRAM_CHAT_ID"])
     offset = load_offset()
@@ -547,12 +662,7 @@ def cmd_poll(a, e):
             reply_mid = (m.get("reply_to_message") or {}).get("message_id")
             state = proposal_state()
             pending = [v for v in state.values() if v["status"] == "pending"]
-            target = None
-            if reply_mid:
-                target = next((v for v in state.values()
-                               if v.get("message_id") == reply_mid), None)
-            if target is None and len(pending) == 1:
-                target = pending[0]
+            target = resolve_target(state, reply_mid)
             if target is None:
                 if pending:
                     send_text(e, "⚠️ %d proposals pending — reply to the one you mean."
@@ -563,6 +673,11 @@ def cmd_poll(a, e):
                 # NO-OP + discoverable grammar. Never a publish. The help text is
                 # the whole remedy: the correct usage is learnable from a mistake.
                 send_text(e, HELP, m.get("message_id"))
+                continue
+            if verdict == "tweak":
+                # A request, not a verdict: text out, nothing else. Does NOT end a
+                # --once run, so the edited reply can land in the same window.
+                send_tweak(e, target, m.get("message_id"))
                 continue
             if verdict == "override":
                 decide(e, target["proposal_id"], "approve", None, m.get("message_id"),
