@@ -37,6 +37,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import rails  # noqa: E402  (pure checks over local data; no network)
+from research import composition as COMP  # noqa: E402  (rails_card_shows_value — shared with gate 8)
 import x_client as X  # noqa: E402
 
 OFFSET_FILE = HERE / "state" / "telegram_offset.json"      # NOT CPA's state file
@@ -323,7 +324,8 @@ def save_offset(v: int):
     OFFSET_FILE.write_text(json.dumps({"offset": v, "updated": now()}) + "\n")
 
 
-def rails_gate(text: str, ctx: dict | None) -> tuple[bool, list[tuple[str, bool, str]]]:
+def rails_gate(text: str, ctx: dict | None, composition: str | None = None
+               ) -> tuple[bool, list[tuple[str, bool, str]]]:
     """Re-run rails.check_draft() on the text about to be posted.
 
     price_verified is RECOMPUTED, never cached: rails.price_claim_allowed reads
@@ -335,9 +337,20 @@ def rails_gate(text: str, ctx: dict | None) -> tuple[bool, list[tuple[str, bool,
     CLI-driven propose, or one made before F1.5) gets price_verified=False,
     which forces any price claim out of our own voice. Never permissive.
 
-    card_shows_value is passed exactly as daily_digest passes it, so this call
-    site treats the rail identically — no rail is weakened, strengthened, or
-    made conditional here.
+    card_shows_value comes from COMP.rails_card_shows_value(composition) — the
+    SAME function gate 8 calls at draft time. Composition is read from rails_ctx,
+    or from the top-level proposal row for proposals stored before 2026-09-18,
+    and a missing one yields True: fail closed, require attribution. No rail is
+    weakened here — a composition that shows the value row still demands it.
+
+    ★ CORRECTED 2026-09-18. This docstring said card_shows_value was "passed
+    exactly as daily_digest passes it". That was true when F1.5 (91e4a23) wrote
+    it — both doors passed a literal True. G2 (13834d0) then taught the DIGEST to
+    compute it and never touched this file, so from 09-11 this door kept True and
+    the sentence became false. Same text, same card, opposite verdicts on
+    shoe_crop / shoe_only / two_card_crop. The defect arrived by a change to the
+    OTHER file, which is why no review of this one could have caught it.
+    tests/test_rails_door_parity.py is what catches it now.
 
     ★ pool_reachable=True is GONE (2026-09-16). This door had the same hardcoded
     literal as the digest, so the obtainability rail was inert at BOTH of them.
@@ -351,7 +364,8 @@ def rails_gate(text: str, ctx: dict | None) -> tuple[bool, list[tuple[str, bool,
     if ctx and ctx.get("style_code"):
         price_verified, _why = rails.price_claim_allowed(
             ctx["style_code"], ctx.get("estimated_resale"))
-    checks = rails.check_draft(text, card_shows_value=True,
+    comp = (ctx or {}).get("composition") or composition
+    checks = rails.check_draft(text, card_shows_value=COMP.rails_card_shows_value(comp),
                                price_verified=price_verified,
                                image_name=(ctx or {}).get("image_name"),
                                rarity=(ctx or {}).get("rarity"))
@@ -437,7 +451,7 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     # previously length-checked ONLY, so a verbatim edit bypassed gambling,
     # attribution and price screening entirely. rails.py itself is unchanged;
     # this is the same rail running at one more call site.
-    ok_rails, failed = rails_gate(text, st.get("rails_ctx"))
+    ok_rails, failed = rails_gate(text, st.get("rails_ctx"), st.get("composition"))
     if not ok_rails:
         ledger({"event": "rails_blocked", "proposal_id": pid,      # NON-terminal
                 "failed": [f[0] for f in failed], "edited": final_text is not None})

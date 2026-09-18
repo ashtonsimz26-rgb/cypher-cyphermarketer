@@ -420,12 +420,35 @@ def stats_in_frame(name: str, size: tuple[int, int]) -> bool:
 
 
 def card_shows_value(composition: str, size: tuple[int, int] | None = None) -> bool:
-    """Fail CLOSED. An undeclared composition raises rather than guessing —
-    a silent False here is a rails violation."""
+    """Fail CLOSED. An undeclared composition returns True — assume the figure
+    is shown — rather than guessing; a silent False here is a rails violation.
+    (Corrected 2026-09-18: this said "raises". It never raised.)"""
     size = size or TARGETS["4:5"]
     if composition not in COMPOSITIONS:
         return True                    # unknown -> assume the figure is shown
     return stats_in_frame(composition, size)
+
+
+def rails_card_shows_value(composition: str | None) -> bool:
+    """The ONE derivation of card_shows_value that rails.check_draft() receives.
+
+    ★★ BOTH DOORS CALL THIS, AND THAT IS THE WHOLE POINT. gate8 (draft time,
+    daily_digest) and rails_gate (approve time, telegram_bot) each used to derive
+    this input for themselves. G2 (13834d0, 09-11) taught the digest door to
+    compute it from the composition and never touched the approve door, which kept
+    a literal True. From then until 2026-09-18 the same text on the same card
+    passed at draft and failed at approval for every composition that crops the
+    EST. VALUE row out — shoe_crop, shoe_only, two_card_crop, 3 of 9 — while a
+    docstring at each door asserted the two matched.
+
+    Two call sites deriving one input independently agree only while their
+    sources happen to coincide. One function called from both cannot disagree
+    with itself. tests/test_rails_door_parity.py holds the doors to the same
+    verdict across every composition.
+
+    Missing composition -> True: fail closed, require attribution.
+    """
+    return True if not composition else card_shows_value(composition)
 
 
 def render(name: str, card_path: Path, backdrop_path: Path | None, out: Path,

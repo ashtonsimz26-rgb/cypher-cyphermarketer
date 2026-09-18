@@ -458,17 +458,21 @@ def gate8(text: str, price_ok: bool, composition: str | None = None,
           ) -> tuple[bool, list[str]]:
     """rails.check_draft on the ASSEMBLED text, plus the 280 ceiling.
 
-    card_shows_value is passed exactly as it always has been, so this call site
-    treats the rail identically — gate 8 is the SAME rail moved EARLIER, never a
-    different one.
+    card_shows_value comes from COMP.rails_card_shows_value(composition) — the
+    SAME function telegram_bot.rails_gate calls at approve time. Gate 8 is the
+    same rail moved earlier, and it only stays the same rail if both doors derive
+    its inputs identically. (Corrected 2026-09-18: this said card_shows_value was
+    "passed exactly as it always has been". After G2 it was computed here and
+    hardcoded True at the approve door, and the doors disagreed on 3 of 9
+    compositions. tests/test_rails_door_parity.py now holds them together.)
 
     ★ pool_reachable=True is GONE (2026-09-16). It was a hardcoded literal, so
     the obtainability rail could not fail here however wrong the card was. The
     pair is passed instead and rails derives the verdict itself.
     """
-    # card_shows_value is COMPUTED from the composition (G2), never hardcoded.
-    # An unknown composition falls back to True — fail closed.
-    shows = COMP.card_shows_value(composition) if composition else True
+    # card_shows_value is COMPUTED from the composition (G2), never hardcoded,
+    # by the one helper both doors share. Missing/unknown -> True (fail closed).
+    shows = COMP.rails_card_shows_value(composition)
     checks = rails.check_draft(text, card_shows_value=shows,
                                price_verified=price_ok,
                                image_name=image_name, rarity=rarity)
@@ -509,7 +513,7 @@ def draft_with_gate8(cand, row, fmt, hook_type, display, price_ok, *,
     """
     ctx = {"cand": cand, "row": row, "fmt": fmt, "hook_type": hook_type,
            "display": display, "price_ok": price_ok}
-    attr = COMP.card_shows_value(composition) if composition else True
+    attr = COMP.rails_card_shows_value(composition)
     failed: list[str] = []
     attempt = 0
     for attempt in range(1, max_retries + 2):
@@ -657,7 +661,10 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     # prices" against a claim the IMAGE was making.
     composition = ("two_card_crop" if fmt == "which_would_you_pull"
                    else pick_composition(fmt, hook_type, brand, scene, tentpole=tentpole))
-    shows_value = COMP.card_shows_value(composition)
+    # Same helper as both rails doors (2026-09-18): this decides whether the
+    # WRITER must supply attribution, so it must agree with what gate 8 and the
+    # approve door will demand. A third local derivation is a third door.
+    shows_value = COMP.rails_card_shows_value(composition)
 
     if draft_fn is None:
         # SKELETONS ARE RETIRED (ruled). The writer is the only drafter; a
@@ -811,6 +818,13 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
                                                  if _frame.ratio is not None else None),
                                        "band": _frame.band},
                           "image_name": cand["image_name"],
+                          # ★ composition joined 2026-09-18. The approve door
+                          # needs it to derive card_shows_value the way gate 8
+                          # did; without it the door hardcoded True and blocked
+                          # every value-cropping frame. Pre-change proposals
+                          # carry it only on the top-level row — rails_gate
+                          # reads that as a fallback.
+                          "composition": composition,
                           # ★ rarity joined image_name 2026-09-16: identity in
                           # this catalog is the PAIR. The same image is GRAIL,
                           # Legendary and Rare at once, and only one of those is
