@@ -449,6 +449,69 @@ WHAT THE REMAINING THREE NEED:
   ordering (F4.1)     a test that the SELECTOR RETURNS the thing, never that
                       the calendar CONTAINS it
 Do not read this module and conclude the gap class is closed. It is not.
+
+★★ THE PARTIALLY-IMPLEMENTED SPECIFICATION (2026-09-17, format_report.R4)
+★★ A DISTINCT SHAPE. Filed apart from the gap family above on Ashton's ruling,
+★★ and the distinction is the whole value of the entry.
+
+  Every gap instance above is "a mechanism existed and NOTHING READ IT". The
+  information never arrived, so the mechanism was inert from the first run.
+
+  THIS ONE IS DIFFERENT AND SHARPER. The specification was written CORRECTLY.
+  The implementation covered a SUBSET of it. And the two AGREED ON EVERY INPUT
+  SEEN UNTIL NOW, so nothing was inert, nothing was unread, and no run was
+  wrong — until the data moved.
+
+  THE INSTANCE. format_report.nothing_to_report() has carried this docstring
+  since the day it was written:
+
+      "If nothing was posted, nothing was drafted, nothing was rejected AND NO
+       SIGNAL CLEARS ITS FLOOR, the honest output is one line."
+
+  Four conditions. The code evaluated three:
+
+      if sig["n_proposals"] or sig["n_rejects"] or sig["n_briefs"]:
+          return False
+
+  The fourth — the floor clause — was never written, and it was the one that
+  mattered. With an empty window the two formulations agree exactly: zero
+  drafts clears no floor. They diverge for the first time on the first window
+  carrying a SINGLE draft, which is a state the account had simply not reached.
+  That week printed 24 lines — four headings over four "insufficient data"
+  refusals — from the function whose contract promised one. A refusal is not a
+  finding, and a page of refusals is the R4 failure the docstring names.
+
+  WHY NO REVIEW CAUGHT IT. Reading the function shows correct code. Reading the
+  docstring shows a correct specification. The defect is the MAPPING BETWEEN
+  THEM, and a reader who has just read the prose supplies the missing clause
+  from memory while looking straight at the line that omits it. The tests
+  agreed too: every assertion over the old behaviour passed, because every
+  assertion was written against data where the two formulations coincide.
+
+  ★ THE RULE (ruled 2026-09-17):
+  WHEN A DOCSTRING ENUMERATES CONDITIONS, ASSERT THAT THE IMPLEMENTATION
+  EVALUATES EACH ONE — A TEST PER CLAUSE, NOT A TEST PER FUNCTION.
+  A single test over a function with four conditions can pass while three are
+  implemented, and will, for as long as the data does not separate them. Count
+  the clauses in the contract and write that many tests, each one driving the
+  input that isolates its clause. tests/test_weekly_report.py now does this:
+  one case per floor, including the composition floor the old gate never
+  consulted, plus an assertion that section_ns() covers exactly MIN_N so a
+  clause cannot be added to the spec without a floor to test it against.
+
+  ★ THE SECOND-ORDER FIX, because the first one is not enough. The renderer and
+  the gate each needed "which n belongs to which floor". Two copies drift, and
+  the drift is invisible in exactly the way above. section_ns() is now the one
+  mapping both read. A clause cannot be enforced in one place and ignored in
+  the other, because there is only one place.
+
+  ★ AGREEMENT UNDER OBSERVED DATA IS NOT EQUIVALENCE. This is the transferable
+  half. Two formulations that have matched on every input so far are not the
+  same formulation; they are untested against the input that separates them.
+  When you find a subset implementation, the question is never "has it been
+  wrong yet" — it is "what input would tell the difference, and has it occurred
+  yet". Here the answer was "one draft in a week", and the account produced it
+  the day the defect surfaced.
 """
 from __future__ import annotations
 import sys
