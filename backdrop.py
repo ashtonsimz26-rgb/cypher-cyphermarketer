@@ -195,6 +195,39 @@ DEFAULT_SCENE = SCENES["Lifestyle"]
 #
 # tests/test_story_scenes.py enforces this against a NAMED LIST, which is a
 # FLOOR, not a proof — see that test for exactly what it cannot catch.
+#
+# ── DECLINED 2026-09-17: COLLABORATOR -> CATEGORY -> FRAME ──────────────────
+# The numbers are recorded here so a future session that proposes this finds
+# them instead of re-deriving them and arriving at the same wrong place.
+#
+# THE PROPOSAL. 66% of the fallback pool's hook facts name a collaborator. A
+# collaborator may not select a frame — but could it do so via WHAT THE
+# COLLABORATOR IS (a skate brand, a fashion house, a musician) rather than who,
+# with the brand name never entering the prompt?
+#
+# IT PASSES BOTH GATES, WHICH IS WHY IT IS TEMPTING.
+#   * E2 holds. A category maps to a hand-written stem; no brand string reaches
+#     the model; scene_for() still has no parameter a fact could arrive in.
+#   * The admission criterion above permits it. skate_basement is
+#     ACTIVITY-coded, carrying no when and no where, so an attribute selecting
+#     it is not the anachronism the rule closes.
+#
+# AND IT IS STILL WRONG, because the rule closes ANACHRONISM and this defect is
+# SAMENESS. Those are two harms and the criterion only names one. Mapping a
+# brand to a frame gives every release by that brand, across its whole history,
+# the same frame — the frame is simply no longer lying about the decade.
+#
+# THE CENSUS, which is what settles it. Collaborators named in the fallback
+# pool: Travis Scott 9, Off-White 8, A Ma Maniére 4, Supreme 3, and then NOCTA,
+# Fragment, Undefeated, Patta, Awake NY, Levi's, Carhartt, Comme des Garçons,
+# J Balvin, DJ Khaled, Lil Yachty, Nigel Sylvester (31 distinct). That list is
+# overwhelmingly skate / streetwear / fashion, so the 57 collab-naming shoes
+# would land in two or three activity frames — on top of a keyed set where 43%
+# ALREADY lands on two frames.
+#
+# So it would lift coverage from 16% toward 40% and make the output MORE
+# uniform. It trades the number we are trying to fix for the number we are
+# trying to protect. Refused on those grounds, not on E2.
 
 # (compiled pattern key, story key) — matched against the HOOK FACT's text only.
 # Order matters: first match wins, so the specific precedes the general.

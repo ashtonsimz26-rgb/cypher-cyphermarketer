@@ -505,6 +505,43 @@ Do not read this module and conclude the gap class is closed. It is not.
   mapping both read. A clause cannot be enforced in one place and ignored in
   the other, because there is only one place.
 
+★★ A CLAIM ABOUT VOLUME ANSWERING A QUESTION ABOUT VARIANCE (2026-09-17)
+★★ Banked for the SEQUENCE, not the subject. The subject was era; it will not be
+★★ next time.
+
+  WHAT HAPPENED, in order:
+    1. Measured: of 38 fallback shoes with a locatable signal, 27 name a year or
+       a decade — far and away the largest untapped signal in the pool.
+    2. Proposed on that count: era should become a selection axis. Called it
+       "the single largest untapped signal", which was TRUE.
+    3. Approved in principle, with era's grounding asked for before building.
+    4. Measured the SPREAD: 2010s 17, 2020s 8, 2000s 3, 1990s 1, 1980s 1. Some
+       25 of 30 mentions fall in one modern band, 0 of the 27 match any key, and
+       all 14 stems are era-neutral.
+    5. Withdrew it. The deferral stands.
+
+  THE DEFECT IS IN STEP 2, AND IT IS NOT AN ARITHMETIC ERROR. The count was
+  right. "Largest untapped signal" is a claim about VOLUME — how often a thing
+  appears. The decision needed a claim about VARIANCE — whether the thing takes
+  DIFFERENT VALUES often enough to choose between outcomes.
+
+  A SIGNAL WITH NO SPREAD SELECTS NOTHING, NO MATTER HOW OFTEN IT APPEARS. Era
+  appears in 71% of the locatable fallback pool and would have sorted almost all
+  of it into one bucket. A field present on every row and constant across them
+  carries exactly as much selective power as a field that is absent.
+
+  ★ THE RULE: before proposing a field as a selector, report its DISTRIBUTION,
+  not its COUNT. "N rows have it" is necessary and not sufficient; the question
+  is "how many distinct values, and how are the rows spread across them". The
+  two numbers come from the same pass, so there is no reason to report only the
+  first — and reporting only the first is what made a measurement look like a
+  finding.
+
+  This sits beside the price-rail lesson in the README ("verify what a number
+  MEANS before verifying its value") and is its selection-side twin: there the
+  number was the wrong statistic, here it was the right statistic answering the
+  wrong question.
+
   ★ AGREEMENT UNDER OBSERVED DATA IS NOT EQUIVALENCE. This is the transferable
   half. Two formulations that have matched on every input so far are not the
   same formulation; they are untested against the input that separates them.
