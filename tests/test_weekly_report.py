@@ -49,14 +49,29 @@ for k, need in FR.MIN_N.items():
 print("\n=== 4. THE REPORT CAN SAY NOTHING AND STOP ===")
 empty_agg = {"buckets": {}, "announcements": [], "unresolved": [],
              "excluded_non_agent": [], "window_days": 7}
-empty_sig = {"n_proposals": 0, "n_rejects": 0, "n_briefs": 0, "n_runs": 3}
+empty_sig = {"n_proposals": 0, "n_rejects": 0, "n_briefs": 0, "n_runs": 3,
+             "n_compositions": 0}
 ok(FR.nothing_to_report(empty_agg, empty_sig), "a truly empty week reports nothing")
 ok(not FR.nothing_to_report(dict(empty_agg, unresolved=[{"x": 1}]), empty_sig),
    "an unresolved post is enough to report")
-ok(not FR.nothing_to_report(empty_agg, dict(empty_sig, n_rejects=1)),
-   "a single rejection is enough to report")
-ok(not FR.nothing_to_report(empty_agg, dict(empty_sig, n_proposals=1)),
-   "a single draft is enough to report")
+# ★ REWRITTEN 2026-09-17 with the floor-aware gate. These previously asserted
+# that ONE draft or ONE rejection forces a full report. That was the bug: a
+# single draft cannot reach any floor, so the page it forced was four headings
+# over four refusals. The contract is the floor, not the heartbeat.
+ok(FR.nothing_to_report(empty_agg, dict(empty_sig, n_proposals=1)),
+   "a single draft reaches no floor — still nothing to report")
+ok(FR.nothing_to_report(empty_agg, dict(empty_sig, n_rejects=1)),
+   "a single rejection reaches no floor — still nothing to report")
+ok(not FR.nothing_to_report(empty_agg, dict(empty_sig, n_rejects=FR.MIN_N["reject"])),
+   "a rejection count AT its floor reports")
+ok(not FR.nothing_to_report(empty_agg, dict(empty_sig, n_proposals=FR.MIN_N["tier"])),
+   "a draft count AT its floor reports")
+ok(not FR.nothing_to_report(empty_agg, dict(empty_sig, n_compositions=FR.MIN_N["composition"])),
+   "compositions AT the floor report — the section the old gate never consulted")
+# The renderer and the gate must read ONE mapping, or a section can speak while
+# the gate says nothing did.
+ok(set(FR.section_ns(empty_sig)) == set(FR.MIN_N),
+   "section_ns covers exactly the floors in MIN_N: %s" % sorted(FR.section_ns(empty_sig)))
 
 print("\n=== 5. NO HEADING IS PRINTED WITH NOTHING UNDER IT ===")
 # NOTE: weekly(7) short-circuits to the R4 one-liner today, because the
@@ -81,9 +96,17 @@ ok(len(seven.splitlines()) <= 4, "…%d lines" % len(seven.splitlines()))
 print("\n=== 6. THE DIVERGENCE DENOMINATOR EXCLUDES PRE-E5 DRAFTS ===")
 sig = FR.pipeline_signals(None)
 ok(sig["pre_e5_drafts"] > 0, "there ARE drafts predating the contract: %d" % sig["pre_e5_drafts"])
-ok(sig["n_briefs"] == 0,
-   "…and none of them counts as a brief — 0%% over n=36 would read as a mechanism "
-   "working perfectly when it did not exist")
+# ★ UPDATED 2026-09-17. This asserted n_briefs == 0, which encoded "the E5
+# mechanism has not run yet" — true when written, false the moment it did. The
+# durable property is the EXCLUSION being exact: every draft is counted once,
+# as a brief or as pre-contract, never both and never dropped.
+_drafts = [r for r in FR._read(FR.RUNS) if r.get("event") == "draft_built"]
+ok(sig["n_briefs"] + sig["pre_e5_drafts"] == len(_drafts),
+   "every draft is counted exactly once: briefs %d + pre-contract %d == %d drafts"
+   % (sig["n_briefs"], sig["pre_e5_drafts"], len(_drafts)))
+ok(sig["n_briefs"] < len(_drafts),
+   "…and the divergence denominator is NOT the full draft count (%d < %d)"
+   % (sig["n_briefs"], len(_drafts)))
 allt = FR.weekly(None)
 ok("predate the fact_id contract" in allt, "the exclusion is STATED, not silent")
 

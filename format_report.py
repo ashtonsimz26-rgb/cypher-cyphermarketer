@@ -327,26 +327,55 @@ def render_signals(sig: dict) -> list[str]:
     def reject_body():
         return ["  %-22s %3d" % (k, c) for k, c, _ in _share(sig["reject_codes"])]
 
+    ns = section_ns(sig)
     section("TIER DISTRIBUTION of drafts (E3 weighting, measured)", "tier",
-            sig["n_proposals"], tiers_body)
-    section("COMPOSITION DISTRIBUTION", "composition", sig["n_compositions"], comp_body)
-    section("BRIEF DIVERGENCE (E5)", "divergence", sig["n_briefs"], div_body)
+            ns["tier"], tiers_body)
+    section("COMPOSITION DISTRIBUTION", "composition", ns["composition"], comp_body)
+    section("BRIEF DIVERGENCE (E5)", "divergence", ns["divergence"], div_body)
     if sig["pre_e5_drafts"]:
         L.append("  (%d earlier draft(s) excluded — they predate the fact_id "
                  "contract and could not have diverged)" % sig["pre_e5_drafts"])
-    section("REJECT REASONS", "reject", sig["n_rejects"], reject_body)
+    section("REJECT REASONS", "reject", ns["reject"], reject_body)
     return L
+
+
+# ★★ ONE MAPPING OF SECTION -> n, READ TWICE.
+# render_signals() uses it to draw each section; nothing_to_report() uses it to
+# decide whether ANY section can speak. Two copies of "which n belongs to which
+# floor" would drift, and the symptom is exactly the bug this replaced: a page
+# of refusals printed by a function whose docstring promised one line.
+def section_ns(sig: dict) -> dict[str, int]:
+    return {"tier": sig["n_proposals"],
+            "composition": sig["n_compositions"],
+            "divergence": sig["n_briefs"],
+            "reject": sig["n_rejects"]}
 
 
 def nothing_to_report(agg: dict, sig: dict) -> bool:
     """★ R4: a weekly report that always produces a page will eventually invent
     one. If nothing was posted, nothing was drafted, nothing was rejected and no
-    signal clears its floor, the honest output is one line."""
+    signal clears its floor, the honest output is one line.
+
+    ★★ FIXED 2026-09-17. The clause "and no signal clears its floor" was in this
+    docstring from the day it was written and was NEVER EVALUATED. The test was
+    `if sig["n_proposals"] or sig["n_rejects"] or sig["n_briefs"]: return False`
+    — ANY activity at all defeated the one-liner, floors never consulted. It
+    went unseen because the window happened to be empty: with zero drafts both
+    conditions agree. The first week carrying a single draft printed 24 lines,
+    five of which were "insufficient data", under a heading promising there
+    would be one.
+
+    That is the inert-rail shape in the reporting layer, and it is the shape
+    run_all.py was written about: a guarantee the data cannot violate because
+    the code never checks it. A refusal is not a finding. A week in which every
+    section refuses has produced no findings, and printing four headings over
+    four refusals is the page R4 exists to prevent.
+    """
     if agg["buckets"] or agg["announcements"] or agg["unresolved"]:
         return False
-    if sig["n_proposals"] or sig["n_rejects"] or sig["n_briefs"]:
-        return False
-    return True
+    # A section speaks only at or above its floor. If none does, there is
+    # nothing to report however much machinery ran.
+    return not any(n >= MIN_N[name] for name, n in section_ns(sig).items())
 
 
 def weekly(days: int | None = 7) -> str:
@@ -357,10 +386,17 @@ def weekly(days: int | None = 7) -> str:
     agg = aggregate(days)
     sig = pipeline_signals(days)
     if nothing_to_report(agg, sig):
+        ns = section_ns(sig)
+        # ★ "no drafts" would be a lie the moment one draft exists, so the line
+        # states what happened AND why it says nothing, rather than claiming
+        # emptiness it cannot support.
+        detail = ("no agent posts, no drafts, no rejections"
+                  if not any(ns.values()) else
+                  "no agent posts; nothing reached its floor (%s)"
+                  % ", ".join("%s %d/%d" % (k, ns[k], MIN_N[k]) for k in sorted(ns)))
         return ("CYPHERMARKETER — WEEKLY (last %s)\n"
-                "Nothing worth reporting this week: no agent posts, no drafts, no "
-                "rejections.\n%d run(s) executed." % (
-                    ("%d days" % days) if days else "all time", sig["n_runs"]))
+                "Nothing worth reporting this week: %s.\n%d run(s) executed." % (
+                    ("%d days" % days) if days else "all time", detail, sig["n_runs"]))
     return "\n".join([render(agg)] + render_signals(sig))
 
 
