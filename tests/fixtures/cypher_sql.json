@@ -1,0 +1,49 @@
+{
+ "select c.image_name, c.rarity::text as rarity, c.name, c.brand, c.colorway, c.year, c.retail_price, c.estimated_resale, c.style_code, c.category, (select s.cap from public.serial_caps s where s.image_name=c.image_name and s.rarity=c.rarity) as serial_cap from public.catalog_cards c where c.image_name='aj4_sb_varsity_red' and c.rarity='GRAIL';": [
+  {
+   "brand": "Jordan",
+   "category": "Skateboarding",
+   "colorway": "SB 'Varsity Red' F&F",
+   "estimated_resale": 2000,
+   "image_name": "aj4_sb_varsity_red",
+   "name": "Jordan 4 Retro",
+   "rarity": "GRAIL",
+   "retail_price": 225,
+   "serial_cap": 10000,
+   "style_code": "N/A",
+   "year": 2025
+  }
+ ],
+ "select count(*) as n from public.claimed_set_rewards where set_name='Nike x Jordan 4 SB';": [
+  {
+   "n": 2
+  }
+ ],
+ "select o.image_name, o.rarity as rarity, o.serial_int, o.set_name, o.acquisition_method, o.minted_at, (select s.cap from public.serial_caps s where s.image_name=o.image_name and s.rarity='GRAIL') as serial_cap from public.owned_cards o where o.image_name='aj4_sb_varsity_red' and o.rarity='GRAIL' and o.serial_int=1;": [
+  {
+   "acquisition_method": "set_reward",
+   "image_name": "aj4_sb_varsity_red",
+   "minted_at": "2026-06-23 22:48:26.912008+00",
+   "rarity": "GRAIL",
+   "serial_cap": 10000,
+   "serial_int": 1,
+   "set_name": "Nike x Jordan 4 SB"
+  }
+ ],
+ "select o.image_name, o.rarity as rarity, o.serial_int, o.set_name, o.acquisition_method, o.minted_at, (select s.cap from public.serial_caps s where s.image_name=o.image_name and s.rarity='GRAIL') as serial_cap from public.owned_cards o where o.image_name='aj4_sb_varsity_red' and o.rarity='GRAIL' and o.serial_int=9999;": [],
+ "select required_image_name from public.set_requirements where set_name='Nike x Jordan 4 SB' order by 1;": [
+  {
+   "required_image_name": "aj4_sb_navy"
+  },
+  {
+   "required_image_name": "aj4_sb_pine_green"
+  }
+ ],
+ "select set_name, reward_image_name, reward_rarity::text as reward_rarity from public.set_rewards where set_name='Nike x Jordan 4 SB';": [
+  {
+   "reward_image_name": "aj4_sb_varsity_red",
+   "reward_rarity": "GRAIL",
+   "set_name": "Nike x Jordan 4 SB"
+  }
+ ]
+}

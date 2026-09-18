@@ -1,5 +1,5 @@
 #!/usr/bin/env python3.12
-"""cypher:// — a first-party source. Reads the live DB; spends nothing.
+"""cypher:// — a first-party source. OFFLINE: replays a recorded fixture.
 
 The sources rule is UNCHANGED: a moment still needs a non-empty sources[] and
 every term is still checked against a fetched document. What widened is what a
@@ -7,13 +7,54 @@ source may BE. The design claim under test is that nothing downstream is
 special — outcome, found/missing, numeric matching and the cache are inherited
 from the HTTP path rather than reimplemented beside it.
 
-Section 4 is the one that is not about correctness: a serial's OWNER is a
-private individual, and no rendered document may identify them.
+★ OFFLINE BY DEFAULT (2026-09-17). These sections test what the RENDERER
+produces given rows, so the rows can be a recording: tests/fixtures/cypher_sql.json,
+captured from live by tests/record_cypher_fixture.py. Re-record when the
+resolver's SQL changes. A hand-written fixture would test the assumption rather
+than the renderer, so it is a recording and never hand-edited.
+
+★ TWO SECTIONS LEFT, and they did not move because they CANNOT:
+  * privacy  -> tests/test_cypher_privacy_live.py
+  * rarity   -> tests/test_rarity_vocab_live.py
+Both assert agreement with the LIVE database — a real owner absent from a real
+document, and the code's casing map matching the live schema's two vocabularies.
+Against a fixture each becomes true by construction and could never fail again.
+They skip loudly (exit 77) rather than passing when the DB is unreachable.
+
+Why the split at all: this suite hit Supabase and timed out under load, read as
+a FAILURE, and passed on re-run. An intermittently failing suite teaches people
+to re-run rather than to read, which is how a real failure gets waved through.
 """
-import ast, sys, tempfile
+import ast, json, sys, tempfile
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from research import verify as V
+
+# ── the recording, replayed ─────────────────────────────────────────────────
+_FIX = json.loads((Path(__file__).resolve().parent / "fixtures"
+                   / "cypher_sql.json").read_text(encoding="utf-8"))
+
+
+def _replay(q: str):
+    """★ FAILS LOUD ON A MISS. A fixture that silently returns [] for an
+    unrecorded query would turn every new code path into a fake NOT MINTED —
+    a passing test over a query nobody recorded. Re-record instead."""
+    k = " ".join(q.split())
+    if k not in _FIX:
+        raise KeyError("no recorded rows for: %s\n  -> re-run "
+                       "tests/record_cypher_fixture.py" % k[:120])
+    return _FIX[k]
+
+
+# ★ KEEP THE REAL FUNCTION. Section 5 tests the READ-ONLY assert that lives in
+# _cypher_sql itself, and swapping it for the replayer would delete the thing
+# under test — the check would "pass" on the replayer's KeyError for entirely
+# the wrong reason. The assert is a precondition on the statement text and
+# fires before any database call, so exercising it offline is honest.
+_REAL_CYPHER_SQL = V._cypher_sql
+
+V._cypher_sql = _replay
+V.CACHE_DIR = Path(tempfile.mkdtemp())      # never answer from a stale disk cache
 
 FAILS = []
 def ok(c, m):
@@ -47,7 +88,7 @@ ok(r4["outcome"] == "contradicted",
    "…separator-aware: 1000 is NOT satisfied by 10000")
 
 print("\n=== 3. UNREACHABLE IS 'unverified', NEVER 'contradicted' ===")
-_orig = V._cypher_sql
+_orig = V._cypher_sql          # the replayer, restored after the mock
 try:
     V._cypher_sql = lambda q: (_ for _ in ()).throw(RuntimeError("db down"))
     V.CACHE_DIR = Path(tempfile.mkdtemp())          # no cached copy to fall back on
@@ -58,34 +99,23 @@ try:
 finally:
     V._cypher_sql = _orig
 
-print("\n=== 4. NO USER IS EVER IDENTIFIED ===")
-t = V.fetch_text(SERIAL)
-# the real owner of serial #1, fetched independently — it must NOT be in the doc
-import daily_digest as DD
-owner = DD._sql("select owner_id from public.owned_cards "
-                "where image_name='aj4_sb_varsity_red' and serial_int=1;")[0]["owner_id"]
-ok(owner not in t, "the owner_id of serial #1 is absent from the rendered document")
-ok(not any(c in t for c in ("owner_id", "user_id", "@")),
-   "no owner/user column or address appears at all")
-src = (REPO / "research" / "verify.py").read_text()
-tree = ast.parse(src)
-fn = next(n for n in ast.walk(tree)
-          if isinstance(n, ast.FunctionDef) and n.name == "resolve_cypher")
-sql = " ".join(n.value for n in ast.walk(fn)
-               if isinstance(n, ast.Constant) and isinstance(n.value, str))
-ok("owner_id" not in sql and "user_id" not in sql,
-   "no resolver SQL selects an owner column — it is never fetched, not merely unprinted")
+# Section 4 (privacy) lives in tests/test_cypher_privacy_live.py — it needs the
+# real database or it proves nothing. See this module's header.
 
 print("\n=== 5. READ-ONLY, AND NARROW ON PURPOSE ===")
 try:
-    V._cypher_sql("update public.owned_cards set serial_int=99;")
+    _REAL_CYPHER_SQL("update public.owned_cards set serial_int=99;")
     ok(False, "a write should have been refused")
 except AssertionError:
-    ok(True, "_cypher_sql asserts the statement starts with select")
+    ok(True, "the REAL _cypher_sql asserts the statement starts with select")
+except KeyError:
+    ok(False, "the replayer answered — section 5 must exercise the real guard")
 for bad in ("cypher://", "cypher://card/only_one_arg", "cypher://listing/x/y",
             "cypher://serial/x/Rare/not_a_number", "cypher://card/a/b/c/d"):
     ok(V.resolve_cypher(bad) == "", "malformed refused: %-42s" % bad)
-kinds = {n.value for n in ast.walk(fn)
+_fn = next(n for n in ast.walk(ast.parse((REPO / "research" / "verify.py").read_text()))
+           if isinstance(n, ast.FunctionDef) and n.name == "resolve_cypher")
+kinds = {n.value for n in ast.walk(_fn)
          if isinstance(n, ast.Constant) and n.value in ("card", "set", "serial")}
 ok(kinds == {"card", "set", "serial"}, "exactly three kinds, no query language: %s" % sorted(kinds))
 
@@ -96,25 +126,16 @@ r = V.verify_fact("cypher://serial/aj4_sb_varsity_red/GRAIL/9999", ["set_reward"
 ok(r["outcome"] == "contradicted",
    "…so a claim about it is CONTRADICTED (the db answered), not unverified")
 
-print("\n=== 6b. BOTH RARITY VOCABULARIES RESOLVE ===")
-# catalog_cards is the sneaker_rarity ENUM (mixed case); owned_cards is TEXT
-# under a CHECK constraint (UPPER). They agree on GRAIL and HOLY GRAIL and
-# differ on the other four — so testing a GRAIL proves nothing about the rest.
-import daily_digest as _DD
-row = _DD._sql("select image_name, rarity, serial_int from public.owned_cards "
-               "where rarity='LEGENDARY' and serial_int is not null limit 1;")
-if row:
-    r0 = row[0]
-    for spelling in ("Legendary", "LEGENDARY"):
-        t = V.fetch_text("cypher://serial/%s/%s/%s" % (r0["image_name"], spelling, r0["serial_int"]))
-        ok("CYPHER SERIAL" in t and "NOT MINTED" not in t,
-           "a minted LEGENDARY resolves as %-10s (not a false NOT MINTED)" % spelling)
-        ok("serial_cap" in t, "…and its serial_cap joins (catalog casing on serial_caps)")
+print("\n=== 6b. THE CASING MAP ITSELF (pure; the LIVE half is separate) ===")
+# The live half — that this map still matches the schema's two vocabularies —
+# is tests/test_rarity_vocab_live.py. These three are pure functions and belong
+# with the offline suite.
 ok(V._rarity_for("owned_cards", "Rare") == "RARE", "Rare -> RARE for owned_cards")
 ok(V._rarity_for("catalog_cards", "RARE") == "Rare", "RARE -> Rare for catalog_cards")
 ok(V._rarity_for("owned_cards", "HOLY GRAIL") == "HOLY GRAIL", "the two top tiers are unchanged")
 
 print("\n=== 7. ONE DISPATCH POINT ===")
+tree = ast.parse((REPO / "research" / "verify.py").read_text())
 ft = next(n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef) and n.name == "fetch_text")
 ok(any(isinstance(n, ast.Call) and getattr(n.func, "id", "") == "resolve_cypher"
        for n in ast.walk(ft)), "fetch_text is the only caller of resolve_cypher")

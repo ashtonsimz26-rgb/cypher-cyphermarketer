@@ -27,6 +27,17 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 TIMEOUT = 300
 
+# A suite exits 77 to say "I did not run". Borrowed from the autotools
+# convention so it cannot collide with a real failure code.
+SKIP_EXIT = 77
+
+
+def _skip_reason(out: str) -> str:
+    for line in (out or "").splitlines():
+        if line.startswith("SKIP:"):
+            return line[len("SKIP:"):].strip()
+    return "no reason given"
+
 
 def discover() -> list[Path]:
     return sorted(p for p in HERE.glob("test_*.py"))
@@ -49,11 +60,20 @@ def main() -> int:
         print("NO TEST FILES FOUND — refusing to report success over an empty set")
         return 2
     results = [run_one(p) for p in files]
+    # ★ SKIP IS ITS OWN OUTCOME (2026-09-17). Exit 77 means "this suite did not
+    # run", and it must never be counted as a pass. A suite whose live
+    # dependency was unreachable has told us NOTHING, and a summary that prints
+    # "21 of 21 passed" over it is the same defect as the unconditional
+    # "18 suites clean" this file was written about — one level down, and
+    # harder to see, because the skipped suite is usually the one that checks
+    # the thing that drifts.
+    skipped = [r for r in results if r[1] == SKIP_EXIT]
     passed = [r for r in results if r[1] == 0]
-    failed = [r for r in results if r[1] != 0]
+    failed = [r for r in results if r[1] not in (0, SKIP_EXIT)]
 
     for name, code, secs, _ in results:
-        print("  %-34s %-5s %5.1fs" % (name, "PASS" if code == 0 else "FAIL", secs))
+        label = "PASS" if code == 0 else ("SKIP" if code == SKIP_EXIT else "FAIL")
+        print("  %-34s %-5s %5.1fs" % (name, label, secs))
 
     for name, code, _, out in failed:
         print("\n" + "=" * 62)
@@ -61,8 +81,18 @@ def main() -> int:
         tail = [l for l in out.splitlines() if l.strip()][-14:]
         print("\n".join("  " + l for l in tail))
 
-    # ★ Counted, never asserted. len(passed) cannot disagree with the exit codes.
-    print("\n%d of %d suites passed." % (len(passed), len(results)))
+    # ★ Counted, never asserted. These cannot disagree with the exit codes.
+    line = "\n%d passed" % len(passed)
+    if skipped:
+        reasons = sorted({_skip_reason(o) for _, _, _, o in skipped})
+        line += ", %d skipped (%s)" % (len(skipped), "; ".join(reasons))
+    if failed:
+        line += ", %d failed" % len(failed)
+    line += "  [%d suite%s]" % (len(results), "" if len(results) == 1 else "s")
+    print(line)
+    if skipped:
+        for name, _, _, out in skipped:
+            print("  SKIPPED %-30s %s" % (name, _skip_reason(out)))
     if failed:
         print("%d FAILED: %s" % (len(failed), ", ".join(f[0] for f in failed)))
     return 1 if failed else 0

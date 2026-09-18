@@ -121,6 +121,7 @@ any narrowing operation whose "nothing matched" case is indistinguishable from
 | `content/` | exact post texts, one file per post (byte-verbatim) |
 | `ledger/posts.jsonl` | append-only record of every attempt / post / failure |
 | `.env` | credentials, chmod 600, **never committed** (`.env.example` is the template) |
+| `data/enrichment_scope.md` | what enriching the 111 spec-only dossiers would cost, and why it is sequenced after the concentration problem |
 
 ## Grounded decisions (build session 2026-08-19)
 

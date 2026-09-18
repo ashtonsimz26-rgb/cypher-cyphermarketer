@@ -4,6 +4,22 @@
 and never written down; written 2026-09-17 with what was settled then plus what
 has been measured since.**
 
+## SEQUENCING — READ THIS BEFORE COSTING IT AGAIN
+
+**This work goes AFTER the stem-and-trigger question. Do not run it first
+because it is the cheapest item on the list.** (Ashton's ruling, 2026-09-17.)
+
+At $1–4 and 2–3 hours it is cheap enough to run on a whim, and that is precisely
+the risk. The diagnosis in `research/story.py` says the problem a reader
+actually sees is **concentration** — 43% of keyed shoes land on two frames — and
+enrichment does not touch it. Worse, the third of the 111 that would land is the
+third that already had the most story, so it adds shoes to the same crowded
+frames.
+
+Cheapness is not priority. A cheap item run first still spends the sequencing
+decision, and this one would leave the visible problem exactly where it was
+while making the numbers look better.
+
 > The failure this file fixes is not that the scope was wrong. It is that an
 > approved scope lived only in a conversation, so the next session could neither
 > execute it nor argue with it. A decision that exists in one person's memory is

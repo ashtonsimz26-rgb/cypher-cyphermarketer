@@ -168,15 +168,27 @@ def _isolated(body: str) -> tuple[int, str]:
 code, out = _isolated("import sys\nprint('deliberate')\nsys.exit(1)\n")
 ok(code == 1, "ONE failing suite -> runner exits 1 (got %d)" % code)
 ok("test_zz_canary.py" in out, "…and it NAMES the failing file")
-ok("0 of 1 suites passed" in out, "…and the derived count is 0 of 1: %r"
-   % (re.search(r"\d+ of \d+ suites passed", out) or "no match"))
+ok("0 passed, 1 failed" in out, "…and the derived count is 0 passed, 1 failed: %r"
+   % (re.search(r"\d+ passed.*", out) or "no match"))
 
 code, out = _isolated("import sys\nprint('fine')\nsys.exit(0)\n")
 ok(code == 0, "ONE passing suite -> runner exits 0 (got %d)" % code)
-ok("1 of 1 suites passed" in out, "…and the derived count is 1 of 1")
+ok("1 passed" in out and "[1 suite]" in out, "…and the derived count is 1 passed of 1 suite")
+
+# ★ THE THIRD DIRECTION (2026-09-17). A runner proved only on pass and fail says
+# nothing about SKIP, and skip is the outcome most likely to be laundered —
+# a suite that did not run looks exactly like a suite that passed unless the
+# summary distinguishes them. This canary exits 77 and must NOT be counted.
+code, out = _isolated("import sys\nprint('SKIP: live DB unreachable')\nsys.exit(77)\n")
+ok(code == 0, "ONE skipped suite -> runner exits 0, since nothing failed (got %d)" % code)
+ok("0 passed" in out, "…and it is NOT counted as a pass: %r"
+   % (re.search(r"\d+ passed[^\n]*", out) or "no match"))
+ok("1 skipped" in out, "…it is counted as SKIPPED")
+ok("live DB unreachable" in out, "…and the runner surfaces the suite's own reason")
+ok("SKIPPED" in out and "test_zz_canary.py" in out, "…and names the suite that did not run")
 
 code, out = _isolated("")            # an empty file is a passing file
-ok("1 of 1 suites passed" in out, "an empty suite still counts as one suite")
+ok("1 passed" in out and "[1 suite]" in out, "an empty suite still counts as one suite")
 
 print("\n" + ("ALL PASS" if not FAILS else "%d FAILURE(S): %s" % (len(FAILS), FAILS)))
 sys.exit(1 if FAILS else 0)
