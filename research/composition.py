@@ -167,7 +167,31 @@ def two_card(card, backdrop, size, card_b=None):
     return canvas
 
 
-ANGLED_SCALE = 1.32
+# ★★ `angled` IS RETIRED — DO NOT RESURRECT IT (ruled 2026-09-17).
+# It rotated an ALREADY-OVERSIZED card: ANGLED_SCALE 1.32 gave a 1133px-wide
+# card, and rotate(-6, expand=True) grew that to 1314px against a 1080px frame.
+# It shipped clipped at BOTH edges every time it ran (twice, per runs.jsonl).
+#
+# IT WAS NOT RESCALED, AND THE ARITHMETIC IS WHY. Rotated width is
+# w*cos(6) + h*sin(6), so the safe scale depends on the rotation angle AND the
+# card's aspect ratio — which CPA owns, not this repo. Measured:
+#     4:5  (1080x1350) tolerates ANGLED_SCALE <= 1.085
+#     16:9 (1600x900)  tolerates              <= 2.411
+# One constant cannot serve both; they are 2.2x apart. A rescale would be a
+# hand-tuned number that silently re-breaks the day CPA changes the card
+# aspect or a new target ratio is added — which is precisely how shoe_crop
+# (1.45 -> 1.25) and two_card_crop (0.95H -> cropped regions) were each
+# "fixed" once without ever gaining a gate. Nine compositions remain, four of
+# them no-attribution. Losing one is cheaper than keeping one that needs
+# watching.
+#
+# WHAT THE ROTATION BOUGHT, recorded so the loss is known rather than
+# discovered: it was the ONLY composition with a non-axis-aligned card. Every
+# remaining frame is square to the canvas, so the rotation was the single
+# source of tilt in the rotation, and nothing else provides it. If that
+# attitude is wanted again, it needs a composition designed to rotate — one
+# that fits the frame AFTER rotation by construction, not a constant trimmed
+# until it happens to.
 POSTER_SCALE = 0.82
 SHOE_WINDOW = (0.315, 0.615)       # the card's shoe panel, measured on the render
 # 0.08 sheared the TOP of the title ("NIKE AIR FORCE 1 SUPREME TZ" lost its
@@ -179,19 +203,6 @@ def _card_region(card, y0f, y1f):
     """Crop the card to a vertical band. Pixel-true — a crop, never a redraw."""
     h = card.height
     return card.crop((0, int(h * y0f), card.width, int(h * y1f)))
-
-
-def angled(card, backdrop, size):
-    """Card rotated slightly, shoe dominant, cut above the stats panel.
-    Same crop discipline as shoe_crop, different attitude."""
-    canvas = _fit(backdrop, size) if backdrop else _gradient(size)
-    c = _scaled(card, int(size[1] * ANGLED_SCALE))
-    c = c.rotate(-6, resample=Image.BICUBIC, expand=True)
-    top = round(size[1] - STATS_CUT * int(size[1] * ANGLED_SCALE))
-    pos = ((size[0] - c.width) // 2, top)
-    canvas = _shadow_glow(canvas, c, pos, size, glow=False)
-    canvas.paste(c, pos, c)
-    return canvas
 
 
 def shoe_only(card, backdrop, size):
@@ -272,7 +283,7 @@ def shoe_crop(card, backdrop, size):
 
 
 COMPOSITIONS = {
-    "shoe_crop": shoe_crop, "angled": angled, "shoe_only": shoe_only,
+    "shoe_crop": shoe_crop, "shoe_only": shoe_only,
     "two_card_crop": two_card_crop, "poster": poster,
     "hero": hero, "close_crop": close_crop, "off_centre": off_centre,
     "no_backdrop": no_backdrop, "two_card": two_card,
@@ -336,8 +347,6 @@ def placements(name: str, size: tuple[int, int]) -> list[tuple[int, int]]:
         return [(int(H * 0.34) - b // 2, b), (int(H * 0.66) - a_ // 2, a_)]
     if name == "shoe_crop":
         ch = int(H * CROP_SCALE); return [(round(H - STATS_CUT * ch), ch)]
-    if name == "angled":
-        ch = int(H * ANGLED_SCALE); return [(round(H - STATS_CUT * ch), ch)]
     if name == "shoe_only":
         return []                      # no card chrome at all — see shoe_only()
     if name == "two_card_crop":

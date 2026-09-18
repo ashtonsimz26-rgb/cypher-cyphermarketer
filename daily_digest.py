@@ -430,10 +430,12 @@ def pick_composition(fmt: str, hook_type: str, brand: str, scene: str,
     # No-attribution compositions lead both orders (they need no disclaimer),
     # but the order is only a PREFERENCE — the no-repeat rule below is what
     # actually produces variety.
-    order = (["shoe_only", "angled", "two_card_crop", "shoe_crop", "off_centre",
+    # `angled` was removed from both orders 2026-09-17 — retired for horizontal
+    # overflow; see research/composition.py for why it was not rescaled.
+    order = (["shoe_only", "two_card_crop", "shoe_crop", "off_centre",
               "poster", "close_crop", "hero"]
              if tentpole else
-             ["shoe_crop", "angled", "shoe_only", "two_card_crop", "no_backdrop",
+             ["shoe_crop", "shoe_only", "two_card_crop", "no_backdrop",
               "poster", "close_crop", "off_centre", "hero"])
     hist = ROT.recent()
     # PASS 1: first candidate that has not been used in the last 3 proposals.
