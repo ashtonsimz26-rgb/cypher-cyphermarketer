@@ -31,8 +31,11 @@ b = ST.brief(DOSS, "f3", lead="Marked the Chinese New Year with a candy box.")
 ok(b["scene_key"] == "lunar_new_year" and b["source"] == "writer",
    "naming f3 gives the lunar scene, not the collab one: %s" % b["scene_key"])
 b2 = ST.brief(DOSS, "f2", lead="A Supreme shop on Lafayette.")
-ok(b2["scene_key"] == "downtown_ny_2000s" and b2["source"] == "writer",
-   "naming f2 gives the downtown scene: %s" % b2["scene_key"])
+# ★ UPDATED 2026-09-17: f2 now resolves on `skate`, its own activity word, not
+# on `supreme`. The claim under test is unchanged — the WRITER'S fact decides
+# the scene — but the brand no longer supplies the answer.
+ok(b2["scene_key"] == "skate_basement" and b2["source"] == "writer",
+   "naming f2 gives f2's scene, chosen by its activity not its brand: %s" % b2["scene_key"])
 ok(b["scene_key"] != b2["scene_key"],
    "…so the SAME dossier yields different scenes depending on what was written")
 

@@ -123,7 +123,7 @@ DEFAULT_SCENE = SCENES["Lifestyle"]
 # collab partner or a catalog name into a prompt. A hook fact is read to CHOOSE a
 # key; the key selects a stem that was written here, by hand, in advance. A
 # Supreme shoe cannot produce a box logo on a wall because the word "Supreme"
-# never reaches the model — only the stem `downtown_ny_2000s` does, and that stem
+# never reaches the model — only the stem `winter_side_street` does, and that stem
 # describes a street, not a storefront.
 #
 # The alternative — asking a model to turn the fact into a scene brief — would be
@@ -138,24 +138,130 @@ DEFAULT_SCENE = SCENES["Lifestyle"]
 # moments.json: the PATTERN may name a brand (it is matched against a fact, never
 # emitted); the STEM may never contain a proper noun of any kind.
 
+# ★★ THE ADMISSION CRITERION (Ashton's ruling, 2026-09-17, AMENDED same day)
+#
+#   An entry may name an event, a place, or an activity. An ATTRIBUTE
+#   — an adjective, a season, a brand, a quality — may not select an
+#   era- or place-SPECIFIC frame, because it knows neither when nor
+#   where and will answer every moment the same way. An attribute MAY
+#   select a frame that encodes a STATUS rather than a setting, where
+#   the frame itself is era- and place-neutral.
+#
+# ★ THE AMENDMENT IS THE POINT. The first form banned attributes outright and
+# would have condemned `never released` -> vault_room, which is sound: that
+# frame is a strongroom with no geography and no period, and the token names
+# exactly the status it depicts. The defect was never the token alone — it is
+# the PAIRING of an unbounded token with a frame that carries a where or a
+# when. So the classification below is load-bearing, and until today nothing
+# recorded it.
+#
+# ── PLACE-CODED FRAMES — an attribute may NEVER select these ────────────────
+#   atelier_night      Paris / Milan   worn parquet, tungsten, European atelier
+#   tokyo_backstreet   Tokyo           named outright; neon + vending glow
+#   winter_side_street New York        steam from a grate, shutters, scaffolding
+#   sunbleached_lot    Los Angeles     dry palms, golden hour, baked asphalt
+#   lunar_new_year     East Asia       temple courtyard, lanterns, incense
+#
+# ── SEASON-CODED FRAMES — closed to attributes for the same reason ──────────
+#   snowlit_street     winter          deep snow, sodium on blue-white
+#   winter_side_street winter          also place-coded above — doubly closed
+#
+# ── STATUS FRAMES — era- and place-neutral; an attribute MAY select these ───
+#   vault_room         rarity          "cool neutral grey, no colour cast at
+#                                      all", shadowless. No geography, no period.
+#
+# ── ACTIVITY-CODED FRAMES — bounded by the activity, not by where or when ───
+#   skate_basement · dawn_track · arena_tunnel · olympic_podium · locker_tunnel
+#   Safe from the attribute defect for a different reason: the activity IS the
+#   bound, so a trigger naming it cannot be unbounded.
+#
+# ── SETTING-GENERIC — no strong where/when, but not a status either ─────────
+#   psychedelic_venue · quiet_atrium
+#   Rule these as place-coded: a music hall and a civic atrium are SETTINGS,
+#   and an adjective reaching a setting is the same unbounded mapping even
+#   where the geography is soft.
+#
+# `supreme` was the instance that surfaced this; it was not the class. An
+# audit of all 15 entries found six more, and the worst of them — `luxury` —
+# came within one word of firing on the same card: the copy reads "luxurious"
+# and the pattern was `luxury`. Removed 2026-09-17: `luxury`, `riot`,
+# `winter|snow|cold|storm`, `summer`.
+#
+# WHY AN ATTRIBUTE CANNOT CARRY THE DECISION. A frame choice needs to know
+# WHEN or WHERE. An adjective knows neither, so it answers every moment the
+# same way: every luxury release, from any country and any decade, reached one
+# Paris workroom. That is `supreme`'s defect with the brand swapped for an
+# adjective.
+#
+# tests/test_story_scenes.py enforces this against a NAMED LIST, which is a
+# FLOOR, not a proof — see that test for exactly what it cannot catch.
+
 # (compiled pattern key, story key) — matched against the HOOK FACT's text only.
 # Order matters: first match wins, so the specific precedes the general.
 STORY_VOCAB = (
     (r"chinese new year|lunar new year|year of the", "lunar_new_year"),
     (r"\bolympic|team usa|\bgold medal", "olympic_podium"),
-    (r"grateful dead|dead\b.{0,12}\btour|psychedelic", "psychedelic_venue"),
-    (r"\bpigeon\b|lower east side|\bL\.?E\.?S\.?\b|riot", "downtown_ny_2000s"),
-    (r"supreme|skate shop|downtown manhattan|\bnyc\b|new york", "downtown_ny_2000s"),
+    # `psychedelic` removed 2026-09-17: an adjective reaching a setting.
+    # Free to remove — the entry survives on the band and the tour, which are
+    # bounded, and the catalogue's psychedelic content IS the Dead collabs.
+    (r"grateful dead|dead\b.{0,12}\btour", "psychedelic_venue"),
+    # ★★ THE BRAND TOKEN IS GONE (ruled 2026-09-17). This entry read
+    #    `supreme|skate shop|downtown manhattan|nyc|new york`, and `supreme`
+    #    sent a brand that has been running since 1994 to ONE frame regardless
+    #    of decade. On 2026-09-17 a NOVEMBER 2019 Supreme drop was given a
+    #    winter street keyed `downtown_ny_2000s`: the stem rendered faithfully,
+    #    the MAPPING was wrong. The scene had matched the COLLABORATOR, not the
+    #    moment.
+    #
+    #    A brand is not a place and not a period, so it cannot select a frame.
+    #    `skate shop` also left: it already matches `\bskate\b` below, which
+    #    routes to skate_basement — the shop is a skate context, not a street.
+    #    What remains are PLACES, which do not drift with the calendar. A
+    #    Supreme fact that names NYC still lands here, on the strength of the
+    #    place it names rather than the logo on the shoe.
+    #
+    #    tests/test_story_scenes.py asserts NO backdrop.BRAND_TOKENS entry
+    #    appears anywhere in STORY_VOCAB, so this cannot come back by hand.
+    # `riot` removed 2026-09-17: an event, but the FRAME is a specific place,
+    # and the pairing was an accident of the Pigeon release. A riot fact that
+    # should reach this street can still do so by naming the street, which the
+    # remaining alternations already allow.
+    (r"\bpigeon\b|lower east side|\bL\.?E\.?S\.?\b", "winter_side_street"),
+    (r"downtown manhattan|\bnyc\b|new york", "winter_side_street"),
     (r"\bbanned\b|fined|league.{0,15}(ban|rule)", "locker_tunnel"),
-    (r"hospital|charit|foundation|proceeds|doernbecher", "quiet_atrium"),
-    (r"friends and family|player exclusive|\bPE\b|never released|unreleased", "vault_room"),
-    (r"\bparis\b|\bmilan\b|\brunway\b|fashion week|luxury", "atelier_night"),
+    # `charit|proceeds` removed 2026-09-17 on the PAIRING test, not the token
+    # test: "proceeds went to charity" says money MOVED, not where. A
+    # wildfire-relief release and a children's-hospital release both reached
+    # this atrium. What remains NAMES THE INSTITUTION, which is a place.
+    (r"hospital|foundation|doernbecher", "quiet_atrium"),
+    # ★ KEPT under the amended rule: vault_room is a STATUS frame — neutral
+    # grey, no colour cast, no geography, no period — and these tokens name
+    # exactly the status it depicts. `never released` is era-neutral and that
+    # is fine HERE, where it would not be against a place-coded frame.
+    #
+    # `\bPE\b` removed 2026-09-17 on DIFFERENT grounds: not over-breadth but
+    # false matching. Two letters under a case-insensitive scan is a generator
+    # of accidents, and the long forms already carry the meaning.
+    (r"friends and family|player exclusive|never released|unreleased", "vault_room"),
+    # `luxury` removed 2026-09-17 — supreme\'s shape exactly: one adjective
+    # sending every luxury release, any country, any decade, to one Paris
+    # workroom. The places and the event (fashion week) stay; they know where
+    # and when, which is what a frame choice needs.
+    (r"\bparis\b|\bmilan\b|\brunway\b|fashion week", "atelier_night"),
     (r"\btokyo\b|\bjapan|harajuku|shibuya", "tokyo_backstreet"),
     (r"\bmarathon\b|\btrack\b|\brunner|\bracing\b", "dawn_track"),
     (r"\bskate\b|skateboard|\bSB\b", "skate_basement"),
     (r"\bcourt\b|\bNBA\b|playoff|finals|dunk contest", "arena_tunnel"),
-    (r"summer|beach|surf|\bmiami\b|\bLA\b|los angeles", "sunbleached_lot"),
-    (r"winter|snow|\bcold\b|storm", "snowlit_street"),
+    # `summer` removed 2026-09-17. Seasons are the highest-frequency attribute
+    # in release copy and they name neither a place nor a period — beach, surf
+    # and the cities do both.
+    (r"beach|surf|\bmiami\b|\bLA\b|los angeles", "sunbleached_lot"),
+    # ★ `winter|snow|cold|storm` removed 2026-09-17 — every alternation was a
+    # season or a weather condition, so NOTHING bounded survived the rule and
+    # the entry is gone entirely. The stem stays in STORY_SCENES: it is a
+    # sound frame with no way to be chosen, which is the honest state. It
+    # becomes reachable again when someone writes a trigger that names a
+    # place or an event rather than the weather.
 )
 
 # ══ THE STAGE RULE — the ONLY thing every scene shares ═══════════════════════
@@ -245,7 +351,12 @@ STORY_SCENES = {
         "an empty stadium infield under heavy overcast, banks of dark unlit "
         "floodlights above. Palette bleached white, wet concrete grey and cold "
         "steel. Light is flat, broad and sourceless. Vast, ceremonial, waiting.",
-    "downtown_ny_2000s":
+    # ★ RENAMED from `downtown_ny_2000s` (2026-09-17). The old key claimed a
+    # decade its own text never depicts — there is not one period marker in the
+    # sentence below, and a scan of all 14 stems found no era token in any of
+    # them. The era lived ONLY in the label, so a reader (and a session) trusted
+    # a promise the artwork never made. Name a stem for what it shows.
+    "winter_side_street":
         "a working city side street on a winter morning, roll-down shutters and "
         "scaffolding, steam from a grate. Palette drab brown brick, grey slush and "
         "dull sodium. Light is flat overcast daylight, no sun, no neon whatsoever. "
@@ -282,7 +393,7 @@ STORY_SCENES = {
 INSPECT_CLOSELY = {
     "tokyo_backstreet": "vending-machine bottles and cans — product labels can "
                         "resolve into readable marks; zoom the machine banks",
-    "downtown_ny_2000s": "storefront shutters and awnings — signage can resolve; "
+    "winter_side_street": "storefront shutters and awnings — signage can resolve; "
                          "zoom the shopfronts and the scaffolding banners",
     "psychedelic_venue": "stage backline — amp cabinets and drum heads are where "
                          "an instrument brand appears; zoom the stage",

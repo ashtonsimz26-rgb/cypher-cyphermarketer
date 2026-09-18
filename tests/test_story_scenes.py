@@ -12,6 +12,7 @@ import ast, json, re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import backdrop as BD, editorial, rails
+import backdrop as COMPZ_BD
 from research import story as ST
 
 def scene_of(row, dossier, fact_text=None):
@@ -65,7 +66,12 @@ ok(not any(capitalised.values()),
 
 print("\n=== 4. BRAND-SOAKED FACTS CANNOT REACH THE PROMPT ===")
 nasty = [
-    ("Supreme's skate shop on Lafayette Street", "downtown_ny_2000s"),
+    # ★ UPDATED 2026-09-17. This asserted that a SUPREME mention lands on the
+    # NYC street — the exact coupling the split removed. "skate shop" now
+    # reaches skate_basement via `\bskate\b`, which is the activity the words
+    # actually describe. A brand no longer selects a frame.
+    ("Supreme's skate shop on Lafayette Street", "skate_basement"),
+    ("a launch in downtown Manhattan", "winter_side_street"),
     ("The Off-White x Nike collaboration for Paris fashion week", "atelier_night"),
     ("A Travis Scott release that was banned by the league", "locker_tunnel"),
     ("Grateful Dead bears on a psychedelic tour", "psychedelic_venue"),
@@ -262,6 +268,130 @@ names = {n.id for b in (branch or []) for n in ast.walk(b) if isinstance(n, ast.
 ok("frag" not in names,
    "the set_completion branch never references `frag` — it has no free-text slot: %s"
    % sorted(names))
+
+print("\n=== NO BRAND MAY SELECT A FRAME (2026-09-17) ===")
+# ★ The 2026-09-17 defect was `supreme` — one brand token routing a 30-year
+# catalogue to a single winter street. The fix removed that token; THIS keeps
+# it removed. A brand is neither a place nor a period, so it cannot carry the
+# information a frame choice needs, and the next one would be added by hand in
+# perfect good faith.
+#
+# Note the asymmetry with the comment above STORY_VOCAB, which says a PATTERN
+# may name a brand because patterns are matched, never emitted. That remains
+# true for SAFETY — nothing leaks into a prompt. This is a different claim:
+# safe to emit is not the same as fit to decide.
+_vocab = " ".join(pat for pat, _ in COMPZ_BD.STORY_VOCAB).lower()
+_hits = sorted({b for b in COMPZ_BD.BRAND_TOKENS if b in _vocab})
+ok(not _hits, "no BRAND_TOKENS entry appears in STORY_VOCAB (found: %s)" % (_hits or "none"))
+ok("supreme" not in _vocab, "…specifically, `supreme` has not come back")
+_keys = {k for _, k in COMPZ_BD.STORY_VOCAB}
+ok(_keys <= set(COMPZ_BD.STORY_SCENES),
+   "every vocab key resolves to a real stem: %s" % sorted(_keys - set(COMPZ_BD.STORY_SCENES)))
+import re as _re
+_era = [k for k in COMPZ_BD.STORY_SCENES if _re.search(r"(19|20)\d0s", k)]
+ok(not _era, "no stem key names a decade its text does not depict: %s" % (_era or "none"))
+
+print("\n=== NO ATTRIBUTE MAY SELECT A FRAME (2026-09-17) ===")
+# ★★ THIS TEST IS A FLOOR, NOT A PROOF, AND SAYING SO IS PART OF THE TEST.
+#
+# WHAT IT CATCHES: an exact alternation equal to a token on the list below.
+# `luxury`, `summer`, `winter` come back -> this fails.
+#
+# WHAT IT CANNOT CATCH, stated plainly so nobody mistakes a green run for a
+# guarantee:
+#   1. ANY ADJECTIVE NOT ON THE LIST. "opulent", "gritty", "futuristic" all
+#      pass. A word list does not know what an adjective is, and no list will
+#      ever be complete — English keeps making them.
+#   2. A COMPOUND CONTAINING ONE. Matching is per-alternation and exact, so
+#      "player exclusive" passes while "exclusive" would fail. That is
+#      deliberate: "player exclusive" is a release CATEGORY, and narrowing to
+#      substrings would fail it for containing a word it does not mean.
+#   3. A REGEX THAT SPELLS AN ATTRIBUTE OBLIQUELY. `luxur\\w*` evades the list
+#      while meaning exactly what `luxury` meant.
+#
+# So the list stops the KNOWN instances from returning. The admission criterion
+# in backdrop.py is what stops the unknown ones, and that is a review
+# discipline, not a test. Adding a vocabulary entry remains a content decision
+# a human makes against the rule.
+ATTRIBUTE_TOKENS = {
+    # seasons + weather
+    "winter", "summer", "spring", "autumn", "fall", "snow", "snowy", "cold",
+    "hot", "storm", "stormy", "rain", "rainy", "sunny", "monsoon",
+    # quality / taste adjectives
+    "luxury", "luxurious", "premium", "iconic", "clean", "versatile", "classic",
+    "timeless", "bold", "minimal", "minimalist", "sleek", "elegant", "opulent",
+    "psychedelic", "futuristic", "retro", "vintage", "gritty", "elevated",
+}
+# ★ STRIP THE WORD-BOUNDARY TOKEN, NOT THE LETTER b. The first version used the
+# character class [\\b()?.*+], which contains a literal `b` and therefore ate one
+# from every alternation: "beach" -> "each", "doernbecher" -> "doernecher",
+# "NBA" -> "na". It also silently defanged the denylist, since "bold" would
+# normalise to "old" and match nothing. Caught by the assertion below that
+# "beach" survives — a check on the checker.
+def _normalise(alt: str) -> str:
+    import re as _re
+    return _re.sub(r"[()?.*+]", "", alt.replace("\\b", "")).strip()
+
+# `psychedelic` is REPORTED, NOT REMOVED — it is one of three edge cases held
+# for Ashton's ruling (2026-09-17). Listing it here while excluding it makes the
+# pending decision visible in the test rather than hidden by omission: when he
+# rules, delete the line below and the guard starts enforcing it.
+# ★ EMPTY as of 2026-09-17: `psychedelic` was ruled REMOVE, so the guard now
+# enforces it like any other. The set stays as the declared place to park a
+# token that is reported-but-not-yet-ruled — an exception with a name beats an
+# omission nobody can see.
+PENDING_RULING: set[str] = set()
+
+_alts = [a.strip().lower() for pat, _ in COMPZ_BD.STORY_VOCAB for a in pat.split("|")]
+_norm = [_normalise(a) for a in _alts]
+_bad = sorted({a for a in _norm if a in ATTRIBUTE_TOKENS - PENDING_RULING})
+ok(not _bad, "no entry is a bare attribute token (found: %s)" % (_bad or "none"))
+ok(_normalise(r"\bbeach\b") == "beach" and _normalise(r"\bNBA\b").lower() == "nba",
+   "the normaliser strips \\b without eating the letter b")
+for gone in ("luxury", "summer", "winter", "riot"):
+    ok(gone not in _norm, "`%s` has not come back" % gone)
+ok("beach" in _norm and "surf" in _norm,
+   "…and the bounded alternations beside them survived — this removed words, not entries")
+ok("player exclusive" in _norm,
+   "a COMPOUND containing an attribute-ish word is not caught (by design): "
+   "'player exclusive' is a release category")
+ok(len(ATTRIBUTE_TOKENS) > 0 and isinstance(ATTRIBUTE_TOKENS, set),
+   "the list is a floor of %d named tokens — see this section's header for what it misses"
+   % len(ATTRIBUTE_TOKENS))
+
+print("\n=== THE AMENDED RULE: PAIRING, NOT TOKEN (2026-09-17) ===")
+# The amendment allows an era-neutral token ONLY against a frame that carries
+# no where and no when. These assertions encode that split so a future session
+# cannot quietly re-ban the status case or quietly open a place-coded one.
+_by_key = {}
+for pat, key in COMPZ_BD.STORY_VOCAB:
+    _by_key.setdefault(key, []).extend(_normalise(a.strip().lower()) for a in pat.split("|"))
+ok("never released" in _by_key.get("vault_room", []),
+   "`never released` SURVIVES against vault_room — a status frame, era-neutral by construction")
+ok("unreleased" in _by_key.get("vault_room", []), "…as does `unreleased`")
+ok("player exclusive" in _by_key.get("vault_room", []), "…and `player exclusive`")
+ok("pe" not in _by_key.get("vault_room", []),
+   "`PE` is gone — removed for FALSE MATCHING, not over-breadth; two letters generate accidents")
+PLACE_CODED = {"atelier_night", "tokyo_backstreet", "winter_side_street",
+               "sunbleached_lot", "lunar_new_year", "snowlit_street",
+               "psychedelic_venue", "quiet_atrium"}
+_leaks = sorted({(k, a) for k in PLACE_CODED for a in _by_key.get(k, [])
+                 if a in ATTRIBUTE_TOKENS})
+ok(not _leaks, "no attribute token reaches a place- or season-coded frame: %s" % (_leaks or "none"))
+ok(PLACE_CODED <= set(COMPZ_BD.STORY_SCENES),
+   "the place-coded list names real stems: %s" % sorted(PLACE_CODED - set(COMPZ_BD.STORY_SCENES)))
+_src = (REPO / "backdrop.py").read_text(encoding="utf-8")
+ok("STATUS FRAMES" in _src and "PLACE-CODED FRAMES" in _src,
+   "backdrop.py records which stems are place-coded and which are status frames")
+for gone in ("psychedelic", "charit", "proceeds"):
+    ok(gone not in " ".join(sum(_by_key.values(), [])), "`%s` has been removed" % gone)
+
+print("\n=== A STEM WITH NO TRIGGER IS DECLARED, NOT SILENT ===")
+_orphans = sorted(set(COMPZ_BD.STORY_SCENES) - {k for _, k in COMPZ_BD.STORY_VOCAB})
+ok(_orphans == ["snowlit_street"],
+   "exactly the stem whose triggers were all seasons is unreachable: %s" % _orphans)
+ok("snowlit_street" in COMPZ_BD.STORY_SCENES,
+   "…and it is KEPT rather than deleted — a sound frame with no way to be chosen")
 
 print("\n" + ("ALL PASS" if not FAILS else "%d FAILURE(S): %s" % (len(FAILS), FAILS)))
 sys.exit(1 if FAILS else 0)

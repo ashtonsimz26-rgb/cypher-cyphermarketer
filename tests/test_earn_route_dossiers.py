@@ -69,7 +69,7 @@ for n in REWARDS:
 
 print("\n=== 4. THE SCENE NO LONGER FALLS BACK FOR THEM ===")
 for n, expect in (("sb_dunk_low_gratefuldead_orange", "story:psychedelic_venue"),
-                  ("sb_dunk_low_staple_nyc_pigeon", "story:downtown_ny_2000s")):
+                  ("sb_dunk_low_staple_nyc_pigeon", "story:winter_side_street")):
     d = json.loads((REPO / "data" / "dossiers" / ("%s.json" % n)).read_text())
     _, source, _ = BD.scene_for({"category": "Skateboarding", "year": 2005},
                                 ST.brief(d, None)["scene_key"])
