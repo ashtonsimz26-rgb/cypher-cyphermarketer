@@ -9,6 +9,36 @@ the fact never enters the image prompt — stopped depending on discipline and
 became a property of the call graph. backdrop.scene_for(row, scene_key) has no
 parameter a fact could arrive in, asserted by AST in tests/test_story_scenes.py.
 
+★★ MEASURED 2026-09-17: THIS PATH WORKS AND FOUR POSTS IN FIVE NEVER REACH IT.
+The funnel, over the 332 distinct pool-reachable shoes:
+
+    reachable                 332  100%
+    ...with a dossier         250   75%
+    ...with a HOOKABLE fact   139   42%   <- loses 111
+    ...reaching a story key    53   16%   <- loses 86
+
+So 84% of reachable shoes get the CATEGORY scene, and of the 16% that are
+keyed, 43% land on just two frames (skate_basement, winter_side_street). Every
+scene improvement to date — new stems, the E5 brief, the vocabulary cleanup —
+has polished the 16%. THE BOTTLENECK IS UPSTREAM, IN THE DOSSIERS, AND NOT HERE.
+
+The evidence, so a future session does not re-derive it:
+  * The 111 with no hookable fact are not a tagging failure. Their GOAT prose
+    is the SAME LENGTH as the keyed group's (median 481 vs 487 chars) and only
+    7% of it carries narrative language, against 85% for the keyed group. GOAT
+    described the product instead of telling a story. There is nothing to
+    extract, so tag_sentence cannot be blamed and cannot be fixed into a win.
+  * Of the 86 that have a hookable fact but reach no key, 55% name only a
+    collaborator and/or materials. A collaborator may not select a frame
+    (see backdrop.STORY_VOCAB's admission criterion), so no vocabulary entry
+    can legally rescue them.
+  * CEILING: 91 of the 139 with hookable facts = 65%. An 80% target is not
+    reachable by ANY vocabulary or stem work, because 48 shoes name nothing
+    locatable in time or space. The gap is FACTS, not frames.
+
+Ordering that falls out, and it is the reverse of how the work has gone:
+FACTS first, TRIGGERS second, STEMS last.
+
 THE BRIEF. detect_hook picks a fact and the WRITER picks a fact, and before E5
 nothing made those the same one: the image could be about a collab while the
 lead was about a stash pocket, both true, both about the same shoe, and not
