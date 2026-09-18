@@ -257,3 +257,25 @@ evidence: `ledger/proposals.jsonl`, `rails_blocked` row, `p_d65fe94c08`
 
 First `rails_blocked` event in the ledger. Worth watching as a rate, not a one-off —
 one block is not a trend and must not be reported as one.
+
+### M011 — Revealed contrast threshold: n=1, a flagged card overridden at 1.325
+pending: true
+approved_by: —
+approved_on: —
+evidence: `ledger/proposals.jsonl` line 93 — `approved`, proposal_id `p_34f18679da`, ts `2026-09-18T19:13:24.133779+00:00`, `contrast: {"ratio": 1.325, "band": "flag", "overridden": true}`; posted as tweet `2101026827758162209`
+
+**The first ruling on a contrast-flagged card.** The contrast gate logs the ratio on
+every approval, flagged or not, so the threshold can later be re-derived from what
+Ashton actually accepted rather than from the estimate it opened with
+(`telegram_bot.contrast_gate`). This is row one of that dataset: a `shoe_crop` card
+flagged at **1.325:1**, which Ashton **overrode** on 2026-09-18 after zooming it.
+
+**n=1 is not a finding. It is the first row.** It does not license moving the flag
+boundary, and it says nothing about cards below 1.325. One accepted card at 1.325 is
+compatible with a true threshold anywhere below it. Re-derive only when there are enough
+rulings on BOTH sides of the current boundary to say where he actually draws it.
+
+Recorded only once the override landed on a real `approved` row (Ashton's ruling: never
+record a ruling the ledger cannot point at). The override path that produced this row was
+itself fixed the same day (`5ad3eb6`); before that fix, the same override would have
+posted the draft rather than his edit — see `approval-posts-wrong-source`.

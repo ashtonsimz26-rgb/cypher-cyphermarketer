@@ -121,9 +121,18 @@ print("\n=== 4. THE FILE'S OWN TEMPLATE IS NOT AN ENTRY ===")
 okd, bad = MEM.load(write(entry("M001", "real")))
 ok(len(okd) + len(bad) == 1, "the fenced M00N template is skipped: %d parsed" % (len(okd)+len(bad)))
 live_ok, live_bad = MEM.load()
-ok(len(live_ok) + len(live_bad) == 10,
-   "the LIVE file parses as exactly 10 entries, not 11: %d" % (len(live_ok)+len(live_bad)))
-ok(len(live_ok) == 0, "and all 10 are withheld today, because none is approved yet")
+# The count the parser must reach is DERIVED from the file's real headings, not
+# hardcoded. It was `== 10`, which conflated two claims — "the template is not an
+# entry" and "the file has 10 entries" — so writing M011 (2026-09-18) failed the
+# suite though nothing was wrong. A real heading is `### M` + three DIGITS; the
+# template's `### M00N` has a letter and never matches, so a parser that counted
+# it would still fail here by exactly one.
+import re as _re
+real = len(_re.findall(r"(?m)^### M\d{3} ", MEM.MEMORY.read_text()))
+ok(real >= 10 and len(live_ok) + len(live_bad) == real,
+   "the LIVE file parses as exactly its %d real headings, not %d (template excluded): %d"
+   % (real, real + 1, len(live_ok) + len(live_bad)))
+ok(len(live_ok) == 0, "and all %d are withheld today, because none is approved yet" % real)
 
 print("\n=== 5. A PENDING ENTRY NEVER REACHES A DRAFT ===")
 mixed = write(
