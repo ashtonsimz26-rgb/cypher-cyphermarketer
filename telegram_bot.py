@@ -54,6 +54,20 @@ REJECT = {"reject", "rejected", "no", "n", "nope", "kill", "skip", "👎", "❌"
 # bare words. Replacement copy is now OPT-IN behind `edit:`; anything
 # unrecognised is a NO-OP plus help. Unrecognised input must never publish.
 EDIT_PREFIX = "edit:"
+
+# ★ OVERRIDE — the distinct token for a contrast-flagged proposal (ruled
+# 2026-09-17). A flagged card refuses a bare `approve` and requires this word.
+#
+# THE FRICTION IS THE FEATURE, and it is the whole reason this is not just an
+# advisory note. If `approve` worked on a flagged card, the ledger could only
+# ever say "a flag was present and he approved" — indistinguishable from a
+# reviewer who never read it. Requiring a different word makes the override an
+# ACT, so the record shows a judgement instead of a silent pass.
+#
+# It is deliberately NOT in APPROVE: an override must never be reachable by the
+# reflex word. On an unflagged proposal it is accepted as a plain approval, so
+# nobody has to remember which kind of card they are looking at.
+OVERRIDE = {"override", "override!", "post anyway", "ship anyway"}
 PROPOSAL_TTL_HOURS = 48                  # digest is daily; 48h = two cycles of grace
 REJECT_REASONS = HERE / "state" / "reject_reasons.json"
 REASON_WINDOW = 10
@@ -92,13 +106,15 @@ def infer_reason_code(reason: str | None) -> str | None:
 
 
 def parse_verdict(body: str) -> tuple[str, str | None, str | None]:
-    """(verdict, payload, reason_code) — verdict in approve|reject|edit|unknown.
+    """(verdict, payload, reason_code) — verdict in approve|override|reject|edit|unknown.
 
     `payload` is the replacement copy for edit, or the reason for reject.
     NOTHING falls through to publishing: an unparsed reply returns "unknown".
     """
     s = (body or "").strip()
     low = s.lower()
+    if low in OVERRIDE:
+        return "override", None, None
     if low in APPROVE:
         return "approve", None, None
     if low in REJECT:                                 # bare reject token or emoji
@@ -356,8 +372,35 @@ def render_rails_block(pid: str, failed: list[tuple[str, bool, str]]) -> str:
     return "\n".join(lines)
 
 
+def contrast_gate(st: dict, overridden: bool) -> tuple[bool, dict]:
+    """(may_post, contrast_record) for a proposal about to be approved.
+
+    ★ Returns the record on EVERY path, flagged or not (Ashton's ruling,
+    2026-09-17, extending the ask). A flagged-and-overridden row shows a
+    judgement; but logging the ratio on ordinary passes too turns each ruling
+    into labelled data, so the threshold can later be re-derived from what he
+    actually accepted rather than from the estimate we opened with.
+    """
+    c = (st.get("rails_ctx") or {}).get("contrast") or {}
+    rec = {"ratio": c.get("ratio"), "band": c.get("band") or "unmeasured",
+           "overridden": bool(overridden)}
+    if rec["band"] == "flag" and not overridden:
+        return False, rec
+    return True, rec
+
+
+def render_contrast_block(pid: str, rec: dict) -> str:
+    """NON-TERMINAL refusal — same shape as render_rails_block (ruled)."""
+    return ("⚠️ %s NOT posted — the card is contrast-flagged at %.2f:1.\n"
+            "  • The shoe may not read against its panel. Zoom the card.\n"
+            "  • Reply `override` to post it anyway, or `reject`.\n"
+            "  Still pending — nothing has been decided."
+            % (pid, rec["ratio"] if rec["ratio"] is not None else float("nan")))
+
+
 def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | None,
-           reason: str | None = None, reason_code: str | None = None):
+           reason: str | None = None, reason_code: str | None = None,
+           overridden: bool = False):
     st = proposal_state().get(pid)
     if not st:
         return
@@ -401,6 +444,16 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
         send_text(e, render_rails_block(pid, failed), reply_to)
         return
 
+    # ── CONTRAST GATE ────────────────────────────────────────────────────────
+    # NON-TERMINAL, deliberately the same shape as rails_blocked above: the
+    # proposal stays pending and decidable, and the reply names the other word.
+    may_post, contrast = contrast_gate(st, overridden)
+    if not may_post:
+        ledger({"event": "contrast_blocked", "proposal_id": pid,   # NON-terminal
+                "contrast": contrast, "edited": final_text is not None})
+        send_text(e, render_contrast_block(pid, contrast), reply_to)
+        return
+
     used = X.posts_last_24h()
     if used >= X.MAX_POSTS_24H:
         # NON-TERMINAL (fix #2): checked BEFORE the approved row is written, so a
@@ -412,7 +465,8 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
         return
 
     edited = final_text is not None
-    ledger({"event": "approved", "proposal_id": pid, "final_text": text, "edited": edited})
+    ledger({"event": "approved", "proposal_id": pid, "final_text": text,
+            "edited": edited, "contrast": contrast})
 
     xenv = X.load_env(Path(X.DEFAULT_ENV))
     X.ledger_append({"event": "attempt", "text": text,
@@ -496,7 +550,10 @@ def cmd_poll(a, e):
                 # the whole remedy: the correct usage is learnable from a mistake.
                 send_text(e, HELP, m.get("message_id"))
                 continue
-            if verdict == "approve":
+            if verdict == "override":
+                decide(e, target["proposal_id"], "approve", None, m.get("message_id"),
+                       overridden=True)
+            elif verdict == "approve":
                 decide(e, target["proposal_id"], "approve", None, m.get("message_id"))
             elif verdict == "reject":
                 decide(e, target["proposal_id"], "reject", None, m.get("message_id"),

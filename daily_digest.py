@@ -26,6 +26,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, budget, editorial  # noqa: E402
 from research import compose_text as CT  # noqa: E402  (assembly; owns attribution + link)
+from research import frame as FRAME  # noqa: E402  (FRAME CHECK — the image gate)
 from research import writer as WR, composition as COMP, rotation as ROT  # noqa: E402
 from research import selector as SEL, moments as MOM  # noqa: E402
 from research import story as ST  # noqa: E402  (fact -> scene KEY; E5)
@@ -726,6 +727,21 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
     card = OUT / f"{stem}_card.png"
     CR.render_card(cand["image_name"], cand["rarity"], card)
+
+    # ── FRAME CHECK (2026-09-17) ─────────────────────────────────────────────
+    # ★ POSITION IS THE POINT: after the card exists, BEFORE BD.generate spends
+    # $0.04. The failure is shoe-vs-panel and the panel is opaque, so no scene
+    # can rescue a dark-on-dark card — paying for a backdrop first would buy an
+    # image that was already unusable.
+    #
+    # A BLOCK returns None, which advances the caller through the existing
+    # POOL_FACTOR x pool exactly as skipped_no_hook does. No new machinery.
+    _frame = FRAME.check_frame(card, cand["rarity"])
+    if _frame.blocked:
+        run_log(event="skipped_low_contrast", image_name=cand["image_name"],
+                rarity=cand["rarity"], contrast=round(_frame.ratio, 3),
+                block_at=FRAME.BLOCK_AT, reason=_frame.why)
+        return None
     # ★ E4: the second card. Rendered only for the two-card format, and only
     # AFTER the draft has cleared gate 8 above — a failed draft still costs $0.
     card_b = None
@@ -756,6 +772,14 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             insp = "N/A (no generated imagery)"
         visual = OUT / f"{stem}_45.png"
         COMP.render(composition, card, bd, visual, ratio="4:5", card_b_path=card_b)
+    # ★ The contrast flag joins the inspection note rather than opening a second
+    # warning surface — one ⚠️ idiom, one place to look on a phone.
+    #
+    # ★ OUTSIDE the card_only branch, deliberately. The first draft of this put
+    # it inside, which dropped the flag for every --card-only run — and a
+    # card-only post is MORE exposed to this defect, not less: the shoe is on
+    # the same opaque panel with no scene to carry the frame.
+    insp += FRAME.digest_note(_frame)
 
     wl = X.weighted_len(text)
     tf = OUT / f"{stem}.txt"; tf.write_text(text, encoding="utf-8")
@@ -779,6 +803,13 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             # from local PK history against the clock, never cached here.
             "rails_ctx": {"style_code": sc,
                           "estimated_resale": row.get("estimated_resale"),
+                          # ★ The frame verdict is persisted so the APPROVE path
+                          # can require `override` on a flagged card. Without it
+                          # the flag would be advisory text the bot cannot act
+                          # on — a warning with no gate behind it.
+                          "contrast": {"ratio": (round(_frame.ratio, 3)
+                                                 if _frame.ratio is not None else None),
+                                       "band": _frame.band},
                           "image_name": cand["image_name"],
                           # ★ rarity joined image_name 2026-09-16: identity in
                           # this catalog is the PAIR. The same image is GRAIL,
