@@ -108,8 +108,6 @@ alltext = "\n".join(text.values())
 orphans = []
 for f in (REPO / "state").glob("*.json"):
     name = f.name
-    if name in ("_dq.sql", "_q.sql"):
-        continue
     written = any(re.search(r"%s[^\n]*write_text|write_text[^\n]*%s" % (re.escape(name), re.escape(name)), t)
                   or (name in t and "write_text" in t) for t in text.values())
     referenced = name in alltext
