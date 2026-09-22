@@ -53,12 +53,19 @@ def run_log(**kw):
 
 
 def _sql(q: str) -> list[dict]:
-    f = HERE / "state" / "_dq.sql"
-    f.parent.mkdir(parents=True, exist_ok=True)
-    f.write_text(q, encoding="utf-8")
-    p = subprocess.run(["supabase", "db", "query", "--linked", "-o", "json", "-f", str(f)],
-                       capture_output=True, text=True, timeout=180,
-                       cwd=str(Path.home() / "Documents/openclaw/CYPHER"))
+    # ★ A per-call temp file, not state/_dq.sql (2026-09-22). The query file is
+    # scratch; in state/ it made every live test "change" real state (so the
+    # run_all data guard could not tell scratch from damage) and two jobs running
+    # at once shared one file.
+    import tempfile
+    with tempfile.NamedTemporaryFile("w", suffix=".sql", encoding="utf-8", delete=False) as fh:
+        fh.write(q); f = Path(fh.name)
+    try:
+        p = subprocess.run(["supabase", "db", "query", "--linked", "-o", "json", "-f", str(f)],
+                           capture_output=True, text=True, timeout=180,
+                           cwd=str(Path.home() / "Documents/openclaw/CYPHER"))
+    finally:
+        f.unlink(missing_ok=True)
     import re
     m = re.search(r"\[.*\]", p.stdout, re.S)
     return json.loads(m.group(0)) if m else []

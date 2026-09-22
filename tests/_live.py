@@ -25,10 +25,10 @@ def skip(reason: str) -> None:
 
 def require_db() -> None:
     """Cheap `select 1` against the linked project, or skip."""
-    repo = Path(__file__).resolve().parent.parent
-    f = repo / "state" / "_probe.sql"
-    f.parent.mkdir(parents=True, exist_ok=True)
-    f.write_text("select 1 as ok;", encoding="utf-8")
+    # a temp file, never state/ — the run_all data guard fails on ANY change there
+    import tempfile
+    with tempfile.NamedTemporaryFile("w", suffix=".sql", encoding="utf-8", delete=False) as fh:
+        fh.write("select 1 as ok;"); f = Path(fh.name)
     try:
         p = subprocess.run(
             ["supabase", "db", "query", "--linked", "-o", "json", "-f", str(f)],
@@ -38,5 +38,7 @@ def require_db() -> None:
         skip("live DB unreachable (probe timed out after %ds)" % PROBE_TIMEOUT)
     except FileNotFoundError:
         skip("live DB unreachable (supabase CLI not on PATH)")
+    finally:
+        f.unlink(missing_ok=True)
     if p.returncode != 0:
         skip("live DB unreachable (probe exit %d)" % p.returncode)

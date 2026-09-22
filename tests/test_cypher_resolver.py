@@ -55,6 +55,14 @@ _REAL_CYPHER_SQL = V._cypher_sql
 
 V._cypher_sql = _replay
 V.CACHE_DIR = Path(tempfile.mkdtemp())      # never answer from a stale disk cache
+# ★ THE LEDGER IS SCRATCH (2026-09-22). This suite feeds resolve_cypher malformed
+# URIs and a fake "db down", and verify.py ledgers both — so until this line, every
+# run appended SIX fake rows to the REAL ledger/research.jsonl (368 by the time it
+# was noticed). The suite asserts at the end that its rows landed HERE, and that
+# the real ledger did not grow.
+_REAL_RESEARCH = Path(__file__).resolve().parent.parent / "ledger" / "research.jsonl"
+_REAL_N0 = _REAL_RESEARCH.read_text().count("\n") if _REAL_RESEARCH.exists() else 0
+V.LEDGER = Path(tempfile.mkdtemp()) / "research.jsonl"
 
 FAILS = []
 def ok(c, m):
@@ -142,6 +150,14 @@ ok(any(isinstance(n, ast.Call) and getattr(n.func, "id", "") == "resolve_cypher"
 calls = [n for n in ast.walk(tree) if isinstance(n, ast.Call)
          and getattr(n.func, "id", "") == "resolve_cypher"]
 ok(len(calls) == 1, "…and it is called exactly once in the module (%d)" % len(calls))
+
+print("\n=== 8. NOTHING REACHED THE REAL LEDGER ===")
+_scratch = V.LEDGER.read_text().splitlines() if V.LEDGER.exists() else []
+ok(sum('"cypher_uri_malformed"' in l for l in _scratch) == 5
+   and sum('"cypher_resolve_failed"' in l for l in _scratch) == 1,
+   "the suite's 5 malformed + 1 resolve_failed rows landed in SCRATCH (%d rows)" % len(_scratch))
+_n1 = _REAL_RESEARCH.read_text().count("\n") if _REAL_RESEARCH.exists() else 0
+ok(_n1 == _REAL_N0, "the real ledger/research.jsonl did not grow (%d -> %d lines)" % (_REAL_N0, _n1))
 
 print("\n" + ("ALL PASS" if not FAILS else "%d FAILURE(S): %s" % (len(FAILS), FAILS)))
 sys.exit(1 if FAILS else 0)
