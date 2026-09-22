@@ -45,6 +45,19 @@ and the next digest renders and sends images exactly as before.
 `python3.12 switches.py` prints the current state. `tests/test_images_switch.py`
 covers both directions.
 
+## `ledger/research.jsonl` has a RETRACTION — read it through `research/ledger_read.rows()`
+
+The ledger is append-only. Line 714 is a `retraction` row (2026-09-22, Ashton's ruling)
+that withdraws 368 rows `tests/test_cypher_resolver.py` wrote into the real ledger
+before `616965e`. They're 305 `cypher_uri_malformed` and 63 `cypher_resolve_failed`,
+each named by line number and content hash. No existing row was changed. The row
+records its matching rule and evidence, including the judgement call on the 61 bare
+`cypher://` rows (a value production could also write; they're retracted only because
+each sits inside a burst with all five test-only URIs). `rows()` skips retracted rows
+and **refuses** if a listed line no longer matches its hash. A direct `open()` of the
+file counts the 368 back in. `tests/test_research_retraction.py` re-derives the set
+independently and holds the row to exactly those 368.
+
 ## WHERE BEHAVIOUR IS SPECIFIED
 
 The agent's behaviour is specified in **five** places. As of 2026-09-17 all five
