@@ -25,6 +25,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, budget, editorial  # noqa: E402
+import switches as SW  # noqa: E402  (IMAGES_ENABLED — the one image switch)
 from research import compose_text as CT  # noqa: E402  (assembly; owns attribution + link)
 from research import frame as FRAME  # noqa: E402  (FRAME CHECK — the image gate)
 from research import writer as WR, composition as COMP, rotation as ROT  # noqa: E402
@@ -659,8 +660,17 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
     # carry no attribution sentence and no price. Rotation could otherwise hand
     # it a frame showing a figure, and the skeleton would be asserting "no
     # prices" against a claim the IMAGE was making.
-    composition = ("two_card_crop" if fmt == "which_would_you_pull"
-                   else pick_composition(fmt, hook_type, brand, scene, tentpole=tentpole))
+    # ★ IMAGES_ENABLED=false (switches.py): the composition is TEXT_ONLY, decided
+    # here BEFORE drafting for the same reason every composition is — it sets
+    # card_shows_value, and a text-only post shows no EST. VALUE, so the writer
+    # needs no attribution sentence. Forced, not rotated into: there is only one
+    # way to show no image. Read once per candidate so the whole build agrees.
+    images_on = SW.images_enabled()
+    if not images_on:
+        composition = COMP.TEXT_ONLY
+    else:
+        composition = ("two_card_crop" if fmt == "which_would_you_pull"
+                       else pick_composition(fmt, hook_type, brand, scene, tentpole=tentpole))
     # Same helper as both rails doors (2026-09-18): this decides whether the
     # WRITER must supply attribution, so it must agree with what gate 8 and the
     # approve door will demand. A third local derivation is a third door.
@@ -732,6 +742,9 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
 
     # Only now is it worth rendering and generating.
     stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
+    if not images_on:
+        return _text_only_result(cand, text, stem, row, sc, price_ok, price_why,
+                                 hook_type, hook, fmt, lead_why, brand, scene, _brief)
     card = OUT / f"{stem}_card.png"
     CR.render_card(cand["image_name"], cand["rarity"], card)
 
@@ -833,15 +846,56 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
                           "rarity": cand.get("rarity")}}
 
 
+def _text_only_result(cand, text, stem, row, sc, price_ok, price_why, hook_type, hook,
+                      fmt, lead_why, brand, scene, brief) -> dict:
+    """build_one's return when IMAGES_ENABLED=false. Same shape, image=None.
+
+    Nothing image-related runs from here on: no card render, no backdrop, no
+    image API call, no two-card render. The Frame Check is SKIPPED — there is no
+    card to measure — and the skip is RECORDED three ways so it can never read as
+    a pass: a frame_check_skipped run row, band "skipped_text_only" in rails_ctx
+    (the approve door's contrast gate reads it and has nothing to block), and the
+    proposal note Ashton sees in Telegram."""
+    run_log(event="frame_check_skipped", image_name=cand["image_name"],
+            rarity=cand.get("rarity"),
+            reason="IMAGES_ENABLED=false — text-only proposal, no card to measure")
+    wl = X.weighted_len(text)
+    tf = OUT / f"{stem}.txt"; tf.write_text(text, encoding="utf-8")
+    editorial.record_format(fmt)
+    run_log(event="draft_built", image_name=cand["image_name"], hook_type=hook_type,
+            brand=brand, composition=COMP.TEXT_ONLY, scene=scene,
+            scene_key=brief["scene_key"], brief_source=brief["source"],
+            fact_id=brief["fact_id"], shared_tokens=brief["shared_tokens"],
+            format=fmt, weighted=wl, tier=cand.get("rarity"),
+            pair_group=cand.get("pair_group"),
+            pair_b=(cand.get("pair_b") or {}).get("image_name"))
+    return {"text_file": tf, "image": None, "cand": cand,
+            "insp": "N/A — IMAGES OFF: text only, no image made · Frame Check SKIPPED (no card)",
+            "price_ok": price_ok, "price_why": price_why, "weighted": wl,
+            "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why,
+            "brand": brand, "composition": COMP.TEXT_ONLY, "scene": scene,
+            "rails_ctx": {"style_code": sc,
+                          "estimated_resale": row.get("estimated_resale"),
+                          "contrast": {"ratio": None, "band": "skipped_text_only"},
+                          "image_name": cand["image_name"],
+                          "composition": COMP.TEXT_ONLY,
+                          "rarity": cand.get("rarity")}}
+
+
 def main():
     ap = argparse.ArgumentParser(description="Scheduled Content Factory digest")
     ap.add_argument("--max", type=int, default=1, help="PROPOSALS to produce (<=3); the candidate POOL searched is larger")
     ap.add_argument("--card-only", action="store_true", help="no AI backdrop, no spend")
     ap.add_argument("--source", default="digest")
     a = ap.parse_args()
-    run_log(event="run_start", job=a.source, card_only=a.card_only)
+    images_on = SW.images_enabled()
+    run_log(event="run_start", job=a.source, card_only=a.card_only, images_enabled=images_on)
+    if not images_on:
+        print("  IMAGES_ENABLED=false — text-only proposals: no render, no backdrop, no image spend.")
 
-    ok, why = budget.check(require_image=not a.card_only)
+    # With images off there is no image spend to guard, so the spend breaker does
+    # not apply; the post cap still does.
+    ok, why = budget.check(require_image=(not a.card_only) and images_on)
     if not ok:
         run_log(event="run_blocked", job=a.source, reason=why)
         print("  BLOCKED: %s" % why)
@@ -898,7 +952,8 @@ def main():
         # first unattended digest AFTER it had already spent $0.04 on a backdrop.
         # SimpleNamespace has no scoping surprise.
         argv = SimpleNamespace(text_file=str(built["text_file"]),
-                               image=str(built["image"]), note=note,
+                               image=(str(built["image"]) if built["image"] else None),
+                               note=note,
                                rails_ctx=built["rails_ctx"],
                                format=built["format"], hook_type=built["hook_type"],
                                composition=built.get("composition"),

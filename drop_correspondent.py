@@ -115,7 +115,9 @@ def main():
     quiet = budget.in_quiet_hours()
     # Overnight we still POLL and MATCH (both free) — we just refuse to propose
     # or to spend on a backdrop until the morning digest drains the queue.
-    ok, why = budget.check(require_image=not quiet)
+    import switches as SW
+    # images off -> no image spend to guard (the post cap still applies)
+    ok, why = budget.check(require_image=(not quiet) and SW.images_enabled())
     if not ok:
         DD.run_log(event="run_blocked", job="drop_correspondent", reason=why)
         print("  BLOCKED: %s" % why); return
@@ -161,7 +163,9 @@ def main():
             if built:
                 import telegram_bot as TB
                 class _A:
-                    text_file = str(built["text_file"]); image = str(built["image"])
+                    text_file = str(built["text_file"])
+                    # None when IMAGES_ENABLED=false — cmd_propose then sends text
+                    image = str(built["image"]) if built["image"] else None
                     note = ("DROP CORRESPONDENT — headline: %r · backdrop: %s · %d/280"
                             % (key[:80], built["insp"], built["weighted"]))
                     # Same rails context as the digest path. Omitting it here would

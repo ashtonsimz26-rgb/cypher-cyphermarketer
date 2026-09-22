@@ -9,6 +9,42 @@ Anything not ruled in the contract is a HALT-and-ask, not a judgement call.
 
 ---
 
+## ★ IMAGES ARE OFF — `IMAGES_ENABLED` (turned off 2026-09-22 at Ashton's request)
+
+**What it does.** One setting decides whether the marketer makes or sends any image.
+With `IMAGES_ENABLED=false`, every proposal and post is **text only**:
+
+- no card render, no generated backdrop, and **no call to either image API**
+  (OpenAI or xAI) — zero image spend. The spend breaker does not apply; the
+  4-post/24h cap still does.
+- the **Frame Check is skipped**, because there is no card to measure. The skip is
+  recorded three ways: a `frame_check_skipped` row in `ledger/runs.jsonl`,
+  `contrast.band = "skipped_text_only"` in the proposal's `rails_ctx`, and a line
+  in the Telegram proposal note.
+- the Telegram proposal is a **text message**, not a photo. It still carries the
+  proposal id, the draft and the reply grammar. `approve`, `reject`, `edit:`,
+  `tweak` and `override` all work as before.
+- posting to X sends **text only**: no media upload. An image proposal made before
+  the switch was turned off, and approved after it, also posts without its image.
+- the composition is recorded as **`text_only`** on the proposed, draft and posted
+  rows. The rails map it to `card_shows_value = False` in the one shared function
+  both doors call (`research/composition.py: rails_card_shows_value`), so the
+  draft and approve doors agree. A text-only post shows no EST. VALUE figure, so
+  no attribution sentence is required. `tests/test_rails_door_parity.py` holds it.
+- the format report keeps `text_only` out of the image composition distribution,
+  and shows each format's image/text-only split beside its numbers.
+
+**Where it lives.** `.env`, one line: `IMAGES_ENABLED=false`. It's read by
+`switches.py: images_enabled()`, the only reader. If the key is absent, images are
+**on** (the code default). A value that isn't a recognised true/false reads as
+**off**, with a warning, so a typo can never turn image spend back on.
+
+**How to turn images back on.** In `.env`, set `IMAGES_ENABLED=true` (or delete the
+line). Nothing else changes: the image code was never deleted or commented out,
+and the next digest renders and sends images exactly as before.
+`python3.12 switches.py` prints the current state. `tests/test_images_switch.py`
+covers both directions.
+
 ## WHERE BEHAVIOUR IS SPECIFIED
 
 The agent's behaviour is specified in **five** places. As of 2026-09-17 all five

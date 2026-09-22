@@ -102,6 +102,21 @@ def format_of(tweet_id: str, posted_rows: list[dict], labels: dict) -> tuple[str
     return None, "unresolved", "none"
 
 
+def media_of(tweet_id: str, posted: list[dict]) -> str:
+    """'text_only' | 'image' | 'unknown' for one agent post, off its posted row.
+
+    NOT a grouping dimension — GROUP_DIMENSIONS stays {format}. It is carried so
+    every per-format number states its image/text split in the same line: a
+    format mean that silently pooled text-only and image posts would be the
+    mixed-population error this report was rebuilt to avoid."""
+    for r in posted:
+        if r.get("tweet_id") == tweet_id:
+            if r.get("composition") == "text_only" or r.get("media_ids") == []:
+                return "text_only"
+            return "image" if r.get("media_ids") else "unknown"
+    return "unknown"
+
+
 def aggregate(days: int | None = 7) -> dict:
     metrics = _read(METRICS)
     posted = [r for r in _read(POSTS) if r.get("event") == "posted"]
@@ -126,7 +141,8 @@ def aggregate(days: int | None = 7) -> dict:
         fmt, method, conf = format_of(m["tweet_id"], posted, labels)
         if not fmt:
             unresolved.append(m); continue
-        m = {**m, "_format": fmt, "_method": method, "_confidence": conf}
+        m = {**m, "_format": fmt, "_method": method, "_confidence": conf,
+             "_media": media_of(m["tweet_id"], posted)}
         key = tuple(sorted((d, m["_format"]) for d in GROUP_DIMENSIONS))
         buckets[key].append(m)
     return {"buckets": buckets, "announcements": announcements,
@@ -160,7 +176,14 @@ def render(agg: dict) -> str:
         imp, ilo, ihi = _stat(rows, "impressions")
         lik, _, _ = _stat(rows, "likes")
         eng, _, _ = _stat(rows, "engagements")
-        L.append("  %-18s n=%d" % (fmt, n))
+        n_txt = sum(1 for r in rows if r.get("_media") == "text_only")
+        n_img = sum(1 for r in rows if r.get("_media") == "image")
+        L.append("  %-18s n=%d  (image %d, text-only %d%s)"
+                 % (fmt, n, n_img, n_txt,
+                    ", unknown %d" % (n - n_img - n_txt) if n - n_img - n_txt else ""))
+        if n_txt and n_img:
+            L.append("      ⚠️  mixes image and text-only posts — the means below pool two "
+                     "populations")
         L.append("      impressions  mean %5.1f   range %d-%d" % (imp, ilo, ihi))
         L.append("      likes        mean %5.1f" % lik)
         L.append("      engagements  mean %5.1f" % eng)
@@ -255,9 +278,16 @@ def pipeline_signals(days: int | None = 7) -> dict:
     for r in drafts:
         if r.get("tier"):
             prop_tiers[r["tier"]] += 1
+    # ★ text_only (IMAGES_ENABLED=false) is NOT an image composition. It is
+    # counted on its own line, never inside the composition distribution — a
+    # share of "compositions" that mixed text posts with framings would be a
+    # mixed-population number (the 204-impressions lesson).
     comps = defaultdict(int)
+    text_only = 0
     for r in drafts:
-        if r.get("composition"):
+        if r.get("composition") == "text_only":
+            text_only += 1
+        elif r.get("composition"):
             comps[r["composition"]] += 1
     codes = defaultdict(int)
     for r in rejects:
@@ -279,6 +309,7 @@ def pipeline_signals(days: int | None = 7) -> dict:
         "candidate_tiers": dict(cand_tiers), "n_candidates": sum(cand_tiers.values()),
         "proposal_tiers": dict(prop_tiers), "n_proposals": sum(prop_tiers.values()),
         "compositions": dict(comps), "n_compositions": sum(comps.values()),
+        "n_text_only": text_only,
         "n_briefs": n_div, "pre_e5_drafts": pre_e5,
         "fallback": fallback, "zero_overlap": zero_overlap,
         "reject_codes": dict(codes), "n_rejects": len(rejects),
@@ -330,7 +361,11 @@ def render_signals(sig: dict) -> list[str]:
     ns = section_ns(sig)
     section("TIER DISTRIBUTION of drafts (E3 weighting, measured)", "tier",
             ns["tier"], tiers_body)
-    section("COMPOSITION DISTRIBUTION", "composition", ns["composition"], comp_body)
+    section("COMPOSITION DISTRIBUTION (image drafts only)", "composition",
+            ns["composition"], comp_body)
+    if sig.get("n_text_only"):
+        L.append("  + %d text-only draft(s) (IMAGES_ENABLED=false) — no image, so no "
+                 "composition; not counted above" % sig["n_text_only"])
     section("BRIEF DIVERGENCE (E5)", "divergence", ns["divergence"], div_body)
     if sig["pre_e5_drafts"]:
         L.append("  (%d earlier draft(s) excluded — they predate the fact_id "

@@ -38,6 +38,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import rails  # noqa: E402  (pure checks over local data; no network)
 from research import composition as COMP  # noqa: E402  (rails_card_shows_value — shared with gate 8)
+import switches as SW  # noqa: E402  (IMAGES_ENABLED — the one image switch)
 import x_client as X  # noqa: E402
 
 OFFSET_FILE = HERE / "state" / "telegram_offset.json"      # NOT CPA's state file
@@ -291,6 +292,19 @@ def send_photo(e: dict, image: Path, caption: str) -> dict:
     return j["result"]
 
 
+def send_text_strict(e: dict, text: str) -> dict:
+    """sendMessage that DIES on failure, like send_photo. A text-only proposal
+    that silently failed to send would be ledgered with no message_id, and no
+    reply could ever address it; send_text() returns {} on failure, which is
+    fine for chatter but not for the proposal itself."""
+    p = {"chat_id": e["CYPHERMARKETER_TELEGRAM_CHAT_ID"], "text": text,
+         "disable_web_page_preview": True}
+    st, j = _call(api(e) + "/sendMessage", json.dumps(p).encode(), "application/json")
+    if not j.get("ok"):
+        X.die("sendMessage failed (HTTP %s): %s" % (st, str(j)[:200]))
+    return j["result"]
+
+
 def send_text(e: dict, text: str, reply_to: int | None = None,
               parse_mode: str | None = None) -> dict:
     p = {"chat_id": e["CYPHERMARKETER_TELEGRAM_CHAT_ID"], "text": text,
@@ -378,9 +392,17 @@ def cmd_propose(a, e):
     wl = X.weighted_len(text)
     if wl > 280:
         X.die("draft is %d weighted chars, over 280" % wl)
-    img = Path(a.image)
-    if not img.exists():
+    # ★ IMAGES_ENABLED=false: no image is attached to ANY proposal, whoever built
+    # it. An image handed in anyway (a CLI propose) is not sent; the proposal is
+    # recorded as text_only and the original composition is kept alongside.
+    images_on = SW.images_enabled()
+    img = Path(a.image) if (getattr(a, "image", None) and images_on) else None
+    if img is not None and not img.exists():
         X.die("image not found: %s" % img)
+    composition = getattr(a, "composition", None)
+    proposed_composition = None
+    if img is None and composition != COMP.TEXT_ONLY:
+        proposed_composition, composition = composition, COMP.TEXT_ONLY
     pid = "p_" + uuid.uuid4().hex[:10]
     caption = (
         "🧢 CYPHERMARKETER — proposal %s\n"
@@ -390,14 +412,17 @@ def cmd_propose(a, e):
         "Reply: approve · reject <reason> · edit: <new text>\n"
         "A reason teaches the next draft. Unrecognised replies do nothing.\n"
         "Expires in %dh."
-        % (pid, a.note or "", text, wl, img.name, PROPOSAL_TTL_HOURS)
+        % (pid, a.note or "", text, wl,
+           img.name if img is not None else "TEXT ONLY — no image (IMAGES_ENABLED=false)",
+           PROPOSAL_TTL_HOURS)
     )
-    res = send_photo(e, img, caption[:1024])
+    res = send_photo(e, img, caption[:1024]) if img is not None else send_text_strict(e, caption)
     # rails_ctx lets check_draft() re-run at APPROVE time. Absent for CLI-driven
     # proposals, which then fall back to the STRICT direction (see decide()).
     # NEVER derive image_name from the image filename: daily_digest truncates it
     # at [:40] in the stem, so long names would be silently wrong.
-    ledger({"event": "proposed", "proposal_id": pid, "text": text, "image": str(img),
+    ledger({"event": "proposed", "proposal_id": pid, "text": text,
+            "image": str(img) if img is not None else None,
             "note": a.note, "message_id": res.get("message_id"), "weighted_len": wl,
             "rails_ctx": getattr(a, "rails_ctx", None),
             "format": getattr(a, "format", None),
@@ -407,7 +432,8 @@ def cmd_propose(a, e):
             # append-only, so a field absent at propose time is unrecoverable
             # later: see the five Aug posts, whose composition is gone for good
             # because nothing logged it.
-            "composition": getattr(a, "composition", None),
+            "composition": composition,
+            **({"proposed_composition": proposed_composition} if proposed_composition else {}),
             "tier": getattr(a, "tier", None)})
     print("  proposed %s  (telegram message_id %s)" % (pid, res.get("message_id")))
     print("  awaiting decision in Telegram…")
@@ -613,7 +639,21 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     # ── CONTRAST GATE ────────────────────────────────────────────────────────
     # NON-TERMINAL, deliberately the same shape as rails_blocked above: the
     # proposal stays pending and decidable, and the reply names the other word.
+    # ★ TEXT-ONLY POST: the proposal was made text-only, OR IMAGES_ENABLED is
+    # now false. The second case is an image proposal made before the switch was
+    # turned off and approved after — it posts WITHOUT its image, because
+    # "images off" means none reaches X. Rails above still ran on the composition
+    # the text was DRAFTED against (never weaker: removing the image removes a
+    # claim, it cannot add one).
+    text_only_post = (st.get("composition") == COMP.TEXT_ONLY or not st.get("image")
+                      or not SW.images_enabled())
     may_post, contrast = contrast_gate(st, overridden)
+    if text_only_post:
+        # The contrast gate measures a card that will not be posted. SKIPPED, and
+        # the skip is written into the approved row — never silently passed.
+        contrast = {**contrast, "band": "skipped_text_only",
+                    "measured_band": contrast.get("band")}
+        may_post = True
     if not may_post:
         ledger({"event": "contrast_blocked", "proposal_id": pid,   # NON-terminal
                 "contrast": contrast, "edited": text != draft, "text": text})
@@ -640,8 +680,8 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     xenv = X.load_env(Path(X.DEFAULT_ENV))
     X.ledger_append({"event": "attempt", "text": text,
                      "note": "telegram approval %s" % pid})
-    mid = X.upload_media(Path(st["image"]), xenv)
-    res = X.create_tweet(text, [mid], xenv)
+    media_ids = [] if text_only_post else [X.upload_media(Path(st["image"]), xenv)]
+    res = X.create_tweet(text, media_ids, xenv)
     if res["status"] not in (200, 201):
         ledger({"event": "failed", "proposal_id": pid, "error": res["raw"][:300]})
         X.ledger_append({"event": "failed", "error": res["raw"][:300]})
@@ -653,15 +693,21 @@ def decide(e, pid: str, verdict: str, final_text: str | None, reply_to: int | No
     # readable straight off the posted row, not reconstructed by joining
     # posts -> proposals -> runs on timestamp proximity. That join was ambiguous
     # (aj8_doernbecher was drafted 3x in 6 minutes under two formats).
+    # The posted composition is what was POSTED. An image proposal posted without
+    # its image is text_only, with the drafted composition kept beside it.
+    posted_comp = COMP.TEXT_ONLY if text_only_post else st.get("composition")
+    drafted = ({"proposed_composition": st.get("composition")}
+               if text_only_post and st.get("composition") not in (None, COMP.TEXT_ONLY)
+               else {})
     X.ledger_append({"event": "posted", "text": text, "tweet_id": tid, "url": url,
-                     "media_ids": [mid], "note": "telegram approval %s" % pid,
+                     "media_ids": media_ids, "note": "telegram approval %s" % pid,
                      "proposal_id": pid, "format": st.get("format"),
                      "hook_type": st.get("hook_type"),
-                     "composition": st.get("composition"), "tier": st.get("tier")})
+                     "composition": posted_comp, **drafted, "tier": st.get("tier")})
     ledger({"event": "posted", "proposal_id": pid, "tweet_id": tid, "url": url,
             "final_text": text, "edited": edited, "format": st.get("format"),
             "hook_type": st.get("hook_type"),
-            "composition": st.get("composition"), "tier": st.get("tier")})
+            "composition": posted_comp, **drafted, "tier": st.get("tier")})
     send_text(e, "✅ POSTED%s\n%s\n\n(%d/%d posts used in the last 24h)"
               % (" (your edit, verbatim)" if edited else "", url,
                  X.posts_last_24h(), X.MAX_POSTS_24H), reply_to)

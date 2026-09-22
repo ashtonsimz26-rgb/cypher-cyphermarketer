@@ -292,6 +292,11 @@ NEEDS_BACKDROP = frozenset(set(COMPOSITIONS) - {"no_backdrop"})
 # Compositions that draw a SECOND card. render() forwards card_b by membership
 # here rather than by an equality test on one name.
 TWO_CARD_COMPOSITIONS = frozenset({"two_card", "two_card_crop"})
+# ★ Not an image composition, and deliberately NOT in COMPOSITIONS: there is
+# nothing to render. It names a proposal/post made with IMAGES_ENABLED=false
+# (switches.py), so every ledger row, rotation read and report can tell a
+# text-only post from an image post. rails_card_shows_value maps it to False.
+TEXT_ONLY = "text_only"
 
 # ── card_shows_value, COMPUTED not hardcoded (G2) ────────────────────────────
 # rails.check_draft demands an attribution marker only when the card's EST.
@@ -447,7 +452,15 @@ def rails_card_shows_value(composition: str | None) -> bool:
     verdict across every composition.
 
     Missing composition -> True: fail closed, require attribution.
+
+    TEXT_ONLY -> False (2026-09-22, IMAGES_ENABLED=false). A text-only post shows
+    no card, so it shows no EST. VALUE figure, so there is nothing to attribute.
+    The mapping lives HERE, in the one function both doors call, so a text-only
+    proposal cannot pass at draft and fail at approval. It is an explicit name,
+    not a fall-through: anything unregistered still fails closed to True.
     """
+    if composition == TEXT_ONLY:
+        return False
     return True if not composition else card_shows_value(composition)
 
 

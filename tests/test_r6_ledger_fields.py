@@ -14,6 +14,10 @@ fails here rather than silently producing another year of null columns.
 import ast, json, sys, tempfile
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import switches as _SW  # noqa: E402
+# This suite tests the IMAGE path (contrast gate / media). Pin the switch ON so its
+# result never depends on the live .env (IMAGES_ENABLED=false since 2026-09-22).
+_SW.images_enabled = lambda env=None: True
 
 FAILS = []
 def ok(c, m):

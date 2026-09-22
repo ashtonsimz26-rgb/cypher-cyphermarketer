@@ -116,6 +116,25 @@ if row:
 else:
     print("  SKIP  p_34f18679da not in this ledger")
 
+print("\n=== 4b. TEXT_ONLY (IMAGES_ENABLED=false, 2026-09-22) — same property ===")
+# A text-only post shows no card, so no EST. VALUE, so card_shows_value is False.
+# The mapping lives in rails_card_shows_value — the one function both doors
+# call — so this is the same property as section 1, for the one non-image value.
+TO = COMP.TEXT_ONLY
+ok(TO not in COMP.COMPOSITIONS, "text_only is not an image composition (not in the registry)")
+ok(COMP.rails_card_shows_value(TO) is False, "rails_card_shows_value(text_only) is False")
+for tname, text in TEXTS.items():
+    d = draft_verdict(text, TO)
+    for stored in ("ctx", "row"):
+        a = approve_verdict(text, TO, stored)
+        ok(d == a, "text_only      %-17s stored=%-4s draft=%s approve=%s"
+           % (tname, stored, d[0], a[0]))
+ok(draft_verdict(TEXTS["no_attribution"], TO)[0]
+   and approve_verdict(TEXTS["no_attribution"], TO, "ctx")[0],
+   "text_only: unattributed text PASSES at both doors (no card, no figure, nothing to attribute)")
+ok(COMP.rails_card_shows_value("text_onl") is True,
+   "a near-miss spelling is NOT text_only — it fails closed to True")
+
 print("\n=== 5. NEITHER DOOR DERIVES THE INPUT FOR ITSELF ===")
 # The fix is one helper called from both doors. A literal, or a second local
 # derivation, is exactly how the doors drifted — so forbid both, structurally.
