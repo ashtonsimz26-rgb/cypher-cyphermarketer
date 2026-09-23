@@ -397,7 +397,7 @@ PASSES because a comment happens to contain the token it was looking for. Both
 instances here were the loud kind. The quiet kind has not been caught yet, which
 is not evidence it has not happened.
 
-★★ A CHECK OVER AN EMPTY COLLECTION PASSES (four instances, 2026-09-16)
+★★ A CHECK OVER AN EMPTY COLLECTION PASSES (four instances 2026-09-16; a fifth 2026-09-22)
 
 THE PATTERN IS NOT A KEYWORD. Start with the instance that proves it, because a
 session grepping for `all(` / `any(` / `not exists` will not find this one:
@@ -423,6 +423,23 @@ recognises. State it as the behaviour, never as the syntax:
   alternation, a regex built from data, a loop that sets a flag — ask what the
   EMPTY case returns, and guard it EXPLICITLY. A non-empty assertion next to the
   quantifier, never a comment promising the collection is never empty.
+
+  THE FIFTH INSTANCE — A SEARCH WHOSE ARGUMENTS WERE MANGLED (2026-09-22). The
+  audit for fixed scratch paths ran `grep -rn ... $X` in zsh, with the --include
+  flags held in $X. zsh does not word-split a variable, so grep received ONE
+  malformed argument, matched nothing, and every section printed empty. That
+  empty result would have confirmed "no fixed scratch path remains" — while two
+  did (frame.bare_panel, dossier.load_catalog). The same audit, with the flags
+  written out, found them. It is the operational face of the same failure: the
+  collection that came back empty was the SEARCH RESULT, and it was empty because
+  the search could not match, not because there was nothing to find.
+
+  THE RULE, EXTENDED TO SEARCHES: an empty result is evidence only if the check
+  could have produced a non-empty one. Before trusting "nothing found", run the
+  identical check against a known positive — a canary file that certainly
+  contains what the search looks for — and confirm it HITS. Then run it for real,
+  and report both. (The scratch-path audit now does exactly this: the pre-fix
+  copies of the five offending files are its canary.)
 
 Where this repo already guards it, so the shape is recognisable:
 
