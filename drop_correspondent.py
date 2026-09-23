@@ -166,6 +166,8 @@ def main():
                     text_file = str(built["text_file"])
                     # None when IMAGES_ENABLED=false — cmd_propose then sends text
                     image = str(built["image"]) if built["image"] else None
+                    # the id that names this draft's content/ files (pre-minted)
+                    proposal_id = built.get("proposal_id")
                     note = ("DROP CORRESPONDENT — headline: %r · backdrop: %s · %d/280"
                             % (key[:80], built["insp"], built["weighted"]))
                     # Same rails context as the digest path. Omitting it here would

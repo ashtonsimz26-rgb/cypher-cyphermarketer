@@ -749,10 +749,19 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
                         else "lead shares no distinctive token with its claimed fact"))
 
     # Only now is it worth rendering and generating.
-    stem = "%s_%s" % (cand["image_name"][:40], datetime.now().strftime("%Y%m%d"))
+    # ★ OUTPUT NAMES ARE KEYED BY THE PROPOSAL ID (2026-09-23), minted HERE, where
+    # the files are named, and handed to cmd_propose as the proposal's own id. They
+    # were {shoe}_{date}: the digest and the drops job drafting the same shoe on the
+    # same day would overwrite each other's card, backdrop, composite and text. The
+    # shoe stays in the name for a human scanning content/; the id makes it unique.
+    # Nothing finds these files by pattern — every reader uses the recorded path.
+    import telegram_bot as TB
+    pid = TB.new_proposal_id()
+    stem = "%s_%s" % (pid, cand["image_name"][:40])
     if not images_on:
         return _text_only_result(cand, text, stem, row, sc, price_ok, price_why,
-                                 hook_type, hook, fmt, lead_why, brand, scene, _brief)
+                                 hook_type, hook, fmt, lead_why, brand, scene, _brief,
+                                 proposal_id=pid)
     card = OUT / f"{stem}_card.png"
     CR.render_card(cand["image_name"], cand["rarity"], card)
 
@@ -820,6 +829,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
             pair_group=cand.get("pair_group"),
             pair_b=(cand.get("pair_b") or {}).get("image_name"))
     return {"text_file": tf, "image": visual, "cand": cand, "insp": insp,
+            "proposal_id": pid,
             "price_ok": price_ok, "price_why": price_why, "weighted": wl,
             "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why,
             "brand": brand, "composition": composition, "scene": scene,
@@ -855,7 +865,7 @@ def build_one(cand: dict, card_only: bool, draft_fn=None,
 
 
 def _text_only_result(cand, text, stem, row, sc, price_ok, price_why, hook_type, hook,
-                      fmt, lead_why, brand, scene, brief) -> dict:
+                      fmt, lead_why, brand, scene, brief, proposal_id=None) -> dict:
     """build_one's return when IMAGES_ENABLED=false. Same shape, image=None.
 
     Nothing image-related runs from here on: no card render, no backdrop, no
@@ -877,7 +887,7 @@ def _text_only_result(cand, text, stem, row, sc, price_ok, price_why, hook_type,
             format=fmt, weighted=wl, tier=cand.get("rarity"),
             pair_group=cand.get("pair_group"),
             pair_b=(cand.get("pair_b") or {}).get("image_name"))
-    return {"text_file": tf, "image": None, "cand": cand,
+    return {"text_file": tf, "image": None, "cand": cand, "proposal_id": proposal_id,
             "insp": "N/A — IMAGES OFF: text only, no image made · Frame Check SKIPPED (no card)",
             "price_ok": price_ok, "price_why": price_why, "weighted": wl,
             "hook_type": hook_type, "hook": hook, "format": fmt, "lead": lead_why,
@@ -961,6 +971,7 @@ def main():
         # SimpleNamespace has no scoping surprise.
         argv = SimpleNamespace(text_file=str(built["text_file"]),
                                image=(str(built["image"]) if built["image"] else None),
+                               proposal_id=built.get("proposal_id"),
                                note=note,
                                rails_ctx=built["rails_ctx"],
                                format=built["format"], hook_type=built["hook_type"],

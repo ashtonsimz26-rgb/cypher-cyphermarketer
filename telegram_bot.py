@@ -387,6 +387,13 @@ def send_tweak(e: dict, target: dict, reply_to: int | None) -> dict:
     return res
 
 
+def new_proposal_id() -> str:
+    """The ONE place a proposal id is minted. The digest calls it when it names a
+    draft's output files (so content/ is keyed by the id, never by shoe+date), and
+    hands the same id to cmd_propose — files and proposal share one key."""
+    return "p_" + uuid.uuid4().hex[:10]
+
+
 def cmd_propose(a, e):
     text = Path(a.text_file).read_text(encoding="utf-8").rstrip("\n")
     wl = X.weighted_len(text)
@@ -403,7 +410,12 @@ def cmd_propose(a, e):
     proposed_composition = None
     if img is None and composition != COMP.TEXT_ONLY:
         proposed_composition, composition = composition, COMP.TEXT_ONLY
-    pid = "p_" + uuid.uuid4().hex[:10]
+    # ★ The id may be PRE-MINTED by the digest, which named this draft's content/
+    # files with it before proposing. Use it rather than minting a second one — a
+    # mismatch would orphan the files from their proposal. Refuse a reused id.
+    pid = getattr(a, "proposal_id", None) or new_proposal_id()
+    if pid in proposal_state():
+        X.die("proposal id %s is already in the ledger — refusing to reuse it" % pid)
     caption = (
         "🧢 CYPHERMARKETER — proposal %s\n"
         "%s\n"
