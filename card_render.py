@@ -150,12 +150,19 @@ def render_card(image_name: str, rarity: str, out: Path, serial: str = "",
         "flavorText": row.get("description") or "",   # DEFECT (b) fix: real description
         "outputFilename": None,
     }
-    tmp = HERE / "state" / "_card_input.json"
-    tmp.parent.mkdir(parents=True, exist_ok=True)
-    tmp.write_text(json.dumps(card, ensure_ascii=False, indent=2), encoding="utf-8")
+    # ★ Per-call temp file (2026-09-22). This used ONE fixed input file under state/
+    # for every render: the digest and the drops job both render, so two overlapping
+    # renders could hand the renderer each other's card. Same race as the query file
+    # in daily_digest._sql. Deleted in `finally`, so a failed render (die) cleans up.
+    import tempfile
+    with tempfile.NamedTemporaryFile("w", suffix=".json", encoding="utf-8", delete=False) as fh:
+        json.dump(card, fh, ensure_ascii=False, indent=2); tmp = Path(fh.name)
     out.parent.mkdir(parents=True, exist_ok=True)
-    p = subprocess.run([str(RENDERER_BIN), "--input", str(tmp), "--output", str(out)],
-                       capture_output=True, text=True)
+    try:
+        p = subprocess.run([str(RENDERER_BIN), "--input", str(tmp), "--output", str(out)],
+                           capture_output=True, text=True)
+    finally:
+        tmp.unlink(missing_ok=True)
     assert_renderer_pristine()                        # rail, checked every run
     if p.returncode != 0 or not out.exists():
         die("render failed: %s %s" % (p.stdout[-200:], p.stderr[-200:]))
