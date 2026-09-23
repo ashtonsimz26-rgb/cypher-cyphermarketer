@@ -133,19 +133,38 @@ def bare_panel(rarity: str, *, refresh: bool = False) -> Path | None:
     import card_render as CR                      # local: keeps import cheap
     if not CR.RENDERER_BIN.exists():
         return None
-    blank = PANELS / "_transparent.png"
-    if not blank.exists():
+    # ★ NO FIXED SCRATCH, AND AN ATOMIC CACHE (2026-09-22). The blank asset and the
+    # renderer input used to be fixed files in this directory, and the renderer
+    # wrote the panel straight onto its cache path. The digest and the drops job
+    # both reach this through the Frame Check, so two first-time renders could
+    # hand the renderer each other's input, and a reader could meet a half-written
+    # panel. Now: the blank PNG and the input live in a per-call temp dir (gone on
+    # exit), and the panel renders to a temp file IN THIS DIRECTORY and is renamed
+    # onto the cache path — rename is atomic, a partial write is not.
+    import os, tempfile
+    with tempfile.TemporaryDirectory(prefix="cm_panel_") as td:
+        blank = Path(td) / "transparent.png"
         Image.new("RGBA", (1200, 1200), (0, 0, 0, 0)).save(blank)
-    card = {"sneakerName": "", "colorway": "", "brand": "", "imageName": "_panel",
-            "imagePath": str(blank), "rarity": rarity, "badges": [], "condition": None,
-            "serialNumber": "", "setName": "", "retailPrice": "N/A",
-            "resalePrice": "N/A", "year": "", "flavorText": "", "outputFilename": None}
-    tmp = PANELS / "_panel_in.json"
-    tmp.write_text(json.dumps(card), encoding="utf-8")
-    p = subprocess.run([str(CR.RENDERER_BIN), "--input", str(tmp), "--output", str(out)],
-                       capture_output=True, text=True, timeout=120)
-    CR.assert_renderer_pristine()                 # rail, every invocation
-    return out if (p.returncode == 0 and out.exists()) else None
+        card = {"sneakerName": "", "colorway": "", "brand": "", "imageName": "_panel",
+                "imagePath": str(blank), "rarity": rarity, "badges": [], "condition": None,
+                "serialNumber": "", "setName": "", "retailPrice": "N/A",
+                "resalePrice": "N/A", "year": "", "flavorText": "", "outputFilename": None}
+        tmp_in = Path(td) / "panel_in.json"
+        tmp_in.write_text(json.dumps(card), encoding="utf-8")
+        fd, part = tempfile.mkstemp(dir=PANELS, prefix=".%s." % out.stem, suffix=".png")
+        os.close(fd)
+        part = Path(part)
+        try:
+            p = subprocess.run([str(CR.RENDERER_BIN), "--input", str(tmp_in),
+                                "--output", str(part)],
+                               capture_output=True, text=True, timeout=120)
+            CR.assert_renderer_pristine()         # rail, every invocation
+            if p.returncode == 0 and part.exists() and part.stat().st_size > 0:
+                os.replace(part, out)             # atomic: readers see old or new, never half
+                return out
+            return None
+        finally:
+            part.unlink(missing_ok=True)
 
 
 def check_frame(card_png: Path | str, rarity: str) -> FrameResult:
