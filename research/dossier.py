@@ -800,14 +800,19 @@ def load_catalog() -> dict:
         sys.stderr.write(
             "  catalog cache is %.1f days old (max %d) — re-fetching rather than "
             "validating names against a stale snapshot\n" % (age_d, CATALOG_CACHE_MAX_AGE_DAYS))
-    import subprocess
-    q = HERE / "state" / "_dossier_cat.sql"
-    q.parent.mkdir(parents=True, exist_ok=True)
-    q.write_text("select distinct image_name, name, colorway, silhouette, brand, year "
-                 "from public.catalog_cards order by image_name;", encoding="utf-8")
-    r = subprocess.run(["supabase", "db", "query", "--linked", "-o", "json", "-f", str(q)],
-                       capture_output=True, text=True, timeout=180,
-                       cwd=str(Path.home() / "Documents/openclaw/CYPHER"))
+    import subprocess, tempfile
+    # Per-call temp file, never a fixed path under state/ (2026-09-22): two dossier
+    # builds running at once used to share one query file.
+    with tempfile.NamedTemporaryFile("w", suffix=".sql", encoding="utf-8", delete=False) as fh:
+        fh.write("select distinct image_name, name, colorway, silhouette, brand, year "
+                 "from public.catalog_cards order by image_name;")
+        q = Path(fh.name)
+    try:
+        r = subprocess.run(["supabase", "db", "query", "--linked", "-o", "json", "-f", str(q)],
+                           capture_output=True, text=True, timeout=180,
+                           cwd=str(Path.home() / "Documents/openclaw/CYPHER"))
+    finally:
+        q.unlink(missing_ok=True)
     m = re.search(r"\[.*\]", r.stdout, re.S)
     if not m:
         sys.stderr.write("FATAL: catalog query failed: %s\n" % r.stderr[:200])
