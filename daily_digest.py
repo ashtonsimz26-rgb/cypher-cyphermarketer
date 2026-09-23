@@ -26,6 +26,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import x_client as X, card_render as CR, backdrop as BD, compose as CP, rails, budget, editorial  # noqa: E402
 import switches as SW  # noqa: E402  (IMAGES_ENABLED — the one image switch)
+from atomicio import write_text_atomic  # noqa: E402  (the state/ caches — never half-written)
 from research import compose_text as CT  # noqa: E402  (assembly; owns attribution + link)
 from research import frame as FRAME  # noqa: E402  (FRAME CHECK — the image gate)
 from research import writer as WR, composition as COMP, rotation as ROT  # noqa: E402
@@ -217,20 +218,20 @@ def refresh_set_routes() -> dict:
             "routes": routes,
             "flagged_is_set_reward": sorted("%s|%s" % (f["image_name"], f["rarity"])
                                             for f in flagged)}
-    SET_ROUTES.parent.mkdir(parents=True, exist_ok=True)
-    SET_ROUTES.write_text(json.dumps(blob, indent=1, ensure_ascii=False) + "\n",
-                          encoding="utf-8")
+    # ATOMIC (atomicio): rails reads this while the drops job may be writing it.
+    write_text_atomic(SET_ROUTES, json.dumps(blob, indent=1, ensure_ascii=False) + "\n")
     # ★ state/_reachable_cache.json was written by NOTHING. moments.py reads it to
     # validate linked_image_names, so a moment linking a newly-obtainable card had
     # that link silently dropped against a file last touched 2026-09-09. It is
     # regenerated here, from the same query, so one refresh keeps both honest.
     names = sorted({k.split("|", 1)[0] for k in blob["reachable_pairs"]}
                    | {k.split("|", 1)[0] for k in routes})
-    REACHABLE_CACHE.write_text(
+    write_text_atomic(
+        REACHABLE_CACHE,
         json.dumps({"_written_by": "daily_digest.refresh_set_routes(), every run",
                     "_read_by": "research/moments.py — linked_image_names validation",
                     "generated_at": blob["generated_at"], "image_names": names},
-                   indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+                   indent=1, ensure_ascii=False) + "\n")
     run_log(event="set_routes_refreshed", pairs=len(blob["reachable_pairs"]),
             routes=len(routes),
             earnable=sum(1 for v in routes.values()

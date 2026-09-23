@@ -818,7 +818,11 @@ def load_catalog() -> dict:
         sys.stderr.write("FATAL: catalog query failed: %s\n" % r.stderr[:200])
         raise SystemExit(2)
     rows = json.loads(m.group(0))
-    CATALOG_CACHE.write_text(json.dumps(rows, indent=0))
+    # ATOMIC (atomicio): a concurrent reader must never parse half a cache.
+    if str(HERE) not in sys.path:               # atomicio lives at the repo root; this
+        sys.path.insert(0, str(HERE))           # module is also run directly from research/
+    from atomicio import write_text_atomic
+    write_text_atomic(CATALOG_CACHE, json.dumps(rows, indent=0))
     return {x["image_name"]: x for x in rows}
 
 
